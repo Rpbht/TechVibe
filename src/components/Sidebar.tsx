@@ -23,6 +23,7 @@ import {
   RotateCcw,
   Save,
   SortAsc,
+  UserRound,
   X,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -42,6 +43,7 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
   user: UserProfile | null;
+  onProfileClick: () => void;
   onOrderSaved: (technologies: TechnologyMeta[]) => void;
 }
 
@@ -70,6 +72,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isOpen,
   onClose,
   user,
+  onProfileClick,
   onOrderSaved,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -164,7 +167,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         }`}
       >
         {/* Brand Header */}
-        <div className="flex h-16 items-center justify-between border-b border-zinc-800/80 px-4">
+        <div className="flex h-14 items-center justify-between border-b border-zinc-800/80 px-4">
           <div className="flex items-center gap-2.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-violet-600 text-white shadow-sm shadow-violet-600/30">
               <Code2 className="h-4 w-4" />
@@ -175,13 +178,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
 
           <div className="flex items-center">
+          <div className="flex items-center gap-1">
             <button
+              type="button"
+              onClick={onProfileClick}
+              aria-label={user ? `Open profile for ${user.email}` : 'Sign in or create profile'}
+              title={user?.email ?? 'Sign in to save your knowledge area order'}
+              className={`flex h-9 w-9 items-center justify-center rounded-full border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
+                user
+                  ? 'border-violet-500/40 bg-violet-500/15 text-violet-300'
+                  : 'border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-zinc-100'
+              }`}
+            >
+              <UserRound className="h-4 w-4" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
               onClick={onClose}
               aria-label="Close sidebar"
               className="rounded-md p-1 text-zinc-400 hover:bg-zinc-800 hover:text-white lg:hidden"
             >
               <X className="h-4 w-4" />
             </button>
+          </div>
           </div>
         </div>
 
