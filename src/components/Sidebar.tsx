@@ -173,7 +173,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         }`}
       >
         {/* Brand Header */}
-        <div className="flex h-14 items-center justify-between border-b border-zinc-800/80 px-4">
+        <div className="flex h-14 items-center justify-between px-4">
           <div className="flex items-center gap-2.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-violet-600 text-white shadow-sm shadow-violet-600/30">
               <Code2 className="h-4 w-4" />
