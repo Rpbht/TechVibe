@@ -5,18 +5,23 @@ import {
   ChevronsLeft,
   ChevronsRight,
 } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface PaginationBarProps {
   currentIndex: number;
   total: number;
   onSelect: (index: number) => void;
+  isLoading?: boolean;
 }
 
 export const PaginationBar: React.FC<PaginationBarProps> = ({
   currentIndex,
   total,
   onSelect,
+  isLoading = false,
 }) => {
+  const prefersReducedMotion = useReducedMotion();
+
   if (total <= 1) return null;
 
   const getPaginationItems = () => {
@@ -51,14 +56,22 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
   const iconButtonClass = 'h-8 w-8 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/60 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25';
 
   return (
-    <nav
+    <motion.nav
+      layout="position"
+      transition={{
+        layout: {
+          duration: prefersReducedMotion ? 0 : 0.24,
+          ease: [0.16, 1, 0.3, 1],
+        },
+      }}
       aria-label="Question pagination"
+      aria-busy={isLoading}
       className="flex w-full items-center justify-center gap-1.5 py-4 text-xs"
     >
       <button
         type="button"
         onClick={() => onSelect(0)}
-        disabled={currentIndex === 0}
+        disabled={isLoading || currentIndex === 0}
         title="First question"
         aria-label="Go to first question"
         className={`hidden sm:flex ${iconButtonClass}`}
@@ -69,7 +82,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       <button
         type="button"
         onClick={() => onSelect(Math.max(0, currentIndex - 1))}
-        disabled={currentIndex === 0}
+        disabled={isLoading || currentIndex === 0}
         title="Previous question"
         className="flex h-8 items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25"
       >
@@ -86,9 +99,10 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
                 key={item}
                 type="button"
                 onClick={() => onSelect(Math.max(0, currentIndex - 5))}
+                disabled={isLoading}
                 title="Jump back 5 questions"
                 aria-label="Jump back 5 questions"
-                className="h-8 w-8 rounded-full border border-zinc-800/60 bg-transparent text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                className="h-8 w-8 rounded-full border border-zinc-800/60 bg-transparent text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-40"
               >
                 …
               </button>
@@ -101,9 +115,10 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
                 key={item}
                 type="button"
                 onClick={() => onSelect(Math.min(total - 1, currentIndex + 5))}
+                disabled={isLoading}
                 title="Jump forward 5 questions"
                 aria-label="Jump forward 5 questions"
-                className="h-8 w-8 rounded-full border border-zinc-800/60 bg-transparent text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                className="h-8 w-8 rounded-full border border-zinc-800/60 bg-transparent text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-40"
               >
                 …
               </button>
@@ -117,13 +132,13 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
               key={item}
               type="button"
               onClick={() => onSelect(item)}
-              disabled={isSelected}
+              disabled={isSelected || isLoading}
               aria-current={isSelected ? 'page' : undefined}
               aria-label={`Question ${item + 1}${isSelected ? ', current question' : ''}`}
               className={`h-8 min-w-8 rounded-full px-2 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
                 isSelected
                   ? 'cursor-default bg-violet-600 text-white shadow-sm'
-                  : 'border border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:bg-zinc-800 hover:text-white'
+                  : 'border border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:bg-zinc-800 hover:text-white disabled:pointer-events-none disabled:opacity-40'
               }`}
             >
               {item + 1}
@@ -135,7 +150,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       <button
         type="button"
         onClick={() => onSelect(Math.min(total - 1, currentIndex + 1))}
-        disabled={currentIndex === total - 1}
+        disabled={isLoading || currentIndex === total - 1}
         title="Next question"
         className="flex h-8 items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25"
       >
@@ -147,7 +162,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       <button
         type="button"
         onClick={() => onSelect(total - 1)}
-        disabled={currentIndex === total - 1}
+        disabled={isLoading || currentIndex === total - 1}
         title="Last question"
         aria-label="Go to last question"
         className={`hidden sm:flex ${iconButtonClass}`}
@@ -158,6 +173,6 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       <p className="sr-only" aria-live="polite">
         Question {currentIndex + 1} of {total}
       </p>
-    </nav>
+    </motion.nav>
   );
 };

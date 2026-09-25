@@ -12,7 +12,7 @@ import {
   type UserProfile,
 } from './services/questionsService';
 import { AlertTriangle, BookOpenCheck, Menu, Loader2, RefreshCw } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 type Theme = 'light' | 'dark';
 
@@ -33,6 +33,8 @@ export const App: React.FC = () => {
   const [technologies, setTechnologies] = useState<TechnologyMeta[]>([]);
   const [selectedTechId, setSelectedTechId] = useState<TechnologyId | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedIndex, setDisplayedIndex] = useState(0);
+  const [navigationDirection, setNavigationDirection] = useState<1 | -1>(1);
   const [currentQuestion, setCurrentQuestion] = useState<QuestionItem | null>(null);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +45,7 @@ export const App: React.FC = () => {
   const [user, setUser] = useState<UserProfile | null>(null);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const prefersReducedMotion = useReducedMotion();
 
   const mainRef = useRef<HTMLElement>(null);
 
@@ -111,10 +114,12 @@ export const App: React.FC = () => {
     if (!selectedTechId) return;
 
     const controller = new AbortController();
+    const requestedIndex = currentIndex;
 
-    fetchQuestionPage(selectedTechId, currentIndex + 1, 1, controller.signal)
+    fetchQuestionPage(selectedTechId, requestedIndex + 1, 1, controller.signal)
       .then(({ question, total }) => {
         setCurrentQuestion(question);
+        setDisplayedIndex(requestedIndex);
         setTotalQuestions(total);
         setIsLoading(false);
         setIsDatabaseConnected(true);
@@ -134,17 +139,19 @@ export const App: React.FC = () => {
 
     setSelectedTechId(id);
     setCurrentIndex(0);
+    setDisplayedIndex(0);
+    setNavigationDirection(1);
     setIsLoading(true);
     setCurrentQuestion(null);
     setError(null);
   };
 
   const handleSelectIndex = (index: number) => {
-    if (index === currentIndex) return;
+    if (index === currentIndex || isLoading) return;
 
+    setNavigationDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
     setIsLoading(true);
-    setCurrentQuestion(null);
     setError(null);
   };
 
@@ -167,17 +174,19 @@ export const App: React.FC = () => {
       if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
 
       if (e.key === 'ArrowLeft') {
-        if (currentIndex === 0) return;
+        if (currentIndex === 0 || isLoading) return;
 
+        e.preventDefault();
+        setNavigationDirection(-1);
         setIsLoading(true);
-        setCurrentQuestion(null);
         setError(null);
         setCurrentIndex((prev) => Math.max(0, prev - 1));
       } else if (e.key === 'ArrowRight') {
-        if (totalQuestions === 0 || currentIndex === totalQuestions - 1) return;
+        if (totalQuestions === 0 || currentIndex === totalQuestions - 1 || isLoading) return;
 
+        e.preventDefault();
+        setNavigationDirection(1);
         setIsLoading(true);
-        setCurrentQuestion(null);
         setError(null);
         setCurrentIndex((prev) => (totalQuestions > 0 ? Math.min(totalQuestions - 1, prev + 1) : 0));
       }
@@ -185,12 +194,15 @@ export const App: React.FC = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex, totalQuestions]);
+  }, [currentIndex, isLoading, totalQuestions]);
 
   // Smooth scroll to top when changing questions
   useEffect(() => {
-    mainRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentIndex, selectedTechId]);
+    mainRef.current?.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+  }, [displayedIndex, prefersReducedMotion, selectedTechId]);
 
   return (
     <div className="app-shell flex h-screen w-full overflow-hidden font-sans antialiased selection:bg-violet-600/30 selection:text-white">
@@ -227,7 +239,7 @@ export const App: React.FC = () => {
         <main ref={mainRef} className="min-h-0 flex-1 overflow-y-auto px-4 py-5 md:px-8 lg:px-10">
           <div className="w-full space-y-4">
             {/* Loading state or Question View */}
-            {isLoading ? (
+            {isLoading && !currentQuestion ? (
               <div className="theme-card flex h-64 w-full items-center justify-center rounded-xl border border-zinc-800 bg-[#0d0e12]/60">
                 <Loader2 className="h-6 w-6 animate-spin text-violet-400" />
               </div>
@@ -259,19 +271,63 @@ export const App: React.FC = () => {
             ) : (
               <div className="w-full space-y-4">
                 {/* Active Question with Smooth Transition */}
-                <AnimatePresence mode="wait">
-                  <QuestionCard
-                    key={`${selectedTechId}-${currentIndex}`}
-                    question={currentQuestion}
-                    questionNumber={currentIndex + 1}
-                    totalQuestions={totalQuestions}
-                  />
-                </AnimatePresence>
+                <div className="relative" aria-busy={isLoading}>
+                  <AnimatePresence initial={false} custom={navigationDirection} mode="popLayout">
+                    <motion.div
+                      key={`${selectedTechId}-${displayedIndex}`}
+                      custom={navigationDirection}
+                      variants={{
+                        enter: (direction: 1 | -1) => prefersReducedMotion
+                          ? { opacity: 0 }
+                          : { opacity: 0, x: direction * 18, filter: 'blur(2px)' },
+                        center: { opacity: 1, x: 0, filter: 'blur(0px)' },
+                        exit: (direction: 1 | -1) => prefersReducedMotion
+                          ? { opacity: 0 }
+                          : { opacity: 0, x: direction * -10, filter: 'blur(1px)' },
+                      }}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{
+                        duration: prefersReducedMotion ? 0.01 : 0.22,
+                        ease: [0.16, 1, 0.3, 1],
+                      }}
+                    >
+                      <QuestionCard
+                        question={currentQuestion}
+                        questionNumber={displayedIndex + 1}
+                        totalQuestions={totalQuestions}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  <AnimatePresence>
+                    {isLoading && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="pointer-events-none absolute inset-x-3 top-0 z-20 h-1 overflow-hidden rounded-full bg-violet-500/10"
+                        aria-hidden="true"
+                      >
+                        <motion.div
+                          className="h-full w-1/3 rounded-full bg-violet-500"
+                          initial={{ x: '-110%' }}
+                          animate={prefersReducedMotion ? { x: 0 } : { x: ['-110%', '310%'] }}
+                          transition={prefersReducedMotion
+                            ? { duration: 0 }
+                            : { duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 <PaginationBar
-                  currentIndex={currentIndex}
+                  currentIndex={displayedIndex}
                   total={totalQuestions}
                   onSelect={handleSelectIndex}
+                  isLoading={isLoading}
                 />
               </div>
             )}
