@@ -25,7 +25,7 @@ COPY --chown=1000:1000 --from=build /build/dist ./dist
 COPY --chown=1000:1000 --from=build /build/server/index.ts /build/server/database.ts ./server/
 COPY --chown=1000:1000 --from=build /build/src/data ./src/data
 COPY --chown=1000:1000 --from=build /build/src/types ./src/types
-COPY --chown=1000:1000 --from=build /build/scripts/database-inspect.ts ./scripts/database-inspect.ts
+COPY --chown=1000:1000 --from=build /build/scripts/database-inspect.ts /build/scripts/profile-admin.ts ./scripts/
 COPY --chown=1000:1000 --from=build /build/runtime-data ./data
 
 EXPOSE 5000

@@ -89,6 +89,19 @@ docker cp techvibe:/app/data/techvibe-backup.db ./techvibe-backup.db
 
 Also configure a Compute Engine persistent-disk snapshot schedule. A container volume is persistent across container replacement, but it is not a substitute for an off-VM backup.
 
+### Reset or synchronize a profile
+
+The profile administration utility runs only inside the server environment; it is not exposed as a web endpoint. It resets or creates one account, revokes its existing sessions, and can apply a validated complete category order.
+
+```bash
+read -rsp "New password: " PROFILE_PASSWORD && echo
+export PROFILE_EMAIL='user@example.com' PROFILE_PASSWORD
+docker compose exec -T -e PROFILE_EMAIL -e PROFILE_PASSWORD techvibe node scripts/profile-admin.ts
+unset PROFILE_EMAIL PROFILE_PASSWORD
+```
+
+To copy an existing complete order, also set `PROFILE_ORDER` to the comma-separated category IDs and pass `-e PROFILE_ORDER`. The command never prints the password or its hash.
+
 ## 6. Update the deployment
 
 ```bash
