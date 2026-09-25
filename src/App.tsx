@@ -17,16 +17,16 @@ import { AnimatePresence, motion } from 'framer-motion';
 type Theme = 'light' | 'dark';
 
 const getInitialTheme = (): Theme => {
-  if (typeof window === 'undefined') return 'dark';
+  if (typeof window === 'undefined') return 'light';
 
   try {
     const storedTheme = window.localStorage.getItem('techvibe-theme');
     if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme;
   } catch {
-    return 'dark';
+    return 'light';
   }
 
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  return 'light';
 };
 
 export const App: React.FC = () => {

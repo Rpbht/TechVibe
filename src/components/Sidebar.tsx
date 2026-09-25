@@ -189,7 +189,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={onToggleTheme}
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-400 transition hover:border-zinc-700 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-400 transition hover:border-zinc-700 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
             >
               {theme === 'dark' ? (
                 <Sun className="h-4 w-4" aria-hidden="true" />
@@ -202,7 +202,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={onProfileClick}
               aria-label={user ? `Open profile for ${user.email}` : 'Sign in or create profile'}
               title={user?.email ?? 'Sign in to save your knowledge area order'}
-              className={`flex h-9 w-9 items-center justify-center rounded-full border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
+              className={`flex h-7 w-7 items-center justify-center rounded-full border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
                 user
                   ? 'border-violet-500/40 bg-violet-500/15 text-violet-300'
                   : 'border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-zinc-100'
