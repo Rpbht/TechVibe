@@ -23,7 +23,6 @@ import {
   RotateCcw,
   Save,
   SortAsc,
-  UserRound,
   X,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -43,7 +42,6 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
   user: UserProfile | null;
-  onProfileClick: () => void;
   onOrderSaved: (technologies: TechnologyMeta[]) => void;
 }
 
@@ -72,7 +70,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isOpen,
   onClose,
   user,
-  onProfileClick,
   onOrderSaved,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -167,7 +164,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         }`}
       >
         {/* Brand Header */}
-        <div className="flex h-14 items-center justify-between border-b border-zinc-800/80 px-4">
+        <div className="flex h-16 items-center justify-between border-b border-zinc-800/80 px-4">
           <div className="flex items-center gap-2.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-violet-600 text-white shadow-sm shadow-violet-600/30">
               <Code2 className="h-4 w-4" />
@@ -177,19 +174,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </span>
           </div>
 
-          <div className="flex items-center gap-1">
-            <button
-              onClick={onProfileClick}
-              aria-label={user ? `Open profile for ${user.email}` : 'Sign in or create profile'}
-              title={user?.email ?? 'Sign in to save your category order'}
-              className={`flex h-7 w-7 items-center justify-center rounded-full border transition ${
-                user
-                  ? 'border-violet-500/40 bg-violet-500/15 text-violet-300'
-                  : 'border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-zinc-100'
-              }`}
-            >
-              <UserRound className="h-3.5 w-3.5" />
-            </button>
+          <div className="flex items-center">
             <button
               onClick={onClose}
               aria-label="Close sidebar"

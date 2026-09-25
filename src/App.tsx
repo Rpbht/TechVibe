@@ -11,8 +11,8 @@ import {
   logout as logoutUser,
   type UserProfile,
 } from './services/questionsService';
-import { AlertTriangle, BookOpenCheck, Menu, Loader2, RefreshCw } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AlertTriangle, BookOpenCheck, Menu, Loader2, RefreshCw, UserRound } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
 
 export const App: React.FC = () => {
   const [technologies, setTechnologies] = useState<TechnologyMeta[]>([]);
@@ -175,22 +175,56 @@ export const App: React.FC = () => {
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
         user={user}
-        onProfileClick={() => setIsProfileOpen(true)}
         onOrderSaved={setTechnologies}
       />
 
       {/* Main Full-Screen Layout */}
       <div className="flex flex-1 flex-col h-screen overflow-hidden min-w-0">
-        {/* Mobile floating button to open sidebar */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setIsSidebarOpen(true)}
-          aria-label="Open technologies menu"
-          className="fixed right-4 top-4 z-40 flex h-11 w-11 items-center justify-center rounded-xl border border-violet-400/30 bg-violet-600 text-white shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 lg:hidden"
-        >
-          <Menu className="h-5 w-5" />
-        </motion.button>
+        <header className="flex h-16 shrink-0 items-center border-b border-zinc-800/80 bg-[#0d0e12] px-4 md:px-8 lg:px-10">
+          <div className="flex min-w-0 flex-1 items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setIsSidebarOpen(true)}
+              aria-label="Open knowledge areas"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-200 transition-colors hover:border-violet-500/50 hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0e12] lg:hidden"
+            >
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            </button>
+
+            <div className="flex min-w-0 items-center gap-2.5">
+              <p className="truncate text-sm font-semibold tracking-tight text-zinc-100 md:text-base">
+                {currentTech?.name ?? 'TechVibe'}
+              </p>
+              {currentTech && (
+                <span className="hidden shrink-0 rounded-full border border-zinc-800 bg-zinc-900 px-2 py-0.5 text-[11px] font-semibold tabular-nums text-zinc-400 sm:inline-flex">
+                  {totalQuestions} questions
+                </span>
+              )}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIsProfileOpen(true)}
+            aria-label={user ? `Open profile for ${user.email}` : 'Sign in or create profile'}
+            title={user?.email ?? 'Sign in to save your knowledge area order'}
+            className={`group ml-3 flex h-11 shrink-0 items-center gap-2.5 rounded-full border pl-2 pr-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0e12] sm:pr-3 ${
+              user
+                ? 'border-violet-500/35 bg-violet-500/10 text-violet-200 hover:border-violet-400/60 hover:bg-violet-500/15'
+                : 'border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-zinc-600 hover:bg-zinc-800 hover:text-white'
+            }`}
+          >
+            <span className={`relative flex h-7 w-7 items-center justify-center rounded-full ${
+              user ? 'bg-violet-600 text-white' : 'bg-zinc-800 text-zinc-300'
+            }`}>
+              <UserRound className="h-4 w-4" aria-hidden="true" />
+              {user && <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border-2 border-[#0d0e12] bg-emerald-400" />}
+            </span>
+            <span className="hidden max-w-48 truncate text-xs font-semibold sm:block">
+              {user?.email ?? 'Profile'}
+            </span>
+          </button>
+        </header>
 
         {/* Question reading pane — navigation stays outside this scroll region. */}
         <main ref={mainRef} className="min-h-0 flex-1 overflow-y-auto px-4 py-5 md:px-8 lg:px-10">
@@ -236,7 +270,6 @@ export const App: React.FC = () => {
                     totalQuestions={totalQuestions}
                   />
                 </AnimatePresence>
-
               </div>
             )}
           </div>
