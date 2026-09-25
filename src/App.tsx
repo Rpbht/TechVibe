@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { QuestionCard } from './components/QuestionCard';
 import { PaginationBar } from './components/PaginationBar';
 import { ProfileModal } from './components/ProfileModal';
+import { CodingBackdrop } from './components/CodingBackdrop';
 import {
   fetchCurrentUser,
   fetchTechnologies,
@@ -225,6 +226,8 @@ export const App: React.FC = () => {
 
       {/* Main Full-Screen Layout */}
       <div className="relative flex h-screen min-w-0 flex-1 flex-col overflow-hidden">
+        <CodingBackdrop />
+
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -236,7 +239,7 @@ export const App: React.FC = () => {
         </motion.button>
 
         {/* Question reading pane — the floating navigation stays above this scroll region. */}
-        <main ref={mainRef} className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-28 pt-20 sm:pb-24 md:px-8 lg:px-10 lg:pt-5">
+        <main ref={mainRef} className="relative z-10 min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-28 pt-20 sm:pb-24 md:px-8 lg:px-10 lg:pt-5">
           <div className="w-full space-y-4">
             {/* Loading state or Question View */}
             {isLoading && !currentQuestion ? (
