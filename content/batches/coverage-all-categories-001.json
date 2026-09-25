@@ -1,0 +1,524 @@
+{
+  "questions": [
+    {
+      "id": "frontend-engineering-1",
+      "technology": "frontend-engineering",
+      "title": "What responsibilities belong to frontend engineering beyond visual styling?",
+      "questionType": "conceptual",
+      "explanation": ["Frontend engineering includes semantic structure, state and data flow, accessibility, performance, security boundaries, browser compatibility, testing, and maintainable component architecture in addition to presentation."],
+      "source": { "title": "MDN Learn Web Development", "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development" }
+    },
+    {
+      "id": "web-platform-1",
+      "technology": "web-platform",
+      "title": "Why should a page use semantic HTML before adding ARIA roles?",
+      "questionType": "conceptual",
+      "explanation": ["Native semantic elements provide built-in meaning, keyboard behavior, and accessibility mappings. ARIA can supplement missing semantics, but it does not automatically reproduce native behavior and can make an interface worse when applied incorrectly."],
+      "source": { "title": "MDN HTML", "url": "https://developer.mozilla.org/en-US/docs/Web/HTML" }
+    },
+    {
+      "id": "javascript-1",
+      "technology": "javascript",
+      "title": "How does a JavaScript closure retain access to variables after an outer function returns?",
+      "questionType": "conceptual",
+      "explanation": ["A function closes over its lexical environment, retaining bindings it references rather than copying only their current values. Those bindings remain reachable for as long as the closure remains reachable."],
+      "source": { "title": "Closures - MDN", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures" }
+    },
+    {
+      "id": "typescript-foundation-1",
+      "technology": "typescript",
+      "title": "Why is unknown safer than any for an untrusted value?",
+      "questionType": "comparison",
+      "explanation": ["Any disables most type checking for subsequent operations. Unknown accepts any input but requires narrowing or validation before the program reads properties, calls it, or assigns it to a more specific type."],
+      "source": { "title": "TypeScript Handbook", "url": "https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown" }
+    },
+    {
+      "id": "nextjs-foundation-1",
+      "technology": "nextjs",
+      "title": "What boundary does the use client directive establish in a Next.js application?",
+      "questionType": "conceptual",
+      "explanation": ["The directive marks a client-module boundary for components that require browser-side interactivity or client APIs. Components without that requirement can remain server components and avoid sending unnecessary JavaScript to the browser."],
+      "source": { "title": "use client - Next.js", "url": "https://nextjs.org/docs/app/api-reference/directives/use-client" }
+    },
+    {
+      "id": "vue-1",
+      "technology": "vue",
+      "title": "When should a Vue component use a computed property instead of a method?",
+      "questionType": "comparison",
+      "explanation": ["A computed property is appropriate for derived reactive state because Vue caches its result until a tracked dependency changes. A method runs whenever the template rendering path invokes it and is preferable for work that should not be cached."],
+      "source": { "title": "Computed Properties - Vue.js", "url": "https://vuejs.org/guide/essentials/computed.html" }
+    },
+    {
+      "id": "nodejs-foundation-1",
+      "technology": "nodejs",
+      "title": "Why can CPU-intensive JavaScript reduce throughput in a Node.js server?",
+      "questionType": "scenario",
+      "explanation": ["Long synchronous computation occupies the event-loop thread, delaying timers, callbacks, and new request handling. CPU-heavy work should be bounded, moved to worker threads or separate services, or implemented with an appropriate native parallel facility."],
+      "source": { "title": "Node.js Event Loop", "url": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick" }
+    },
+    {
+      "id": "backend-engineering-1",
+      "technology": "backend-engineering",
+      "title": "Why should a retryable backend operation be idempotent?",
+      "questionType": "scenario",
+      "explanation": ["Networks can lose responses after a server has committed a change, causing a client to retry without knowing the first result. An idempotency key or naturally idempotent contract prevents the retry from creating a second logical effect."],
+      "source": { "title": "HTTP Semantics RFC 9110", "url": "https://www.rfc-editor.org/rfc/rfc9110#section-9.2.2" }
+    },
+    {
+      "id": "api-design-1",
+      "technology": "api-design",
+      "title": "What is the difference between a safe HTTP method and an idempotent method?",
+      "questionType": "comparison",
+      "explanation": ["A safe method is intended for read-only semantics and should not request a state change. An idempotent method may change state, but repeating the same request has the same intended effect as sending it once."],
+      "source": { "title": "HTTP Semantics RFC 9110", "url": "https://www.rfc-editor.org/rfc/rfc9110#section-9.2" }
+    },
+    {
+      "id": "python-foundation-1",
+      "technology": "python",
+      "title": "Why can a mutable default argument retain data between Python function calls?",
+      "questionType": "debugging",
+      "explanation": ["Default argument expressions are evaluated once when the function is defined, not on every call. Reusing a list or dictionary default therefore reuses the same object; use None and create a new object inside the function when per-call state is required."],
+      "source": { "title": "More on Defining Functions - Python", "url": "https://docs.python.org/3/tutorial/controlflow.html#default-argument-values" }
+    },
+    {
+      "id": "python-web-1",
+      "technology": "python-web",
+      "title": "What happens when blocking work is executed directly inside an asynchronous web handler?",
+      "questionType": "scenario",
+      "explanation": ["Blocking work occupies the event-loop thread and prevents other coroutines from making progress. Use an asynchronous library, offload blocking work to a thread or process, or use a synchronous handler model with suitable worker capacity."],
+      "source": { "title": "Concurrency and async await - FastAPI", "url": "https://fastapi.tiangolo.com/async/" }
+    },
+    {
+      "id": "golang-foundation-1",
+      "technology": "golang",
+      "title": "How can a Go goroutine leak while waiting on a channel?",
+      "questionType": "debugging",
+      "explanation": ["A goroutine remains blocked if no sender, receiver, close, or cancellation path can satisfy its channel operation. Design ownership explicitly and use context cancellation or a done channel so every long-lived goroutine has a termination path."],
+      "source": { "title": "Effective Go - Concurrency", "url": "https://go.dev/doc/effective_go#concurrency" }
+    },
+    {
+      "id": "c-cpp-1",
+      "technology": "c-cpp",
+      "title": "How does RAII make C++ resource management exception-safe?",
+      "questionType": "conceptual",
+      "explanation": ["RAII binds resource ownership to object lifetime. A constructor establishes the invariant and a destructor releases the resource during normal scope exit and stack unwinding, avoiding separate cleanup paths for each return or exception."],
+      "source": { "title": "C++ Core Guidelines", "url": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-raii" }
+    },
+    {
+      "id": "dotnet-1",
+      "technology": "dotnet",
+      "title": "Why should asynchronous C# code avoid blocking on Task.Result?",
+      "questionType": "debugging",
+      "explanation": ["Blocking consumes a thread while waiting and can deadlock when a continuation needs a captured context that the blocked thread owns. Awaiting allows the method to suspend without holding that thread and propagates exceptions naturally."],
+      "source": { "title": "Asynchronous Programming with async and await", "url": "https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/" }
+    },
+    {
+      "id": "kotlin-1",
+      "technology": "kotlin",
+      "title": "How does Kotlin distinguish nullable and non-null types?",
+      "questionType": "conceptual",
+      "explanation": ["A type such as String excludes null, while String? includes it. The compiler requires a null check, safe call, Elvis expression, or explicit assertion before nullable values are used where a non-null value is required."],
+      "source": { "title": "Null Safety - Kotlin", "url": "https://kotlinlang.org/docs/null-safety.html" }
+    },
+    {
+      "id": "rust-1",
+      "technology": "rust",
+      "title": "What memory-safety problem does Rust's borrowing rule prevent?",
+      "questionType": "conceptual",
+      "explanation": ["Rust permits either one mutable reference or multiple immutable references to a value at a time. Enforcing this at compile time prevents unsynchronized aliasing, iterator invalidation, and many use-after-free and data-race patterns."],
+      "source": { "title": "References and Borrowing - The Rust Book", "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html" }
+    },
+    {
+      "id": "php-1",
+      "technology": "php",
+      "title": "What changes when strict_types is enabled in a PHP file?",
+      "questionType": "conceptual",
+      "explanation": ["For scalar type declarations, strict mode disables the usual coercion of caller-supplied scalar arguments in calls originating from that file. It does not turn PHP into a fully static language, and object type declarations already follow their own compatibility rules."],
+      "source": { "title": "PHP Type Declarations", "url": "https://www.php.net/manual/en/language.types.declarations.php" }
+    },
+    {
+      "id": "ruby-1",
+      "technology": "ruby",
+      "title": "How does a Ruby lambda differ from a non-lambda Proc?",
+      "questionType": "comparison",
+      "explanation": ["A lambda checks argument arity more like a method and return exits the lambda itself. A non-lambda Proc handles arguments more leniently, and return attempts to return from the surrounding method context in which the Proc was created."],
+      "source": { "title": "Proc - Ruby Documentation", "url": "https://docs.ruby-lang.org/en/master/Proc.html" }
+    },
+    {
+      "id": "scala-functional-1",
+      "technology": "scala-functional",
+      "title": "Why does immutable data simplify concurrent and functional Scala code?",
+      "questionType": "conceptual",
+      "explanation": ["Immutable values cannot be changed through another alias, reducing coordination around shared state. Functions that transform values can return new values, making behavior easier to compose, reason about, and safely execute concurrently."],
+      "source": { "title": "Scala Book - Pure Functions", "url": "https://docs.scala-lang.org/overviews/scala-book/pure-functions.html" }
+    },
+    {
+      "id": "dsa-1",
+      "technology": "dsa",
+      "title": "How do separate chaining and open addressing resolve hash-table collisions?",
+      "questionType": "comparison",
+      "explanation": ["Separate chaining stores colliding entries in a secondary structure associated with one bucket. Open addressing probes other slots in the table; it avoids per-entry containers but requires careful load-factor control and deletion handling."],
+      "source": { "title": "Open Data Structures - Hash Tables", "url": "https://opendatastructures.org/ods-java/5_Hash_Tables.html" }
+    },
+    {
+      "id": "object-design-1",
+      "technology": "object-design",
+      "title": "When does the Strategy pattern improve a design?",
+      "questionType": "scenario",
+      "explanation": ["Strategy helps when a stable workflow must choose among interchangeable algorithms or policies. It moves variation behind a small contract, but it is unnecessary when there is only one behavior or the abstraction creates more complexity than the variation warrants."],
+      "source": { "title": "Cloud Design Patterns", "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/" }
+    },
+    {
+      "id": "operating-systems-1",
+      "technology": "operating-systems",
+      "title": "What happens during a demand-paging page fault?",
+      "questionType": "conceptual",
+      "explanation": ["The processor traps into the operating system because the referenced virtual page is not currently mapped to physical memory. The OS validates the access, obtains a frame, loads or creates the page, updates page tables, and restarts the instruction; invalid access terminates or signals the process."],
+      "source": { "title": "Operating Systems: Three Easy Pieces", "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/" }
+    },
+    {
+      "id": "networking-1",
+      "technology": "networking",
+      "title": "When is UDP more appropriate than TCP?",
+      "questionType": "comparison",
+      "explanation": ["UDP suits applications that need message boundaries, low protocol overhead, multicast, or application-controlled reliability and timing. TCP is preferable when a reliable ordered byte stream and built-in congestion control match the application contract."],
+      "source": { "title": "User Datagram Protocol RFC 768", "url": "https://www.rfc-editor.org/rfc/rfc768" }
+    },
+    {
+      "id": "computer-architecture-1",
+      "technology": "computer-architecture",
+      "title": "Why does spatial locality improve cache performance?",
+      "questionType": "conceptual",
+      "explanation": ["Caches transfer and store blocks containing nearby addresses. When a program accesses adjacent data soon after one address, the required bytes are likely already in the cache line, reducing slower memory accesses."],
+      "source": { "title": "RISC-V Specifications", "url": "https://riscv.org/specifications/" }
+    },
+    {
+      "id": "compilers-1",
+      "technology": "compilers",
+      "title": "What is the difference between lexical analysis and parsing?",
+      "questionType": "comparison",
+      "explanation": ["Lexical analysis groups characters into tokens such as identifiers and operators. Parsing consumes that token stream according to a grammar and constructs a syntax tree or reports structural syntax errors."],
+      "source": { "title": "LLVM Kaleidoscope Tutorial", "url": "https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/LangImpl02.html" }
+    },
+    {
+      "id": "system-design-foundation-1",
+      "technology": "system-design",
+      "title": "Why should a system define explicit recovery objectives?",
+      "questionType": "system-design",
+      "explanation": ["A recovery time objective defines acceptable restoration time, while a recovery point objective defines acceptable data loss. These targets drive replication, backup frequency, failover architecture, testing, and cost decisions."],
+      "source": { "title": "AWS Well-Architected Reliability Pillar", "url": "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html" }
+    },
+    {
+      "id": "distributed-systems-1",
+      "technology": "distributed-systems",
+      "title": "What does the CAP theorem say during a network partition?",
+      "questionType": "conceptual",
+      "explanation": ["When nodes cannot communicate reliably, a replicated system cannot simultaneously guarantee that every response reflects one linearizable value and that every request receives a successful response. Real systems make operation-specific tradeoffs and also face latency and failure modes outside the theorem."],
+      "source": { "title": "Raft Consensus Algorithm", "url": "https://raft.github.io/" }
+    },
+    {
+      "id": "microservices-1",
+      "technology": "microservices",
+      "title": "How does a circuit breaker reduce cascading failure?",
+      "questionType": "system-design",
+      "explanation": ["After repeated downstream failures, a circuit breaker temporarily fails calls quickly instead of consuming threads, connections, and timeouts. Controlled probe requests later determine whether the dependency has recovered; fallbacks must still preserve correct business behavior."],
+      "source": { "title": "Circuit Breaker Pattern", "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker" }
+    },
+    {
+      "id": "event-driven-1",
+      "technology": "event-driven",
+      "title": "Why must an at-least-once message consumer be idempotent?",
+      "questionType": "scenario",
+      "explanation": ["A broker can redeliver a message when acknowledgement is lost or processing is retried. The consumer must recognize the event or make its state transition naturally idempotent so a duplicate delivery does not create a duplicate business effect."],
+      "source": { "title": "Apache Kafka Documentation", "url": "https://kafka.apache.org/documentation/" }
+    },
+    {
+      "id": "database-engineering-1",
+      "technology": "database-engineering",
+      "title": "Why can a low-selectivity database index be ineffective?",
+      "questionType": "conceptual",
+      "explanation": ["If a predicate matches a large fraction of a table, using the index may require many random lookups plus index traversal. A sequential scan can be cheaper, so the optimizer considers selectivity, row width, ordering, and current statistics."],
+      "source": { "title": "PostgreSQL Indexes", "url": "https://www.postgresql.org/docs/current/indexes.html" }
+    },
+    {
+      "id": "postgres-foundation-1",
+      "technology": "postgres",
+      "title": "Why does PostgreSQL need VACUUM when it uses MVCC?",
+      "questionType": "conceptual",
+      "explanation": ["Updates and deletes leave old row versions that may remain visible to earlier transactions. VACUUM reclaims versions no longer visible to any transaction, maintains visibility information, and prevents transaction-ID wraparound."],
+      "source": { "title": "Routine Vacuuming - PostgreSQL", "url": "https://www.postgresql.org/docs/current/routine-vacuuming.html" }
+    },
+    {
+      "id": "mysql-1",
+      "technology": "mysql",
+      "title": "How does an InnoDB clustered index affect table storage?",
+      "questionType": "conceptual",
+      "explanation": ["InnoDB stores table rows in primary-key order within the clustered index. Secondary-index entries contain the primary-key value, so a wide or changing primary key increases secondary-index size and maintenance cost."],
+      "source": { "title": "InnoDB Clustered and Secondary Indexes", "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html" }
+    },
+    {
+      "id": "nosql-1",
+      "technology": "nosql",
+      "title": "Why is partition-key selection critical in a distributed NoSQL database?",
+      "questionType": "system-design",
+      "explanation": ["The partition key determines data placement and which requests can be routed efficiently. A skewed key creates hot partitions, while a key that ignores query patterns can require broad scans or expensive secondary access paths."],
+      "source": { "title": "Apache Cassandra Data Modeling", "url": "https://cassandra.apache.org/doc/latest/cassandra/developing/data-modeling/intro.html" }
+    },
+    {
+      "id": "redis-caching-1",
+      "technology": "redis-caching",
+      "title": "How can a cache stampede occur after a popular key expires?",
+      "questionType": "scenario",
+      "explanation": ["Many requests can miss the same expired key and simultaneously recompute or fetch the value, overloading the backing system. Mitigations include request coalescing, distributed locking, refresh-ahead, stale-while-revalidate, and jittered expirations."],
+      "source": { "title": "Redis Documentation", "url": "https://redis.io/docs/latest/" }
+    },
+    {
+      "id": "search-1",
+      "technology": "search",
+      "title": "How does an inverted index support full-text search?",
+      "questionType": "conceptual",
+      "explanation": ["An inverted index maps analyzed terms to the documents and positions containing them. A query can retrieve posting lists for its terms and combine or score those lists without scanning every document's original text."],
+      "source": { "title": "Elasticsearch Inverted Index", "url": "https://www.elastic.co/docs/manage-data/data-store/index-basics" }
+    },
+    {
+      "id": "cloud-architecture-1",
+      "technology": "cloud-architecture",
+      "title": "Why is deploying across zones different from merely running multiple instances?",
+      "questionType": "system-design",
+      "explanation": ["Instances in one failure domain can all be lost by the same power, network, or control-plane event. Zone-aware placement, replicated state, health-based routing, and tested failover reduce correlated failure risk."],
+      "source": { "title": "Google Cloud Architecture Framework", "url": "https://cloud.google.com/architecture/framework/reliability" }
+    },
+    {
+      "id": "devops-cicd-1",
+      "technology": "devops-cicd",
+      "title": "What makes a CI/CD pipeline artifact reproducible?",
+      "questionType": "conceptual",
+      "explanation": ["A reproducible pipeline pins inputs and tool versions, builds from versioned source in a controlled environment, records provenance, and promotes the same immutable artifact between stages instead of rebuilding it differently for each environment."],
+      "source": { "title": "GitHub Actions Documentation", "url": "https://docs.github.com/en/actions" }
+    },
+    {
+      "id": "docker-foundation-1",
+      "technology": "docker",
+      "title": "What is the operational difference between a container image and a container?",
+      "questionType": "comparison",
+      "explanation": ["An image is an immutable packaged filesystem and configuration template. A container is a runtime process created from that image with an additional writable layer, namespaces, resource controls, and networking."],
+      "source": { "title": "Docker Engine", "url": "https://docs.docker.com/engine/" }
+    },
+    {
+      "id": "infrastructure-as-code-1",
+      "technology": "infrastructure-as-code",
+      "title": "What is infrastructure drift and how should Terraform users handle it?",
+      "questionType": "scenario",
+      "explanation": ["Drift occurs when real infrastructure differs from declared configuration and recorded state, often because of manual changes or external automation. Detect it with regular plans or refresh-only review, then deliberately reconcile configuration, state, or infrastructure rather than blindly overwriting unknown changes."],
+      "source": { "title": "Terraform Documentation", "url": "https://developer.hashicorp.com/terraform/docs" }
+    },
+    {
+      "id": "linux-shell-1",
+      "technology": "linux-shell",
+      "title": "How does a Unix shell pipeline connect two processes?",
+      "questionType": "conceptual",
+      "explanation": ["The shell creates a pipe, starts processes, connects the standard output of one command to the standard input of the next, and closes unused descriptors. The commands execute concurrently and the pipe provides bounded kernel buffering."],
+      "source": { "title": "GNU Bash Pipelines", "url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html" }
+    },
+    {
+      "id": "sre-observability-1",
+      "technology": "sre-observability",
+      "title": "How does an error budget connect reliability goals to release decisions?",
+      "questionType": "scenario",
+      "explanation": ["An SLO defines an acceptable success level, and the error budget is the allowed unreliability within its window. Teams can use remaining budget to balance feature velocity against reliability work instead of demanding an undefined goal of perfect availability."],
+      "source": { "title": "Google SRE Workbook - Implementing SLOs", "url": "https://sre.google/workbook/implementing-slos/" }
+    },
+    {
+      "id": "performance-engineering-1",
+      "technology": "performance-engineering",
+      "title": "Why can an average latency hide a serious production problem?",
+      "questionType": "conceptual",
+      "explanation": ["A small population of very slow requests can have little effect on the arithmetic mean while harming many users at scale. Percentiles, distributions, request classes, and traces reveal tail behavior and multimodal latency that an average conceals."],
+      "source": { "title": "web.dev Performance", "url": "https://web.dev/learn/performance/" }
+    },
+    {
+      "id": "cybersecurity-1",
+      "technology": "cybersecurity",
+      "title": "Why is hiding an unauthorized button not an authorization control?",
+      "questionType": "scenario",
+      "explanation": ["A client can call an API directly regardless of which controls the interface renders. The server must authenticate the caller and enforce role, permission, tenant, and object-ownership rules for every protected operation."],
+      "source": { "title": "OWASP Authorization Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" }
+    },
+    {
+      "id": "testing-qa-1",
+      "technology": "testing-qa",
+      "title": "What different evidence do unit and integration tests provide?",
+      "questionType": "comparison",
+      "explanation": ["A unit test isolates a small behavior and gives fast, precise feedback. An integration test verifies that real components collaborate through boundaries such as databases, serialization, configuration, or networks; a balanced suite uses both because neither evidence substitutes for the other."],
+      "source": { "title": "JUnit 5 User Guide", "url": "https://junit.org/junit5/docs/current/user-guide/" }
+    },
+    {
+      "id": "data-engineering-1",
+      "technology": "data-engineering",
+      "title": "Why does exactly-once processing require more than exactly-once message delivery?",
+      "questionType": "system-design",
+      "explanation": ["A consumer can update an external system and fail before recording progress, causing replay even if the broker manages delivery carefully. End-to-end exactly-once effects require coordinated transactions, idempotent sinks, or deduplication across every side effect."],
+      "source": { "title": "Kafka Design Documentation", "url": "https://kafka.apache.org/documentation/#design" }
+    },
+    {
+      "id": "data-science-1",
+      "technology": "data-science",
+      "title": "How does data leakage make a model evaluation misleading?",
+      "questionType": "debugging",
+      "explanation": ["Leakage lets training or preprocessing use information unavailable at prediction time, including information from the validation set. The measured score then reflects privileged information rather than expected production generalization."],
+      "source": { "title": "Common Pitfalls - scikit-learn", "url": "https://scikit-learn.org/stable/common_pitfalls.html" }
+    },
+    {
+      "id": "machine-learning-1",
+      "technology": "machine-learning",
+      "title": "What is the difference between underfitting and overfitting?",
+      "questionType": "comparison",
+      "explanation": ["Underfitting occurs when a model cannot capture relevant structure and performs poorly even on training data. Overfitting occurs when it fits training-specific noise and performs much worse on unseen data; validation curves help distinguish the two."],
+      "source": { "title": "Underfitting vs. Overfitting - scikit-learn", "url": "https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html" }
+    },
+    {
+      "id": "generative-ai-1",
+      "technology": "generative-ai",
+      "title": "What does retrieval-augmented generation change in an LLM application?",
+      "questionType": "system-design",
+      "explanation": ["RAG retrieves relevant external documents at request time and supplies them as context to generation. It can improve grounding and freshness, but retrieval quality, prompt injection, context limits, citation accuracy, and access control remain application responsibilities."],
+      "source": { "title": "Hugging Face Transformers Documentation", "url": "https://huggingface.co/docs/transformers/" }
+    },
+    {
+      "id": "mlops-1",
+      "technology": "mlops",
+      "title": "How is model drift different from ordinary service failure?",
+      "questionType": "comparison",
+      "explanation": ["A service can remain available and return syntactically valid predictions while the relationship between inputs, labels, and outcomes changes. Drift monitoring therefore needs data-quality and model-performance signals in addition to infrastructure health."],
+      "source": { "title": "MLflow Documentation", "url": "https://mlflow.org/docs/latest/" }
+    },
+    {
+      "id": "mobile-engineering-1",
+      "technology": "mobile-engineering",
+      "title": "Why should a mobile application be designed for process death rather than only screen rotation?",
+      "questionType": "scenario",
+      "explanation": ["Mobile operating systems can terminate background processes to reclaim resources. Essential user and navigation state must be reconstructable from durable storage or saved state instead of depending solely on in-memory objects."],
+      "source": { "title": "Guide to Android App Architecture", "url": "https://developer.android.com/topic/architecture" }
+    },
+    {
+      "id": "android-1",
+      "technology": "android",
+      "title": "What causes a Jetpack Compose function to recompose?",
+      "questionType": "conceptual",
+      "explanation": ["Compose tracks observable state read during composition. When that state changes, it schedules affected scopes for recomposition and may skip stable inputs whose values have not changed; composables should therefore remain free of uncontrolled side effects."],
+      "source": { "title": "Thinking in Compose", "url": "https://developer.android.com/develop/ui/compose/mental-model" }
+    },
+    {
+      "id": "ios-1",
+      "technology": "ios",
+      "title": "What is the relationship between State and Binding in SwiftUI?",
+      "questionType": "comparison",
+      "explanation": ["State gives a view ownership of mutable local source-of-truth data. Binding provides another view read-write access to storage owned elsewhere, allowing edits without duplicating ownership."],
+      "source": { "title": "SwiftUI Documentation", "url": "https://developer.apple.com/documentation/swiftui/" }
+    },
+    {
+      "id": "cross-platform-mobile-1",
+      "technology": "cross-platform-mobile",
+      "title": "When does a cross-platform mobile application still require native code?",
+      "questionType": "scenario",
+      "explanation": ["Native integration may be required for platform APIs not exposed by the framework, performance-critical processing, vendor SDKs, widgets, background execution, or platform-specific user experiences. The bridge boundary should remain narrow and explicitly tested on each platform."],
+      "source": { "title": "React Native Native Platform", "url": "https://reactnative.dev/docs/native-platform" }
+    },
+    {
+      "id": "embedded-iot-1",
+      "technology": "embedded-iot",
+      "title": "Why should an interrupt service routine do as little work as possible?",
+      "questionType": "conceptual",
+      "explanation": ["Long interrupt handlers increase latency for other interrupts, hold shared resources, and make timing unpredictable. A handler should capture minimal state, acknowledge the device, and defer substantial work to a schedulable context."],
+      "source": { "title": "Zephyr Interrupts", "url": "https://docs.zephyrproject.org/latest/kernel/services/interrupts.html" }
+    },
+    {
+      "id": "blockchain-1",
+      "technology": "blockchain",
+      "title": "How does a reentrancy vulnerability arise in a smart contract?",
+      "questionType": "debugging",
+      "explanation": ["A contract calls untrusted external code before completing its own state update, and the callee re-enters the original function while invariants still reflect the old state. Checks-effects-interactions, guarded entry, and pull-based transfers reduce the risk."],
+      "source": { "title": "Smart Contract Security - Ethereum", "url": "https://ethereum.org/en/developers/docs/smart-contracts/security/" }
+    },
+    {
+      "id": "game-development-1",
+      "technology": "game-development",
+      "title": "Why use a fixed physics timestep with variable-rate rendering?",
+      "questionType": "system-design",
+      "explanation": ["A fixed simulation step makes integration and collision behavior more stable and reproducible across machines. Rendering can interpolate between simulation states so visual frame rate varies without changing core physics behavior."],
+      "source": { "title": "Unity Time and Frame Rate Management", "url": "https://docs.unity3d.com/Manual/TimeFrameManagement.html" }
+    },
+    {
+      "id": "web-accessibility-1",
+      "technology": "web-accessibility",
+      "title": "What is an accessible name and why can visible text be insufficient?",
+      "questionType": "conceptual",
+      "explanation": ["An accessible name is the programmatically determined label exposed to assistive technology. Icon-only controls, images, or unusual labeling relationships may need native labels or carefully applied ARIA so their purpose is conveyed without relying only on visual appearance."],
+      "source": { "title": "WAI-ARIA Authoring Practices", "url": "https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/" }
+    },
+    {
+      "id": "git-collaboration-1",
+      "technology": "git-collaboration",
+      "title": "Why is rebasing a shared public branch risky?",
+      "questionType": "scenario",
+      "explanation": ["Rebase creates new commits with new identities. Collaborators based on the old history must reconcile two versions of the same changes, often causing duplicate commits or confusing conflicts; shared history is usually safer to merge than rewrite."],
+      "source": { "title": "Pro Git - Rebasing", "url": "https://git-scm.com/book/en/v2/Git-Branching-Rebasing" }
+    },
+    {
+      "id": "software-delivery-1",
+      "technology": "software-delivery",
+      "title": "Why is deployment frequency insufficient as a delivery-quality metric?",
+      "questionType": "conceptual",
+      "explanation": ["Frequent deployment can coexist with slow lead time, high failure rates, or poor recovery. Delivery performance should be interpreted with change lead time, change failure rate, recovery performance, product outcomes, and system context."],
+      "source": { "title": "DORA Research", "url": "https://dora.dev/research/" }
+    },
+    {
+      "id": "engineering-leadership-1",
+      "technology": "engineering-leadership",
+      "title": "What makes a post-incident review blameless but still accountable?",
+      "questionType": "scenario",
+      "explanation": ["A blameless review examines decisions in their original context and avoids personal punishment for reasonable actions. Accountability remains through accurate timelines, explicit ownership of corrective work, measurable follow-up, and changes to systems that allowed the failure."],
+      "source": { "title": "Google SRE - Postmortem Culture", "url": "https://sre.google/sre-book/postmortem-culture/" }
+    },
+    {
+      "id": "enterprise-integration-1",
+      "technology": "enterprise-integration",
+      "title": "What problem does the Idempotent Consumer pattern solve?",
+      "questionType": "conceptual",
+      "explanation": ["Messaging systems and retries can deliver the same logical message more than once. An idempotent consumer records processed identifiers or uses an idempotent state transition so duplicate delivery does not repeat the business effect."],
+      "source": { "title": "Enterprise Integration Patterns - Idempotent Receiver", "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html" }
+    },
+    {
+      "id": "real-time-systems-1",
+      "technology": "real-time-systems",
+      "title": "Why do stream processors use watermarks with event time?",
+      "questionType": "conceptual",
+      "explanation": ["Events can arrive out of order, so processing time cannot determine when an event-time window is complete. A watermark estimates how far event time has progressed and enables bounded waiting, late-event policies, and eventual window emission."],
+      "source": { "title": "Apache Flink Timely Stream Processing", "url": "https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/" }
+    },
+    {
+      "id": "robotics-1",
+      "technology": "robotics",
+      "title": "When should ROS 2 components communicate through a topic rather than a service?",
+      "questionType": "comparison",
+      "explanation": ["Topics suit ongoing asynchronous streams with publishers and subscribers, such as sensor readings. Services suit bounded request-response interactions; actions are preferable for long-running goals that need progress feedback or cancellation."],
+      "source": { "title": "ROS 2 Concepts", "url": "https://docs.ros.org/en/rolling/Concepts/Basic.html" }
+    },
+    {
+      "id": "spatial-computing-1",
+      "technology": "spatial-computing",
+      "title": "Why must an XR application distinguish local, viewer, and bounded reference spaces?",
+      "questionType": "conceptual",
+      "explanation": ["Each reference space defines a different coordinate origin and stability contract. Choosing the wrong space can make content drift, move with the viewer unexpectedly, or appear outside known physical bounds."],
+      "source": { "title": "WebXR Device API", "url": "https://www.w3.org/TR/webxr/" }
+    },
+    {
+      "id": "quantum-computing-1",
+      "technology": "quantum-computing",
+      "title": "Why does measuring a qubit not simply reveal a hidden classical bit?",
+      "questionType": "conceptual",
+      "explanation": ["A qubit state determines probabilities for measurement outcomes in a chosen basis. Measurement produces one classical outcome and changes the state; different measurement bases can expose incompatible aspects of the prior quantum state."],
+      "source": { "title": "IBM Quantum Learning", "url": "https://quantum.cloud.ibm.com/learning" }
+    }
+  ]
+}

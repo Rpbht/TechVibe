@@ -1,0 +1,4024 @@
+{
+  "questions": [
+    {
+      "id": "java-116",
+      "technology": "java",
+      "title": "Why can binary floating-point make 0.1 + 0.2 differ from 0.3 in Java?",
+      "questionType": "conceptual",
+      "explanation": [
+        "double stores nearby binary fractions rather than exact decimal fractions. Use BigDecimal constructed from decimal text when exact base-10 arithmetic and rounding rules matter."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-117",
+      "technology": "java",
+      "title": "How does binary numeric promotion affect arithmetic on byte and short values?",
+      "questionType": "scenario",
+      "explanation": [
+        "Arithmetic promotes byte, short, and char operands to int, so the result usually needs an explicit narrowing conversion before assignment to a smaller type."
+      ],
+      "source": {
+        "title": "Java Language Specification: Conversions and Contexts",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-5.html"
+      }
+    },
+    {
+      "id": "java-118",
+      "technology": "java",
+      "title": "Why can compound assignment compile when the equivalent simple assignment does not?",
+      "questionType": "comparison",
+      "explanation": [
+        "A compound assignment includes an implicit conversion back to the left-hand type, while the expanded arithmetic expression normally has the promoted type and needs an explicit cast."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-119",
+      "technology": "java",
+      "title": "What does integer division do when either operand is negative?",
+      "questionType": "debugging",
+      "explanation": [
+        "Integer division truncates toward zero, and the remainder has the dividend sign. Use floorDiv and floorMod when mathematical floor semantics are required."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-120",
+      "technology": "java",
+      "title": "What happens when an int calculation overflows?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Integral overflow wraps in two-complement arithmetic without an exception. Use exact arithmetic helpers such as Math.addExact when overflow must be detected."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-121",
+      "technology": "java",
+      "title": "Why is char insufficient for representing every Unicode character?",
+      "questionType": "system-design",
+      "explanation": [
+        "char stores one UTF-16 code unit, while supplementary Unicode characters require a surrogate pair. Code-point APIs are required for character-aware traversal."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-122",
+      "technology": "java",
+      "title": "How does left-to-right operand evaluation influence side effects?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Java evaluates operand expressions left to right, so earlier side effects are visible to later operands. Clear code should still avoid combining multiple mutations in one expression."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-123",
+      "technology": "java",
+      "title": "What is the difference between short-circuit and non-short-circuit boolean operators?",
+      "questionType": "scenario",
+      "explanation": [
+        "&& and || skip the right operand when the result is already known; & and | on booleans evaluate both operands, which can trigger side effects or exceptions."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-124",
+      "technology": "java",
+      "title": "Why can the conditional operator produce an unexpected numeric type?",
+      "questionType": "comparison",
+      "explanation": [
+        "The conditional operator applies detailed numeric and reference typing rules to its second and third operands; boxing, unboxing, and promotion can change the inferred result type."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-125",
+      "technology": "java",
+      "title": "What prints when a post-increment value is assigned back to the same variable?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The postfix expression yields the old value after performing the increment, then the assignment writes that old value back, so x remains 4."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "int x = 4;\nx = x++;\nSystem.out.println(x);"
+      },
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-126",
+      "technology": "java",
+      "title": "Why does Integer identity comparison sometimes appear to work for small values?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Boxing may reuse cached wrapper instances for a required small range, but identity is not numeric equality. Compare wrapper values with equals or unbox them."
+      ],
+      "source": {
+        "title": "Java Language Specification: Conversions and Contexts",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-5.html"
+      }
+    },
+    {
+      "id": "java-127",
+      "technology": "java",
+      "title": "How can unboxing a nullable wrapper fail?",
+      "questionType": "system-design",
+      "explanation": [
+        "Unboxing invokes the wrapper value conversion; a null reference therefore throws NullPointerException. Keep absence explicit or validate before unboxing."
+      ],
+      "source": {
+        "title": "Java Language Specification: Conversions and Contexts",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-5.html"
+      }
+    },
+    {
+      "id": "java-128",
+      "technology": "java",
+      "title": "Why can an overloaded call become ambiguous when passed null?",
+      "questionType": "conceptual",
+      "explanation": [
+        "null is compatible with every reference type, so unrelated overload parameter types may be equally specific. A cast or a clearer API resolves the ambiguity."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-129",
+      "technology": "java",
+      "title": "How do primitive widening and boxing compete during overload resolution?",
+      "questionType": "scenario",
+      "explanation": [
+        "Method invocation prefers applicable fixed-arity methods using primitive widening before considering boxing and then variable arity, so nearby overloads can select unexpectedly."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-130",
+      "technology": "java",
+      "title": "Why does a generic method sometimes infer Object instead of a narrower type?",
+      "questionType": "comparison",
+      "explanation": [
+        "Inference must satisfy constraints from every argument and the target context. Conflicting argument types can force their least useful common supertype."
+      ],
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-131",
+      "technology": "java",
+      "title": "What is a bridge method and why does the compiler generate one?",
+      "questionType": "debugging",
+      "explanation": [
+        "Type erasure can change an overriding method signature, so the compiler emits a synthetic bridge that preserves polymorphism and delegates to the typed implementation."
+      ],
+      "source": {
+        "title": "Java Language Specification: Classes",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html"
+      }
+    },
+    {
+      "id": "java-132",
+      "technology": "java",
+      "title": "Why is List<String> not a subtype of List<Object>?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Generic types are invariant because allowing that assignment would permit inserting a non-String into a list whose actual element type is String."
+      ],
+      "source": {
+        "title": "Java Language Specification: Types, Values, and Variables",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html"
+      }
+    },
+    {
+      "id": "java-133",
+      "technology": "java",
+      "title": "What information can a reifiable type preserve at runtime?",
+      "questionType": "system-design",
+      "explanation": [
+        "A reifiable type has enough runtime representation for operations such as instanceof; raw types, non-generic types, and unbounded wildcard forms are common examples."
+      ],
+      "source": {
+        "title": "Java Language Specification: Types, Values, and Variables",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html"
+      }
+    },
+    {
+      "id": "java-134",
+      "technology": "java",
+      "title": "Why can reflection see a generic signature even though Java uses erasure?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Class files may retain generic signature metadata for reflection and tooling, while JVM execution and casts still use erased runtime types."
+      ],
+      "source": {
+        "title": "Java Virtual Machine Specification",
+        "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/"
+      }
+    },
+    {
+      "id": "java-135",
+      "technology": "java",
+      "title": "What does this wildcard capture helper make possible?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The helper gives the unknown wildcard element type a temporary name, allowing a value read from the list to be written back safely."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "static void reverseFirst(List<?> values) {\n    reverseFirst0(values);\n}\nstatic <T> void reverseFirst0(List<T> values) {\n    if (!values.isEmpty()) values.set(0, values.get(0));\n}"
+      },
+      "source": {
+        "title": "Java Language Specification: Types, Values, and Variables",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html"
+      }
+    },
+    {
+      "id": "java-136",
+      "technology": "java",
+      "title": "How does a canonical record constructor differ from a compact constructor?",
+      "questionType": "comparison",
+      "explanation": [
+        "A canonical constructor declares the full component parameter list and assigns fields; a compact constructor omits both and lets the compiler perform final assignments after validation."
+      ],
+      "source": {
+        "title": "Java Language Specification: Classes",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html"
+      }
+    },
+    {
+      "id": "java-137",
+      "technology": "java",
+      "title": "Why should a record containing a mutable list make a defensive copy?",
+      "questionType": "debugging",
+      "explanation": [
+        "Record fields are final references, not deeply immutable values. Copying the list prevents callers from mutating record state through an external alias."
+      ],
+      "source": {
+        "title": "Java Language Specification: Classes",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html"
+      }
+    },
+    {
+      "id": "java-138",
+      "technology": "java",
+      "title": "How does an enum guarantee a controlled instance set?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Enum constants are the only direct instances exposed by the declaration, and construction is controlled by the runtime, supporting identity-safe singleton constants."
+      ],
+      "source": {
+        "title": "Java Language Specification: Classes",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html"
+      }
+    },
+    {
+      "id": "java-139",
+      "technology": "java",
+      "title": "When is EnumMap more appropriate than HashMap?",
+      "questionType": "system-design",
+      "explanation": [
+        "EnumMap stores keys from one enum type compactly in natural declaration order and rejects null keys, making it efficient and explicit for closed key domains."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-140",
+      "technology": "java",
+      "title": "What determines whether an annotation is visible through reflection?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Its retention policy controls whether it exists only in source, in the class file, or at runtime; only runtime-retained annotations are available to reflection."
+      ],
+      "source": {
+        "title": "Java Language Specification: Interfaces",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-9.html"
+      }
+    },
+    {
+      "id": "java-141",
+      "technology": "java",
+      "title": "Are annotations inherited from interfaces or methods automatically?",
+      "questionType": "scenario",
+      "explanation": [
+        "The Inherited meta-annotation affects class-level lookup through a superclass chain only; it does not automatically propagate interface or method annotations."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-142",
+      "technology": "java",
+      "title": "Why can reflective access fail even for a public member?",
+      "questionType": "comparison",
+      "explanation": [
+        "The declaring package may not be exported or opened to the caller module, and access checks still consider the member, class, package, and module boundaries."
+      ],
+      "source": {
+        "title": "Java Platform Module System",
+        "url": "https://docs.oracle.com/en/java/javase/25/migrate/migrating-to-java-9.html#GUID-86E7A65A-99A1-4F2D-A7D9-BEAB1B62F21C"
+      }
+    },
+    {
+      "id": "java-143",
+      "technology": "java",
+      "title": "When is MethodHandle preferable to reflective Method.invoke?",
+      "questionType": "debugging",
+      "explanation": [
+        "Method handles provide strongly typed invocation shapes, composition, and JVM optimization opportunities, while reflection is often simpler for occasional metadata-driven calls."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-144",
+      "technology": "java",
+      "title": "What does ClassValue solve for framework metadata caches?",
+      "questionType": "algorithm",
+      "explanation": [
+        "ClassValue associates computed data with each Class while allowing lifecycle behavior aligned with class unloading, avoiding common strong-key cache leaks."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-145",
+      "technology": "java",
+      "title": "Why does this enum comparison safely tolerate null only on one side?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Calling equals on a nullable reference can fail, while comparing an enum constant with == is identity-based and safely returns false for null."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "Status status = loadStatus();\nboolean active = status == Status.ACTIVE;"
+      },
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-146",
+      "technology": "java",
+      "title": "Why does String.strip differ from String.trim?",
+      "questionType": "conceptual",
+      "explanation": [
+        "strip uses Unicode whitespace semantics, whereas trim removes characters at or below a legacy code-point threshold. strip is usually better for international text."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-147",
+      "technology": "java",
+      "title": "How can String.intern affect memory and identity?",
+      "questionType": "scenario",
+      "explanation": [
+        "intern returns a canonical pool reference, enabling identity sharing but potentially increasing pool pressure and coupling logic to global canonicalization."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-148",
+      "technology": "java",
+      "title": "When should StringBuilder capacity be sized in advance?",
+      "questionType": "comparison",
+      "explanation": [
+        "A reasonable estimate reduces backing-array growth and copying for large predictable output, but over-allocation wastes memory and should be guided by measurements."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-149",
+      "technology": "java",
+      "title": "Why is repeated string concatenation in a loop potentially expensive?",
+      "questionType": "debugging",
+      "explanation": [
+        "Each immutable concatenation can create new intermediate storage; a StringBuilder accumulates changes in one mutable buffer when the compiler cannot optimize the pattern."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-150",
+      "technology": "java",
+      "title": "What is catastrophic backtracking in a regular expression?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Nested ambiguous quantifiers can make a backtracking engine explore exponentially many paths on hostile input. Bound input, simplify the pattern, or use possessive constructs."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-151",
+      "technology": "java",
+      "title": "How do matches, lookingAt, and find differ in Matcher?",
+      "questionType": "system-design",
+      "explanation": [
+        "matches requires the entire region, lookingAt starts at the region beginning, and find searches for the next matching subsequence."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-152",
+      "technology": "java",
+      "title": "Why should Pattern instances often be reused?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Compiling a regular expression parses and builds matcher machinery; a compiled immutable Pattern can be safely reused while Matcher instances remain per-operation."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-153",
+      "technology": "java",
+      "title": "Why should BigDecimal values usually be created from strings?",
+      "questionType": "scenario",
+      "explanation": [
+        "A decimal string preserves the intended base-10 value, while constructing from double captures that binary floating-point value and may expose a long decimal expansion."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-154",
+      "technology": "java",
+      "title": "How do BigDecimal.equals and compareTo differ?",
+      "questionType": "comparison",
+      "explanation": [
+        "equals considers both value and scale, while compareTo compares numerical value. Thus 2.0 and 2.00 compare as zero but are not equal."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-155",
+      "technology": "java",
+      "title": "What does this text-block indentation produce?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Incidental indentation shared by the closing delimiter and content is removed, preserving a readable source layout without embedding all leading source spaces."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "String json = \"\"\"\n        {\n          \"ready\": true\n        }\n        \"\"\";"
+      },
+      "source": {
+        "title": "Java Language Specification: Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+      }
+    },
+    {
+      "id": "java-156",
+      "technology": "java",
+      "title": "Why is ArrayDeque usually preferred over Stack?",
+      "questionType": "algorithm",
+      "explanation": [
+        "ArrayDeque provides efficient stack and queue operations without Stack legacy synchronization and Vector inheritance; null elements are deliberately unsupported."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-157",
+      "technology": "java",
+      "title": "How does PriorityQueue order iteration versus removal?",
+      "questionType": "system-design",
+      "explanation": [
+        "The head follows priority order, but iteration is not sorted. Repeated poll operations are required to consume elements by priority."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-158",
+      "technology": "java",
+      "title": "When is IdentityHashMap appropriate?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It compares keys by reference identity instead of equals, fitting topology transforms or object-graph tracking; it violates normal Map equality expectations for business keys."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-159",
+      "technology": "java",
+      "title": "What cleanup behavior can WeakHashMap provide?",
+      "questionType": "scenario",
+      "explanation": [
+        "Entries may disappear after keys become weakly reachable, which can help attach auxiliary data without owning key lifetime; collection timing is nondeterministic."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-160",
+      "technology": "java",
+      "title": "Why is CopyOnWriteArrayList good for reads but costly for writes?",
+      "questionType": "comparison",
+      "explanation": [
+        "Reads use stable snapshots without locking, while each mutation copies the backing array. It suits small, rarely changed listener lists rather than write-heavy data."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-161",
+      "technology": "java",
+      "title": "How does ConcurrentSkipListMap differ from ConcurrentHashMap?",
+      "questionType": "debugging",
+      "explanation": [
+        "It maintains sorted keys and navigation operations with logarithmic expected costs, whereas ConcurrentHashMap emphasizes unordered high-throughput key access."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-162",
+      "technology": "java",
+      "title": "What does NavigableMap.floorEntry return?",
+      "questionType": "algorithm",
+      "explanation": [
+        "It returns the greatest key-value entry whose key is less than or equal to the target, or null when no such key exists."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-163",
+      "technology": "java",
+      "title": "Why can Collections.binarySearch return a negative number?",
+      "questionType": "system-design",
+      "explanation": [
+        "A negative result encodes the insertion point as -(point)-1, allowing callers to preserve ordering without performing a second search."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-164",
+      "technology": "java",
+      "title": "How does BitSet reduce storage for dense boolean indexes?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It packs flags into machine words and supplies bulk logical operations, often using far less memory than boxed Boolean collections."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-165",
+      "technology": "java",
+      "title": "What ordering does this priority queue produce?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The reverse-order comparator makes the greatest number the head, so poll returns 9 before 4 and 1."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "var queue = new PriorityQueue<Integer>(Comparator.reverseOrder());\nqueue.addAll(List.of(4, 9, 1));\nSystem.out.println(queue.poll());"
+      },
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-166",
+      "technology": "java",
+      "title": "What is the purpose of SequencedCollection?",
+      "questionType": "comparison",
+      "explanation": [
+        "It gives ordered collections a uniform first, last, and reversed view API, reducing type-specific code for encounter-order operations."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-167",
+      "technology": "java",
+      "title": "How does a reversed collection view differ from a copied reversal?",
+      "questionType": "debugging",
+      "explanation": [
+        "A reversed view presents opposite encounter order over the same underlying collection, so permitted changes remain connected rather than creating an independent snapshot."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-168",
+      "technology": "java",
+      "title": "Why can a TreeSet silently reject a value unequal by equals?",
+      "questionType": "algorithm",
+      "explanation": [
+        "TreeSet uniqueness follows compareTo or its Comparator. If comparison returns zero, the set treats values as the same element regardless of equals."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-169",
+      "technology": "java",
+      "title": "When should Arrays.mismatch be used?",
+      "questionType": "system-design",
+      "explanation": [
+        "It efficiently locates the first differing position between arrays, which helps implement comparison, diagnostics, and prefix checks without a manual scan."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-170",
+      "technology": "java",
+      "title": "How does Collections.rotate transform a list?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It shifts each element by a modular distance, wrapping at the ends; positive distance moves elements toward higher indexes."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-171",
+      "technology": "java",
+      "title": "What does a Spliterator characteristic communicate?",
+      "questionType": "scenario",
+      "explanation": [
+        "Characteristics such as ORDERED, DISTINCT, SORTED, SIZED, and IMMUTABLE let traversal consumers select valid optimizations without changing semantics."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-172",
+      "technology": "java",
+      "title": "Why does a good Spliterator trySplit matter for parallel streams?",
+      "questionType": "comparison",
+      "explanation": [
+        "Balanced splitting creates enough similarly sized tasks for worker utilization; poor splitting leaves parallel overhead without useful load distribution."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-173",
+      "technology": "java",
+      "title": "How can a custom collector remain correct in parallel?",
+      "questionType": "debugging",
+      "explanation": [
+        "Its supplier, accumulator, combiner, finisher, and characteristics must form a compatible reduction whose grouping and ordering semantics survive partitioned execution."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-174",
+      "technology": "java",
+      "title": "What is the cost of maintaining insertion order in LinkedHashMap?",
+      "questionType": "algorithm",
+      "explanation": [
+        "It adds a linked ordering structure and related update work, trading some memory and mutation cost for predictable encounter or access order."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-175",
+      "technology": "java",
+      "title": "How can LinkedHashMap implement a bounded LRU-style cache?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Access-order mode moves read entries toward the newest end, and removeEldestEntry can evict the oldest entry after insertion; external synchronization may still be needed."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "var cache = new LinkedHashMap<String, String>(16, 0.75f, true) {\n    protected boolean removeEldestEntry(Map.Entry<String,String> e) {\n        return size() > 100;\n    }\n};"
+      },
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-176",
+      "technology": "java",
+      "title": "Why are streams described as lazy?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Intermediate operations build a pipeline and normally do no traversal until a terminal operation requests results, enabling fusion and short-circuiting."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-177",
+      "technology": "java",
+      "title": "Why can reusing a consumed Stream fail?",
+      "questionType": "scenario",
+      "explanation": [
+        "A stream represents a single traversal pipeline; after a terminal operation it is closed to further operations and may throw IllegalStateException."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-178",
+      "technology": "java",
+      "title": "How does mapMulti differ from flatMap?",
+      "questionType": "comparison",
+      "explanation": [
+        "mapMulti emits zero or more results through a consumer without allocating a new stream per input, which can be useful for small expansions."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-179",
+      "technology": "java",
+      "title": "When does takeWhile differ from filter?",
+      "questionType": "debugging",
+      "explanation": [
+        "takeWhile stops at the first predicate failure in encounter order, while filter evaluates the full stream and keeps every matching element."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-180",
+      "technology": "java",
+      "title": "Why can distinct be expensive on a parallel ordered stream?",
+      "questionType": "algorithm",
+      "explanation": [
+        "It is a stateful barrier that must track seen values while preserving encounter order. Removing ordering only when semantics allow can improve parallel execution."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-181",
+      "technology": "java",
+      "title": "How do groupingBy and partitioningBy differ?",
+      "questionType": "system-design",
+      "explanation": [
+        "partitioningBy always creates boolean groups, while groupingBy derives arbitrary keys and supports richer classification maps."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-182",
+      "technology": "java",
+      "title": "What problem do downstream collectors solve?",
+      "questionType": "conceptual",
+      "explanation": [
+        "They let each group perform another reduction, such as mapping, filtering, counting, or summarizing, without materializing every grouped element first."
+      ],
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-183",
+      "technology": "java",
+      "title": "When is Optional.orElseGet preferable to orElse?",
+      "questionType": "scenario",
+      "explanation": [
+        "orElse evaluates its fallback eagerly even when a value exists; orElseGet invokes the supplier only when the optional is empty."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-184",
+      "technology": "java",
+      "title": "Why should Optional generally not be used as every field type?",
+      "questionType": "comparison",
+      "explanation": [
+        "Optional was designed primarily as a return-value signal. Pervasive fields can complicate serialization, frameworks, allocation, and domain invariants."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-185",
+      "technology": "java",
+      "title": "What does this stream pipeline return?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The pipeline stops once it finds the first even number after filtering, so the result is Optional containing 8 and later elements need not be tested."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "Optional<Integer> first = Stream.of(3, 5, 8, 10)\n    .filter(n -> n % 2 == 0)\n    .findFirst();"
+      },
+      "source": {
+        "title": "Stream API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html"
+      }
+    },
+    {
+      "id": "java-186",
+      "technology": "java",
+      "title": "When should ReentrantLock be chosen over synchronized?",
+      "questionType": "algorithm",
+      "explanation": [
+        "It provides capabilities such as timed or interruptible acquisition, multiple conditions, and explicit fairness policy, at the cost of manual finally-based release."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-187",
+      "technology": "java",
+      "title": "How does ReentrantReadWriteLock help read-heavy state?",
+      "questionType": "system-design",
+      "explanation": [
+        "It permits concurrent readers while serializing writers, but bookkeeping and contention can make it slower than one lock for short or write-heavy operations."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-188",
+      "technology": "java",
+      "title": "What is an optimistic read in StampedLock?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It reads without taking a traditional read lock and then validates a stamp; failed validation requires retrying under a stable lock."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-189",
+      "technology": "java",
+      "title": "How does Semaphore model a bounded resource?",
+      "questionType": "scenario",
+      "explanation": [
+        "Permits represent concurrent capacity. Callers acquire before use and release in finally, limiting access independently of the number of requesting threads."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-190",
+      "technology": "java",
+      "title": "When is CountDownLatch useful?",
+      "questionType": "comparison",
+      "explanation": [
+        "It lets threads wait until a fixed set of one-time events completes; unlike a barrier, its count cannot be reset for another phase."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-191",
+      "technology": "java",
+      "title": "How does CyclicBarrier coordinate phases?",
+      "questionType": "debugging",
+      "explanation": [
+        "A fixed group waits at the barrier until all arrive, then the barrier resets for another round and can run a barrier action."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-192",
+      "technology": "java",
+      "title": "What problem does Phaser solve beyond CountDownLatch?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Phaser supports reusable phases and dynamic party registration, fitting workflows whose participants change across coordinated stages."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-193",
+      "technology": "java",
+      "title": "When is Exchanger useful?",
+      "questionType": "system-design",
+      "explanation": [
+        "It pairs two threads at a synchronization point so each hands one object to the other, useful for buffer handoff or paired pipeline stages."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-194",
+      "technology": "java",
+      "title": "How does SynchronousQueue provide backpressure?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It has no storage capacity; each put must rendezvous with a take, directly coupling producer throughput to consumer readiness."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-195",
+      "technology": "java",
+      "title": "Why must a lock be released in finally?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "An exception between acquisition and release would otherwise leave the lock held and can permanently block other threads."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "lock.lock();\ntry {\n    updateState();\n} finally {\n    lock.unlock();\n}"
+      },
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-196",
+      "technology": "java",
+      "title": "What is the difference between execute and submit on ExecutorService?",
+      "questionType": "comparison",
+      "explanation": [
+        "execute runs a task without a result handle, while submit returns a Future that captures completion, cancellation, result, or failure."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-197",
+      "technology": "java",
+      "title": "Why can exceptions from submitted tasks appear to vanish?",
+      "questionType": "debugging",
+      "explanation": [
+        "submit stores task failure in the Future; if nobody calls get or observes completion, the exception may never reach normal uncaught-exception reporting."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-198",
+      "technology": "java",
+      "title": "How should a bounded ThreadPoolExecutor rejection policy be selected?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Choose whether to fail, block elsewhere, run on the caller, or discard based on workload semantics; rejection is an overload contract, not just an error detail."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-199",
+      "technology": "java",
+      "title": "What does CompletableFuture thenCompose prevent?",
+      "questionType": "system-design",
+      "explanation": [
+        "It flattens an asynchronous function returning another stage, avoiding a nested CompletionStage of CompletionStage."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-200",
+      "technology": "java",
+      "title": "How do handle and exceptionally differ in CompletableFuture?",
+      "questionType": "conceptual",
+      "explanation": [
+        "exceptionally recovers only from failure, while handle observes both a value and an exception and can transform either outcome."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-201",
+      "technology": "java",
+      "title": "Why can blocking the common ForkJoinPool cause starvation?",
+      "questionType": "scenario",
+      "explanation": [
+        "Workers are sized for work-stealing computation; unmanaged blocking removes workers from useful work and can delay dependent tasks."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-202",
+      "technology": "java",
+      "title": "How does ForkJoinPool work stealing improve utilization?",
+      "questionType": "comparison",
+      "explanation": [
+        "Idle workers take tasks from other workers queues, balancing recursively divided work without a single central scheduling bottleneck."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-203",
+      "technology": "java",
+      "title": "When should ForkJoinTask use managedBlock?",
+      "questionType": "debugging",
+      "explanation": [
+        "A task that must block can notify the pool through managedBlock so it may compensate with another worker and preserve parallelism."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-204",
+      "technology": "java",
+      "title": "What cancellation guarantee does Future.cancel provide?",
+      "questionType": "algorithm",
+      "explanation": [
+        "It attempts cancellation; interruption is cooperative and may be ignored, so task code must observe interruption and preserve consistent state."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-205",
+      "technology": "java",
+      "title": "What does this CompletableFuture chain print?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "thenApply transforms the completed value synchronously when possible, producing 42, and join returns it or wraps failure in CompletionException."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "int result = CompletableFuture.completedFuture(21)\n    .thenApply(n -> n * 2)\n    .join();\nSystem.out.println(result);"
+      },
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-206",
+      "technology": "java",
+      "title": "What problem does structured concurrency address?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It treats related concurrent subtasks as one lexical unit, making lifetime, joining, cancellation, and error propagation easier to reason about."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-207",
+      "technology": "java",
+      "title": "Why should preview Java APIs be isolated in production code?",
+      "questionType": "scenario",
+      "explanation": [
+        "Preview features can change or disappear and require explicit compiler and runtime flags, so a boundary limits migration and operational risk."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-208",
+      "technology": "java",
+      "title": "How do scoped values differ from ThreadLocal?",
+      "questionType": "comparison",
+      "explanation": [
+        "Scoped values provide immutable context within a bounded dynamic scope and are designed for structured task inheritance without long-lived mutable thread state."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-209",
+      "technology": "java",
+      "title": "Why does Thread.sleep not release an intrinsic lock?",
+      "questionType": "debugging",
+      "explanation": [
+        "sleep pauses the current thread but does not change monitor ownership; wait releases the monitor while waiting and requires synchronized ownership."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-210",
+      "technology": "java",
+      "title": "How does park differ from sleep?",
+      "questionType": "algorithm",
+      "explanation": [
+        "LockSupport park uses a permit-like mechanism and may return spuriously; it integrates with synchronizer implementations rather than promising a precise delay."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-211",
+      "technology": "java",
+      "title": "What should happen when a blocking Java operation is interrupted?",
+      "questionType": "system-design",
+      "explanation": [
+        "Code should normally propagate InterruptedException or restore the interrupt flag after cleanup so higher layers can honor cancellation."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-212",
+      "technology": "java",
+      "title": "Why is Thread.stop unsafe?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It can asynchronously release monitors while protected invariants are half-updated. Cooperative cancellation gives code controlled cleanup points."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-213",
+      "technology": "java",
+      "title": "How do daemon threads affect JVM shutdown?",
+      "questionType": "scenario",
+      "explanation": [
+        "The JVM may exit when only daemon threads remain, so critical persistence or cleanup must not rely solely on daemon work finishing."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-214",
+      "technology": "java",
+      "title": "What limits virtual-thread scalability in a real service?",
+      "questionType": "comparison",
+      "explanation": [
+        "Database connections, remote quotas, memory, CPU, file descriptors, and pinned blocking sections still require explicit capacity and backpressure."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-215",
+      "technology": "java",
+      "title": "What does this try-with-resources executor block guarantee?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The executor is closed at block exit, which waits for submitted tasks according to its close contract and makes task lifetime explicit."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {\n    Future<String> value = executor.submit(this::loadValue);\n    System.out.println(value.get());\n}"
+      },
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-216",
+      "technology": "java",
+      "title": "What does happens-before mean in the Java Memory Model?",
+      "questionType": "algorithm",
+      "explanation": [
+        "If one action happens-before another, its effects are guaranteed visible and ordered to the later action; absence of that relation permits surprising observations."
+      ],
+      "source": {
+        "title": "Java Language Specification: Threads and Locks",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html"
+      }
+    },
+    {
+      "id": "java-217",
+      "technology": "java",
+      "title": "Why does volatile provide visibility but not make count++ atomic?",
+      "questionType": "system-design",
+      "explanation": [
+        "A volatile read and write are individually visible and ordered, but increment is a read-modify-write sequence that can interleave across threads."
+      ],
+      "source": {
+        "title": "Java Language Specification: Threads and Locks",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html"
+      }
+    },
+    {
+      "id": "java-218",
+      "technology": "java",
+      "title": "What safe-publication guarantees do final fields receive?",
+      "questionType": "conceptual",
+      "explanation": [
+        "When construction does not leak this, properly initialized final fields receive special visibility guarantees after another thread obtains the object reference."
+      ],
+      "source": {
+        "title": "Java Language Specification: Threads and Locks",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html"
+      }
+    },
+    {
+      "id": "java-219",
+      "technology": "java",
+      "title": "What is double-checked locking missing without volatile?",
+      "questionType": "scenario",
+      "explanation": [
+        "Without volatile, publication can be reordered so another thread sees a non-null reference before constructor effects are safely visible."
+      ],
+      "source": {
+        "title": "Java Language Specification: Threads and Locks",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html"
+      }
+    },
+    {
+      "id": "java-220",
+      "technology": "java",
+      "title": "How does AtomicInteger compareAndSet support lock-free updates?",
+      "questionType": "comparison",
+      "explanation": [
+        "It conditionally writes only when the current value equals the expected value, allowing retry loops to coordinate without a mutual-exclusion lock."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-221",
+      "technology": "java",
+      "title": "What is the ABA problem in compare-and-set algorithms?",
+      "questionType": "debugging",
+      "explanation": [
+        "A value can change from A to B and back to A, so equality alone hides intervening state changes; stamped or versioned references can detect them."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-222",
+      "technology": "java",
+      "title": "When is LongAdder preferable to AtomicLong?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Under heavy concurrent updates, striped cells reduce contention for counters, but sum is not an atomic snapshot and per-update linearizability is weaker."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-223",
+      "technology": "java",
+      "title": "What does a VarHandle provide?",
+      "questionType": "system-design",
+      "explanation": [
+        "It offers typed access modes for fields and array elements, including plain, opaque, acquire-release, volatile, and atomic operations."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-224",
+      "technology": "java",
+      "title": "Why can false sharing reduce multicore performance?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Independent hot fields on the same cache line cause processors to invalidate each others caches, creating coherence traffic without logical sharing."
+      ],
+      "source": {
+        "title": "Java Language Specification: Threads and Locks",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html"
+      }
+    },
+    {
+      "id": "java-225",
+      "technology": "java",
+      "title": "Why can this loop fail to stop without proper synchronization?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The worker has a data race on running; the compiler or CPU need not make another threads write promptly visible. volatile establishes the required visibility."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "class Worker implements Runnable {\n    boolean running = true;\n    public void run() { while (running) { } }\n}"
+      },
+      "source": {
+        "title": "Java Language Specification: Threads and Locks",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html"
+      }
+    },
+    {
+      "id": "java-226",
+      "technology": "java",
+      "title": "How does Path differ from File?",
+      "questionType": "comparison",
+      "explanation": [
+        "Path is the modern filesystem abstraction used by Files and provider APIs, with richer operations, links, attributes, and custom filesystem support."
+      ],
+      "source": {
+        "title": "java.nio.file Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/package-summary.html"
+      }
+    },
+    {
+      "id": "java-227",
+      "technology": "java",
+      "title": "Why should Files.lines be used in try-with-resources?",
+      "questionType": "debugging",
+      "explanation": [
+        "The lazy stream holds an open file resource until the stream is closed, so deterministic closure is required even when traversal fails."
+      ],
+      "source": {
+        "title": "java.nio.file Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/package-summary.html"
+      }
+    },
+    {
+      "id": "java-228",
+      "technology": "java",
+      "title": "What does an atomic file move guarantee?",
+      "questionType": "algorithm",
+      "explanation": [
+        "When the provider supports it, observers see the path switch as one operation rather than a partially copied destination; support must be detected."
+      ],
+      "source": {
+        "title": "java.nio.file Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/package-summary.html"
+      }
+    },
+    {
+      "id": "java-229",
+      "technology": "java",
+      "title": "How should temporary files be created safely?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use Files.createTempFile with controlled permissions and cleanup rather than predictable names, which invite collisions and race attacks."
+      ],
+      "source": {
+        "title": "java.nio.file Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/package-summary.html"
+      }
+    },
+    {
+      "id": "java-230",
+      "technology": "java",
+      "title": "What are the limitations of WatchService?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Events may be coalesced or overflowed and behavior varies by provider, so consumers must rescan after overflow and not treat it as a perfect audit log."
+      ],
+      "source": {
+        "title": "java.nio.file Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/package-summary.html"
+      }
+    },
+    {
+      "id": "java-231",
+      "technology": "java",
+      "title": "When is a memory-mapped byte buffer useful?",
+      "questionType": "scenario",
+      "explanation": [
+        "It lets the operating system map file regions into memory for efficient random access, but mapping lifetime and unmapping behavior require care."
+      ],
+      "source": {
+        "title": "Java NIO API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/package-summary.html"
+      }
+    },
+    {
+      "id": "java-232",
+      "technology": "java",
+      "title": "How do flip and compact differ on a ByteBuffer?",
+      "questionType": "comparison",
+      "explanation": [
+        "flip prepares written bytes for reading by setting the limit and resetting position; compact preserves unread bytes and makes space for more input."
+      ],
+      "source": {
+        "title": "Java NIO API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/package-summary.html"
+      }
+    },
+    {
+      "id": "java-233",
+      "technology": "java",
+      "title": "Why must CharsetDecoder errors be handled explicitly?",
+      "questionType": "debugging",
+      "explanation": [
+        "Malformed or unmappable byte sequences require a reporting, replacement, or ignore policy; silent platform defaults can corrupt data."
+      ],
+      "source": {
+        "title": "Java NIO API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/package-summary.html"
+      }
+    },
+    {
+      "id": "java-234",
+      "technology": "java",
+      "title": "What advantage do scattering reads and gathering writes provide?",
+      "questionType": "algorithm",
+      "explanation": [
+        "A channel can transfer data across several buffers in one operation, fitting protocols with separate headers and bodies while reducing copying."
+      ],
+      "source": {
+        "title": "Java NIO API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/package-summary.html"
+      }
+    },
+    {
+      "id": "java-235",
+      "technology": "java",
+      "title": "What state does this buffer have after flip?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Position becomes zero and limit becomes the previous position, so get reads exactly the bytes that were written."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "ByteBuffer buffer = ByteBuffer.allocate(8);\nbuffer.putInt(42);\nbuffer.flip();\nSystem.out.println(buffer.getInt());"
+      },
+      "source": {
+        "title": "Java NIO API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/package-summary.html"
+      }
+    },
+    {
+      "id": "java-236",
+      "technology": "java",
+      "title": "How does a Selector scale many socket channels?",
+      "questionType": "conceptual",
+      "explanation": [
+        "One thread can wait for readiness across many non-blocking channels, avoiding one platform thread per mostly idle connection."
+      ],
+      "source": {
+        "title": "Java NIO API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/package-summary.html"
+      }
+    },
+    {
+      "id": "java-237",
+      "technology": "java",
+      "title": "What does asynchronous file I/O completion handling change?",
+      "questionType": "scenario",
+      "explanation": [
+        "The initiating thread does not wait for the operation; a Future or completion handler observes success and failure later."
+      ],
+      "source": {
+        "title": "Java NIO API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/package-summary.html"
+      }
+    },
+    {
+      "id": "java-238",
+      "technology": "java",
+      "title": "Why should Socket timeouts be set deliberately?",
+      "questionType": "comparison",
+      "explanation": [
+        "Without connection, read, and operation deadlines, a dependency or network fault can retain threads and capacity indefinitely."
+      ],
+      "source": {
+        "title": "Java HTTP Client",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-networking.html"
+      }
+    },
+    {
+      "id": "java-239",
+      "technology": "java",
+      "title": "How does URI differ from URL in Java?",
+      "questionType": "debugging",
+      "explanation": [
+        "URI models and parses identifiers without requiring a protocol handler, while URL includes resource-access behavior and legacy equality pitfalls."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-240",
+      "technology": "java",
+      "title": "What does HttpClient.Redirect control?",
+      "questionType": "algorithm",
+      "explanation": [
+        "It determines whether redirects are never followed, followed for normal schemes, or always followed, making redirect trust a client policy."
+      ],
+      "source": {
+        "title": "Java HTTP Client",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-networking.html"
+      }
+    },
+    {
+      "id": "java-241",
+      "technology": "java",
+      "title": "How does HTTP client body streaming avoid large buffering?",
+      "questionType": "system-design",
+      "explanation": [
+        "Body publishers and subscribers can transfer content incrementally, allowing backpressure-aware handling instead of materializing the full body."
+      ],
+      "source": {
+        "title": "Java HTTP Client",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-networking.html"
+      }
+    },
+    {
+      "id": "java-242",
+      "technology": "java",
+      "title": "Why should an HttpClient instance be reused?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It can share connection pools and configuration, avoiding repeated setup and improving transport efficiency across requests."
+      ],
+      "source": {
+        "title": "Java HTTP Client",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-networking.html"
+      }
+    },
+    {
+      "id": "java-243",
+      "technology": "java",
+      "title": "What does WebSocket backpressure require from Java code?",
+      "questionType": "scenario",
+      "explanation": [
+        "Demand must be requested and message processing kept bounded; receiving faster than consumption without limits can exhaust memory."
+      ],
+      "source": {
+        "title": "Java HTTP Client",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-networking.html"
+      }
+    },
+    {
+      "id": "java-244",
+      "technology": "java",
+      "title": "How should an application validate TLS host identity?",
+      "questionType": "comparison",
+      "explanation": [
+        "Use the standard HTTPS client verification path and trusted certificates; disabling hostname checks converts encryption into an unauthenticated channel."
+      ],
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-245",
+      "technology": "java",
+      "title": "What is asynchronous about this sendAsync call?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "sendAsync returns a CompletableFuture immediately; response handling continues when headers and the selected body handler complete."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "HttpRequest request = HttpRequest.newBuilder(URI.create(url)).GET().build();\nCompletableFuture<HttpResponse<String>> response =\n    client.sendAsync(request, HttpResponse.BodyHandlers.ofString());"
+      },
+      "source": {
+        "title": "Java HTTP Client",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-networking.html"
+      }
+    },
+    {
+      "id": "java-246",
+      "technology": "java",
+      "title": "When should Instant be stored instead of LocalDateTime?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Instant identifies a unique timeline point, while LocalDateTime has no offset or zone and can be ambiguous during clock changes."
+      ],
+      "source": {
+        "title": "java.time Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html"
+      }
+    },
+    {
+      "id": "java-247",
+      "technology": "java",
+      "title": "How do OffsetDateTime and ZonedDateTime differ?",
+      "questionType": "system-design",
+      "explanation": [
+        "OffsetDateTime stores a fixed UTC offset; ZonedDateTime also stores region rules that determine historical and future offset transitions."
+      ],
+      "source": {
+        "title": "java.time Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html"
+      }
+    },
+    {
+      "id": "java-248",
+      "technology": "java",
+      "title": "Why can parsing a local time during a daylight-saving overlap be ambiguous?",
+      "questionType": "conceptual",
+      "explanation": [
+        "The same wall-clock value can occur twice with different offsets, so business rules must select an offset or retain the zone-aware result."
+      ],
+      "source": {
+        "title": "java.time Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html"
+      }
+    },
+    {
+      "id": "java-249",
+      "technology": "java",
+      "title": "How do Period and Duration model different quantities?",
+      "questionType": "scenario",
+      "explanation": [
+        "Period uses calendar units such as years, months, and days; Duration measures exact elapsed seconds and nanoseconds."
+      ],
+      "source": {
+        "title": "java.time Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html"
+      }
+    },
+    {
+      "id": "java-250",
+      "technology": "java",
+      "title": "What does Clock injection improve in tests?",
+      "questionType": "comparison",
+      "explanation": [
+        "Code can obtain time through a supplied Clock, allowing deterministic fixed or offset time without changing the system clock."
+      ],
+      "source": {
+        "title": "java.time Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html"
+      }
+    },
+    {
+      "id": "java-251",
+      "technology": "java",
+      "title": "Why is DateTimeFormatter immutable useful?",
+      "questionType": "debugging",
+      "explanation": [
+        "A configured formatter can be safely reused across threads, unlike mutable legacy formatting classes that require confinement or synchronization."
+      ],
+      "source": {
+        "title": "java.time Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html"
+      }
+    },
+    {
+      "id": "java-252",
+      "technology": "java",
+      "title": "How should Locale-sensitive case conversion be performed?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Pass the intended Locale explicitly; use Locale.ROOT for protocol identifiers so host default language rules cannot change behavior."
+      ],
+      "source": {
+        "title": "Java Internationalization Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/intl/"
+      }
+    },
+    {
+      "id": "java-253",
+      "technology": "java",
+      "title": "Why should Collator be used for user-facing sort order?",
+      "questionType": "system-design",
+      "explanation": [
+        "Unicode code-point order is not natural language order. Collator applies locale-sensitive comparison levels and rules."
+      ],
+      "source": {
+        "title": "Java Internationalization Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/intl/"
+      }
+    },
+    {
+      "id": "java-254",
+      "technology": "java",
+      "title": "What does ResourceBundle fallback provide?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It searches progressively less specific locale bundles and a base bundle, allowing translated overrides with shared defaults."
+      ],
+      "source": {
+        "title": "Java Internationalization Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/intl/"
+      }
+    },
+    {
+      "id": "java-255",
+      "technology": "java",
+      "title": "What instant does this zone conversion preserve?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "withZoneSameInstant changes the displayed local fields and offset while preserving the exact timeline moment."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "ZonedDateTime india = meeting.withZoneSameInstant(ZoneId.of(\"Asia/Kolkata\"));"
+      },
+      "source": {
+        "title": "java.time Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html"
+      }
+    },
+    {
+      "id": "java-256",
+      "technology": "java",
+      "title": "How do MessageDigest and Mac serve different security purposes?",
+      "questionType": "comparison",
+      "explanation": [
+        "A digest detects accidental change without a secret; a MAC authenticates integrity using a shared secret and resists attacker recomputation."
+      ],
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-257",
+      "technology": "java",
+      "title": "Why should password storage use a password-hashing function rather than SHA-256?",
+      "questionType": "debugging",
+      "explanation": [
+        "Password KDFs deliberately add salt and adjustable computational cost, making offline guessing more expensive than a fast general digest."
+      ],
+      "source": {
+        "title": "Secure Coding Guidelines for Java SE",
+        "url": "https://www.oracle.com/java/technologies/javase/seccodeguide.html"
+      }
+    },
+    {
+      "id": "java-258",
+      "technology": "java",
+      "title": "What is the role of KeyStore?",
+      "questionType": "algorithm",
+      "explanation": [
+        "It stores and retrieves keys and certificates through provider-backed formats, while access controls and password handling remain application responsibilities."
+      ],
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-259",
+      "technology": "java",
+      "title": "Why must AES-GCM nonces never repeat under one key?",
+      "questionType": "system-design",
+      "explanation": [
+        "Nonce reuse breaks GCM confidentiality and authentication guarantees, potentially exposing plaintext relationships and enabling forgeries."
+      ],
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-260",
+      "technology": "java",
+      "title": "What does Signature verification establish?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It checks that data matches a signature under a public key, providing integrity and signer-key authenticity when the key itself is trusted."
+      ],
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-261",
+      "technology": "java",
+      "title": "How does certificate-path validation differ from checking one signature?",
+      "questionType": "scenario",
+      "explanation": [
+        "Path validation builds trust through issuers and applies validity, constraints, revocation policy, and a configured trust anchor."
+      ],
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-262",
+      "technology": "java",
+      "title": "Why should secrets not be stored in immutable String objects?",
+      "questionType": "comparison",
+      "explanation": [
+        "Strings cannot be wiped and may remain in memory; mutable character or byte arrays allow deliberate clearing after use, though copies must still be controlled."
+      ],
+      "source": {
+        "title": "Secure Coding Guidelines for Java SE",
+        "url": "https://www.oracle.com/java/technologies/javase/seccodeguide.html"
+      }
+    },
+    {
+      "id": "java-263",
+      "technology": "java",
+      "title": "What does a security provider supply?",
+      "questionType": "debugging",
+      "explanation": [
+        "A provider implements named cryptographic services and algorithms; callers should request standard algorithms and validate deployment provider capabilities."
+      ],
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-264",
+      "technology": "java",
+      "title": "Why is deserializing untrusted Java objects dangerous?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Object graphs can trigger unexpected class behavior and resource consumption. Prefer constrained data formats or strict serialization filters and allowlists."
+      ],
+      "source": {
+        "title": "Java Object Serialization Specification",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/serialization/"
+      }
+    },
+    {
+      "id": "java-265",
+      "technology": "java",
+      "title": "What security property does this comparison need?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Authentication tags and secret values should use a constant-time comparison primitive where available to reduce timing leakage from early mismatch exits."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "boolean valid = MessageDigest.isEqual(expectedTag, suppliedTag);"
+      },
+      "source": {
+        "title": "Java Security Developer Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/security/"
+      }
+    },
+    {
+      "id": "java-266",
+      "technology": "java",
+      "title": "What does an ObjectInputFilter limit?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It can reject deserialization based on classes, graph depth, references, array size, and bytes, reducing but not eliminating unsafe format risk."
+      ],
+      "source": {
+        "title": "Java Object Serialization Specification",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/serialization/"
+      }
+    },
+    {
+      "id": "java-267",
+      "technology": "java",
+      "title": "Why is serialVersionUID important for Serializable classes?",
+      "questionType": "scenario",
+      "explanation": [
+        "It identifies a serialization version; an incompatible stream and class version can fail, but matching IDs do not guarantee semantic compatibility."
+      ],
+      "source": {
+        "title": "Java Object Serialization Specification",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/serialization/"
+      }
+    },
+    {
+      "id": "java-268",
+      "technology": "java",
+      "title": "When should readResolve be treated cautiously?",
+      "questionType": "comparison",
+      "explanation": [
+        "It can replace a deserialized object, supporting canonical instances but also adding hidden execution and invariant complexity to deserialization."
+      ],
+      "source": {
+        "title": "Java Object Serialization Specification",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/serialization/"
+      }
+    },
+    {
+      "id": "java-269",
+      "technology": "java",
+      "title": "How can XML external entities create a server-side request risk?",
+      "questionType": "debugging",
+      "explanation": [
+        "An unsafe parser may resolve attacker-controlled external identifiers against files or networks. Disable external resolution and use secure parser settings."
+      ],
+      "source": {
+        "title": "Secure Coding Guidelines for Java SE",
+        "url": "https://www.oracle.com/java/technologies/javase/seccodeguide.html"
+      }
+    },
+    {
+      "id": "java-270",
+      "technology": "java",
+      "title": "Why should ProcessBuilder arguments remain separate strings?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Separate arguments avoid shell parsing and injection when no shell is invoked; adding a shell reintroduces quoting and metacharacter risks."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-271",
+      "technology": "java",
+      "title": "How should a Java process avoid deadlock on child output?",
+      "questionType": "system-design",
+      "explanation": [
+        "Consume stdout and stderr concurrently or redirect them, because a child can block when an unread pipe buffer fills."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-272",
+      "technology": "java",
+      "title": "What does ProcessHandle provide?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It exposes process identity, metadata, descendants, liveness, completion, and controlled termination without relying on platform-specific commands."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-273",
+      "technology": "java",
+      "title": "Why should shutdown hooks be small and bounded?",
+      "questionType": "scenario",
+      "explanation": [
+        "Hooks run during JVM shutdown with uncertain ordering and limited time; blocking dependencies or deadlocks can prevent timely termination."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-274",
+      "technology": "java",
+      "title": "When does Cleaner help, and what can it not guarantee?",
+      "questionType": "comparison",
+      "explanation": [
+        "Cleaner can provide a safety-net action when an object becomes phantom reachable, but timing is nondeterministic and explicit close remains required."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-275",
+      "technology": "java",
+      "title": "What does this try-with-resources suppression behavior preserve?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The body exception remains primary while a close failure is attached as suppressed, retaining both causes without hiding the original failure."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "try (InputStream in = open()) {\n    throw new IOException(\"read failed\");\n}"
+      },
+      "source": {
+        "title": "Java Language Specification: Execution",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html"
+      }
+    },
+    {
+      "id": "java-276",
+      "technology": "java",
+      "title": "What triggers Java class initialization?",
+      "questionType": "algorithm",
+      "explanation": [
+        "First active use such as invoking a static method, accessing a nonconstant static field, or constructing an instance initializes the class after its superclasses."
+      ],
+      "source": {
+        "title": "Java Language Specification: Execution",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html"
+      }
+    },
+    {
+      "id": "java-277",
+      "technology": "java",
+      "title": "Why can a class remain unusable after static initialization fails?",
+      "questionType": "system-design",
+      "explanation": [
+        "The first failure throws an initializer error; later active uses typically receive NoClassDefFoundError because initialization is marked erroneous."
+      ],
+      "source": {
+        "title": "Java Language Specification: Execution",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html"
+      }
+    },
+    {
+      "id": "java-278",
+      "technology": "java",
+      "title": "How do bootstrap, platform, and application class loaders relate?",
+      "questionType": "conceptual",
+      "explanation": [
+        "They form the built-in delegation hierarchy for core runtime, platform modules, and application class path or module path classes."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-279",
+      "technology": "java",
+      "title": "What creates class-loader identity conflicts in plugin systems?",
+      "questionType": "scenario",
+      "explanation": [
+        "The runtime type identity includes both binary class name and defining loader, so identical class bytes from sibling loaders are not assignment-compatible."
+      ],
+      "source": {
+        "title": "Java Virtual Machine Specification",
+        "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/"
+      }
+    },
+    {
+      "id": "java-280",
+      "technology": "java",
+      "title": "What is a module readability edge?",
+      "questionType": "comparison",
+      "explanation": [
+        "It records that one module may access exported public types of another; requires directives and resolution establish the graph."
+      ],
+      "source": {
+        "title": "Java Platform Module System",
+        "url": "https://docs.oracle.com/en/java/javase/25/migrate/migrating-to-java-9.html#GUID-86E7A65A-99A1-4F2D-A7D9-BEAB1B62F21C"
+      }
+    },
+    {
+      "id": "java-281",
+      "technology": "java",
+      "title": "How does requires transitive affect module consumers?",
+      "questionType": "debugging",
+      "explanation": [
+        "A module that reads the requiring module also reads the transitively required dependency, exposing an API dependency relationship."
+      ],
+      "source": {
+        "title": "Java Platform Module System",
+        "url": "https://docs.oracle.com/en/java/javase/25/migrate/migrating-to-java-9.html#GUID-86E7A65A-99A1-4F2D-A7D9-BEAB1B62F21C"
+      }
+    },
+    {
+      "id": "java-282",
+      "technology": "java",
+      "title": "Why use qualified exports?",
+      "questionType": "algorithm",
+      "explanation": [
+        "They expose a package only to named friend modules, limiting compile-time and runtime access while preserving selected integration."
+      ],
+      "source": {
+        "title": "Java Platform Module System",
+        "url": "https://docs.oracle.com/en/java/javase/25/migrate/migrating-to-java-9.html#GUID-86E7A65A-99A1-4F2D-A7D9-BEAB1B62F21C"
+      }
+    },
+    {
+      "id": "java-283",
+      "technology": "java",
+      "title": "What is a ModuleLayer useful for?",
+      "questionType": "system-design",
+      "explanation": [
+        "It creates additional resolved module configurations with controlled class loaders, useful for isolated plugin or container-like architectures."
+      ],
+      "source": {
+        "title": "Java Platform Module System",
+        "url": "https://docs.oracle.com/en/java/javase/25/migrate/migrating-to-java-9.html#GUID-86E7A65A-99A1-4F2D-A7D9-BEAB1B62F21C"
+      }
+    },
+    {
+      "id": "java-284",
+      "technology": "java",
+      "title": "What does a multi-release JAR provide?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It can package version-specific class implementations under a standard layout while presenting base classes to older runtimes."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-285",
+      "technology": "java",
+      "title": "Why can Class.forName initialize a class unexpectedly?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The common overload loads and initializes the class, so static code runs; another overload lets callers choose initialization explicitly."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "Class<?> type = Class.forName(\"com.example.Plugin\", false, loader);"
+      },
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-286",
+      "technology": "java",
+      "title": "What is the difference between young and old generation pressure?",
+      "questionType": "comparison",
+      "explanation": [
+        "Short-lived allocation drives young collections, while retained live data and promotion pressure old regions and can lead to longer global work."
+      ],
+      "source": {
+        "title": "Garbage Collection Tuning Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/gctuning/"
+      }
+    },
+    {
+      "id": "java-287",
+      "technology": "java",
+      "title": "Why can an oversized heap increase operational risk?",
+      "questionType": "debugging",
+      "explanation": [
+        "It consumes memory headroom and may lengthen recovery or full-collection work; sizing must balance live set, allocation, pause, and container limits."
+      ],
+      "source": {
+        "title": "Garbage Collection Tuning Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/gctuning/"
+      }
+    },
+    {
+      "id": "java-288",
+      "technology": "java",
+      "title": "What does a GC pause percentile reveal that an average hides?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Percentiles expose tail latency experienced by slower requests, while an average can conceal rare but damaging long pauses."
+      ],
+      "source": {
+        "title": "Garbage Collection Tuning Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/gctuning/"
+      }
+    },
+    {
+      "id": "java-289",
+      "technology": "java",
+      "title": "How can direct byte buffers cause memory pressure outside the Java heap?",
+      "questionType": "system-design",
+      "explanation": [
+        "Their native storage is not counted as ordinary heap objects, so heap graphs alone can miss large direct-memory retention."
+      ],
+      "source": {
+        "title": "Java Troubleshooting Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/troubleshoot/"
+      }
+    },
+    {
+      "id": "java-290",
+      "technology": "java",
+      "title": "What is metaspace used for?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Metaspace stores class metadata in native memory; excessive class loading or loader retention can grow it independently of the Java heap."
+      ],
+      "source": {
+        "title": "Java Troubleshooting Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/troubleshoot/"
+      }
+    },
+    {
+      "id": "java-291",
+      "technology": "java",
+      "title": "How does class-data sharing improve startup?",
+      "questionType": "scenario",
+      "explanation": [
+        "A preprocessed archive lets JVM instances map shared class metadata, reducing startup work and some memory footprint."
+      ],
+      "source": {
+        "title": "Java Virtual Machine Specification",
+        "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/"
+      }
+    },
+    {
+      "id": "java-292",
+      "technology": "java",
+      "title": "What does escape analysis enable?",
+      "questionType": "comparison",
+      "explanation": [
+        "When the JIT proves an object does not escape, it may eliminate allocation, scalar-replace fields, or remove synchronization."
+      ],
+      "source": {
+        "title": "Java Virtual Machine Specification",
+        "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/"
+      }
+    },
+    {
+      "id": "java-293",
+      "technology": "java",
+      "title": "Why must JVM benchmarks include warm-up and forks?",
+      "questionType": "debugging",
+      "explanation": [
+        "Warm-up permits adaptive compilation, while separate forks reduce contamination from prior profiles, heap state, and compiled code."
+      ],
+      "source": {
+        "title": "Java Troubleshooting Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/troubleshoot/"
+      }
+    },
+    {
+      "id": "java-294",
+      "technology": "java",
+      "title": "How should a thread dump be interpreted?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Look for repeated blocked or waiting stacks, lock ownership, pool saturation, and cycles across several time-separated dumps rather than one isolated snapshot."
+      ],
+      "source": {
+        "title": "Java Troubleshooting Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/troubleshoot/"
+      }
+    },
+    {
+      "id": "java-295",
+      "technology": "java",
+      "title": "What evidence does this native-memory command provide?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Native Memory Tracking summarizes JVM native allocations by subsystem, helping distinguish heap issues from metaspace, code cache, threads, or arenas."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "jcmd <pid> VM.native_memory summary"
+      },
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-296",
+      "technology": "java",
+      "title": "When should a heap dump be captured?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Capture near the problematic state with enough disk and privacy controls, then inspect dominators and retention paths rather than only object counts."
+      ],
+      "source": {
+        "title": "Java Troubleshooting Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/troubleshoot/"
+      }
+    },
+    {
+      "id": "java-297",
+      "technology": "java",
+      "title": "What can a custom Java Flight Recorder event add?",
+      "questionType": "scenario",
+      "explanation": [
+        "It records domain timings and attributes beside JVM events, enabling correlation between business operations, allocation, I/O, locks, and pauses."
+      ],
+      "source": {
+        "title": "Java Troubleshooting Guide",
+        "url": "https://docs.oracle.com/en/java/javase/25/troubleshoot/"
+      }
+    },
+    {
+      "id": "java-298",
+      "technology": "java",
+      "title": "Why is unified JVM logging useful?",
+      "questionType": "comparison",
+      "explanation": [
+        "A consistent tag, level, and output configuration exposes GC, class loading, safepoints, and other subsystems without separate legacy flags."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-299",
+      "technology": "java",
+      "title": "What does jcmd offer during live diagnosis?",
+      "questionType": "debugging",
+      "explanation": [
+        "It sends supported diagnostic commands to a JVM for recordings, thread information, heap data, flags, and native-memory summaries."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-300",
+      "technology": "java",
+      "title": "How does jstack differ from Java Flight Recorder?",
+      "questionType": "algorithm",
+      "explanation": [
+        "jstack gives a point-in-time thread snapshot; JFR records time-correlated events and samples over an interval with broader context."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-301",
+      "technology": "java",
+      "title": "What can javap reveal?",
+      "questionType": "system-design",
+      "explanation": [
+        "It disassembles class files to show descriptors, bytecode, constants, and generated members such as bridges, helping connect source to JVM behavior."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-302",
+      "technology": "java",
+      "title": "Why use jlink for a deployment image?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It assembles a runtime containing selected modules and dependencies, reducing distribution size and making the runtime contents explicit."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-303",
+      "technology": "java",
+      "title": "What does jpackage add beyond jlink?",
+      "questionType": "scenario",
+      "explanation": [
+        "It creates platform-specific application packages and launchers, optionally using a custom runtime image, for installable desktop or service distribution."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-304",
+      "technology": "java",
+      "title": "How should jdeps results be interpreted for reflection-heavy code?",
+      "questionType": "comparison",
+      "explanation": [
+        "Static analysis finds bytecode dependencies but may miss names loaded from configuration or reflection, so runtime tests must supplement it."
+      ],
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-305",
+      "technology": "java",
+      "title": "What does this javap option show?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The command prints private members and bytecode instructions, useful for inspecting compiler-generated implementation details."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "javap -p -c com.example.OrderService"
+      },
+      "source": {
+        "title": "JDK Tool Specifications",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/"
+      }
+    },
+    {
+      "id": "java-306",
+      "technology": "java",
+      "title": "What safety model does the Foreign Function and Memory API use?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Memory segments have explicit bounds, lifetime, and thread-access rules, while linker descriptors make native call shapes explicit."
+      ],
+      "source": {
+        "title": "Foreign Function and Memory API",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html"
+      }
+    },
+    {
+      "id": "java-307",
+      "technology": "java",
+      "title": "Why is an Arena important for foreign memory?",
+      "questionType": "system-design",
+      "explanation": [
+        "It controls the lifetime of one or more segments so native memory can be released deterministically as a group."
+      ],
+      "source": {
+        "title": "Foreign Function and Memory API",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html"
+      }
+    },
+    {
+      "id": "java-308",
+      "technology": "java",
+      "title": "What risk remains when calling native code through the FFM API?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Incorrect layouts, descriptors, addresses, or native behavior can still corrupt memory or crash the process despite safer Java-side abstractions."
+      ],
+      "source": {
+        "title": "Foreign Function and Memory API",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html"
+      }
+    },
+    {
+      "id": "java-309",
+      "technology": "java",
+      "title": "How does a memory layout describe native data?",
+      "questionType": "scenario",
+      "explanation": [
+        "It models sizes, alignment, ordering, and nested fields so access handles can target structured off-heap data predictably."
+      ],
+      "source": {
+        "title": "Foreign Function and Memory API",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html"
+      }
+    },
+    {
+      "id": "java-310",
+      "technology": "java",
+      "title": "When should an API return an interface instead of a concrete collection?",
+      "questionType": "comparison",
+      "explanation": [
+        "An interface exposes required behavior while preserving implementation freedom, but the contract must still state mutability, ordering, nulls, and concurrency."
+      ],
+      "source": {
+        "title": "Java Collections Framework",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html"
+      }
+    },
+    {
+      "id": "java-311",
+      "technology": "java",
+      "title": "Why should public APIs validate arguments at their boundary?",
+      "questionType": "debugging",
+      "explanation": [
+        "Early validation produces clear failures before state changes or downstream work, protecting invariants and reducing ambiguous error propagation."
+      ],
+      "source": {
+        "title": "Secure Coding Guidelines for Java SE",
+        "url": "https://www.oracle.com/java/technologies/javase/seccodeguide.html"
+      }
+    },
+    {
+      "id": "java-312",
+      "technology": "java",
+      "title": "How should equality be designed for inheritance?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Because equals must remain symmetric and transitive, value equality across extensible subclasses is fragile; final value types or composition simplify the contract."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-313",
+      "technology": "java",
+      "title": "Why should toString avoid secrets and expensive side effects?",
+      "questionType": "system-design",
+      "explanation": [
+        "It is called implicitly by logs and debuggers, so it should be safe, bounded, stable enough for diagnostics, and free of credentials or personal data."
+      ],
+      "source": {
+        "title": "Java SE 25 Core API",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/module-summary.html"
+      }
+    },
+    {
+      "id": "java-314",
+      "technology": "java",
+      "title": "What makes a Java API interruption-friendly?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Blocking methods declare or propagate interruption, cleanup preserves invariants, and code does not swallow the flag before a cancellation boundary can observe it."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-315",
+      "technology": "java",
+      "title": "What lifetime does this confined arena enforce?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The native allocation is valid only until the try block closes the arena; later access through the segment fails instead of silently using freed memory."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "try (Arena arena = Arena.ofConfined()) {\n    MemorySegment bytes = arena.allocate(64);\n    // use bytes within this scope\n}"
+      },
+      "source": {
+        "title": "Foreign Function and Memory API",
+        "url": "https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html"
+      }
+    },
+    {
+      "id": "backend-engineering-2",
+      "technology": "backend-engineering",
+      "title": "What makes an HTTP method safe?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A safe method is defined as read-only in its requested semantics, even though logging or billing side effects may occur. Clients and crawlers rely on that contract."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-3",
+      "technology": "backend-engineering",
+      "title": "How does HTTP idempotency differ from safety?",
+      "questionType": "scenario",
+      "explanation": [
+        "Idempotency means repeating the same request has the same intended effect as one request; a method may change state yet still be idempotent."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-4",
+      "technology": "backend-engineering",
+      "title": "When should an API return 201 Created instead of 200 OK?",
+      "questionType": "comparison",
+      "explanation": [
+        "Use 201 when the request creates a resource, normally with a Location header identifying it; 200 fits a successful response whose semantics are not specifically resource creation."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-5",
+      "technology": "backend-engineering",
+      "title": "What is the difference between 401 Unauthorized and 403 Forbidden?",
+      "questionType": "debugging",
+      "explanation": [
+        "401 indicates missing or invalid authentication and carries an authentication challenge; 403 means the server understood the request but refuses to authorize it."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-6",
+      "technology": "backend-engineering",
+      "title": "When is 409 Conflict more suitable than 422 Unprocessable Content?",
+      "questionType": "algorithm",
+      "explanation": [
+        "409 identifies a conflict with current resource state, while 422 says the representation is syntactically understood but its instructions cannot be processed."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-7",
+      "technology": "backend-engineering",
+      "title": "Why should a DELETE endpoint define repeat-request behavior?",
+      "questionType": "system-design",
+      "explanation": [
+        "DELETE is idempotent at the semantic level, but later responses may differ. The contract should state whether an absent resource returns 204, 404, or another result."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-8",
+      "technology": "backend-engineering",
+      "title": "How do ETag and If-Match prevent lost updates?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A client sends the version it edited; the server changes state only if the current entity tag still matches, otherwise returning a precondition failure."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-9",
+      "technology": "backend-engineering",
+      "title": "What does content negotiation add to an API?",
+      "questionType": "scenario",
+      "explanation": [
+        "Request headers describe acceptable representations and server responses select one, with Vary helping caches distinguish variants."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-10",
+      "technology": "backend-engineering",
+      "title": "Why should request bodies on GET be avoided for general APIs?",
+      "questionType": "comparison",
+      "explanation": [
+        "HTTP assigns no generally defined semantics to GET content and intermediaries may reject or ignore it, reducing interoperability and cache predictability."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-11",
+      "technology": "backend-engineering",
+      "title": "What does this conditional update response mean?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "A 412 response means the If-Match precondition failed, so the client should fetch current state and reconcile instead of overwriting it."
+      ],
+      "code": {
+        "language": "http",
+        "snippet": "PUT /orders/42 HTTP/1.1\nIf-Match: \"v7\"\nContent-Type: application/json\n\n{\"status\":\"approved\"}\n\nHTTP/1.1 412 Precondition Failed"
+      },
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-12",
+      "technology": "backend-engineering",
+      "title": "Why is cursor pagination safer than offset pagination for changing data?",
+      "questionType": "algorithm",
+      "explanation": [
+        "A stable cursor continues from an ordered key, reducing duplicates and gaps caused by inserts or deletes before an offset."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-13",
+      "technology": "backend-engineering",
+      "title": "What properties should a pagination cursor have?",
+      "questionType": "system-design",
+      "explanation": [
+        "It should be opaque to clients, tamper-resistant when needed, tied to a deterministic sort, and capable of representing a unique continuation position."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-14",
+      "technology": "backend-engineering",
+      "title": "How should an API evolve an enum without breaking clients?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Clients should tolerate unknown future values where possible, and servers should avoid reusing meanings; the schema and compatibility policy must state extensibility."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-15",
+      "technology": "backend-engineering",
+      "title": "When is URL versioning preferable to header versioning?",
+      "questionType": "scenario",
+      "explanation": [
+        "URL versions are visible and easy to route and document, while header versions keep resource URLs stable but add tooling and caching complexity."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-16",
+      "technology": "backend-engineering",
+      "title": "Why should PATCH semantics be explicitly documented?",
+      "questionType": "comparison",
+      "explanation": [
+        "PATCH formats differ in operation, null handling, conflicts, and idempotency. A media type and concurrency contract prevent ambiguous partial updates."
+      ],
+      "source": {
+        "title": "RFC 9110: HTTP Semantics",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      }
+    },
+    {
+      "id": "backend-engineering-17",
+      "technology": "backend-engineering",
+      "title": "What does an idempotency key protect on a POST endpoint?",
+      "questionType": "debugging",
+      "explanation": [
+        "The server associates a client-generated key with the operation outcome so retries return the prior result rather than repeat an external effect."
+      ],
+      "source": {
+        "title": "OWASP Business Logic Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-18",
+      "technology": "backend-engineering",
+      "title": "How should bulk API partial failures be represented?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Define whether the batch is atomic or per-item, return a stable result for every item, and make retry behavior unambiguous to avoid duplicate work."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-19",
+      "technology": "backend-engineering",
+      "title": "Why should API field absence differ from explicit null?",
+      "questionType": "system-design",
+      "explanation": [
+        "Absence can mean leave unchanged or use a default, while null can mean clear the value; collapsing them makes updates and validation ambiguous."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-20",
+      "technology": "backend-engineering",
+      "title": "What does RFC 9457 standardize for API errors?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It defines a problem-details object with type, status, title, detail, instance, and extension members so machines and humans receive consistent errors."
+      ],
+      "source": {
+        "title": "RFC 9457: Problem Details for HTTP APIs",
+        "url": "https://www.rfc-editor.org/rfc/rfc9457.html"
+      }
+    },
+    {
+      "id": "backend-engineering-21",
+      "technology": "backend-engineering",
+      "title": "What is wrong with this unbounded collection endpoint?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "It has no stable order or response-size bound, so data growth can increase latency and memory without limit; add deterministic pagination and maximum page size."
+      ],
+      "code": {
+        "language": "http",
+        "snippet": "GET /api/orders HTTP/1.1\nAccept: application/json\n\nHTTP/1.1 200 OK\n\n[ /* every order in the database */ ]"
+      },
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-22",
+      "technology": "backend-engineering",
+      "title": "Why must authorization be checked on every object access?",
+      "questionType": "comparison",
+      "explanation": [
+        "Authentication alone does not prove ownership or permission for a requested identifier; the server must enforce object-level policy for each operation."
+      ],
+      "source": {
+        "title": "OWASP Authorization Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-23",
+      "technology": "backend-engineering",
+      "title": "What is the difference between role-based and attribute-based access control?",
+      "questionType": "debugging",
+      "explanation": [
+        "RBAC grants permissions through roles, while ABAC evaluates subject, resource, action, and context attributes for finer-grained decisions."
+      ],
+      "source": {
+        "title": "OWASP Authorization Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-24",
+      "technology": "backend-engineering",
+      "title": "Why is deny-by-default important in backend authorization?",
+      "questionType": "algorithm",
+      "explanation": [
+        "New routes, actions, or resources remain inaccessible until policy explicitly allows them, reducing exposure from omissions."
+      ],
+      "source": {
+        "title": "OWASP Authorization Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-25",
+      "technology": "backend-engineering",
+      "title": "Where should JWT validation occur?",
+      "questionType": "system-design",
+      "explanation": [
+        "Every trust boundary accepting the token must verify its signature, issuer, audience, time constraints, and allowed algorithms before using claims."
+      ],
+      "source": {
+        "title": "OWASP REST Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-26",
+      "technology": "backend-engineering",
+      "title": "Why should a server not trust an algorithm declared only by a JWT header?",
+      "questionType": "conceptual",
+      "explanation": [
+        "An attacker controls the header; the verifier must enforce a configured algorithm allowlist and the correct key type."
+      ],
+      "source": {
+        "title": "OWASP REST Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-27",
+      "technology": "backend-engineering",
+      "title": "How do CORS and server-side authorization differ?",
+      "questionType": "scenario",
+      "explanation": [
+        "CORS limits which browser origins can read responses, while authorization determines whether any client may perform the action; non-browser clients ignore CORS."
+      ],
+      "source": {
+        "title": "OWASP REST Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-28",
+      "technology": "backend-engineering",
+      "title": "When is CSRF protection needed for an API?",
+      "questionType": "comparison",
+      "explanation": [
+        "It is needed when browsers automatically attach credentials such as cookies; same-site settings, origin checks, and anti-CSRF tokens can bind intent."
+      ],
+      "source": {
+        "title": "OWASP REST Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-29",
+      "technology": "backend-engineering",
+      "title": "Why should rate limits distinguish identity and endpoint cost?",
+      "questionType": "debugging",
+      "explanation": [
+        "One global request count treats cheap and expensive work alike and can be evaded across identities; limits should reflect principals, operations, and resource cost."
+      ],
+      "source": {
+        "title": "OWASP REST Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-30",
+      "technology": "backend-engineering",
+      "title": "How should secrets be supplied to a backend service?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Inject them from a managed secret source at runtime, restrict access, rotate them, and keep them out of source, logs, images, and client-delivered configuration."
+      ],
+      "source": {
+        "title": "The Twelve-Factor App",
+        "url": "https://12factor.net/"
+      }
+    },
+    {
+      "id": "backend-engineering-31",
+      "technology": "backend-engineering",
+      "title": "What vulnerability exists in this ownership check?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The handler loads by user-supplied ID without constraining the query by the authenticated owner, enabling insecure direct object access."
+      ],
+      "code": {
+        "language": "javascript",
+        "snippet": "app.get(\"/accounts/:id\", async (req, res) => {\n  const account = await db.accounts.findById(req.params.id);\n  res.json(account);\n});"
+      },
+      "source": {
+        "title": "OWASP Authorization Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-32",
+      "technology": "backend-engineering",
+      "title": "What does atomicity guarantee in a database transaction?",
+      "questionType": "conceptual",
+      "explanation": [
+        "All transaction changes commit together or none do, preventing callers from observing a partially applied business operation."
+      ],
+      "source": {
+        "title": "PostgreSQL Transaction Isolation",
+        "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
+      }
+    },
+    {
+      "id": "backend-engineering-33",
+      "technology": "backend-engineering",
+      "title": "How do read committed and repeatable read differ?",
+      "questionType": "scenario",
+      "explanation": [
+        "Read committed gives each statement a fresh committed snapshot, while PostgreSQL repeatable read keeps a transaction snapshot and rejects certain conflicting updates."
+      ],
+      "source": {
+        "title": "PostgreSQL Transaction Isolation",
+        "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
+      }
+    },
+    {
+      "id": "backend-engineering-34",
+      "technology": "backend-engineering",
+      "title": "What anomaly does serializable isolation prevent?",
+      "questionType": "comparison",
+      "explanation": [
+        "It ensures committed transactions have an outcome equivalent to some serial order, potentially aborting transactions that must be retried."
+      ],
+      "source": {
+        "title": "PostgreSQL Transaction Isolation",
+        "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
+      }
+    },
+    {
+      "id": "backend-engineering-35",
+      "technology": "backend-engineering",
+      "title": "Why must serializable transaction failures be retried as a whole?",
+      "questionType": "debugging",
+      "explanation": [
+        "The database rejects an execution whose combined reads and writes are unsafe; retrying only the last statement does not recreate a valid transaction view."
+      ],
+      "source": {
+        "title": "PostgreSQL Transaction Isolation",
+        "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
+      }
+    },
+    {
+      "id": "backend-engineering-36",
+      "technology": "backend-engineering",
+      "title": "When should SELECT FOR UPDATE be used?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Use it when a transaction must lock selected rows before a dependent update, while keeping lock scope and transaction duration small."
+      ],
+      "source": {
+        "title": "OWASP Business Logic Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-37",
+      "technology": "backend-engineering",
+      "title": "How can a conditional update enforce a business invariant?",
+      "questionType": "system-design",
+      "explanation": [
+        "Put the invariant in the WHERE clause and check affected rows, making the check and mutation one atomic database statement."
+      ],
+      "source": {
+        "title": "OWASP Business Logic Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-38",
+      "technology": "backend-engineering",
+      "title": "Why should external network calls usually not occur inside a database transaction?",
+      "questionType": "conceptual",
+      "explanation": [
+        "They extend lock time and may fail independently, increasing contention and creating ambiguous outcomes across systems."
+      ],
+      "source": {
+        "title": "PostgreSQL Transaction Isolation",
+        "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
+      }
+    },
+    {
+      "id": "backend-engineering-39",
+      "technology": "backend-engineering",
+      "title": "What problem does the transactional outbox pattern solve?",
+      "questionType": "scenario",
+      "explanation": [
+        "It commits domain changes and an outbound event record together, then publishes asynchronously, avoiding a gap between database commit and message send."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-40",
+      "technology": "backend-engineering",
+      "title": "How should transaction boundaries align with business operations?",
+      "questionType": "comparison",
+      "explanation": [
+        "A boundary should protect one consistency unit, remaining short while including every database change needed to preserve its invariants."
+      ],
+      "source": {
+        "title": "PostgreSQL Transaction Isolation",
+        "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
+      }
+    },
+    {
+      "id": "backend-engineering-41",
+      "technology": "backend-engineering",
+      "title": "Why can this balance check race?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Two transactions can both read the same balance before either subtracts. A conditional update, row lock, or serializable transaction makes the decision atomic."
+      ],
+      "code": {
+        "language": "javascript",
+        "snippet": "const balance = await loadBalance(accountId);\nif (balance >= amount) {\n  await setBalance(accountId, balance - amount);\n}"
+      },
+      "source": {
+        "title": "OWASP Business Logic Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-42",
+      "technology": "backend-engineering",
+      "title": "How does a composite index column order affect queries?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Leading columns determine which equality, range, ordering, and prefix predicates can efficiently use the index."
+      ],
+      "source": {
+        "title": "PostgreSQL Indexes",
+        "url": "https://www.postgresql.org/docs/current/indexes.html"
+      }
+    },
+    {
+      "id": "backend-engineering-43",
+      "technology": "backend-engineering",
+      "title": "Why can an index speed reads but slow writes?",
+      "questionType": "system-design",
+      "explanation": [
+        "Each insert, delete, or indexed-column update must maintain the index and generate storage and logging work."
+      ],
+      "source": {
+        "title": "PostgreSQL Indexes",
+        "url": "https://www.postgresql.org/docs/current/indexes.html"
+      }
+    },
+    {
+      "id": "backend-engineering-44",
+      "technology": "backend-engineering",
+      "title": "What is a covering index?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It contains all columns needed by a query so the engine may answer from the index, subject to visibility and planner decisions."
+      ],
+      "source": {
+        "title": "PostgreSQL Indexes",
+        "url": "https://www.postgresql.org/docs/current/indexes.html"
+      }
+    },
+    {
+      "id": "backend-engineering-45",
+      "technology": "backend-engineering",
+      "title": "When is a partial index useful?",
+      "questionType": "scenario",
+      "explanation": [
+        "It indexes only rows matching a predicate, reducing size and update work for queries that repeatedly target that subset."
+      ],
+      "source": {
+        "title": "PostgreSQL Indexes",
+        "url": "https://www.postgresql.org/docs/current/indexes.html"
+      }
+    },
+    {
+      "id": "backend-engineering-46",
+      "technology": "backend-engineering",
+      "title": "Why can applying a function to an indexed column prevent index use?",
+      "questionType": "comparison",
+      "explanation": [
+        "A normal index stores the raw expression value; an unmatched transformation may require scanning unless an expression index or equivalent predicate exists."
+      ],
+      "source": {
+        "title": "PostgreSQL Indexes",
+        "url": "https://www.postgresql.org/docs/current/indexes.html"
+      }
+    },
+    {
+      "id": "backend-engineering-47",
+      "technology": "backend-engineering",
+      "title": "What should be inspected in EXPLAIN ANALYZE?",
+      "questionType": "debugging",
+      "explanation": [
+        "Compare estimated and actual rows, scan types, loops, sort or hash spills, buffer activity, and total timing under representative parameters."
+      ],
+      "source": {
+        "title": "PostgreSQL EXPLAIN",
+        "url": "https://www.postgresql.org/docs/current/using-explain.html"
+      }
+    },
+    {
+      "id": "backend-engineering-48",
+      "technology": "backend-engineering",
+      "title": "Why are foreign-key indexes often still needed?",
+      "questionType": "algorithm",
+      "explanation": [
+        "A foreign key enforces integrity but does not automatically guarantee the child-side index needed for joins, parent deletes, and updates."
+      ],
+      "source": {
+        "title": "PostgreSQL Data Definition",
+        "url": "https://www.postgresql.org/docs/current/ddl.html"
+      }
+    },
+    {
+      "id": "backend-engineering-49",
+      "technology": "backend-engineering",
+      "title": "How should a zero-downtime column migration be staged?",
+      "questionType": "system-design",
+      "explanation": [
+        "Add a compatible nullable or defaulted shape, deploy dual-compatible code, backfill in bounded batches, enforce constraints, then remove the old shape later."
+      ],
+      "source": {
+        "title": "PostgreSQL Data Definition",
+        "url": "https://www.postgresql.org/docs/current/ddl.html"
+      }
+    },
+    {
+      "id": "backend-engineering-50",
+      "technology": "backend-engineering",
+      "title": "Why should schema migrations be forward-only in production?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Applied data transformations may not be safely reversible; a new corrective migration preserves an auditable sequence and avoids rewriting history."
+      ],
+      "source": {
+        "title": "PostgreSQL Data Definition",
+        "url": "https://www.postgresql.org/docs/current/ddl.html"
+      }
+    },
+    {
+      "id": "backend-engineering-51",
+      "technology": "backend-engineering",
+      "title": "What does this query plan warning suggest?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "A sequential scan with a large row estimate may be correct, but for selective filters it prompts checking statistics, predicates, and a suitable index."
+      ],
+      "code": {
+        "language": "sql",
+        "snippet": "EXPLAIN (ANALYZE, BUFFERS)\nSELECT id, total\nFROM orders\nWHERE customer_id = 42 AND created_at >= CURRENT_DATE - INTERVAL '30 days';"
+      },
+      "source": {
+        "title": "PostgreSQL EXPLAIN",
+        "url": "https://www.postgresql.org/docs/current/using-explain.html"
+      }
+    },
+    {
+      "id": "backend-engineering-52",
+      "technology": "backend-engineering",
+      "title": "What is the cache-aside pattern?",
+      "questionType": "comparison",
+      "explanation": [
+        "The application reads the cache first, loads from the source on a miss, and then populates the cache; writes require a deliberate invalidation strategy."
+      ],
+      "source": {
+        "title": "Redis Caching Solutions",
+        "url": "https://redis.io/solutions/caching/"
+      }
+    },
+    {
+      "id": "backend-engineering-53",
+      "technology": "backend-engineering",
+      "title": "Why is cache invalidation harder than cache population?",
+      "questionType": "debugging",
+      "explanation": [
+        "Multiple writers, races, failures, and replicas can leave stale values, so ownership, ordering, TTLs, and acceptable staleness must be defined."
+      ],
+      "source": {
+        "title": "Redis Caching Solutions",
+        "url": "https://redis.io/solutions/caching/"
+      }
+    },
+    {
+      "id": "backend-engineering-54",
+      "technology": "backend-engineering",
+      "title": "How does write-through differ from write-behind caching?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Write-through updates the source synchronously with the cache, while write-behind queues persistence later and risks loss or reordering on failure."
+      ],
+      "source": {
+        "title": "Redis Caching Solutions",
+        "url": "https://redis.io/solutions/caching/"
+      }
+    },
+    {
+      "id": "backend-engineering-55",
+      "technology": "backend-engineering",
+      "title": "What is a cache stampede?",
+      "questionType": "system-design",
+      "explanation": [
+        "Many requests miss or expire the same hot key simultaneously and overload the source; request coalescing, jitter, or stale serving can reduce it."
+      ],
+      "source": {
+        "title": "Redis Caching Solutions",
+        "url": "https://redis.io/solutions/caching/"
+      }
+    },
+    {
+      "id": "backend-engineering-56",
+      "technology": "backend-engineering",
+      "title": "Why add jitter to cache TTLs?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Randomizing expiration spreads refresh work over time instead of allowing many related keys to expire at one instant."
+      ],
+      "source": {
+        "title": "Redis Caching Solutions",
+        "url": "https://redis.io/solutions/caching/"
+      }
+    },
+    {
+      "id": "backend-engineering-57",
+      "technology": "backend-engineering",
+      "title": "When is negative caching appropriate?",
+      "questionType": "scenario",
+      "explanation": [
+        "Caching a not-found or failure result can protect the source from repeated misses, but requires a short policy that does not hide newly created data too long."
+      ],
+      "source": {
+        "title": "RFC 9111: HTTP Caching",
+        "url": "https://www.rfc-editor.org/rfc/rfc9111.html"
+      }
+    },
+    {
+      "id": "backend-engineering-58",
+      "technology": "backend-engineering",
+      "title": "What does stale-while-revalidate achieve?",
+      "questionType": "comparison",
+      "explanation": [
+        "A cache may serve a stale response within a defined window while refreshing asynchronously, improving latency at the cost of bounded staleness."
+      ],
+      "source": {
+        "title": "RFC 9111: HTTP Caching",
+        "url": "https://www.rfc-editor.org/rfc/rfc9111.html"
+      }
+    },
+    {
+      "id": "backend-engineering-59",
+      "technology": "backend-engineering",
+      "title": "Why must private responses be handled carefully by shared caches?",
+      "questionType": "debugging",
+      "explanation": [
+        "User-specific content must not be reused for another user; cache directives and key design must prevent cross-account data exposure."
+      ],
+      "source": {
+        "title": "RFC 9111: HTTP Caching",
+        "url": "https://www.rfc-editor.org/rfc/rfc9111.html"
+      }
+    },
+    {
+      "id": "backend-engineering-60",
+      "technology": "backend-engineering",
+      "title": "How should cache keys be designed?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Include every request dimension that changes the result, normalize representation safely, namespace versions, and avoid raw sensitive data."
+      ],
+      "source": {
+        "title": "RFC 9111: HTTP Caching",
+        "url": "https://www.rfc-editor.org/rfc/rfc9111.html"
+      }
+    },
+    {
+      "id": "backend-engineering-61",
+      "technology": "backend-engineering",
+      "title": "What problem exists in this cache lookup?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "The key omits the authenticated tenant, so identical order IDs across tenants can expose one tenant's cached data to another."
+      ],
+      "code": {
+        "language": "javascript",
+        "snippet": "const key = `order:${req.params.id}`;\nconst cached = await redis.get(key);\nif (cached) return res.json(JSON.parse(cached));"
+      },
+      "source": {
+        "title": "OWASP REST Security Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      }
+    },
+    {
+      "id": "backend-engineering-62",
+      "technology": "backend-engineering",
+      "title": "What does at-least-once message delivery require from consumers?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A message can be delivered again after failures, so handlers must deduplicate or make each state transition idempotent."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-63",
+      "technology": "backend-engineering",
+      "title": "Why is exactly-once an end-to-end property rather than only a broker setting?",
+      "questionType": "scenario",
+      "explanation": [
+        "Broker transactions cannot automatically make databases, emails, payments, and external APIs participate in the same atomic outcome."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-64",
+      "technology": "backend-engineering",
+      "title": "How do consumer groups scale a partitioned log?",
+      "questionType": "comparison",
+      "explanation": [
+        "Partitions are assigned among group members so each partition has one active consumer in the group while members process partitions in parallel."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-65",
+      "technology": "backend-engineering",
+      "title": "Why does partition-key choice matter?",
+      "questionType": "debugging",
+      "explanation": [
+        "It controls ordering scope, load distribution, and locality; a hot key can bottleneck one partition while random keys may destroy needed ordering."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-66",
+      "technology": "backend-engineering",
+      "title": "When should an event carry a schema version?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Versioning lets consumers interpret evolving payloads and supports compatibility checks without guessing fields from deployment timing."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-67",
+      "technology": "backend-engineering",
+      "title": "What is a dead-letter queue for?",
+      "questionType": "system-design",
+      "explanation": [
+        "It isolates messages that cannot be processed after policy limits, preserving evidence for diagnosis and controlled replay rather than infinite retry."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-68",
+      "technology": "backend-engineering",
+      "title": "How should poison-message retries be bounded?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Classify permanent versus transient failures, use delayed backoff, cap attempts, and route exhausted work with diagnostic context."
+      ],
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-69",
+      "technology": "backend-engineering",
+      "title": "What does backpressure mean in a messaging pipeline?",
+      "questionType": "scenario",
+      "explanation": [
+        "Downstream capacity limits must propagate upstream through bounded queues, flow control, or rejection so memory and latency do not grow without bound."
+      ],
+      "source": {
+        "title": "gRPC Documentation",
+        "url": "https://grpc.io/docs/what-is-grpc/core-concepts/"
+      }
+    },
+    {
+      "id": "backend-engineering-70",
+      "technology": "backend-engineering",
+      "title": "Why should event consumers tolerate unknown fields?",
+      "questionType": "comparison",
+      "explanation": [
+        "Forward-compatible readers can continue when producers add optional data, while strict rejection turns harmless evolution into coordinated downtime."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-71",
+      "technology": "backend-engineering",
+      "title": "What is unsafe about committing this offset first?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "A crash after committing but before the database update loses the event. Commit only after durable processing or use a coordinated idempotent design."
+      ],
+      "code": {
+        "language": "javascript",
+        "snippet": "await consumer.commitOffsets(message);\nawait database.applyOrderEvent(message.value);"
+      },
+      "source": {
+        "title": "Apache Kafka Design",
+        "url": "https://kafka.apache.org/documentation/#design"
+      }
+    },
+    {
+      "id": "backend-engineering-72",
+      "technology": "backend-engineering",
+      "title": "Why should every outbound call have a timeout?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Without a deadline, stalled dependencies retain connections, threads, memory, and request capacity indefinitely."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-73",
+      "technology": "backend-engineering",
+      "title": "How should retry backoff be designed?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use exponential growth, jitter, a deadline, and a capped attempt budget, retrying only transient and safe operations."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-74",
+      "technology": "backend-engineering",
+      "title": "What does a circuit breaker accomplish?",
+      "questionType": "conceptual",
+      "explanation": [
+        "After repeated failures it fails fast for a recovery interval, protecting capacity and giving a dependency time to recover."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-75",
+      "technology": "backend-engineering",
+      "title": "How does a bulkhead limit failure spread?",
+      "questionType": "scenario",
+      "explanation": [
+        "Separate pools, queues, or concurrency limits keep one saturated dependency or workload from consuming all service resources."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-76",
+      "technology": "backend-engineering",
+      "title": "When should a service shed load?",
+      "questionType": "comparison",
+      "explanation": [
+        "Reject work early when capacity or latency budgets are exhausted, prioritizing critical traffic rather than letting every request time out slowly."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-77",
+      "technology": "backend-engineering",
+      "title": "Why must a retry budget consider the whole request graph?",
+      "questionType": "debugging",
+      "explanation": [
+        "Retries multiply across layers and fan-out calls, so independent policies can create an exponential traffic surge during failure."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-78",
+      "technology": "backend-engineering",
+      "title": "What is graceful degradation?",
+      "questionType": "algorithm",
+      "explanation": [
+        "The service preserves a useful core response while disabling optional work when dependencies or capacity are impaired."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-79",
+      "technology": "backend-engineering",
+      "title": "How should a bounded worker queue be sized?",
+      "questionType": "system-design",
+      "explanation": [
+        "Base it on arrival bursts, service rate, memory per item, and latency objectives; a larger queue can merely hide overload and increase delay."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-80",
+      "technology": "backend-engineering",
+      "title": "What is head-of-line blocking?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A slow item at the front of a shared queue or connection delays unrelated fast work behind it, motivating isolation or multiplexing."
+      ],
+      "source": {
+        "title": "gRPC Documentation",
+        "url": "https://grpc.io/docs/what-is-grpc/core-concepts/"
+      }
+    },
+    {
+      "id": "backend-engineering-81",
+      "technology": "backend-engineering",
+      "title": "Why is this retry loop dangerous?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "It retries immediately without a limit, deadline, jitter, or error classification, amplifying a dependency outage and never releasing the request."
+      ],
+      "code": {
+        "language": "javascript",
+        "snippet": "for (;;) {\n  try { return await dependency.call(); }\n  catch (error) { /* try again immediately */ }\n}"
+      },
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-82",
+      "technology": "backend-engineering",
+      "title": "How do logs, metrics, and traces complement each other?",
+      "questionType": "comparison",
+      "explanation": [
+        "Logs capture discrete context, metrics summarize trends and alerts, and traces follow request paths and latency across service boundaries."
+      ],
+      "source": {
+        "title": "OpenTelemetry Documentation",
+        "url": "https://opentelemetry.io/docs/concepts/observability-primer/"
+      }
+    },
+    {
+      "id": "backend-engineering-83",
+      "technology": "backend-engineering",
+      "title": "What makes a log entry structured?",
+      "questionType": "debugging",
+      "explanation": [
+        "It records stable typed fields such as timestamp, severity, operation, trace ID, and outcome rather than embedding everything in prose."
+      ],
+      "source": {
+        "title": "OpenTelemetry Documentation",
+        "url": "https://opentelemetry.io/docs/concepts/observability-primer/"
+      }
+    },
+    {
+      "id": "backend-engineering-84",
+      "technology": "backend-engineering",
+      "title": "Why should request correlation IDs cross service boundaries?",
+      "questionType": "algorithm",
+      "explanation": [
+        "They connect related records across hops when tracing is incomplete, while each service should still generate safe identifiers when none arrive."
+      ],
+      "source": {
+        "title": "OpenTelemetry Documentation",
+        "url": "https://opentelemetry.io/docs/concepts/observability-primer/"
+      }
+    },
+    {
+      "id": "backend-engineering-85",
+      "technology": "backend-engineering",
+      "title": "What is metric cardinality and why can it be dangerous?",
+      "questionType": "system-design",
+      "explanation": [
+        "Each label combination creates a time series; unbounded values such as user IDs or URLs can overwhelm monitoring storage and query systems."
+      ],
+      "source": {
+        "title": "OpenTelemetry Documentation",
+        "url": "https://opentelemetry.io/docs/concepts/observability-primer/"
+      }
+    },
+    {
+      "id": "backend-engineering-86",
+      "technology": "backend-engineering",
+      "title": "How does a service-level objective differ from an alert threshold?",
+      "questionType": "conceptual",
+      "explanation": [
+        "An SLO states the desired reliability over a window, while alerts should signal meaningful error-budget burn or required operator action."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-87",
+      "technology": "backend-engineering",
+      "title": "What is an error budget?",
+      "questionType": "scenario",
+      "explanation": [
+        "It is the allowed unreliability implied by an SLO, enabling teams to balance feature velocity against reliability risk."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-88",
+      "technology": "backend-engineering",
+      "title": "Why are latency percentiles more useful than averages?",
+      "questionType": "comparison",
+      "explanation": [
+        "They reveal tail behavior experienced by slow requests; a healthy average can coexist with unacceptable p95 or p99 latency."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-89",
+      "technology": "backend-engineering",
+      "title": "What should a health endpoint report?",
+      "questionType": "debugging",
+      "explanation": [
+        "It should expose narrowly defined liveness or readiness without leaking secrets, blocking on every dependency, or pretending partial failure is full health."
+      ],
+      "source": {
+        "title": "Kubernetes Probes",
+        "url": "https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/"
+      }
+    },
+    {
+      "id": "backend-engineering-90",
+      "technology": "backend-engineering",
+      "title": "How should trace sampling be chosen?",
+      "questionType": "algorithm",
+      "explanation": [
+        "Balance cost with diagnostic value, retaining rare errors and high-latency paths through tail or policy-aware sampling where infrastructure supports it."
+      ],
+      "source": {
+        "title": "OpenTelemetry Documentation",
+        "url": "https://opentelemetry.io/docs/concepts/observability-primer/"
+      }
+    },
+    {
+      "id": "backend-engineering-91",
+      "technology": "backend-engineering",
+      "title": "What observability issue does this metric label create?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Using raw user IDs creates effectively unbounded cardinality. Aggregate by bounded dimensions and put user-specific detail in controlled logs or traces."
+      ],
+      "code": {
+        "language": "javascript",
+        "snippet": "requests_total.add(1, {\n  route: req.route.path,\n  user_id: req.user.id\n});"
+      },
+      "source": {
+        "title": "OpenTelemetry Documentation",
+        "url": "https://opentelemetry.io/docs/concepts/observability-primer/"
+      }
+    },
+    {
+      "id": "backend-engineering-92",
+      "technology": "backend-engineering",
+      "title": "How do liveness and readiness probes differ?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Liveness decides whether to restart a stuck process; readiness decides whether it should receive traffic while starting, draining, or dependency-impaired."
+      ],
+      "source": {
+        "title": "Kubernetes Probes",
+        "url": "https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/"
+      }
+    },
+    {
+      "id": "backend-engineering-93",
+      "technology": "backend-engineering",
+      "title": "Why must graceful shutdown stop accepting new work before exiting?",
+      "questionType": "scenario",
+      "explanation": [
+        "Draining first lets in-flight requests and messages finish or transfer safely instead of being cut off during deployment."
+      ],
+      "source": {
+        "title": "Kubernetes Probes",
+        "url": "https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/"
+      }
+    },
+    {
+      "id": "backend-engineering-94",
+      "technology": "backend-engineering",
+      "title": "What does configuration parity across environments prevent?",
+      "questionType": "comparison",
+      "explanation": [
+        "Keeping configuration mechanisms consistent reduces production-only behavior, while values such as endpoints and credentials remain environment-specific."
+      ],
+      "source": {
+        "title": "The Twelve-Factor App",
+        "url": "https://12factor.net/"
+      }
+    },
+    {
+      "id": "backend-engineering-95",
+      "technology": "backend-engineering",
+      "title": "Why should deployment artifacts be immutable?",
+      "questionType": "debugging",
+      "explanation": [
+        "The same tested artifact moves between environments, preventing rebuild drift and making rollback and provenance reliable."
+      ],
+      "source": {
+        "title": "The Twelve-Factor App",
+        "url": "https://12factor.net/"
+      }
+    },
+    {
+      "id": "backend-engineering-96",
+      "technology": "backend-engineering",
+      "title": "How does a contract test differ from an end-to-end test?",
+      "questionType": "algorithm",
+      "explanation": [
+        "A contract test checks one consumer-provider interface quickly, while an end-to-end test validates a deployed user path across integrated components."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-97",
+      "technology": "backend-engineering",
+      "title": "What should an integration test isolate?",
+      "questionType": "system-design",
+      "explanation": [
+        "It should exercise real boundaries such as database or broker behavior while controlling unrelated external systems for deterministic evidence."
+      ],
+      "source": {
+        "title": "OpenAPI Specification",
+        "url": "https://spec.openapis.org/oas/latest.html"
+      }
+    },
+    {
+      "id": "backend-engineering-98",
+      "technology": "backend-engineering",
+      "title": "Why should load tests use representative data distributions?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Uniform synthetic data misses hot keys, skewed payloads, cache behavior, query plans, and contention that dominate production performance."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-99",
+      "technology": "backend-engineering",
+      "title": "What is the purpose of chaos testing?",
+      "questionType": "scenario",
+      "explanation": [
+        "It verifies that defined failure controls, recovery, and observability work under injected faults, within explicit blast-radius and rollback safeguards."
+      ],
+      "source": {
+        "title": "Google SRE Book",
+        "url": "https://sre.google/sre-book/table-of-contents/"
+      }
+    },
+    {
+      "id": "backend-engineering-100",
+      "technology": "backend-engineering",
+      "title": "How should globally unique IDs be selected?",
+      "questionType": "comparison",
+      "explanation": [
+        "Choose based on collision bounds, ordering leakage, index locality, generation coordination, and interoperability rather than assuming one format fits all systems."
+      ],
+      "source": {
+        "title": "PostgreSQL Indexes",
+        "url": "https://www.postgresql.org/docs/current/indexes.html"
+      }
+    },
+    {
+      "id": "backend-engineering-101",
+      "technology": "backend-engineering",
+      "title": "What rollout risk does this readiness check create?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Tying readiness to every optional dependency can remove all instances during one downstream outage, turning partial degradation into total unavailability."
+      ],
+      "code": {
+        "language": "javascript",
+        "snippet": "app.get(\"/ready\", async (_req, res) => {\n  await Promise.all([database.ping(), analytics.ping(), email.ping()]);\n  res.sendStatus(200);\n});"
+      },
+      "source": {
+        "title": "Kubernetes Probes",
+        "url": "https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/"
+      }
+    }
+  ]
+}

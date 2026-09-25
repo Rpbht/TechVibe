@@ -1,0 +1,404 @@
+{
+  "questions": [
+    {
+      "id": "general-engineering-6",
+      "technology": "general-engineering",
+      "title": "What makes a software requirement testable?",
+      "questionType": "conceptual",
+      "explanation": ["A testable requirement states observable behavior, relevant conditions, and measurable acceptance criteria. Terms such as fast, intuitive, or secure need an agreed measurement or scenario before they can support objective verification."],
+      "source": { "title": "Guide to the Software Engineering Body of Knowledge", "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering" }
+    },
+    {
+      "id": "general-engineering-7",
+      "technology": "general-engineering",
+      "title": "How is static analysis different from dynamic testing?",
+      "questionType": "comparison",
+      "explanation": ["Static analysis examines source, bytecode, or models without executing the target behavior and can cover paths that tests never run. Dynamic testing executes software with selected inputs and observes runtime behavior; the techniques find overlapping but different defect classes."],
+      "source": { "title": "Guide to the Software Engineering Body of Knowledge", "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering" }
+    },
+    {
+      "id": "general-engineering-8",
+      "technology": "general-engineering",
+      "title": "When should a feature flag be removed?",
+      "questionType": "scenario",
+      "explanation": ["A temporary rollout flag should be removed after the rollout decision is final and rollback criteria no longer require it. Keeping stale branches increases test combinations, hides dead code, and can accidentally reactivate obsolete behavior."],
+      "source": { "title": "Software Engineering at Google", "url": "https://abseil.io/resources/swe-book" }
+    },
+    {
+      "id": "general-engineering-9",
+      "technology": "general-engineering",
+      "title": "What is the practical cost of unmanaged technical debt?",
+      "questionType": "conceptual",
+      "explanation": ["Technical debt raises the effort and risk of future changes through fragile dependencies, missing tests, unclear ownership, or outdated platforms. Teams should make the debt visible, connect it to delivery or reliability impact, and retire it according to risk rather than treating all cleanup equally."],
+      "source": { "title": "Guide to the Software Engineering Body of Knowledge", "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering" }
+    },
+    {
+      "id": "general-engineering-10",
+      "technology": "general-engineering",
+      "title": "Why should observability be designed with the feature rather than added after an incident?",
+      "questionType": "scenario",
+      "explanation": ["The feature team knows its critical state transitions, identifiers, failure modes, and expected service levels. Designing logs, metrics, traces, and alerts with those semantics produces actionable evidence and avoids retrofitting signals after context has been lost."],
+      "source": { "title": "OpenTelemetry Concepts", "url": "https://opentelemetry.io/docs/concepts/" }
+    },
+    {
+      "id": "general-engineering-11",
+      "technology": "general-engineering",
+      "title": "What does secure by default mean for a new capability?",
+      "questionType": "conceptual",
+      "explanation": ["A secure default exposes the least privilege and smallest attack surface without requiring every operator to discover a protective setting. More permissive behavior should be an explicit, documented decision with validation and auditability."],
+      "source": { "title": "OWASP Developer Guide", "url": "https://owasp.org/www-project-developer-guide/" }
+    },
+    {
+      "id": "general-engineering-12",
+      "technology": "general-engineering",
+      "title": "How should a team prioritize failure modes during design?",
+      "questionType": "system-design",
+      "explanation": ["Assess likelihood, user and business impact, detectability, recovery difficulty, and correlated scope. High-impact or hard-to-detect failures deserve prevention, containment, observability, and rehearsed recovery even when their probability is relatively low."],
+      "source": { "title": "AWS Well-Architected Reliability Pillar", "url": "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html" }
+    },
+    {
+      "id": "general-engineering-13",
+      "technology": "general-engineering",
+      "title": "Why should a code review focus on behavior and maintainability rather than formatting?",
+      "questionType": "scenario",
+      "explanation": ["Automated formatters can handle deterministic style. Reviewer attention is more valuable for correctness, contracts, security, tests, operability, naming, design tradeoffs, and whether future maintainers can safely change the code."],
+      "source": { "title": "Software Engineering at Google", "url": "https://abseil.io/resources/swe-book" }
+    },
+    {
+      "id": "general-engineering-14",
+      "technology": "general-engineering",
+      "title": "What is the difference between fault prevention and fault tolerance?",
+      "questionType": "comparison",
+      "explanation": ["Fault prevention reduces the chance that defects or failures occur through design, review, validation, and controlled change. Fault tolerance assumes some failures will occur and preserves acceptable service through redundancy, isolation, retry, degradation, or recovery."],
+      "source": { "title": "Guide to the Software Engineering Body of Knowledge", "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering" }
+    },
+    {
+      "id": "general-engineering-15",
+      "technology": "general-engineering",
+      "title": "Why should rollback be tested before a risky release?",
+      "questionType": "scenario",
+      "explanation": ["A rollback plan can fail because schemas are no longer backward compatible, data was irreversibly transformed, artifacts are unavailable, or operators lack permission. Rehearsal exposes these dependencies while recovery time is still available."],
+      "source": { "title": "Google SRE Books", "url": "https://sre.google/books/" }
+    },
+    {
+      "id": "java-6",
+      "technology": "java",
+      "title": "Why is List<String> not a subtype of List<Object> in Java?",
+      "questionType": "conceptual",
+      "explanation": ["Java generic classes are invariant. If List<String> were assignable to List<Object>, a caller could add an Integer and violate the original list's element guarantee. Wildcards express safe read or write variance at an API boundary."],
+      "source": { "title": "Java Generics Tutorial", "url": "https://docs.oracle.com/javase/tutorial/java/generics/" }
+    },
+    {
+      "id": "java-7",
+      "technology": "java",
+      "title": "What is the difference between volatile and synchronized in Java?",
+      "questionType": "comparison",
+      "explanation": ["Volatile provides visibility and ordering for reads and writes of one variable but does not make compound operations atomic. Synchronized provides mutual exclusion and a happens-before relationship around an entire critical section."],
+      "source": { "title": "Java Concurrency Tutorial", "url": "https://docs.oracle.com/javase/tutorial/essential/concurrency/" }
+    },
+    {
+      "id": "java-8",
+      "technology": "java",
+      "title": "Why are Java Stream intermediate operations lazy?",
+      "questionType": "conceptual",
+      "explanation": ["Intermediate operations build a pipeline description and do not process elements until a terminal operation requests results. Laziness enables operation fusion, short-circuiting, and avoiding work for elements that are never needed."],
+      "source": { "title": "Java Stream API", "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/package-summary.html" }
+    },
+    {
+      "id": "java-9",
+      "technology": "java",
+      "title": "When should a Java API return Optional?",
+      "questionType": "scenario",
+      "explanation": ["Optional is useful as a return type when absence is an expected result callers must handle. It is usually inappropriate for fields, serialization models, method parameters, or collections where an empty collection already expresses no results."],
+      "source": { "title": "Optional API", "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" }
+    },
+    {
+      "id": "java-10",
+      "technology": "java",
+      "title": "What advantage does a record provide over a manually written data carrier?",
+      "questionType": "comparison",
+      "explanation": ["A record declares a transparent carrier for a fixed set of components and receives canonical construction, accessors, equality, hashing, and string representation based on that state. It reduces boilerplate but does not make referenced mutable objects deeply immutable."],
+      "source": { "title": "Record Classes - Java", "url": "https://docs.oracle.com/en/java/javase/21/language/records.html" }
+    },
+    {
+      "id": "java-11",
+      "technology": "java",
+      "title": "How can inconsistent lock ordering cause a Java deadlock?",
+      "questionType": "debugging",
+      "explanation": ["One thread holds lock A while waiting for B and another holds B while waiting for A, creating a cycle with no possible progress. Establish a global acquisition order, reduce nested locking, or use timed and higher-level concurrency constructs."],
+      "source": { "title": "Deadlock - Java Concurrency", "url": "https://docs.oracle.com/javase/tutorial/essential/concurrency/deadlock.html" }
+    },
+    {
+      "id": "java-12",
+      "technology": "java",
+      "title": "What problem do sealed classes solve?",
+      "questionType": "conceptual",
+      "explanation": ["A sealed class or interface explicitly limits which types may extend or implement it. This gives the model controlled extensibility and allows compilers and readers to reason about a known hierarchy, including exhaustive pattern handling."],
+      "source": { "title": "Sealed Classes - Java", "url": "https://docs.oracle.com/en/java/javase/21/language/sealed-classes-and-interfaces.html" }
+    },
+    {
+      "id": "java-13",
+      "technology": "java",
+      "title": "Why can an unbounded CompletableFuture chain create operational problems?",
+      "questionType": "scenario",
+      "explanation": ["A chain can accumulate work, retain captured state, and overload the default executor or a downstream dependency. Define executors deliberately, bound concurrency, propagate cancellation and timeouts, and handle exceptional completion at meaningful boundaries."],
+      "source": { "title": "CompletableFuture API", "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" }
+    },
+    {
+      "id": "java-14",
+      "technology": "java",
+      "title": "What makes an object eligible for Java garbage collection?",
+      "questionType": "conceptual",
+      "explanation": ["An object becomes eligible when it is no longer strongly reachable from any garbage-collection root through the relevant reference graph. Scope exit alone does not guarantee collection, and eligibility does not specify when reclamation will occur."],
+      "source": { "title": "Java Virtual Machine Guide", "url": "https://docs.oracle.com/en/java/javase/21/vm/java-virtual-machine-guide.pdf" }
+    },
+    {
+      "id": "java-15",
+      "technology": "java",
+      "title": "Why should a library avoid catching Throwable for ordinary recovery?",
+      "questionType": "scenario",
+      "explanation": ["Throwable includes serious Error conditions such as virtual-machine failures that ordinary application code generally cannot safely recover from. Catch the narrow exception types the code can handle, preserve causes, and let unrecoverable conditions propagate."],
+      "source": { "title": "Java Exceptions Tutorial", "url": "https://docs.oracle.com/javase/tutorial/essential/exceptions/" }
+    },
+    {
+      "id": "spring-boot-6",
+      "technology": "spring-boot",
+      "title": "What is the practical difference between singleton and prototype Spring bean scopes?",
+      "questionType": "comparison",
+      "explanation": ["Singleton scope creates one bean instance per application context and is the default. Prototype scope creates a new instance for each container request, but the container does not manage the full destruction lifecycle of each prototype after handing it to the caller."],
+      "source": { "title": "Spring Bean Scopes", "url": "https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html" }
+    },
+    {
+      "id": "spring-boot-7",
+      "technology": "spring-boot",
+      "title": "Why use @ConfigurationProperties instead of many @Value fields?",
+      "questionType": "comparison",
+      "explanation": ["Configuration properties bind a coherent namespace into a typed object, support validation and metadata, and make configuration easier to test and document. Scattered value expressions hide relationships and defer many mistakes until runtime."],
+      "source": { "title": "Spring Boot Type-safe Configuration Properties", "url": "https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties" }
+    },
+    {
+      "id": "spring-boot-8",
+      "technology": "spring-boot",
+      "title": "When is Spring WebFlux a better fit than Spring MVC?",
+      "questionType": "comparison",
+      "explanation": ["WebFlux fits workloads that benefit from non-blocking end-to-end I/O and controlled concurrency with reactive libraries. MVC is often simpler for blocking dependencies and conventional request processing; using a reactive controller does not make a blocking database driver non-blocking."],
+      "source": { "title": "Spring WebFlux", "url": "https://docs.spring.io/spring-framework/reference/web/webflux.html" }
+    },
+    {
+      "id": "spring-boot-9",
+      "technology": "spring-boot",
+      "title": "Where should cross-cutting HTTP behavior live: filter, interceptor, or controller advice?",
+      "questionType": "comparison",
+      "explanation": ["Servlet filters operate around the servlet chain, MVC interceptors operate around handler execution, and controller advice centralizes controller concerns such as exception translation and binding support. Choose the narrowest layer whose lifecycle and context match the requirement."],
+      "source": { "title": "Spring MVC", "url": "https://docs.spring.io/spring-framework/reference/web/webmvc.html" }
+    },
+    {
+      "id": "spring-boot-10",
+      "technology": "spring-boot",
+      "title": "How can a JPA N+1 query problem appear in a Spring application?",
+      "questionType": "debugging",
+      "explanation": ["One query loads parent entities and later lazy access issues an additional query for each parent association. Detect it with SQL and request tracing, then use a query-specific fetch join, entity graph, projection, or batch strategy rather than making every relationship eager."],
+      "source": { "title": "Spring Data JPA Reference", "url": "https://docs.spring.io/spring-data/jpa/reference/" }
+    },
+    {
+      "id": "spring-boot-11",
+      "technology": "spring-boot",
+      "title": "What does a Spring Boot test slice provide?",
+      "questionType": "conceptual",
+      "explanation": ["A test slice loads a focused portion of the application context for one layer, such as MVC or persistence, with targeted auto-configuration. It gives faster feedback than a full context but does not prove complete application wiring."],
+      "source": { "title": "Spring Boot Testing", "url": "https://docs.spring.io/spring-boot/reference/testing/index.html" }
+    },
+    {
+      "id": "spring-boot-12",
+      "technology": "spring-boot",
+      "title": "Why is a route permit rule not sufficient without method-level ownership checks?",
+      "questionType": "scenario",
+      "explanation": ["A route rule can establish a broad role but may not know which tenant or record the request targets. Service or method authorization must also enforce business permissions and object ownership before protected data is read or changed."],
+      "source": { "title": "Spring Security Authorization", "url": "https://docs.spring.io/spring-security/reference/servlet/authorization/index.html" }
+    },
+    {
+      "id": "spring-boot-13",
+      "technology": "spring-boot",
+      "title": "When can caching a Spring service method produce incorrect results?",
+      "questionType": "scenario",
+      "explanation": ["Incorrect keys, missing invalidation, mutable return values, caller-specific authorization, or self-invocation that bypasses the proxy can make cache entries stale or unsafe. Define cache semantics and ownership before adding annotations."],
+      "source": { "title": "Spring Cache Abstraction", "url": "https://docs.spring.io/spring-framework/reference/integration/cache.html" }
+    },
+    {
+      "id": "spring-boot-14",
+      "technology": "spring-boot",
+      "title": "What does graceful shutdown protect in a Spring Boot service?",
+      "questionType": "system-design",
+      "explanation": ["Graceful shutdown stops accepting new work and gives active requests time to finish before the process exits. It reduces truncated responses and partial operations but still requires bounded timeouts, idempotency, and recovery for work that cannot finish."],
+      "source": { "title": "Spring Boot Graceful Shutdown", "url": "https://docs.spring.io/spring-boot/reference/web/graceful-shutdown.html" }
+    },
+    {
+      "id": "spring-boot-15",
+      "technology": "spring-boot",
+      "title": "Why are circular bean dependencies a design warning?",
+      "questionType": "conceptual",
+      "explanation": ["A dependency cycle often indicates responsibilities are not separated or an orchestration boundary is missing. Refactoring toward explicit direction usually improves testability and lifecycle clarity; enabling circular references merely hides the structural problem."],
+      "source": { "title": "Spring Framework Dependencies", "url": "https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html" }
+    },
+    {
+      "id": "react-9",
+      "technology": "react",
+      "title": "What is the difference between controlled and uncontrolled form inputs in React?",
+      "questionType": "comparison",
+      "explanation": ["A controlled input receives its current value from React state and reports changes through an event handler. An uncontrolled input lets the DOM retain current state and is read through a ref or form submission; switching models during one input's lifetime causes inconsistent ownership."],
+      "source": { "title": "React Input Reference", "url": "https://react.dev/reference/react-dom/components/input" }
+    },
+    {
+      "id": "react-10",
+      "technology": "react",
+      "title": "When does useMemo not improve React performance?",
+      "questionType": "scenario",
+      "explanation": ["Memoization adds comparison and memory overhead and has no value when computation is cheap, dependencies change every render, or the result is not used by a memoized consumer. It should follow measurement, not serve as a correctness mechanism."],
+      "source": { "title": "useMemo - React", "url": "https://react.dev/reference/react/useMemo" }
+    },
+    {
+      "id": "react-11",
+      "technology": "react",
+      "title": "When is useReducer preferable to several related useState calls?",
+      "questionType": "comparison",
+      "explanation": ["A reducer helps when state transitions are related, depend on action semantics, or benefit from centralized invariant enforcement and testing. Independent simple values can remain separate state; a reducer should clarify transitions rather than add ceremony."],
+      "source": { "title": "Extracting State Logic into a Reducer - React", "url": "https://react.dev/learn/extracting-state-logic-into-a-reducer" }
+    },
+    {
+      "id": "react-12",
+      "technology": "react",
+      "title": "Why does changing a ref not trigger a React render?",
+      "questionType": "conceptual",
+      "explanation": ["A ref is a stable mutable container for information that does not participate in rendering. React does not observe writes to current, so visual state belongs in state while refs suit DOM nodes, timers, and imperative integration values."],
+      "source": { "title": "Referencing Values with Refs - React", "url": "https://react.dev/learn/referencing-values-with-refs" }
+    },
+    {
+      "id": "react-13",
+      "technology": "react",
+      "title": "When should state be lifted to a common parent?",
+      "questionType": "scenario",
+      "explanation": ["Lift state when multiple descendants must coordinate around one source of truth. Place it in their closest common owner and pass data and actions downward; avoid moving unrelated local state to a global location."],
+      "source": { "title": "Sharing State Between Components - React", "url": "https://react.dev/learn/sharing-state-between-components" }
+    },
+    {
+      "id": "react-14",
+      "technology": "react",
+      "title": "Why is storing derived data in React state often a bug?",
+      "questionType": "debugging",
+      "explanation": ["Duplicating a value that can be calculated from props or existing state creates two sources of truth and requires synchronization effects. Calculate it during rendering unless the computation is expensive enough to justify memoization."],
+      "source": { "title": "You Might Not Need an Effect - React", "url": "https://react.dev/learn/you-might-not-need-an-effect" }
+    },
+    {
+      "id": "react-15",
+      "technology": "react",
+      "title": "What role does Suspense play in React rendering?",
+      "questionType": "conceptual",
+      "explanation": ["Suspense defines a boundary that can show fallback content while a supported child operation is pending. It coordinates reveal behavior but does not itself fetch data; the framework or data source must integrate with React's suspension model."],
+      "source": { "title": "Suspense - React", "url": "https://react.dev/reference/react/Suspense" }
+    },
+    {
+      "id": "react-16",
+      "technology": "react",
+      "title": "What failures can a React error boundary catch?",
+      "questionType": "conceptual",
+      "explanation": ["An error boundary catches rendering and lifecycle errors in its descendant tree and can show fallback UI. It does not generally catch event-handler errors, arbitrary asynchronous callback errors, server-rendering errors, or errors thrown inside the boundary itself."],
+      "source": { "title": "Component catch API - React", "url": "https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary" }
+    },
+    {
+      "id": "react-17",
+      "technology": "react",
+      "title": "Why does an external mutable store need a consistent React subscription API?",
+      "questionType": "system-design",
+      "explanation": ["React needs a stable snapshot and a subscription notification to avoid tearing between concurrent renders. useSyncExternalStore formalizes that contract and also supports a server snapshot for hydration."],
+      "source": { "title": "useSyncExternalStore - React", "url": "https://react.dev/reference/react/useSyncExternalStore" }
+    },
+    {
+      "id": "react-18",
+      "technology": "react",
+      "title": "What causes a hydration mismatch in a server-rendered React application?",
+      "questionType": "debugging",
+      "explanation": ["A mismatch occurs when the client's initial render produces different markup from the server, often because of time, randomness, browser-only branches, locale, or changed data. Initial output must be deterministic, with client-only changes deferred until after hydration."],
+      "source": { "title": "hydrateRoot - React", "url": "https://react.dev/reference/react-dom/client/hydrateRoot" }
+    },
+    {
+      "id": "angular-6",
+      "technology": "angular",
+      "title": "What does OnPush change detection require from component state?",
+      "questionType": "conceptual",
+      "explanation": ["OnPush narrows when Angular checks a subtree, including new input identity, handled events, explicit marking, and observed reactive changes. Mutating an existing input object without changing its reference can therefore leave the view stale."],
+      "source": { "title": "Skipping Component Subtrees - Angular", "url": "https://angular.dev/best-practices/skipping-subtrees" }
+    },
+    {
+      "id": "angular-7",
+      "technology": "angular",
+      "title": "Why should an Angular pure pipe avoid hidden mutable dependencies?",
+      "questionType": "conceptual",
+      "explanation": ["Angular can reuse a pure pipe result when explicit input identities have not changed. Reading mutable global state or mutating an input violates that assumption and can produce stale or surprising output."],
+      "source": { "title": "Pipes - Angular", "url": "https://angular.dev/guide/templates/pipes" }
+    },
+    {
+      "id": "angular-8",
+      "technology": "angular",
+      "title": "Why does stable tracking matter when Angular renders a collection?",
+      "questionType": "conceptual",
+      "explanation": ["A stable key lets Angular associate data items with existing DOM and component instances across insertions and reordering. Tracking by unstable position can recreate views or attach local state to the wrong logical item."],
+      "source": { "title": "Control Flow - Angular", "url": "https://angular.dev/guide/templates/control-flow" }
+    },
+    {
+      "id": "angular-9",
+      "technology": "angular",
+      "title": "Why is an Angular route guard not a server authorization control?",
+      "questionType": "scenario",
+      "explanation": ["Route guards execute in user-controlled client code and mainly manage navigation experience. A caller can bypass the UI and invoke an API directly, so the backend must independently enforce every protected permission and ownership rule."],
+      "source": { "title": "Route Guards - Angular", "url": "https://angular.dev/guide/routing/route-guards" }
+    },
+    {
+      "id": "angular-10",
+      "technology": "angular",
+      "title": "What belongs in an Angular HTTP interceptor?",
+      "questionType": "scenario",
+      "explanation": ["Interceptors suit transport-wide concerns such as authentication headers, correlation IDs, timing, retry policy, and normalized errors. Business decisions tied to one feature should remain in that feature rather than becoming invisible global behavior."],
+      "source": { "title": "HTTP Interceptors - Angular", "url": "https://angular.dev/guide/http/interceptors" }
+    },
+    {
+      "id": "angular-11",
+      "technology": "angular",
+      "title": "When should an Angular component use content projection?",
+      "questionType": "conceptual",
+      "explanation": ["Content projection lets a reusable component define structure while callers supply child content through ng-content slots. It is appropriate for compositional containers, while inputs are better for ordinary data and templates are better when deferred or repeated instantiation is required."],
+      "source": { "title": "Content Projection - Angular", "url": "https://angular.dev/guide/components/content-projection" }
+    },
+    {
+      "id": "angular-12",
+      "technology": "angular",
+      "title": "What problem do standalone Angular components solve?",
+      "questionType": "conceptual",
+      "explanation": ["Standalone components declare their own template dependencies and can be imported directly without an NgModule declaration. This simplifies composition, lazy loading, and dependency visibility while NgModules remain supported for existing designs."],
+      "source": { "title": "Angular Components", "url": "https://angular.dev/guide/components" }
+    },
+    {
+      "id": "angular-13",
+      "technology": "angular",
+      "title": "How should an Angular test decide between a class test and TestBed?",
+      "questionType": "comparison",
+      "explanation": ["Use a plain class test for isolated logic that does not require Angular runtime behavior. Use TestBed when the evidence depends on templates, dependency injection, change detection, directives, or framework integration."],
+      "source": { "title": "Testing - Angular", "url": "https://angular.dev/guide/testing" }
+    },
+    {
+      "id": "angular-14",
+      "technology": "angular",
+      "title": "How does lazy route loading affect an Angular application's initial bundle?",
+      "questionType": "system-design",
+      "explanation": ["Lazy loading moves route code into chunks fetched when needed, reducing initial JavaScript at the cost of a later network boundary. Good route partitioning, preloading strategy, and loading/error states balance startup and navigation performance."],
+      "source": { "title": "Loading Route Code - Angular", "url": "https://angular.dev/guide/routing/define-routes#loading-route-component-code" }
+    },
+    {
+      "id": "angular-15",
+      "technology": "angular",
+      "title": "Why should effects be used sparingly with Angular signals?",
+      "questionType": "scenario",
+      "explanation": ["Effects are useful for synchronizing reactive state with imperative external systems, but using them to propagate derived state can create cycles and timing complexity. Computed signals express pure derivations more directly."],
+      "source": { "title": "Signals - Angular", "url": "https://angular.dev/guide/signals" }
+    }
+  ]
+}

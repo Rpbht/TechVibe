@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "policy": "Create original questions and explanations. Store a direct source URL for verification; do not copy source prose verbatim.",
+  "categories": {
+    "general-engineering": [
+      { "title": "Guide to the Software Engineering Body of Knowledge", "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering", "kind": "professional-standard" }
+    ],
+    "java": [
+      { "title": "Learn Java", "url": "https://dev.java/learn/", "kind": "official" },
+      { "title": "Java Platform API", "url": "https://docs.oracle.com/en/java/javase/", "kind": "official" }
+    ],
+    "spring-boot": [
+      { "title": "Spring Boot Reference Documentation", "url": "https://docs.spring.io/spring-boot/documentation.html", "kind": "official" }
+    ],
+    "react": [
+      { "title": "React Learn", "url": "https://react.dev/learn", "kind": "official" },
+      { "title": "React Reference", "url": "https://react.dev/reference/react", "kind": "official" }
+    ],
+    "angular": [
+      { "title": "Angular Documentation", "url": "https://angular.dev/overview", "kind": "official" }
+    ],
+    "frontend-engineering": [
+      { "title": "MDN Learn Web Development", "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development", "kind": "official-guide" }
+    ],
+    "web-platform": [
+      { "title": "MDN Web Technology Reference", "url": "https://developer.mozilla.org/en-US/docs/Web", "kind": "official-guide" },
+      { "title": "WHATWG HTML Living Standard", "url": "https://html.spec.whatwg.org/", "kind": "standard" }
+    ],
+    "javascript": [
+      { "title": "MDN JavaScript Guide", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide", "kind": "official-guide" },
+      { "title": "ECMAScript Language Specification", "url": "https://tc39.es/ecma262/", "kind": "standard" }
+    ],
+    "typescript": [
+      { "title": "TypeScript Handbook", "url": "https://www.typescriptlang.org/docs/handbook/", "kind": "official" }
+    ],
+    "nextjs": [
+      { "title": "Next.js Documentation", "url": "https://nextjs.org/docs", "kind": "official" }
+    ],
+    "vue": [
+      { "title": "Vue.js Guide", "url": "https://vuejs.org/guide/introduction.html", "kind": "official" },
+      { "title": "Nuxt Documentation", "url": "https://nuxt.com/docs", "kind": "official" }
+    ],
+    "nodejs": [
+      { "title": "Node.js API Documentation", "url": "https://nodejs.org/api/documentation.html", "kind": "official" }
+    ],
+    "backend-engineering": [
+      { "title": "MDN Server-side Website Programming", "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side", "kind": "official-guide" }
+    ],
+    "api-design": [
+      { "title": "HTTP Semantics RFC 9110", "url": "https://www.rfc-editor.org/rfc/rfc9110", "kind": "standard" },
+      { "title": "GraphQL Specification", "url": "https://spec.graphql.org/", "kind": "standard" },
+      { "title": "gRPC Documentation", "url": "https://grpc.io/docs/", "kind": "official" }
+    ],
+    "python": [
+      { "title": "The Python Tutorial", "url": "https://docs.python.org/3/tutorial/", "kind": "official" },
+      { "title": "Python Language Reference", "url": "https://docs.python.org/3/reference/", "kind": "official" }
+    ],
+    "python-web": [
+      { "title": "Django Documentation", "url": "https://docs.djangoproject.com/en/stable/", "kind": "official" },
+      { "title": "FastAPI Documentation", "url": "https://fastapi.tiangolo.com/", "kind": "official" }
+    ],
+    "golang": [
+      { "title": "Go Documentation", "url": "https://go.dev/doc/", "kind": "official" },
+      { "title": "The Go Programming Language Specification", "url": "https://go.dev/ref/spec", "kind": "standard" }
+    ],
+    "c-cpp": [
+      { "title": "C and C++ Reference", "url": "https://en.cppreference.com/w/", "kind": "reference" },
+      { "title": "C++ Core Guidelines", "url": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines", "kind": "official-guide" }
+    ],
+    "dotnet": [
+      { "title": ".NET Documentation", "url": "https://learn.microsoft.com/en-us/dotnet/", "kind": "official" },
+      { "title": "C# Language Reference", "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/", "kind": "official" }
+    ],
+    "kotlin": [
+      { "title": "Kotlin Documentation", "url": "https://kotlinlang.org/docs/home.html", "kind": "official" }
+    ],
+    "rust": [
+      { "title": "The Rust Programming Language", "url": "https://doc.rust-lang.org/book/", "kind": "official" },
+      { "title": "Rust Reference", "url": "https://doc.rust-lang.org/reference/", "kind": "official" }
+    ],
+    "php": [
+      { "title": "PHP Manual", "url": "https://www.php.net/manual/en/", "kind": "official" },
+      { "title": "Laravel Documentation", "url": "https://laravel.com/docs", "kind": "official" }
+    ],
+    "ruby": [
+      { "title": "Ruby Documentation", "url": "https://www.ruby-lang.org/en/documentation/", "kind": "official" },
+      { "title": "Ruby on Rails Guides", "url": "https://guides.rubyonrails.org/", "kind": "official" }
+    ],
+    "scala-functional": [
+      { "title": "Scala Documentation", "url": "https://docs.scala-lang.org/", "kind": "official" }
+    ],
+    "dsa": [
+      { "title": "Open Data Structures", "url": "https://opendatastructures.org/", "kind": "open-textbook" },
+      { "title": "Algorithms, 4th Edition Resources", "url": "https://algs4.cs.princeton.edu/home/", "kind": "academic" }
+    ],
+    "object-design": [
+      { "title": "Cloud Design Patterns", "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/", "kind": "official-guide" }
+    ],
+    "operating-systems": [
+      { "title": "Operating Systems: Three Easy Pieces", "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/", "kind": "open-textbook" },
+      { "title": "Linux Kernel Documentation", "url": "https://docs.kernel.org/", "kind": "official" }
+    ],
+    "networking": [
+      { "title": "Internet Standards", "url": "https://www.rfc-editor.org/standards", "kind": "standard" },
+      { "title": "HTTP Semantics RFC 9110", "url": "https://www.rfc-editor.org/rfc/rfc9110", "kind": "standard" }
+    ],
+    "computer-architecture": [
+      { "title": "RISC-V Specifications", "url": "https://riscv.org/specifications/", "kind": "standard" }
+    ],
+    "compilers": [
+      { "title": "LLVM Kaleidoscope Tutorial", "url": "https://llvm.org/docs/tutorial/", "kind": "official" },
+      { "title": "LLVM Language Reference", "url": "https://llvm.org/docs/LangRef.html", "kind": "official" }
+    ],
+    "system-design": [
+      { "title": "AWS Well-Architected Framework", "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html", "kind": "official-guide" },
+      { "title": "Azure Architecture Center", "url": "https://learn.microsoft.com/en-us/azure/architecture/", "kind": "official-guide" }
+    ],
+    "distributed-systems": [
+      { "title": "The Amazon Builders' Library", "url": "https://aws.amazon.com/builders-library/", "kind": "official-guide" },
+      { "title": "Raft Consensus Algorithm", "url": "https://raft.github.io/", "kind": "academic" }
+    ],
+    "microservices": [
+      { "title": ".NET Microservices Architecture", "url": "https://learn.microsoft.com/en-us/dotnet/architecture/microservices/", "kind": "official-guide" }
+    ],
+    "event-driven": [
+      { "title": "Apache Kafka Documentation", "url": "https://kafka.apache.org/documentation/", "kind": "official" },
+      { "title": "AsyncAPI Documentation", "url": "https://www.asyncapi.com/docs", "kind": "official" }
+    ],
+    "database-engineering": [
+      { "title": "PostgreSQL SQL Tutorial", "url": "https://www.postgresql.org/docs/current/tutorial-sql.html", "kind": "official" }
+    ],
+    "postgres": [
+      { "title": "PostgreSQL Documentation", "url": "https://www.postgresql.org/docs/current/", "kind": "official" }
+    ],
+    "mysql": [
+      { "title": "MySQL Reference Manual", "url": "https://dev.mysql.com/doc/refman/8.4/en/", "kind": "official" },
+      { "title": "MariaDB Documentation", "url": "https://mariadb.com/docs/", "kind": "official" }
+    ],
+    "nosql": [
+      { "title": "MongoDB Manual", "url": "https://www.mongodb.com/docs/manual/", "kind": "official" },
+      { "title": "Apache Cassandra Documentation", "url": "https://cassandra.apache.org/doc/latest/", "kind": "official" }
+    ],
+    "redis-caching": [
+      { "title": "Redis Documentation", "url": "https://redis.io/docs/latest/", "kind": "official" }
+    ],
+    "search": [
+      { "title": "Elasticsearch Reference", "url": "https://www.elastic.co/docs/reference/elasticsearch", "kind": "official" },
+      { "title": "Apache Lucene Documentation", "url": "https://lucene.apache.org/core/", "kind": "official" }
+    ],
+    "cloud-architecture": [
+      { "title": "Google Cloud Architecture Framework", "url": "https://cloud.google.com/architecture/framework", "kind": "official-guide" },
+      { "title": "AWS Well-Architected Framework", "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html", "kind": "official-guide" }
+    ],
+    "devops-cicd": [
+      { "title": "GitHub Actions Documentation", "url": "https://docs.github.com/en/actions", "kind": "official" },
+      { "title": "GitLab CI/CD Documentation", "url": "https://docs.gitlab.com/ci/", "kind": "official" }
+    ],
+    "docker": [
+      { "title": "Docker Engine Documentation", "url": "https://docs.docker.com/engine/", "kind": "official" },
+      { "title": "Kubernetes Concepts", "url": "https://kubernetes.io/docs/concepts/", "kind": "official" }
+    ],
+    "infrastructure-as-code": [
+      { "title": "Terraform Documentation", "url": "https://developer.hashicorp.com/terraform/docs", "kind": "official" },
+      { "title": "Terraform Language", "url": "https://developer.hashicorp.com/terraform/language", "kind": "official" }
+    ],
+    "linux-shell": [
+      { "title": "GNU Bash Manual", "url": "https://www.gnu.org/software/bash/manual/", "kind": "official" },
+      { "title": "Linux Kernel Documentation", "url": "https://docs.kernel.org/", "kind": "official" }
+    ],
+    "sre-observability": [
+      { "title": "Google Site Reliability Engineering Books", "url": "https://sre.google/books/", "kind": "official-guide" },
+      { "title": "OpenTelemetry Concepts", "url": "https://opentelemetry.io/docs/concepts/", "kind": "official" }
+    ],
+    "performance-engineering": [
+      { "title": "web.dev Performance", "url": "https://web.dev/learn/performance/", "kind": "official-guide" },
+      { "title": "Linux Performance", "url": "https://www.brendangregg.com/linuxperf.html", "kind": "reference" }
+    ],
+    "cybersecurity": [
+      { "title": "OWASP Developer Guide", "url": "https://owasp.org/www-project-developer-guide/", "kind": "official-guide" },
+      { "title": "NIST Cybersecurity Framework", "url": "https://www.nist.gov/cyberframework", "kind": "standard" }
+    ],
+    "testing-qa": [
+      { "title": "JUnit 5 User Guide", "url": "https://junit.org/junit5/docs/current/user-guide/", "kind": "official" },
+      { "title": "pytest Documentation", "url": "https://docs.pytest.org/en/stable/", "kind": "official" }
+    ],
+    "data-engineering": [
+      { "title": "Apache Spark Documentation", "url": "https://spark.apache.org/docs/latest/", "kind": "official" },
+      { "title": "Apache Kafka Documentation", "url": "https://kafka.apache.org/documentation/", "kind": "official" }
+    ],
+    "data-science": [
+      { "title": "pandas User Guide", "url": "https://pandas.pydata.org/docs/user_guide/", "kind": "official" },
+      { "title": "NumPy User Guide", "url": "https://numpy.org/doc/stable/user/", "kind": "official" }
+    ],
+    "machine-learning": [
+      { "title": "scikit-learn User Guide", "url": "https://scikit-learn.org/stable/user_guide.html", "kind": "official" },
+      { "title": "PyTorch Tutorials", "url": "https://docs.pytorch.org/tutorials/", "kind": "official" }
+    ],
+    "generative-ai": [
+      { "title": "Hugging Face Transformers Documentation", "url": "https://huggingface.co/docs/transformers/", "kind": "official" },
+      { "title": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework", "kind": "standard" }
+    ],
+    "mlops": [
+      { "title": "MLflow Documentation", "url": "https://mlflow.org/docs/latest/", "kind": "official" },
+      { "title": "Kubeflow Documentation", "url": "https://www.kubeflow.org/docs/", "kind": "official" }
+    ],
+    "mobile-engineering": [
+      { "title": "Android Developers", "url": "https://developer.android.com/", "kind": "official" },
+      { "title": "Apple Developer Documentation", "url": "https://developer.apple.com/documentation/", "kind": "official" }
+    ],
+    "android": [
+      { "title": "Guide to Android App Architecture", "url": "https://developer.android.com/topic/architecture", "kind": "official" },
+      { "title": "Jetpack Compose Documentation", "url": "https://developer.android.com/develop/ui/compose/documentation", "kind": "official" }
+    ],
+    "ios": [
+      { "title": "Swift Documentation", "url": "https://docs.swift.org/", "kind": "official" },
+      { "title": "SwiftUI Documentation", "url": "https://developer.apple.com/documentation/swiftui/", "kind": "official" }
+    ],
+    "cross-platform-mobile": [
+      { "title": "Flutter Documentation", "url": "https://docs.flutter.dev/", "kind": "official" },
+      { "title": "React Native Documentation", "url": "https://reactnative.dev/docs/getting-started", "kind": "official" }
+    ],
+    "embedded-iot": [
+      { "title": "Zephyr Project Documentation", "url": "https://docs.zephyrproject.org/latest/", "kind": "official" },
+      { "title": "Arduino Documentation", "url": "https://docs.arduino.cc/", "kind": "official" }
+    ],
+    "blockchain": [
+      { "title": "Ethereum Developer Documentation", "url": "https://ethereum.org/en/developers/docs/", "kind": "official" },
+      { "title": "Solidity Documentation", "url": "https://docs.soliditylang.org/", "kind": "official" }
+    ],
+    "game-development": [
+      { "title": "Unity Manual", "url": "https://docs.unity3d.com/Manual/index.html", "kind": "official" },
+      { "title": "Godot Engine Documentation", "url": "https://docs.godotengine.org/en/stable/", "kind": "official" }
+    ],
+    "web-accessibility": [
+      { "title": "Web Content Accessibility Guidelines 2.2", "url": "https://www.w3.org/TR/WCAG22/", "kind": "standard" },
+      { "title": "WAI-ARIA Authoring Practices", "url": "https://www.w3.org/WAI/ARIA/apg/", "kind": "standard" }
+    ],
+    "git-collaboration": [
+      { "title": "Git Documentation", "url": "https://git-scm.com/doc", "kind": "official" },
+      { "title": "Pro Git", "url": "https://git-scm.com/book/en/v2", "kind": "official-guide" }
+    ],
+    "software-delivery": [
+      { "title": "Manifesto for Agile Software Development", "url": "https://agilemanifesto.org/", "kind": "standard" },
+      { "title": "DORA Research", "url": "https://dora.dev/research/", "kind": "research" }
+    ],
+    "engineering-leadership": [
+      { "title": "Software Engineering at Google", "url": "https://abseil.io/resources/swe-book", "kind": "official-guide" },
+      { "title": "ACM Code of Ethics", "url": "https://www.acm.org/code-of-ethics", "kind": "professional-standard" }
+    ],
+    "enterprise-integration": [
+      { "title": "Apache Camel Documentation", "url": "https://camel.apache.org/manual/", "kind": "official" },
+      { "title": "Enterprise Integration Patterns", "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/", "kind": "reference" }
+    ],
+    "real-time-systems": [
+      { "title": "Apache Flink Documentation", "url": "https://nightlies.apache.org/flink/flink-docs-stable/", "kind": "official" },
+      { "title": "Kafka Streams Documentation", "url": "https://kafka.apache.org/documentation/streams/", "kind": "official" }
+    ],
+    "robotics": [
+      { "title": "ROS 2 Documentation", "url": "https://docs.ros.org/en/rolling/", "kind": "official" }
+    ],
+    "spatial-computing": [
+      { "title": "WebXR Device API", "url": "https://www.w3.org/TR/webxr/", "kind": "standard" },
+      { "title": "Unity XR Documentation", "url": "https://docs.unity3d.com/Manual/XR.html", "kind": "official" }
+    ],
+    "quantum-computing": [
+      { "title": "IBM Quantum Learning", "url": "https://quantum.cloud.ibm.com/learning", "kind": "official-guide" },
+      { "title": "Qiskit Documentation", "url": "https://docs.quantum.ibm.com/", "kind": "official" }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+.git
+.github
+.env
+.env.*
+!.env.example
+node_modules
+dist
+logs
+*.log
+server/data/*.db
+server/data/*.db-shm
+server/data/*.db-wal
+.vscode
+.idea
+DEPLOY_GCP_VM.md

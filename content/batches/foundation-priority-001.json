@@ -1,0 +1,387 @@
+{
+  "questions": [
+    {
+      "id": "general-engineering-1",
+      "technology": "general-engineering",
+      "title": "Why are high cohesion and low coupling desirable in a software module?",
+      "questionType": "conceptual",
+      "summary": "Explain how module boundaries affect changeability and testing.",
+      "explanation": [
+        "High cohesion keeps closely related responsibilities together, so a module has a focused reason to change. Low coupling limits how much knowledge one module has about another module's implementation.",
+        "Together they reduce the blast radius of changes, make units easier to test independently, and allow implementations to evolve behind stable contracts. They are design goals rather than absolute rules: excessive abstraction can add indirection without reducing meaningful coupling."
+      ],
+      "source": {
+        "title": "Guide to the Software Engineering Body of Knowledge",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+      }
+    },
+    {
+      "id": "general-engineering-2",
+      "technology": "general-engineering",
+      "title": "What is the difference between verification and validation?",
+      "questionType": "comparison",
+      "summary": "Distinguish building the product correctly from building the correct product.",
+      "explanation": [
+        "Verification evaluates whether an artifact satisfies its specified requirements and was produced correctly. Reviews, static analysis, and tests against a specification are common verification activities.",
+        "Validation evaluates whether the delivered system satisfies real stakeholder needs in its intended environment. A system can pass every specified test and still fail validation if the specification did not capture the actual problem."
+      ],
+      "source": {
+        "title": "Guide to the Software Engineering Body of Knowledge",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+      }
+    },
+    {
+      "id": "general-engineering-3",
+      "technology": "general-engineering",
+      "title": "How should a team introduce a backward-incompatible API change?",
+      "questionType": "scenario",
+      "summary": "Design a migration that protects existing consumers.",
+      "explanation": [
+        "First identify consumers and define the incompatibility precisely. Prefer an additive versioned contract, publish a migration guide, and give consumers an overlap period in which both old and new behavior are supported.",
+        "Measure adoption, warn on use of the deprecated contract, and remove it only after agreed exit criteria are met. Contract tests and telemetry are important because deployment completion does not prove that every consumer has migrated."
+      ],
+      "source": {
+        "title": "Guide to the Software Engineering Body of Knowledge",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+      }
+    },
+    {
+      "id": "general-engineering-4",
+      "technology": "general-engineering",
+      "title": "A defect disappears when debug logging is enabled. How would you investigate it?",
+      "questionType": "debugging",
+      "summary": "Reason about timing-sensitive failures without depending on the behavior-changing log statements.",
+      "explanation": [
+        "Treat the behavior change as evidence of a race, uninitialized state, ordering dependency, or resource-lifetime problem. Preserve the failing environment, capture timestamps and correlation identifiers with low-overhead tracing, and inspect synchronization boundaries and shared mutable state.",
+        "Use repeatable stress tests, deterministic schedulers where available, and sanitizers or race detectors. The goal is to collect evidence without introducing enough synchronization or delay to mask the defect."
+      ],
+      "source": {
+        "title": "Guide to the Software Engineering Body of Knowledge",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+      }
+    },
+    {
+      "id": "general-engineering-5",
+      "technology": "general-engineering",
+      "title": "What should an engineering definition of done contain?",
+      "questionType": "scenario",
+      "summary": "Describe measurable completion criteria beyond writing code.",
+      "explanation": [
+        "A useful definition of done includes reviewed code, automated tests at appropriate levels, security and accessibility checks where relevant, updated documentation, observability, migration and rollback readiness, and acceptance against explicit requirements.",
+        "The criteria should be objective and proportionate to risk. Deployment can be part of done for continuously delivered services, but teams should distinguish code completion, release readiness, and verified production behavior."
+      ],
+      "source": {
+        "title": "Guide to the Software Engineering Body of Knowledge",
+        "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+      }
+    },
+    {
+      "id": "java-1",
+      "technology": "java",
+      "title": "Why must equal Java objects produce the same hash code?",
+      "questionType": "conceptual",
+      "summary": "Explain the contract between equals and hashCode in hash-based collections.",
+      "explanation": [
+        "Hash-based collections first use a hash code to select a bucket and then use equality to identify a matching key. If two equal objects produce different hash codes, a lookup can search the wrong bucket and fail to find an entry that is logically present.",
+        "Unequal objects may share a hash code, although excessive collisions reduce performance. Fields used by equals and hashCode should normally remain stable while an object is being used as a hash key."
+      ],
+      "source": {
+        "title": "java.lang.Object API",
+        "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html"
+      }
+    },
+    {
+      "id": "java-2",
+      "technology": "java",
+      "title": "When is ConcurrentHashMap preferable to Collections.synchronizedMap?",
+      "questionType": "comparison",
+      "summary": "Compare concurrency behavior and compound-operation requirements.",
+      "explanation": [
+        "ConcurrentHashMap is designed to allow high concurrency: reads generally do not require a single global exclusion lock, and updates can proceed concurrently. A synchronized map serializes access through one monitor and may become a bottleneck under contention.",
+        "The choice also affects iteration and compound operations. ConcurrentHashMap provides weakly consistent iteration and atomic methods such as computeIfAbsent, while callers of a synchronized map must manually hold its monitor during iteration and multi-step operations."
+      ],
+      "source": {
+        "title": "java.util.concurrent Package Summary",
+        "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/package-summary.html"
+      }
+    },
+    {
+      "id": "java-3",
+      "technology": "java",
+      "title": "What guarantees does try-with-resources provide in this example?",
+      "questionType": "code-explanation",
+      "summary": "Explain resource closure and suppressed exceptions.",
+      "explanation": [
+        "The resource is closed automatically when control leaves the try block, including when reading throws an exception. Resources declared in one statement are closed in reverse declaration order.",
+        "If both the body and close method throw, the body exception remains the primary exception and the close exception is attached as a suppressed exception. This preserves the original failure while retaining cleanup diagnostics."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "try (BufferedReader reader = Files.newBufferedReader(path)) {\n    return reader.readLine();\n}"
+      },
+      "source": {
+        "title": "The try-with-resources Statement",
+        "url": "https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html"
+      }
+    },
+    {
+      "id": "java-4",
+      "technology": "java",
+      "title": "How would you design an immutable Java value object containing a collection?",
+      "questionType": "scenario",
+      "summary": "Prevent callers from mutating state through aliases.",
+      "explanation": [
+        "Make the class final or otherwise prevent unsafe subclassing, keep fields private and final, validate all constructor arguments, and do not expose mutators. Copy mutable input collections during construction and return an unmodifiable view or immutable copy from accessors.",
+        "Immutability is transitive only when referenced elements are also immutable or defensively copied. A final reference alone prevents reassignment; it does not prevent mutation of the referenced object."
+      ],
+      "source": {
+        "title": "Creating Immutable Classes",
+        "url": "https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html"
+      }
+    },
+    {
+      "id": "java-5",
+      "technology": "java",
+      "title": "When are virtual threads appropriate, and what do they not make faster?",
+      "questionType": "comparison",
+      "summary": "Separate concurrency scalability from CPU execution speed.",
+      "explanation": [
+        "Virtual threads are useful for applications with many concurrent tasks that spend substantial time blocked on supported I/O. They allow a straightforward thread-per-task style without requiring an equally large number of operating-system threads.",
+        "They do not make CPU-bound work execute faster and do not remove the need to protect shared state. Throughput can still be limited by databases, connection pools, remote services, or code that pins carrier threads."
+      ],
+      "source": {
+        "title": "Virtual Threads",
+        "url": "https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html"
+      }
+    },
+    {
+      "id": "spring-boot-1",
+      "technology": "spring-boot",
+      "title": "How does Spring Boot auto-configuration decide whether to create a bean?",
+      "questionType": "conceptual",
+      "summary": "Explain conditional configuration and backing off.",
+      "explanation": [
+        "Auto-configuration classes use conditions based on the classpath, existing beans, properties, and application type. A configuration is applied only when its conditions match.",
+        "Well-designed auto-configuration backs off when the application provides its own bean. This supplies useful defaults without preventing explicit application configuration. The condition evaluation report helps explain why a configuration matched or did not match."
+      ],
+      "source": {
+        "title": "Spring Boot Auto-configuration",
+        "url": "https://docs.spring.io/spring-boot/reference/using/auto-configuration.html"
+      }
+    },
+    {
+      "id": "spring-boot-2",
+      "technology": "spring-boot",
+      "title": "Why is constructor injection generally preferred for required dependencies?",
+      "questionType": "comparison",
+      "summary": "Compare constructor injection with field injection.",
+      "explanation": [
+        "Constructor injection makes required dependencies explicit, permits fields to be final, and ensures an object cannot be created in an incomplete state. It also allows straightforward unit tests without reflective field mutation or a Spring container.",
+        "Field injection hides requirements and makes construction outside the framework harder. Setter injection can still be appropriate for genuinely optional or reconfigurable dependencies."
+      ],
+      "source": {
+        "title": "Spring Framework Dependency Injection",
+        "url": "https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html"
+      }
+    },
+    {
+      "id": "spring-boot-3",
+      "technology": "spring-boot",
+      "title": "Why might @Transactional not apply when one method calls another method on the same object?",
+      "questionType": "debugging",
+      "summary": "Diagnose self-invocation through Spring's proxy-based transaction model.",
+      "explanation": [
+        "In the default proxy mode, transaction advice runs when a caller invokes a proxied method through the proxy. A direct call from one method to another on the same instance does not cross that proxy boundary, so the inner method's annotation is not independently intercepted.",
+        "Move the transactional boundary to an externally invoked public method, separate the behavior into another bean, or deliberately choose an alternative weaving model. The correct fix depends on where the business transaction should begin and end."
+      ],
+      "source": {
+        "title": "Spring Transaction Management",
+        "url": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html"
+      }
+    },
+    {
+      "id": "spring-boot-4",
+      "technology": "spring-boot",
+      "title": "How should a Spring Boot application manage environment-specific configuration?",
+      "questionType": "scenario",
+      "summary": "Separate deploy-time configuration from packaged application code.",
+      "explanation": [
+        "Keep stable defaults in packaged configuration and supply environment-specific values through supported external sources such as environment variables, mounted configuration, or a managed secret store. Use profiles for coherent groups of settings rather than scattering environment checks through code.",
+        "Never commit production secrets. Validate required configuration at startup and understand Spring Boot's property-source precedence so an unexpected source cannot silently override a critical setting."
+      ],
+      "source": {
+        "title": "Spring Boot Externalized Configuration",
+        "url": "https://docs.spring.io/spring-boot/reference/features/external-config.html"
+      }
+    },
+    {
+      "id": "spring-boot-5",
+      "technology": "spring-boot",
+      "title": "How should Actuator health endpoints be exposed in production?",
+      "questionType": "system-design",
+      "summary": "Balance operational visibility with information disclosure and access control.",
+      "explanation": [
+        "Expose only the endpoints required by monitoring and orchestration, and secure sensitive management operations separately from public application traffic. Health groups can distinguish liveness from readiness so a dependency failure does not cause an inappropriate restart loop.",
+        "Detailed component information can reveal infrastructure and should be restricted. Management endpoints should have explicit network policy, authentication, authorization, and audit behavior rather than relying on an obscure URL."
+      ],
+      "source": {
+        "title": "Spring Boot Production-ready Features",
+        "url": "https://docs.spring.io/spring-boot/reference/actuator/index.html"
+      }
+    },
+    {
+      "id": "react-4",
+      "technology": "react",
+      "title": "Why can using an array index as a React key corrupt component state?",
+      "questionType": "debugging",
+      "summary": "Explain identity when list items are inserted, removed, or reordered.",
+      "explanation": [
+        "React uses keys to associate rendered children with their previous identities. When an index is used and the list order changes, the same index can now describe a different logical item, so local state and DOM reuse may be attached to the wrong data.",
+        "Use a stable identifier from the data that is unique among siblings. An index is acceptable only when the list is static and items cannot be reordered, inserted, or removed."
+      ],
+      "source": {
+        "title": "Rendering Lists - React",
+        "url": "https://react.dev/learn/rendering-lists"
+      }
+    },
+    {
+      "id": "react-5",
+      "technology": "react",
+      "title": "What cleanup is required for this React effect?",
+      "questionType": "code-explanation",
+      "summary": "Prevent stale subscriptions when the room changes or the component unmounts.",
+      "explanation": [
+        "The effect synchronizes the component with an external connection. It should return a cleanup function that disconnects the exact connection created by that effect execution.",
+        "React runs cleanup before rerunning an effect with changed dependencies and when the component unmounts. In development, an additional setup-cleanup cycle can expose effects whose cleanup is incomplete."
+      ],
+      "code": {
+        "language": "typescript",
+        "snippet": "useEffect(() => {\n  const connection = createConnection(roomId);\n  connection.connect();\n  return () => connection.disconnect();\n}, [roomId]);"
+      },
+      "source": {
+        "title": "Synchronizing with Effects - React",
+        "url": "https://react.dev/learn/synchronizing-with-effects"
+      }
+    },
+    {
+      "id": "react-6",
+      "technology": "react",
+      "title": "What does it mean that React state behaves like a snapshot?",
+      "questionType": "conceptual",
+      "summary": "Explain why setting state does not change the variable in the current event handler.",
+      "explanation": [
+        "Each render receives a snapshot of state, props, and event handlers for that render. Calling a setter requests a future render; it does not mutate the state variable already captured by the currently executing function.",
+        "When the next state depends on the previous state, pass an updater function. React can then process queued updates against the latest pending value instead of repeatedly using one render's snapshot."
+      ],
+      "source": {
+        "title": "State as a Snapshot - React",
+        "url": "https://react.dev/learn/state-as-a-snapshot"
+      }
+    },
+    {
+      "id": "react-7",
+      "technology": "react",
+      "title": "A context provider causes many unrelated consumers to rerender. What should you examine?",
+      "questionType": "scenario",
+      "summary": "Reduce unnecessary updates without hiding correctness problems.",
+      "explanation": [
+        "A provider passes a new value when its value identity changes. Check whether an object or callback is recreated on every parent render and whether one broad context contains unrelated frequently changing values.",
+        "Stabilize values only when measurement shows a benefit, split contexts by responsibility and update frequency, or move state closer to its consumers. Memoization cannot prevent consumers from receiving a genuinely changed context value."
+      ],
+      "source": {
+        "title": "useContext - React",
+        "url": "https://react.dev/reference/react/useContext"
+      }
+    },
+    {
+      "id": "react-8",
+      "technology": "react",
+      "title": "When should a React update be wrapped in a transition?",
+      "questionType": "comparison",
+      "summary": "Distinguish urgent input updates from interruptible non-urgent rendering.",
+      "explanation": [
+        "Use a transition for a non-urgent state update whose rendering may be expensive and can be interrupted, such as switching a large results view. Keep controlled input state updates urgent so typing remains immediately responsive.",
+        "A transition does not make computation cheaper or replace data caching. It changes scheduling priority and lets React keep responsive content visible while the non-urgent update is prepared."
+      ],
+      "source": {
+        "title": "useTransition - React",
+        "url": "https://react.dev/reference/react/useTransition"
+      }
+    },
+    {
+      "id": "angular-1",
+      "technology": "angular",
+      "title": "How do Angular signals track dependencies in a computed value?",
+      "questionType": "conceptual",
+      "summary": "Explain dynamic dependency tracking and memoization.",
+      "explanation": [
+        "When a computed function executes, Angular records the signals whose getters were read. The computed value is memoized and becomes invalid when one of those dependencies changes.",
+        "Dependencies are dynamic: only signals read during the latest computation are tracked. This allows conditional derivations but means a signal hidden behind an unexecuted branch is not currently a dependency."
+      ],
+      "source": {
+        "title": "Signals - Angular",
+        "url": "https://angular.dev/guide/signals"
+      }
+    },
+    {
+      "id": "angular-2",
+      "technology": "angular",
+      "title": "How does Angular's hierarchical dependency injection affect provider scope?",
+      "questionType": "conceptual",
+      "summary": "Explain why two components can receive different service instances.",
+      "explanation": [
+        "Angular resolves a dependency by searching the relevant injector hierarchy. A provider registered at the application root is commonly shared application-wide, while a provider declared on a component can create an instance scoped to that component subtree.",
+        "This enables isolation but can also create surprising duplicate state. When debugging instance identity, inspect where the token is provided, not only where it is injected."
+      ],
+      "source": {
+        "title": "Hierarchical Injectors - Angular",
+        "url": "https://angular.dev/guide/di/hierarchical-dependency-injection"
+      }
+    },
+    {
+      "id": "angular-3",
+      "technology": "angular",
+      "title": "Why can an unmanaged RxJS subscription leak in an Angular component?",
+      "questionType": "debugging",
+      "summary": "Relate subscription lifetime to component destruction.",
+      "explanation": [
+        "A subscription can retain callbacks and referenced component state after the component has been destroyed if its source does not complete and the subscription is not disposed. Repeated navigation can then create accumulating work and memory retention.",
+        "Prefer template-managed async consumption where appropriate, finite observables that complete naturally, or lifecycle-aware teardown such as takeUntilDestroyed. The selected strategy should make ownership of the subscription explicit."
+      ],
+      "source": {
+        "title": "Component Lifecycle - Angular",
+        "url": "https://angular.dev/guide/components/lifecycle"
+      }
+    },
+    {
+      "id": "angular-4",
+      "technology": "angular",
+      "title": "When should an Angular application prefer reactive forms over template-driven forms?",
+      "questionType": "comparison",
+      "summary": "Compare explicit form models with directive-driven forms.",
+      "explanation": [
+        "Reactive forms define the form model explicitly in code, provide synchronous access to state, and are well suited to complex validation, dynamic controls, and isolated testing. Template-driven forms can be concise for smaller forms and rely more heavily on directives in the template.",
+        "The decision should consider complexity, testing needs, team conventions, and how much dynamic behavior the form requires rather than treating one approach as universally superior."
+      ],
+      "source": {
+        "title": "Forms Overview - Angular",
+        "url": "https://angular.dev/guide/forms"
+      }
+    },
+    {
+      "id": "angular-5",
+      "technology": "angular",
+      "title": "What problem does hydration solve after Angular server-side rendering?",
+      "questionType": "scenario",
+      "summary": "Explain how client behavior attaches to server-rendered HTML.",
+      "explanation": [
+        "Server-side rendering sends useful HTML before the browser application is fully active. Hydration reuses that server-rendered DOM and attaches Angular's client-side behavior instead of discarding the markup and rendering it again.",
+        "Successful hydration requires the server and client to produce compatible structures. Browser-only logic, nondeterministic output, or DOM mutation before hydration can cause mismatches and should be isolated or deferred."
+      ],
+      "source": {
+        "title": "Hydration - Angular",
+        "url": "https://angular.dev/guide/hydration"
+      }
+    }
+  ]
+}

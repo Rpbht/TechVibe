@@ -1,0 +1,44 @@
+{
+  "name": "techvibe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c magenta,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:client": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "start": "tsx server/index.ts",
+    "data:inspect": "tsx scripts/database-inspect.ts",
+    "data:seed": "tsx scripts/seed-database.ts",
+    "content:import": "tsx scripts/import-content.ts",
+    "content:report": "tsx scripts/content-report.ts",
+    "test": "tsx --test server/**/*.test.ts",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/prismjs": "^1.26.6",
+    "clsx": "^2.1.1",
+    "framer-motion": "^13.4.3",
+    "lucide-react": "^1.48.0",
+    "prismjs": "^1.30.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "oxlint": "^1.81.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

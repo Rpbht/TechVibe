@@ -1,0 +1,514 @@
+{
+  "questions": [
+    {
+      "id": "java-16", "technology": "java", "title": "What is the difference between == and equals when comparing Java objects?", "questionType": "comparison",
+      "explanation": ["For reference types, == tests whether both operands refer to the same object, while equals expresses logical equality defined by the class. Object inherits an identity-based equals implementation, so value-oriented classes must override it consistently with hashCode."],
+      "source": { "title": "Object API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" }
+    },
+    {
+      "id": "java-17", "technology": "java", "title": "Why is String immutable in Java, and what practical benefits does that provide?", "questionType": "conceptual",
+      "explanation": ["A String cannot change its character sequence after construction. This makes instances safely shareable, allows stable hash codes and interning, reduces defensive copying, and prevents APIs from observing unexpected mutation of identifiers, paths, class names, or security-related values."],
+      "source": { "title": "String API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" }
+    },
+    {
+      "id": "java-18", "technology": "java", "title": "What output does this post-increment expression produce, and why?", "questionType": "code-explanation",
+      "summary": "Trace evaluation order and the value yielded by postfix increment.",
+      "explanation": ["The expression prints 11. Java evaluates operands left to right: x++ yields the old value 5 and then stores 6, while the next x read yields 6. Although defined, combining mutation and use in one expression is harder to review than separate statements."],
+      "code": { "language": "java", "snippet": "int x = 5;\nSystem.out.println(x++ + x);" },
+      "source": { "title": "Java Language Specification: Expressions", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html" }
+    },
+    {
+      "id": "java-19", "technology": "java", "title": "How do checked and unchecked exceptions differ in Java?", "questionType": "comparison",
+      "explanation": ["Checked exceptions are Throwable subtypes other than RuntimeException and Error, and the compiler requires code to catch or declare them. Unchecked exceptions do not have that compile-time requirement and commonly represent programming errors, invalid state, or failures callers cannot reasonably recover from locally."],
+      "source": { "title": "Java Language Specification: Exceptions", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-11.html" }
+    },
+    {
+      "id": "java-20", "technology": "java", "title": "Why does Java use pass-by-value even when a method receives an object?", "questionType": "conceptual",
+      "explanation": ["Every Java argument is passed by value. For an object, the copied value is a reference, so a method can mutate the referenced object but cannot replace the caller's variable by assigning a different object to its local parameter."],
+      "source": { "title": "Java Language Specification: Method Invocation Expressions", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html#jls-15.12" }
+    },
+    {
+      "id": "java-21", "technology": "java", "title": "What is the initialization order for a Java class and its instances?", "questionType": "conceptual",
+      "explanation": ["Before first active use, a class initializes its static fields and static blocks in textual order after initializing its superclass. Creating an instance then performs superclass instance initialization before subclass field initializers, instance initializer blocks, and the constructor body."],
+      "source": { "title": "Java Language Specification: Initialization", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html#jls-12.4" }
+    },
+    {
+      "id": "java-22", "technology": "java", "title": "What is the difference between final, finally, and finalize in Java?", "questionType": "comparison",
+      "explanation": ["final restricts reassignment, overriding, or inheritance depending on context. finally is a cleanup block associated with try. Object.finalize was an unreliable GC-triggered cleanup mechanism; finalization is deprecated for removal, so resources should use explicit lifetime management such as try-with-resources."],
+      "source": { "title": "Object.finalize API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" }
+    },
+    {
+      "id": "java-23", "technology": "java", "title": "Why can a final field still refer to a mutable object?", "questionType": "conceptual",
+      "explanation": ["final prevents a field from being assigned a different reference after initialization; it does not freeze the referenced object's state. Achieving immutability requires controlling mutation and aliases throughout the reachable object graph."],
+      "source": { "title": "Java Language Specification: final Variables", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html#jls-4.12.4" }
+    },
+    {
+      "id": "java-24", "technology": "java", "title": "How does method overloading differ from method overriding?", "questionType": "comparison",
+      "explanation": ["Overloading selects among methods with the same name using compile-time argument types and signatures. Overriding supplies a subtype implementation for an inherited instance method, and dynamic dispatch selects it at runtime from the receiver's actual class."],
+      "source": { "title": "Java Language Specification: Members and Inheritance", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html" }
+    },
+    {
+      "id": "java-25", "technology": "java", "title": "Why are static methods hidden rather than overridden?", "questionType": "conceptual",
+      "explanation": ["A static method belongs to its declaring class and is selected from the compile-time type used at the call site. A same-signature static method in a subclass hides the inherited declaration; it does not participate in receiver-based dynamic dispatch."],
+      "source": { "title": "Java Language Specification: Method Declarations", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html#jls-8.4" }
+    },
+    {
+      "id": "java-26", "technology": "java", "title": "When should composition be preferred over inheritance in Java?", "questionType": "scenario",
+      "explanation": ["Prefer composition when the relationship is uses-a, when behavior should be replaceable, or when a base class does not provide a stable extension contract. Inheritance is appropriate for a genuine substitutable subtype, but otherwise it couples the child to superclass implementation details."],
+      "source": { "title": "Java Tutorials: Inheritance", "url": "https://dev.java/learn/inheritance/" }
+    },
+    {
+      "id": "java-27", "technology": "java", "title": "What is the purpose of a Java interface default method?", "questionType": "conceptual",
+      "explanation": ["A default method lets an interface add an implementation without forcing every existing implementer to define it immediately. Conflict rules remain explicit: class methods take precedence, and ambiguous defaults from unrelated interfaces must be resolved by the implementing class."],
+      "source": { "title": "Java Language Specification: Interface Method Declarations", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-9.html#jls-9.4" }
+    },
+    {
+      "id": "java-28", "technology": "java", "title": "What guarantees does a sealed class hierarchy provide to callers?", "questionType": "conceptual",
+      "explanation": ["A sealed class or interface limits direct permitted subtypes to a known set. This lets maintainers model closed domains and enables more exhaustive pattern switches, while each permitted subtype must explicitly be final, sealed, or non-sealed."],
+      "source": { "title": "Java Language Specification: Sealed Classes", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html#jls-8.1.1.2" }
+    },
+    {
+      "id": "java-29", "technology": "java", "title": "When is an abstract class a better fit than an interface?", "questionType": "comparison",
+      "explanation": ["An abstract class is useful when closely related subtypes need shared instance state, protected implementation hooks, or constructor-controlled invariants. An interface is better for a capability contract that unrelated classes can implement and when multiple inheritance of type is valuable."],
+      "source": { "title": "Java Tutorials: Abstract Methods and Classes", "url": "https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" }
+    },
+    {
+      "id": "java-30", "technology": "java", "title": "Why should constructors avoid calling overridable methods?", "questionType": "scenario",
+      "explanation": ["Dynamic dispatch can invoke a subclass override before the subclass constructor has initialized its fields. The override then observes a partially constructed object, which can violate invariants or throw failures that are difficult to diagnose."],
+      "source": { "title": "Java Language Specification: Creation of New Class Instances", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html#jls-12.5" }
+    },
+    {
+      "id": "java-31", "technology": "java", "title": "What does the Liskov substitution idea mean for a Java override?", "questionType": "scenario",
+      "explanation": ["An overriding method should preserve the observable contract expected from the base type: it should not demand stronger preconditions, promise weaker results, or break invariants. Java's covariant return types and checked-exception restrictions help structurally, but semantic substitutability still depends on design."],
+      "source": { "title": "Java Language Specification: Overriding", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html#jls-8.4.8.1" }
+    },
+    {
+      "id": "java-32", "technology": "java", "title": "How do record component accessors differ from JavaBean getters?", "questionType": "comparison",
+      "explanation": ["A record component named email produces an accessor named email(), not getEmail(). The accessor returns the component value and participates in the record's transparent state description, while bean naming is a separate convention used by some frameworks."],
+      "source": { "title": "Java Language Specification: Record Classes", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html#jls-8.10" }
+    },
+    {
+      "id": "java-33", "technology": "java", "title": "Why is a compact record constructor useful?", "questionType": "conceptual",
+      "explanation": ["A compact constructor lets a record validate or normalize its declared components without repeating the parameter list or field assignments. After its body completes normally, the compiler assigns the possibly normalized parameter values to the component fields."],
+      "source": { "title": "Java Language Specification: Record Constructors", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html#jls-8.10.4" }
+    },
+    {
+      "id": "java-34", "technology": "java", "title": "What problem does type erasure solve, and what limitations does it create?", "questionType": "conceptual",
+      "explanation": ["Erasure implements most generic type information through compile-time checks and erased bytecode, supporting compatibility with pre-generics libraries. It prevents operations that require the concrete type parameter at runtime, such as new T(), T.class, or overloads differing only by generic arguments."],
+      "source": { "title": "Java Language Specification: Type Erasure", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html#jls-4.6" }
+    },
+    {
+      "id": "java-35", "technology": "java", "title": "What does PECS mean for Java generic API design?", "questionType": "conceptual",
+      "explanation": ["PECS means producer extends, consumer super. Use ? extends T when a structure produces T values for the caller, and ? super T when the caller supplies T values to it. An exact List<T> is appropriate when both reading and writing are required."],
+      "source": { "title": "Java Tutorials: Wildcards", "url": "https://docs.oracle.com/javase/tutorial/java/generics/wildcards.html" }
+    },
+    {
+      "id": "java-36", "technology": "java", "title": "Why can adding to a List<?> fail to compile?", "questionType": "code-explanation",
+      "explanation": ["List<?> means a list of some specific but unknown type. Adding an arbitrary String would be unsafe because the actual list might be a List<Integer>; only null is universally compatible. Values can be read safely as Object."],
+      "code": { "language": "java", "snippet": "void addLabel(List<?> values) {\n    values.add(\"ready\"); // compile-time error\n}" },
+      "source": { "title": "Java Tutorials: Wildcards and Subtyping", "url": "https://docs.oracle.com/javase/tutorial/java/generics/subtyping.html" }
+    },
+    {
+      "id": "java-37", "technology": "java", "title": "When is a bounded type parameter preferable to a wildcard?", "questionType": "comparison",
+      "explanation": ["A named type parameter is useful when the same unknown type must relate multiple parameters or the return value, or when the implementation must refer to it repeatedly. A wildcard is clearer for a one-way variance constraint that does not need to establish such relationships."],
+      "source": { "title": "Java Tutorials: Generic Methods", "url": "https://docs.oracle.com/javase/tutorial/java/generics/methods.html" }
+    },
+    {
+      "id": "java-38", "technology": "java", "title": "Why are arrays covariant while generics are invariant, and how does failure differ?", "questionType": "comparison",
+      "explanation": ["A String[] can be assigned to Object[], but storing an incompatible object then throws ArrayStoreException because arrays retain their runtime component type. Generics reject the analogous List assignment at compile time, preventing the unsafe write earlier."],
+      "source": { "title": "Java Language Specification: Array Types", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-10.html" }
+    },
+    {
+      "id": "java-39", "technology": "java", "title": "What is heap pollution in a Java generic program?", "questionType": "conceptual",
+      "explanation": ["Heap pollution occurs when a variable of a parameterized type refers to an object that is not of that parameterized type, often through raw types, unchecked casts, or unsafe generic varargs. The eventual failure may surface far from the unsafe operation as a ClassCastException."],
+      "source": { "title": "Java Language Specification: Heap Pollution", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html#jls-4.12.2" }
+    },
+    {
+      "id": "java-40", "technology": "java", "title": "When is @SafeVarargs valid on a generic varargs method?", "questionType": "scenario",
+      "explanation": ["Use @SafeVarargs only when the method does not perform potentially unsafe operations on its non-reifiable varargs array and does not expose it to code that could corrupt it. The annotation suppresses warnings; it does not make an unsafe implementation safe."],
+      "source": { "title": "SafeVarargs API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/SafeVarargs.html" }
+    },
+    {
+      "id": "java-41", "technology": "java", "title": "How do ArrayList and LinkedList differ for real application workloads?", "questionType": "comparison",
+      "explanation": ["ArrayList offers constant-time indexed access, compact storage, and strong cache locality, making it the usual default. LinkedList has constant-time insertion only when a node position is already available; locating an index is linear and each node adds allocation and pointer overhead."],
+      "source": { "title": "Java Collections Framework", "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html" }
+    },
+    {
+      "id": "java-42", "technology": "java", "title": "How does HashMap use hashCode and equals to locate a key?", "questionType": "algorithm",
+      "explanation": ["HashMap transforms the key's hash into a bucket location, then compares candidate keys using equality. Well-distributed stable hashes reduce collisions, but logical equality remains decisive; mutating fields used by hashCode or equals while a key is stored can make it effectively unreachable."],
+      "complexity": { "time": "Average O(1) for get and put; collision behavior depends on distribution", "space": "O(n)" },
+      "source": { "title": "HashMap API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/HashMap.html" }
+    },
+    {
+      "id": "java-43", "technology": "java", "title": "Why is a mutable object dangerous as a HashMap key?", "questionType": "debugging",
+      "explanation": ["If mutation changes data used by equals or hashCode, the object may now map to a different bucket even though it remains stored in the original one. Retrieval and removal can fail. Prefer immutable keys or base identity on fields that never change while the key is in the map."],
+      "source": { "title": "Map API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" }
+    },
+    {
+      "id": "java-44", "technology": "java", "title": "When should TreeMap be chosen over HashMap?", "questionType": "scenario",
+      "explanation": ["Choose TreeMap when keys must remain sorted or the application needs range, floor, ceiling, or navigation operations. It provides logarithmic basic operations based on ordering, whereas HashMap usually provides faster constant-time lookup without sorted traversal."],
+      "source": { "title": "TreeMap API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TreeMap.html" }
+    },
+    {
+      "id": "java-45", "technology": "java", "title": "What contract must a Comparator satisfy for sorted collections?", "questionType": "conceptual",
+      "explanation": ["A comparator must impose a consistent total ordering: comparison signs must be antisymmetric and transitive, and equality of comparisons must behave consistently. If compare returns zero for unequal objects, a TreeSet or TreeMap treats them as the same sorted key even when equals says otherwise."],
+      "source": { "title": "Comparator API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Comparator.html" }
+    },
+    {
+      "id": "java-46", "technology": "java", "title": "Why does modifying an ArrayList during enhanced-for iteration usually fail?", "questionType": "debugging",
+      "explanation": ["The enhanced-for loop uses an Iterator, and ArrayList iterators are fail-fast on structural modifications not performed through that iterator. Use Iterator.remove, removeIf, or collect changes separately. Fail-fast behavior is diagnostic best effort, not a concurrency guarantee."],
+      "code": { "language": "java", "snippet": "for (String value : values) {\n    if (value.isBlank()) values.remove(value);\n}" },
+      "source": { "title": "ArrayList API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" }
+    },
+    {
+      "id": "java-47", "technology": "java", "title": "How do unmodifiable and immutable collections differ?", "questionType": "comparison",
+      "explanation": ["An unmodifiable view blocks mutation through that reference but may still reflect changes made to its mutable backing collection. An immutable collection owns stable contents that cannot change through any alias; List.copyOf and List.of are common ways to obtain such snapshots."],
+      "source": { "title": "Creating Unmodifiable Lists, Sets, and Maps", "url": "https://docs.oracle.com/en/java/javase/25/core/creating-immutable-lists-sets-and-maps.html" }
+    },
+    {
+      "id": "java-48", "technology": "java", "title": "When is EnumMap preferable to HashMap for enum keys?", "questionType": "scenario",
+      "explanation": ["EnumMap is specialized for keys from one enum type, storing values compactly in enum declaration order and generally outperforming a general hash table. It also makes the domain restriction explicit and rejects null keys."],
+      "source": { "title": "EnumMap API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/EnumMap.html" }
+    },
+    {
+      "id": "java-49", "technology": "java", "title": "When is EnumSet a better representation than a set of strings or booleans?", "questionType": "scenario",
+      "explanation": ["EnumSet compactly represents a set of enum constants, offers set operations, and provides compile-time domain safety. It is clearer and less error-prone than string labels and scales better than adding one boolean field per option."],
+      "source": { "title": "EnumSet API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/EnumSet.html" }
+    },
+    {
+      "id": "java-50", "technology": "java", "title": "What does Map.computeIfAbsent guarantee, and what should its mapping function avoid?", "questionType": "scenario",
+      "explanation": ["computeIfAbsent calculates and associates a non-null value when a key has no mapping. The mapping function should be short, deterministic for the operation, and should not structurally modify the same map. ConcurrentMap implementations may provide stronger atomicity documented by that implementation."],
+      "source": { "title": "Map API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html#computeIfAbsent(K,java.util.function.Function)" }
+    },
+    {
+      "id": "java-51", "technology": "java", "title": "What is the difference between a Collection and a Stream?", "questionType": "comparison",
+      "explanation": ["A collection stores and exposes elements for repeated traversal, while a stream describes a one-use computation over a source. Streams can be lazy, short-circuiting, or parallel and normally do not modify their source."],
+      "source": { "title": "Java Stream API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html" }
+    },
+    {
+      "id": "java-52", "technology": "java", "title": "Why can a Java Stream not be reused after a terminal operation?", "questionType": "conceptual",
+      "explanation": ["A stream represents a consumable pipeline, not a reusable container. A terminal operation consumes it and may release or invalidate pipeline state; create a new stream from the source or a stream supplier for another traversal."],
+      "source": { "title": "BaseStream API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/BaseStream.html" }
+    },
+    {
+      "id": "java-53", "technology": "java", "title": "What is wrong with mutating shared state inside this parallel stream?", "questionType": "debugging",
+      "explanation": ["Multiple worker threads can call ArrayList.add concurrently, but ArrayList is not thread-safe, so results may be lost or the structure corrupted. Express accumulation with collect or another associative reduction designed for parallel execution."],
+      "code": { "language": "java", "snippet": "List<Integer> result = new ArrayList<>();\nvalues.parallelStream()\n      .map(v -> v * 2)\n      .forEach(result::add);" },
+      "source": { "title": "Java Stream API: Side Effects", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html#SideEffects" }
+    },
+    {
+      "id": "java-54", "technology": "java", "title": "How do map and flatMap differ in a Java stream pipeline?", "questionType": "comparison",
+      "explanation": ["map transforms each input into one output value. flatMap transforms each input into a stream and flattens those nested streams into one stream, which is useful for expanding collections, tokenizing lines, or discarding empty results."],
+      "source": { "title": "Stream API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" }
+    },
+    {
+      "id": "java-55", "technology": "java", "title": "When is reduce appropriate, and when should collect be used instead?", "questionType": "comparison",
+      "explanation": ["reduce combines elements into an immutable value using an associative operation, such as a sum or maximum. collect is designed for mutable reduction into containers or composite results and coordinates supplier, accumulator, and combiner behavior."],
+      "source": { "title": "Java Stream API: Reduction", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html#Reduction" }
+    },
+    {
+      "id": "java-56", "technology": "java", "title": "Why must a parallel-stream reduction operation be associative?", "questionType": "algorithm",
+      "explanation": ["Parallel execution groups and combines partitions in an order that may differ from sequential encounter order. Associativity ensures regrouping produces the same result; subtraction, stateful concatenation, and floating-point operations requiring exact reproducibility need special care."],
+      "source": { "title": "Java Stream API: Parallelism", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html#Parallelism" }
+    },
+    {
+      "id": "java-57", "technology": "java", "title": "What is the difference between findFirst and findAny?", "questionType": "comparison",
+      "explanation": ["findFirst respects encounter order when the stream has one. findAny may return any matching element, allowing more freedom for parallel execution. Both return Optional and short-circuit once an acceptable result is found."],
+      "source": { "title": "Stream API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" }
+    },
+    {
+      "id": "java-58", "technology": "java", "title": "Why can distinct or sorted reduce parallel stream performance?", "questionType": "scenario",
+      "explanation": ["These are stateful intermediate operations that may need to buffer elements or coordinate across partitions, and preserving encounter order adds further constraints. Parallelism pays only when the source, workload, data size, and operations outweigh splitting and coordination costs."],
+      "source": { "title": "Java Stream API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" }
+    },
+    {
+      "id": "java-59", "technology": "java", "title": "How should duplicate keys be handled with Collectors.toMap?", "questionType": "debugging",
+      "explanation": ["The basic toMap overload throws IllegalStateException when two elements produce the same key. If duplicates are valid, provide a merge function that expresses which value wins or how values combine, or group values into a collection."],
+      "source": { "title": "Collectors API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Collectors.html#toMap(java.util.function.Function,java.util.function.Function)" }
+    },
+    {
+      "id": "java-60", "technology": "java", "title": "What is the difference between orElse and orElseGet on Optional?", "questionType": "comparison",
+      "explanation": ["orElse evaluates its fallback argument before the method call even when the Optional has a value. orElseGet invokes its supplier only when empty, so it avoids unnecessary expensive work or side effects."],
+      "code": { "language": "java", "snippet": "User user = cached.orElse(loadUser());\nUser lazyUser = cached.orElseGet(this::loadUser);" },
+      "source": { "title": "Optional API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" }
+    },
+    {
+      "id": "java-61", "technology": "java", "title": "Why should Optional.get usually be replaced with an explicit alternative?", "questionType": "scenario",
+      "explanation": ["get throws when empty and hides the intended absence policy. orElseThrow with a meaningful exception, orElse, map, flatMap, ifPresent, or pattern-specific control flow makes the behavior visible at the call site."],
+      "source": { "title": "Optional API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" }
+    },
+    {
+      "id": "java-62", "technology": "java", "title": "What does it mean for a lambda to capture an effectively final local variable?", "questionType": "conceptual",
+      "explanation": ["A lambda may capture a local variable only if it is final or never reassigned after initialization. The captured value is copied into the lambda object as needed; requiring stable local variables avoids ambiguous stack mutation after the declaring method returns."],
+      "source": { "title": "Java Language Specification: Lambda Body and Capture", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html#jls-15.27" }
+    },
+    {
+      "id": "java-63", "technology": "java", "title": "How is a method reference related to a lambda expression?", "questionType": "comparison",
+      "explanation": ["Both can provide an implementation of a compatible functional interface. A method reference is concise when an existing method already matches the required invocation shape; a lambda is clearer when arguments are rearranged, adapted, or combined with additional logic."],
+      "source": { "title": "Java Language Specification: Method References", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html#jls-15.13" }
+    },
+    {
+      "id": "java-64", "technology": "java", "title": "Why can overload resolution become ambiguous with lambdas?", "questionType": "debugging",
+      "explanation": ["A lambda is poly expression whose target type comes from context. If multiple overloads accept functional interfaces with compatible parameter shapes and the body does not uniquely determine a target, the compiler cannot choose. An explicit parameter type or cast can clarify intent, though redesigning overloads is often better."],
+      "source": { "title": "Java Language Specification: Lambda Typing", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html#jls-15.27.3" }
+    },
+    {
+      "id": "java-65", "technology": "java", "title": "When should primitive streams such as IntStream be used?", "questionType": "scenario",
+      "explanation": ["Primitive streams avoid boxing overhead and provide numeric operations such as sum, average, range, and summaryStatistics. They are useful for numeric workloads, while Stream<T> remains appropriate when the pipeline carries objects or nullable values."],
+      "source": { "title": "IntStream API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/IntStream.html" }
+    },
+    {
+      "id": "java-66", "technology": "java", "title": "What does the Java happens-before relationship guarantee?", "questionType": "conceptual",
+      "explanation": ["If action A happens-before action B, the effects of A are visible to B and their ordering is constrained by the memory model. Program order, monitor unlock-to-lock, volatile write-to-read, thread start, and successful join establish important happens-before edges."],
+      "source": { "title": "Java Language Specification: Happens-Before Order", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html#jls-17.4.5" }
+    },
+    {
+      "id": "java-67", "technology": "java", "title": "Why is count++ not made atomic by declaring count volatile?", "questionType": "debugging",
+      "explanation": ["Increment is a read-modify-write sequence, so two threads can read the same value and overwrite one another's updates. volatile makes individual reads and writes visible but does not combine the sequence atomically; use synchronization, AtomicInteger, or LongAdder according to the access pattern."],
+      "code": { "language": "java", "snippet": "private volatile int count;\n\nvoid increment() {\n    count++;\n}" },
+      "source": { "title": "Java Language Specification: Atomicity", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html#jls-17.7" }
+    },
+    {
+      "id": "java-68", "technology": "java", "title": "When is AtomicInteger preferable to synchronized?", "questionType": "scenario",
+      "explanation": ["AtomicInteger is effective for lock-free atomic updates to one numeric variable, such as counters or state transitions. synchronized is clearer when an invariant spans multiple variables, a sequence must be atomic, or blocking coordination is needed."],
+      "source": { "title": "AtomicInteger API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" }
+    },
+    {
+      "id": "java-69", "technology": "java", "title": "Why can LongAdder outperform AtomicLong under heavy contention?", "questionType": "comparison",
+      "explanation": ["LongAdder distributes updates across internal cells and combines them when read, reducing contention on one compare-and-set location. Its sum is not an atomic snapshot with concurrent updates, so AtomicLong is preferable when every read must participate in exact linearizable state transitions."],
+      "source": { "title": "LongAdder API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" }
+    },
+    {
+      "id": "java-70", "technology": "java", "title": "How does ReentrantLock differ from synchronized?", "questionType": "comparison",
+      "explanation": ["Both provide mutual exclusion and memory visibility. ReentrantLock additionally supports interruptible or timed acquisition, optional fairness, multiple Condition objects, and non-block-structured locking, but it must be unlocked in a finally block. synchronized is simpler and automatically releases its monitor."],
+      "source": { "title": "ReentrantLock API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html" }
+    },
+    {
+      "id": "java-71", "technology": "java", "title": "Why must wait usually be called inside a loop rather than an if statement?", "questionType": "debugging",
+      "explanation": ["A waiting thread may wake spuriously or find that another thread consumed the condition before it reacquired the monitor. Rechecking the predicate in a loop makes progress depend on the actual shared-state condition rather than the fact that a notification occurred."],
+      "source": { "title": "Object.wait API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" }
+    },
+    {
+      "id": "java-72", "technology": "java", "title": "What is the difference between notify and notifyAll?", "questionType": "comparison",
+      "explanation": ["notify selects one arbitrary thread waiting on the monitor, while notifyAll wakes all waiters so each can recheck its condition after reacquiring the lock. notify can be safe with one uniform condition and careful design, but notifyAll avoids missed progress when several predicates share a monitor."],
+      "source": { "title": "Object API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" }
+    },
+    {
+      "id": "java-73", "technology": "java", "title": "How should InterruptedException be handled in library or task code?", "questionType": "scenario",
+      "explanation": ["Treat interruption as a cooperative cancellation signal. Propagate InterruptedException when the contract allows it; otherwise restore the interrupt status with Thread.currentThread().interrupt() before returning or translating the failure. Silently swallowing it prevents higher-level cancellation from working."],
+      "source": { "title": "Java Concurrency Utilities", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html" }
+    },
+    {
+      "id": "java-74", "technology": "java", "title": "What is the difference between Executor.execute and ExecutorService.submit?", "questionType": "comparison",
+      "explanation": ["execute accepts a Runnable and uncaught failures reach the worker's uncaught-exception handling. submit returns a Future and captures task results or exceptions; the failure is observed when Future.get is called, so ignoring the Future can hide errors."],
+      "source": { "title": "ExecutorService API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ExecutorService.html" }
+    },
+    {
+      "id": "java-75", "technology": "java", "title": "Why must an ExecutorService be shut down?", "questionType": "scenario",
+      "explanation": ["Executor worker threads and queued tasks own resources and can keep the JVM alive. A controlled lifecycle stops accepting work, lets tasks finish within a deadline, escalates to shutdownNow when appropriate, and preserves interruption while awaiting termination."],
+      "source": { "title": "ExecutorService API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ExecutorService.html" }
+    },
+    {
+      "id": "java-76", "technology": "java", "title": "How do CountDownLatch and CyclicBarrier differ?", "questionType": "comparison",
+      "explanation": ["CountDownLatch lets threads wait until a one-time count reaches zero and cannot be reset. CyclicBarrier coordinates a fixed group that all wait at a barrier point and can reuse the barrier across phases."],
+      "source": { "title": "Java Concurrency Utilities", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html" }
+    },
+    {
+      "id": "java-77", "technology": "java", "title": "When should a Semaphore be used?", "questionType": "scenario",
+      "explanation": ["A Semaphore limits concurrent access to a finite resource or expensive operation by managing permits. It is useful for bulkheads and connection limits; acquire and release must be paired carefully, usually with release in finally only after acquisition succeeds."],
+      "source": { "title": "Semaphore API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Semaphore.html" }
+    },
+    {
+      "id": "java-78", "technology": "java", "title": "What is the role of a BlockingQueue in a producer-consumer design?", "questionType": "system-design",
+      "explanation": ["A BlockingQueue safely transfers work between producers and consumers and can apply backpressure when bounded. put and take coordinate waiting without custom wait-notify code; capacity should reflect throughput, memory limits, and overload policy."],
+      "source": { "title": "BlockingQueue API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/BlockingQueue.html" }
+    },
+    {
+      "id": "java-79", "technology": "java", "title": "Why can CompletableFuture.join hide the original exception type?", "questionType": "debugging",
+      "explanation": ["join wraps exceptional completion in unchecked CompletionException, while get uses checked ExecutionException and can also throw InterruptedException. Inspect the cause at an ownership boundary and define whether the API propagates, translates, recovers, or combines failures."],
+      "source": { "title": "CompletableFuture API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" }
+    },
+    {
+      "id": "java-80", "technology": "java", "title": "When should thenCompose be used instead of thenApply?", "questionType": "comparison",
+      "explanation": ["thenApply transforms a completed value directly and produces one new stage. If the transformation already returns a CompletionStage, thenCompose flattens it so callers receive CompletionStage<U> rather than a nested CompletionStage<CompletionStage<U>>."],
+      "source": { "title": "CompletableFuture API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" }
+    },
+    {
+      "id": "java-81", "technology": "java", "title": "Why should exceptions not be used for ordinary control flow?", "questionType": "scenario",
+      "explanation": ["Exceptions make normal paths less explicit, can obscure invariants, and carry construction and stack-trace costs. Use them for exceptional conditions or contract violations; use conditionals, Optional, result types, or collections to represent expected alternatives."],
+      "source": { "title": "Java Language Specification: Exceptions", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-11.html" }
+    },
+    {
+      "id": "java-82", "technology": "java", "title": "What is exception translation, and when is it useful?", "questionType": "scenario",
+      "explanation": ["Exception translation catches a lower-level exception and throws one expressed in the abstraction's vocabulary, normally preserving the cause. It prevents storage, network, or vendor details from leaking through a domain API while retaining diagnostic evidence."],
+      "source": { "title": "Throwable API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" }
+    },
+    {
+      "id": "java-83", "technology": "java", "title": "How do suppressed exceptions preserve failures during resource cleanup?", "questionType": "conceptual",
+      "explanation": ["When a try body and automatic resource closing both fail, try-with-resources keeps the body failure as primary and attaches close failures through addSuppressed. Diagnostics should inspect suppressed exceptions when cleanup behavior matters."],
+      "source": { "title": "AutoCloseable API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" }
+    },
+    {
+      "id": "java-84", "technology": "java", "title": "Why is Files.readString unsuitable for every file-reading task?", "questionType": "scenario",
+      "explanation": ["readString loads the entire file into memory and decodes it as text, which is convenient for bounded configuration or test data. Large or untrusted files should be processed with buffered or streaming APIs, explicit size limits, and a defined charset."],
+      "source": { "title": "Files API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Files.html" }
+    },
+    {
+      "id": "java-85", "technology": "java", "title": "What advantage does Path provide over manual string path concatenation?", "questionType": "comparison",
+      "explanation": ["Path models platform-aware path components and provides resolve, normalize, relativize, and filesystem operations without assuming separators. Security still requires defining an allowed root and checking the resolved or real path when processing untrusted names."],
+      "source": { "title": "Path API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" }
+    },
+    {
+      "id": "java-86", "technology": "java", "title": "Why can Files.exists be unsafe as a precondition before opening a file?", "questionType": "debugging",
+      "explanation": ["The filesystem can change between the check and the later operation, creating a time-of-check/time-of-use race. Attempt the required operation directly and handle its specific exception; use atomic filesystem operations where correctness depends on exclusivity."],
+      "source": { "title": "Files API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Files.html#exists(java.nio.file.Path,java.nio.file.LinkOption...)" }
+    },
+    {
+      "id": "java-87", "technology": "java", "title": "How do byte streams and character streams differ?", "questionType": "comparison",
+      "explanation": ["InputStream and OutputStream move raw bytes. Reader and Writer move characters through a charset encoding. Text boundaries should choose an explicit charset such as UTF-8; binary formats must remain byte-oriented."],
+      "source": { "title": "Java I/O APIs", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/package-summary.html" }
+    },
+    {
+      "id": "java-88", "technology": "java", "title": "What does a ByteBuffer's position, limit, and capacity represent?", "questionType": "conceptual",
+      "explanation": ["Capacity is the fixed storage size, position is the next index to read or write, and limit bounds accessible data. After writing, flip sets the limit to the written position and resets position to zero so the buffer can be read."],
+      "source": { "title": "Buffer API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/Buffer.html" }
+    },
+    {
+      "id": "java-89", "technology": "java", "title": "Why is native Java serialization risky at an untrusted boundary?", "questionType": "scenario",
+      "explanation": ["Deserialization constructs object graphs and can invoke class-specific behavior, so hostile streams may trigger gadget chains, resource exhaustion, or unexpected types. Prefer constrained data formats and schemas; if legacy serialization is unavoidable, apply allow-list filters, size limits, authentication, and isolation."],
+      "source": { "title": "Java Serialization Filtering", "url": "https://docs.oracle.com/en/java/javase/25/core/serialization-filtering1.html" }
+    },
+    {
+      "id": "java-90", "technology": "java", "title": "How should an HTTP client apply timeouts in Java?", "questionType": "system-design",
+      "explanation": ["Set a connection timeout on HttpClient and a per-request timeout where appropriate, then propagate an overall deadline through retries and dependent calls. A timeout must lead to bounded cleanup and a defined retry or failure policy rather than simply starting unlimited replacement work."],
+      "source": { "title": "HttpClient API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.net.http/java/net/http/HttpClient.html" }
+    },
+    {
+      "id": "java-91", "technology": "java", "title": "What is the difference between heap memory and thread stacks in the JVM?", "questionType": "comparison",
+      "explanation": ["The JVM heap is shared and stores class instances and arrays subject to garbage collection. Each thread has a private JVM stack containing frames for method calls, local variables, and operand stacks; deep or unbounded recursion can exhaust a stack even when heap memory remains."],
+      "source": { "title": "Java Virtual Machine Specification: Run-Time Data Areas", "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-2.html#jvms-2.5" }
+    },
+    {
+      "id": "java-92", "technology": "java", "title": "How do strong, soft, weak, and phantom references differ?", "questionType": "comparison",
+      "explanation": ["Strong references keep objects ordinarily reachable. Weak references do not prevent collection, soft references may be retained longer for memory-sensitive caches, and phantom references support post-mortem notification with a ReferenceQueue. None should replace explicit resource management."],
+      "source": { "title": "java.lang.ref Package", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ref/package-summary.html" }
+    },
+    {
+      "id": "java-93", "technology": "java", "title": "Can Java have a memory leak even with garbage collection?", "questionType": "conceptual",
+      "explanation": ["Yes. Garbage collection reclaims only unreachable objects, so an unintended live reference from a cache, listener, static collection, ThreadLocal, or queue retains the whole reachable graph. Diagnose retention paths and ownership rather than merely increasing heap size."],
+      "source": { "title": "Java Troubleshooting Guide", "url": "https://docs.oracle.com/en/java/javase/25/troubleshoot/" }
+    },
+    {
+      "id": "java-94", "technology": "java", "title": "Why can a ThreadLocal cause leaks in thread pools?", "questionType": "debugging",
+      "explanation": ["Pool threads are long-lived, so a value placed in their ThreadLocal map can outlive the request or task that created it and retain large graphs or stale identity. Remove values in finally, or prefer explicit context passing and scoped lifetime mechanisms."],
+      "source": { "title": "ThreadLocal API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ThreadLocal.html" }
+    },
+    {
+      "id": "java-95", "technology": "java", "title": "What is a JVM safepoint, and why can it affect latency?", "questionType": "conceptual",
+      "explanation": ["A safepoint is a coordinated state where the JVM can perform operations requiring a stable view of Java threads, such as parts of garbage collection, deoptimization, or stack inspection. Time to bring threads to a safepoint plus the operation itself can contribute to application pauses."],
+      "source": { "title": "Java Flight Recorder Runtime Events", "url": "https://docs.oracle.com/en/java/javase/25/jfapi/runtime-events.html" }
+    },
+    {
+      "id": "java-96", "technology": "java", "title": "How does JIT compilation change Java performance over time?", "questionType": "conceptual",
+      "explanation": ["The JVM begins with interpreted or lightly compiled execution and collects runtime profiles. Frequently executed methods can be compiled and optimized more aggressively, while invalid assumptions may trigger deoptimization. Warm-up and steady-state behavior therefore matter in benchmarking."],
+      "source": { "title": "Java Virtual Machine Guide", "url": "https://docs.oracle.com/en/java/javase/25/vm/java-virtual-machine-technology-overview.html" }
+    },
+    {
+      "id": "java-97", "technology": "java", "title": "Why is System.nanoTime preferred for measuring elapsed duration?", "questionType": "scenario",
+      "explanation": ["nanoTime provides a monotonic time source intended for elapsed-time comparisons, so wall-clock corrections do not move it backward or forward. currentTimeMillis represents civil time and is appropriate for timestamps, not precise duration measurement."],
+      "source": { "title": "System.nanoTime API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#nanoTime()" }
+    },
+    {
+      "id": "java-98", "technology": "java", "title": "Why are naive Java microbenchmarks often misleading?", "questionType": "debugging",
+      "explanation": ["JIT warm-up, dead-code elimination, constant folding, GC, adaptive optimization, CPU scaling, and measurement overhead can dominate a hand-written loop. Use a benchmark harness such as JMH and design experiments that consume results and model the production workload."],
+      "source": { "title": "OpenJDK JMH", "url": "https://openjdk.org/projects/code-tools/jmh/" }
+    },
+    {
+      "id": "java-99", "technology": "java", "title": "How should a garbage collector be selected for a Java service?", "questionType": "scenario",
+      "explanation": ["Start from supported JVM defaults, then measure the application's allocation rate, live set, pause objectives, throughput, CPU, and memory footprint under representative load. Collector choice and heap tuning are workload decisions, not universal recipes."],
+      "source": { "title": "HotSpot Garbage Collection Tuning Guide", "url": "https://docs.oracle.com/en/java/javase/25/gctuning/" }
+    },
+    {
+      "id": "java-100", "technology": "java", "title": "What is the difference between a ClassNotFoundException and a NoClassDefFoundError?", "questionType": "comparison",
+      "explanation": ["ClassNotFoundException is a checked failure from an explicit loading request such as Class.forName. NoClassDefFoundError means the JVM needed a class definition during execution but could not provide it, including when prior class initialization failed."],
+      "source": { "title": "Java Language Specification: Loading of Classes and Interfaces", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html#jls-12.2" }
+    },
+    {
+      "id": "java-101", "technology": "java", "title": "How does parent delegation influence Java class loading?", "questionType": "conceptual",
+      "explanation": ["A typical class loader asks its parent to load a class before defining it locally. This preserves consistent platform type identity and reduces duplicate definitions. Plugin systems that vary delegation must carefully isolate APIs because a class name loaded by different loaders represents different runtime types."],
+      "source": { "title": "ClassLoader API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ClassLoader.html" }
+    },
+    {
+      "id": "java-102", "technology": "java", "title": "What is the difference between exports and opens in a Java module?", "questionType": "comparison",
+      "explanation": ["exports makes a package's public types accessible to other modules at compile time and runtime. opens permits deep reflective access to package members at runtime without exporting the package as a normal public API; both can be qualified to selected modules."],
+      "source": { "title": "Java Language Specification: Module Declarations", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-7.html#jls-7.7" }
+    },
+    {
+      "id": "java-103", "technology": "java", "title": "How does ServiceLoader support modular plugin discovery?", "questionType": "system-design",
+      "explanation": ["A consumer declares or looks up a service interface, while providers register implementations through module provides/uses directives or classpath configuration. ServiceLoader discovers providers without hard-coding implementation classes, but lifecycle, ordering, trust, and failure handling remain application concerns."],
+      "source": { "title": "ServiceLoader API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html" }
+    },
+    {
+      "id": "java-104", "technology": "java", "title": "What is pattern matching for instanceof improving in this code?", "questionType": "code-explanation",
+      "explanation": ["The type test and cast are combined. The pattern variable text exists only where the compiler knows the match succeeded, reducing duplicated casts and preventing the tested type and cast type from drifting apart."],
+      "code": { "language": "java", "snippet": "if (value instanceof String text && !text.isBlank()) {\n    System.out.println(text.length());\n}" },
+      "source": { "title": "Java Language Specification: Pattern instanceof", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html#jls-15.20.2" }
+    },
+    {
+      "id": "java-105", "technology": "java", "title": "How can a switch expression prevent accidental fall-through?", "questionType": "comparison",
+      "explanation": ["Arrow labels do not fall through and each arm yields a value or throws. For covered enum or sealed-type domains, exhaustiveness checking helps make missing cases visible when the model evolves."],
+      "code": { "language": "java", "snippet": "int points = switch (status) {\n    case NEW -> 0;\n    case ACTIVE -> 10;\n    case CLOSED -> 20;\n};" },
+      "source": { "title": "Java Language Specification: switch Expressions", "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html#jls-15.28" }
+    },
+    {
+      "id": "java-106", "technology": "java", "title": "Why are virtual threads suited to thread-per-request server code?", "questionType": "scenario",
+      "explanation": ["Virtual threads make blocking-style concurrency scalable by allowing many Java threads to share fewer carrier threads. They simplify code that spends much of its time waiting for I/O, but do not remove downstream capacity limits or speed CPU-bound work."],
+      "source": { "title": "Virtual Threads", "url": "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html" }
+    },
+    {
+      "id": "java-107", "technology": "java", "title": "What does it mean for a virtual thread to become pinned?", "questionType": "conceptual",
+      "explanation": ["A pinned virtual thread cannot unmount from its carrier during a blocking operation, historically around certain monitor or native/foreign calls. Pinning is not incorrect, but prolonged frequent pinning can reduce scalability; profiling should identify it before redesigning synchronization."],
+      "source": { "title": "Virtual Threads", "url": "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html" }
+    },
+    {
+      "id": "java-108", "technology": "java", "title": "Why should virtual threads generally not be pooled?", "questionType": "scenario",
+      "explanation": ["Virtual threads are designed to be cheap, short-lived task threads, so pooling them adds queueing and hides task structure without conserving a scarce thread resource. Use a semaphore or another explicit limiter when the scarce resource is a database, remote API, or licensed operation."],
+      "source": { "title": "Executors.newVirtualThreadPerTaskExecutor API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Executors.html#newVirtualThreadPerTaskExecutor()" }
+    },
+    {
+      "id": "java-109", "technology": "java", "title": "When should java.time types replace Date and Calendar?", "questionType": "scenario",
+      "explanation": ["Use java.time for new code because its types are immutable and separate concepts such as an instant, local date, local date-time, duration, period, offset, and zone. Choosing the correct type prevents accidentally treating a wall-clock value as a globally unique moment."],
+      "source": { "title": "java.time Package", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html" }
+    },
+    {
+      "id": "java-110", "technology": "java", "title": "Why can adding 24 hours differ from adding one day across a time-zone transition?", "questionType": "conceptual",
+      "explanation": ["A Duration of 24 hours measures elapsed timeline time, while a Period of one day advances the calendar date. Daylight-saving transitions can make a local day 23 or 25 hours, so APIs must choose timeline or calendar semantics deliberately."],
+      "source": { "title": "Java Date-Time API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html" }
+    },
+    {
+      "id": "java-111", "technology": "java", "title": "Why should SecureRandom be used for security-sensitive tokens?", "questionType": "scenario",
+      "explanation": ["SecureRandom is designed to produce cryptographically strong random values from an appropriate provider and seed source. Random and ThreadLocalRandom target simulation or general-purpose workloads and make no cryptographic unpredictability guarantee."],
+      "source": { "title": "SecureRandom API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/SecureRandom.html" }
+    },
+    {
+      "id": "java-112", "technology": "java", "title": "Why is string concatenation unsafe for building SQL even when inputs look numeric?", "questionType": "debugging",
+      "explanation": ["Text concatenation mixes data with SQL syntax and relies on fragile validation, enabling injection and type-conversion bugs. PreparedStatement sends parameter values separately, supports correct types, and lets the driver safely bind them; dynamic identifiers require an allow-list design."],
+      "source": { "title": "PreparedStatement API", "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.sql/java/sql/PreparedStatement.html" }
+    },
+    {
+      "id": "java-113", "technology": "java", "title": "What evidence should Java Flight Recorder collect for a production performance investigation?", "questionType": "scenario",
+      "explanation": ["Capture a bounded recording during representative load and correlate CPU samples, allocations, garbage collection, locks, thread parks, file and socket I/O, and application events. Begin with low-overhead settings, preserve timestamps and deployment context, and form conclusions from correlated evidence rather than one hot method."],
+      "source": { "title": "Java Flight Recorder Runtime Guide", "url": "https://docs.oracle.com/en/java/javase/25/jfapi/flight-recorder-runtime-guide.html" }
+    },
+    {
+      "id": "java-114", "technology": "java", "title": "How can jdeps help during a Java module or JDK migration?", "questionType": "scenario",
+      "explanation": ["jdeps analyzes class and JAR dependencies, reports module relationships, and can identify reliance on internal JDK APIs. Its output helps plan module descriptors and migration work, but reflective or dynamically loaded dependencies may require runtime evidence too."],
+      "source": { "title": "jdeps Tool Specification", "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/jdeps.html" }
+    },
+    {
+      "id": "java-115", "technology": "java", "title": "What should be checked before upgrading a production service to a newer JDK?", "questionType": "system-design",
+      "explanation": ["Review removed and deprecated APIs, JVM flags, GC and logging changes, strong encapsulation, dependencies, agents, native integrations, and container limits. Then compile, test, benchmark, and observe representative workloads with a rollback plan; source compatibility alone does not prove operational compatibility."],
+      "source": { "title": "JDK Migration Guide", "url": "https://docs.oracle.com/en/java/javase/25/migrate/" }
+    }
+  ]
+}
