@@ -211,14 +211,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
             >
               <UserRound className="h-4 w-4" aria-hidden="true" />
             </button>
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close sidebar"
-              className="rounded-md p-1 text-zinc-400 hover:bg-zinc-800 hover:text-white lg:hidden"
-            >
-              <X className="h-4 w-4" />
-            </button>
           </div>
         </div>
 
