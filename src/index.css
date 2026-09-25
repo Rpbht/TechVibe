@@ -2,10 +2,10 @@
 
 :root {
   color-scheme: dark;
-  --canvas: #09090b;
-  --surface: #0d0e12;
-  --surface-elevated: #111216;
-  --border: #27272a;
+  --canvas: #07080c;
+  --surface: #11141a;
+  --surface-elevated: #181c24;
+  --border: #343946;
   --text-primary: #f4f4f5;
   --text-secondary: #d4d4d8;
 }
@@ -46,6 +46,25 @@ body {
 .theme-profile {
   background-color: color-mix(in srgb, var(--surface-elevated) 98%, transparent);
   border-color: var(--border);
+}
+
+/* Dark surfaces use tonal separation and directional depth so cards do not flatten into the canvas. */
+:root[data-theme='dark'] .app-shell .theme-card {
+  background-color: color-mix(in srgb, var(--surface) 97%, transparent);
+  border-color: transparent;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.055),
+    0 2px 4px rgb(0 0 0 / 0.32),
+    0 16px 36px rgb(0 0 0 / 0.28);
+}
+
+:root[data-theme='dark'] .app-shell .theme-profile {
+  background-color: color-mix(in srgb, var(--surface-elevated) 98%, transparent);
+  border-color: transparent;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.065),
+    0 4px 10px rgb(0 0 0 / 0.34),
+    0 22px 52px rgb(0 0 0 / 0.48);
 }
 
 /* Quiet engineering texture behind the reading surface. */
@@ -126,6 +145,31 @@ body {
 
 :root .app-shell .pagination-float .pagination-control:active:not(:disabled) {
   transform: scale(0.94);
+}
+
+:root[data-theme='dark'] .app-shell .pagination-float {
+  background-color: color-mix(in srgb, var(--surface-elevated) 80%, transparent);
+  border-color: transparent;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.065),
+    0 3px 8px rgb(0 0 0 / 0.32),
+    0 16px 38px rgb(0 0 0 / 0.4);
+}
+
+:root[data-theme='dark'] .app-shell .pagination-float .pagination-control,
+:root[data-theme='dark'] .app-shell .pagination-float .pagination-counter {
+  background-color: color-mix(in srgb, var(--surface-elevated) 88%, transparent);
+  border-color: color-mix(in srgb, var(--border) 76%, transparent);
+}
+
+@media (hover: hover) {
+  :root[data-theme='dark'] .app-shell .pagination-float:hover {
+    background-color: color-mix(in srgb, var(--surface-elevated) 90%, transparent);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.075),
+      0 4px 10px rgb(0 0 0 / 0.34),
+      0 20px 44px rgb(0 0 0 / 0.46);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
