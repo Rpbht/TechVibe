@@ -66,7 +66,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       }}
       aria-label="Question pagination"
       aria-busy={isLoading}
-      className="flex w-full max-w-full items-center justify-center gap-2 px-1 py-3 text-xs sm:gap-1.5 sm:py-4"
+      className="theme-card pointer-events-auto flex w-fit max-w-full items-center justify-center gap-2 rounded-full border border-zinc-800 bg-[#0d0e12]/90 px-2 py-2 text-xs shadow-xl shadow-black/20 backdrop-blur-xl sm:gap-1.5 sm:px-3"
     >
       <button
         type="button"

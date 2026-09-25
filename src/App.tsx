@@ -224,7 +224,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Full-Screen Layout */}
-      <div className="flex flex-1 flex-col h-screen overflow-hidden min-w-0">
+      <div className="relative flex h-screen min-w-0 flex-1 flex-col overflow-hidden">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -235,8 +235,8 @@ export const App: React.FC = () => {
           <Menu className="h-5 w-5" aria-hidden="true" />
         </motion.button>
 
-        {/* Question reading pane — navigation stays outside this scroll region. */}
-        <main ref={mainRef} className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-5 pt-20 md:px-8 lg:px-10 lg:py-5">
+        {/* Question reading pane — the floating navigation stays above this scroll region. */}
+        <main ref={mainRef} className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-28 pt-20 sm:pb-24 md:px-8 lg:px-10 lg:pt-5">
           <div className="w-full space-y-4">
             {/* Loading state or Question View */}
             {isLoading && !currentQuestion ? (
@@ -322,17 +322,24 @@ export const App: React.FC = () => {
                     )}
                   </AnimatePresence>
                 </div>
-
-                <PaginationBar
-                  currentIndex={displayedIndex}
-                  total={totalQuestions}
-                  onSelect={handleSelectIndex}
-                  isLoading={isLoading}
-                />
               </div>
             )}
           </div>
         </main>
+
+        {!error && currentQuestion && totalQuestions > 1 && (
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-30 flex justify-center px-4"
+            style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
+          >
+            <PaginationBar
+              currentIndex={displayedIndex}
+              total={totalQuestions}
+              onSelect={handleSelectIndex}
+              isLoading={isLoading}
+            />
+          </div>
+        )}
 
       </div>
 
