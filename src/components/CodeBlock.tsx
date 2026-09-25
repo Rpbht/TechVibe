@@ -46,7 +46,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
   const normalizedLang = language.toLowerCase() === 'golang' ? 'go' : language.toLowerCase();
 
   return (
-    <div className="relative my-3 overflow-hidden rounded-lg border border-zinc-800 bg-[#0d0e12]">
+    <div className="theme-code relative my-3 overflow-hidden rounded-lg border border-zinc-800 bg-[#0d0e12]">
       {/* Slim Header */}
       <div className="flex h-8 items-center justify-between border-b border-zinc-800 bg-zinc-900/50 px-3 text-xs text-zinc-400">
         <span className="font-mono text-[11px] font-semibold text-zinc-300 uppercase">

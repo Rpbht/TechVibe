@@ -20,9 +20,11 @@ import {
   Settings2,
   GripVertical,
   Loader2,
+  Moon,
   RotateCcw,
   Save,
   SortAsc,
+  Sun,
   UserRound,
   X,
 } from 'lucide-react';
@@ -43,6 +45,8 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
   user: UserProfile | null;
+  theme: 'light' | 'dark';
+  onToggleTheme: () => void;
   onProfileClick: () => void;
   onOrderSaved: (technologies: TechnologyMeta[]) => void;
 }
@@ -72,6 +76,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isOpen,
   onClose,
   user,
+  theme,
+  onToggleTheme,
   onProfileClick,
   onOrderSaved,
 }) => {
@@ -162,7 +168,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Slim Modern Sidebar */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 flex w-60 shrink-0 flex-col border-r border-zinc-800/80 bg-[#09090b] transition-transform duration-200 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 ${
+        className={`theme-sidebar fixed top-0 bottom-0 left-0 z-50 flex w-60 shrink-0 flex-col border-r border-zinc-800/80 bg-[#09090b] transition-transform duration-200 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -177,8 +183,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </span>
           </div>
 
-          <div className="flex items-center">
           <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-400 transition hover:border-zinc-700 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-4 w-4" aria-hidden="true" />
+              ) : (
+                <Moon className="h-4 w-4" aria-hidden="true" />
+              )}
+            </button>
             <button
               type="button"
               onClick={onProfileClick}
@@ -200,7 +218,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
             >
               <X className="h-4 w-4" />
             </button>
-          </div>
           </div>
         </div>
 

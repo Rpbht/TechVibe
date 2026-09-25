@@ -14,6 +14,21 @@ import {
 import { AlertTriangle, BookOpenCheck, Menu, Loader2, RefreshCw } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+type Theme = 'light' | 'dark';
+
+const getInitialTheme = (): Theme => {
+  if (typeof window === 'undefined') return 'dark';
+
+  try {
+    const storedTheme = window.localStorage.getItem('techvibe-theme');
+    if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme;
+  } catch {
+    return 'dark';
+  }
+
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+};
+
 export const App: React.FC = () => {
   const [technologies, setTechnologies] = useState<TechnologyMeta[]>([]);
   const [selectedTechId, setSelectedTechId] = useState<TechnologyId | null>(null);
@@ -27,6 +42,7 @@ export const App: React.FC = () => {
   const [requestVersion, setRequestVersion] = useState(0);
   const [user, setUser] = useState<UserProfile | null>(null);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   const mainRef = useRef<HTMLElement>(null);
 
@@ -35,6 +51,20 @@ export const App: React.FC = () => {
     fetchCurrentUser(controller.signal).then(setUser).catch(() => setUser(null));
     return () => controller.abort();
   }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.style.colorScheme = theme;
+    try {
+      window.localStorage.setItem('techvibe-theme', theme);
+    } catch {
+      // The selected theme still works for this session when storage is unavailable.
+    }
+
+    const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    themeColor?.setAttribute('content', theme === 'dark' ? '#09090b' : '#f4f4f5');
+  }, [theme]);
 
   // Active technology metadata
   const currentTech = useMemo(
@@ -163,7 +193,7 @@ export const App: React.FC = () => {
   }, [currentIndex, selectedTechId]);
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-[#09090b] text-zinc-100 font-sans antialiased selection:bg-violet-600/30 selection:text-white">
+    <div className="app-shell flex h-screen w-full overflow-hidden font-sans antialiased selection:bg-violet-600/30 selection:text-white">
       {/* Sidebar Shell - Fixed & Pinned */}
       <Sidebar
         key={user?.id ?? 'anonymous'}
@@ -175,6 +205,8 @@ export const App: React.FC = () => {
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
         user={user}
+        theme={theme}
+        onToggleTheme={() => setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark')}
         onProfileClick={() => setIsProfileOpen(true)}
         onOrderSaved={setTechnologies}
       />
@@ -196,7 +228,7 @@ export const App: React.FC = () => {
           <div className="w-full space-y-4">
             {/* Loading state or Question View */}
             {isLoading ? (
-              <div className="flex h-64 w-full items-center justify-center rounded-xl border border-zinc-800 bg-[#0d0e12]/60">
+              <div className="theme-card flex h-64 w-full items-center justify-center rounded-xl border border-zinc-800 bg-[#0d0e12]/60">
                 <Loader2 className="h-6 w-6 animate-spin text-violet-400" />
               </div>
             ) : error ? (
@@ -218,7 +250,7 @@ export const App: React.FC = () => {
                 </button>
               </div>
             ) : totalQuestions === 0 || !currentQuestion ? (
-              <div className="w-full rounded-xl border border-zinc-800 bg-[#0d0e12] p-12 text-center">
+              <div className="theme-card w-full rounded-xl border border-zinc-800 bg-[#0d0e12] p-12 text-center">
                 <BookOpenCheck className="mx-auto h-10 w-10 text-zinc-600" />
                 <h3 className="mt-3 text-sm font-semibold text-zinc-200">
                   No questions available{currentTech ? ` for ${currentTech.name}` : ''}

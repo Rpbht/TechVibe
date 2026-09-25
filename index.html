@@ -1,16 +1,32 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" data-theme="dark" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <script>
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem('techvibe-theme');
+          const theme = storedTheme === 'light' || storedTheme === 'dark'
+            ? storedTheme
+            : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+          document.documentElement.style.colorScheme = theme;
+        } catch {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
     <title>TechVibe — Engineering Interview &amp; Upskilling Handbook</title>
     <meta name="description" content="Static, distraction-free technical interview preparation handbook covering React, Next.js, TypeScript, Node.js, Python, Golang, Docker, PostgreSQL, and System Design." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#090c15] text-slate-100 antialiased overflow-x-hidden">
+  <body class="antialiased overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

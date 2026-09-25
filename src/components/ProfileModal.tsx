@@ -49,7 +49,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 
   return (
     <section
-      className="fixed left-3 top-12 z-[70] w-[min(20rem,calc(100vw-1.5rem))] overflow-hidden rounded-xl border border-zinc-800/90 bg-[#111216]/98 shadow-2xl shadow-black/60 backdrop-blur-xl"
+      className="theme-profile fixed left-3 top-12 z-[70] w-[min(20rem,calc(100vw-1.5rem))] overflow-hidden rounded-xl border border-zinc-800/90 bg-[#111216]/98 shadow-2xl shadow-black/60 backdrop-blur-xl"
       role="dialog"
       aria-modal="false"
       aria-labelledby="profile-title"

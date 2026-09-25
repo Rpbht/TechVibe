@@ -1,17 +1,136 @@
 @import "tailwindcss";
 
-/* Base Minimalist Dark Theme */
 :root {
   color-scheme: dark;
+  --canvas: #09090b;
+  --surface: #0d0e12;
+  --surface-elevated: #111216;
+  --border: #27272a;
+  --text-primary: #f4f4f5;
+  --text-secondary: #d4d4d8;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --canvas: #f4f4f5;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --border: #d4d4d8;
+  --text-primary: #18181b;
+  --text-secondary: #3f3f46;
 }
 
 body {
   margin: 0;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #09090b; /* Crisp Zinc-950 */
-  color: #e4e4e7;
+  background-color: var(--canvas);
+  color: var(--text-secondary);
   overflow: hidden;
 }
+
+.app-shell {
+  background-color: var(--canvas);
+  color: var(--text-primary);
+}
+
+.theme-sidebar {
+  background-color: var(--canvas);
+  border-color: var(--border);
+}
+
+.theme-card {
+  background-color: color-mix(in srgb, var(--surface) 96%, transparent);
+  border-color: var(--border);
+}
+
+.theme-profile {
+  background-color: color-mix(in srgb, var(--surface-elevated) 98%, transparent);
+  border-color: var(--border);
+}
+
+/* Light theme remaps the existing zinc hierarchy without weakening TechVibe's violet accents. */
+:root[data-theme='light'] .app-shell .text-zinc-100 { color: #18181b; }
+:root[data-theme='light'] .app-shell .text-zinc-200 { color: #27272a; }
+:root[data-theme='light'] .app-shell .text-zinc-300 { color: #3f3f46; }
+:root[data-theme='light'] .app-shell .text-zinc-400 { color: #52525b; }
+:root[data-theme='light'] .app-shell .text-zinc-500 { color: #71717a; }
+:root[data-theme='light'] .app-shell .text-zinc-600 { color: #52525b; }
+
+:root[data-theme='light'] .app-shell .text-violet-200 { color: #5b21b6; }
+:root[data-theme='light'] .app-shell .text-violet-300 { color: #6d28d9; }
+:root[data-theme='light'] .app-shell .text-violet-400 { color: #7c3aed; }
+:root[data-theme='light'] .app-shell .text-cyan-300 { color: #0e7490; }
+:root[data-theme='light'] .app-shell .text-cyan-400 { color: #0891b2; }
+:root[data-theme='light'] .app-shell .text-purple-400 { color: #7e22ce; }
+:root[data-theme='light'] .app-shell .text-emerald-400 { color: #047857; }
+:root[data-theme='light'] .app-shell .text-rose-300 { color: #be123c; }
+:root[data-theme='light'] .app-shell .text-rose-400 { color: #be123c; }
+
+:root[data-theme='light'] .app-shell .border-zinc-800,
+:root[data-theme='light'] .app-shell .border-zinc-800\/80,
+:root[data-theme='light'] .app-shell .border-zinc-800\/60,
+:root[data-theme='light'] .app-shell .border-zinc-800\/90 {
+  border-color: #d4d4d8;
+}
+
+:root[data-theme='light'] .app-shell .border-zinc-700 { border-color: #a1a1aa; }
+
+:root[data-theme='light'] .app-shell .bg-zinc-950,
+:root[data-theme='light'] .app-shell .bg-zinc-950\/90,
+:root[data-theme='light'] .app-shell .bg-zinc-950\/70,
+:root[data-theme='light'] .app-shell .bg-zinc-950\/60 {
+  background-color: #fafafa;
+}
+
+:root[data-theme='light'] .app-shell .bg-zinc-900,
+:root[data-theme='light'] .app-shell .bg-zinc-900\/70,
+:root[data-theme='light'] .app-shell .bg-zinc-900\/60,
+:root[data-theme='light'] .app-shell .bg-zinc-900\/50,
+:root[data-theme='light'] .app-shell .bg-zinc-900\/40 {
+  background-color: #f4f4f5;
+}
+
+:root[data-theme='light'] .app-shell .bg-zinc-800,
+:root[data-theme='light'] .app-shell .bg-zinc-800\/90,
+:root[data-theme='light'] .app-shell .bg-zinc-800\/40 {
+  background-color: #e4e4e7;
+}
+
+:root[data-theme='light'] .app-shell .bg-rose-950\/20,
+:root[data-theme='light'] .app-shell .bg-rose-950\/40 {
+  background-color: #fff1f2;
+}
+
+:root[data-theme='light'] .app-shell .hover\:bg-zinc-800:hover,
+:root[data-theme='light'] .app-shell .hover\:bg-zinc-800\/40:hover {
+  background-color: #e4e4e7;
+}
+
+:root[data-theme='light'] .app-shell .hover\:text-white:hover,
+:root[data-theme='light'] .app-shell .hover\:text-zinc-100:hover,
+:root[data-theme='light'] .app-shell .hover\:text-zinc-200:hover,
+:root[data-theme='light'] .app-shell .hover\:text-zinc-300:hover {
+  color: #18181b;
+}
+
+:root[data-theme='light'] .app-shell .focus\:bg-zinc-900:focus { background-color: #ffffff; }
+:root[data-theme='light'] .app-shell .placeholder-zinc-500::placeholder { color: #71717a; }
+
+/* Code remains a dark technical inset in either theme so syntax colors stay stable. */
+:root[data-theme='light'] .theme-code {
+  background-color: #0d0e12;
+  border-color: #27272a;
+  color: #e4e4e7;
+}
+
+:root[data-theme='light'] .theme-code .bg-zinc-900\/50 { background-color: rgb(24 24 27 / 0.5); }
+:root[data-theme='light'] .theme-code .border-zinc-800 { border-color: #27272a; }
+:root[data-theme='light'] .theme-code .text-zinc-200 { color: #e4e4e7; }
+:root[data-theme='light'] .theme-code .text-zinc-300 { color: #d4d4d8; }
+:root[data-theme='light'] .theme-code .text-zinc-400 { color: #a1a1aa; }
+:root[data-theme='light'] .theme-code .text-zinc-600 { color: #52525b; }
+:root[data-theme='light'] .theme-code .hover\:bg-zinc-800:hover { background-color: #27272a; }
+:root[data-theme='light'] .theme-code .hover\:text-zinc-200:hover { color: #e4e4e7; }
 
 /* Subtle hairline borders & crisp panels */
 .hairline-border {
