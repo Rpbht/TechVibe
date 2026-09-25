@@ -53,7 +53,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
   };
 
   const paginationItems = getPaginationItems();
-  const iconButtonClass = 'h-8 w-8 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/60 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25';
+  const iconButtonClass = 'pagination-control h-7 w-7 items-center justify-center rounded-full border text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25';
 
   return (
     <motion.nav
@@ -66,7 +66,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       }}
       aria-label="Question pagination"
       aria-busy={isLoading}
-      className="theme-card pointer-events-auto flex w-fit max-w-full items-center justify-center gap-2 rounded-full border border-zinc-800 bg-[#0d0e12]/90 px-2 py-2 text-xs shadow-xl shadow-black/20 backdrop-blur-xl sm:gap-1.5 sm:px-3"
+      className="pagination-float pointer-events-auto flex w-fit max-w-full items-center justify-center gap-1.5 rounded-full border p-1.5 text-xs backdrop-blur-xl"
     >
       <button
         type="button"
@@ -76,7 +76,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         aria-label="Go to first question"
         className={`hidden sm:flex ${iconButtonClass}`}
       >
-        <ChevronsLeft className="h-3.5 w-3.5" aria-hidden="true" />
+        <ChevronsLeft className="h-3 w-3" aria-hidden="true" />
       </button>
 
       <button
@@ -85,9 +85,9 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         disabled={isLoading || currentIndex === 0}
         title="Previous question"
         aria-label="Previous question"
-        className="flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 p-0 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-8 sm:w-auto sm:px-2.5"
+        className="pagination-control flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border p-0 text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-7 sm:w-auto sm:px-2"
       >
-        <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
+        <ChevronLeft className="h-3 w-3" aria-hidden="true" />
         <span className="hidden sm:inline">Prev</span>
         <span className="sr-only sm:hidden">Previous question</span>
       </button>
@@ -103,7 +103,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
                 disabled={isLoading}
                 title="Jump back 5 questions"
                 aria-label="Jump back 5 questions"
-                className="h-8 w-8 rounded-full border border-zinc-800/60 bg-transparent text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-40"
+                className="pagination-control h-7 w-7 rounded-full border text-zinc-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-40"
               >
                 …
               </button>
@@ -119,7 +119,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
                 disabled={isLoading}
                 title="Jump forward 5 questions"
                 aria-label="Jump forward 5 questions"
-                className="h-8 w-8 rounded-full border border-zinc-800/60 bg-transparent text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-40"
+                className="pagination-control h-7 w-7 rounded-full border text-zinc-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-40"
               >
                 …
               </button>
@@ -136,10 +136,10 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
               disabled={isSelected || isLoading}
               aria-current={isSelected ? 'page' : undefined}
               aria-label={`Question ${item + 1}${isSelected ? ', current question' : ''}`}
-              className={`h-8 min-w-8 rounded-full px-2 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
+              className={`h-7 min-w-7 rounded-full px-1.5 text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
                 isSelected
                   ? 'cursor-default bg-violet-600 text-white shadow-sm'
-                  : 'border border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:bg-zinc-800 hover:text-white disabled:pointer-events-none disabled:opacity-40'
+                  : 'pagination-control border text-zinc-400 disabled:pointer-events-none disabled:opacity-40'
               }`}
             >
               {item + 1}
@@ -149,7 +149,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       </div>
 
       <div
-        className="flex h-11 min-w-24 shrink-0 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/40 px-4 font-semibold tabular-nums text-zinc-300 sm:hidden"
+        className="pagination-counter flex h-10 min-w-20 shrink-0 items-center justify-center rounded-full border px-3 font-semibold tabular-nums text-zinc-300 sm:hidden"
         aria-hidden="true"
       >
         {currentIndex + 1}
@@ -163,11 +163,11 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         disabled={isLoading || currentIndex === total - 1}
         title="Next question"
         aria-label="Next question"
-        className="flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 p-0 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-8 sm:w-auto sm:px-2.5"
+        className="pagination-control flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border p-0 text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-7 sm:w-auto sm:px-2"
       >
         <span className="hidden sm:inline">Next</span>
         <span className="sr-only sm:hidden">Next question</span>
-        <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+        <ChevronRight className="h-3 w-3" aria-hidden="true" />
       </button>
 
       <button
@@ -178,7 +178,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         aria-label="Go to last question"
         className={`hidden sm:flex ${iconButtonClass}`}
       >
-        <ChevronsRight className="h-3.5 w-3.5" aria-hidden="true" />
+        <ChevronsRight className="h-3 w-3" aria-hidden="true" />
       </button>
 
       <p className="sr-only" aria-live="polite">
