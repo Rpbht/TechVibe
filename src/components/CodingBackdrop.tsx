@@ -1,36 +1,65 @@
 import React from 'react';
 
-const backdropMarks = [
-  { symbol: '</>', left: '7%', top: '11%', rotation: '-10deg', size: 'text-4xl', driftX: '22px', driftY: '-18px', duration: '19s', delay: '-8s' },
-  { symbol: '{ }', left: '26%', top: '73%', rotation: '7deg', size: 'text-3xl', driftX: '-18px', driftY: '24px', duration: '23s', delay: '-15s' },
-  { symbol: '01', left: '45%', top: '17%', rotation: '-4deg', size: 'text-2xl', driftX: '14px', driftY: '21px', duration: '17s', delay: '-4s' },
-  { symbol: 'λ', left: '63%', top: '68%', rotation: '9deg', size: 'text-4xl', driftX: '-24px', driftY: '-16px', duration: '26s', delay: '-19s' },
-  { symbol: '$_', left: '84%', top: '12%', rotation: '6deg', size: 'text-3xl', driftX: '18px', driftY: '28px', duration: '21s', delay: '-11s' },
-  { symbol: 'API', left: '78%', top: '46%', rotation: '-8deg', size: 'text-xl', driftX: '-26px', driftY: '12px', duration: '24s', delay: '-6s' },
-  { symbol: '💻', left: '14%', top: '48%', rotation: '-6deg', size: 'text-3xl', driftX: '17px', driftY: '20px', duration: '20s', delay: '-13s', emoji: true },
-  { symbol: '⚙️', left: '91%', top: '76%', rotation: '12deg', size: 'text-3xl', driftX: '-20px', driftY: '-22px', duration: '25s', delay: '-3s', emoji: true },
-  { symbol: '🧩', left: '50%', top: '88%', rotation: '-7deg', size: 'text-2xl', driftX: '28px', driftY: '-14px', duration: '22s', delay: '-17s', emoji: true },
-  { symbol: '☁️', left: '71%', top: '29%', rotation: '5deg', size: 'text-2xl', driftX: '-15px', driftY: '24px', duration: '18s', delay: '-9s', emoji: true },
+const networkPaths = [
+  'M -90 662 C 132 530 252 736 438 624 S 822 550 1290 704',
+  'M -120 252 C 146 402 302 154 548 316 S 918 430 1280 214',
+  'M 1018 -92 C 858 176 1084 348 916 532 S 754 722 824 894',
+  'M 86 -70 C 204 186 24 354 218 526 S 444 690 326 886',
+];
+
+const networkNodes = [
+  { label: '</>', x: 112, y: 638, tone: 'violet' },
+  { label: '{ }', x: 318, y: 646, tone: 'cyan' },
+  { label: 'API', x: 518, y: 612, tone: 'violet' },
+  { label: 'DB', x: 728, y: 622, tone: 'cyan' },
+  { label: 'λ', x: 946, y: 642, tone: 'violet' },
+  { label: '01', x: 1114, y: 688, tone: 'cyan' },
 ];
 
 export const CodingBackdrop: React.FC = () => (
   <div className="coding-backdrop pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    {backdropMarks.map((mark) => (
-      <span
-        key={`${mark.symbol}-${mark.left}-${mark.top}`}
-        className={`coding-mark absolute select-none ${mark.size} ${mark.emoji ? 'coding-mark-emoji' : ''}`}
-        style={{
-          left: mark.left,
-          top: mark.top,
-          '--coding-rotation': mark.rotation,
-          '--coding-drift-x': mark.driftX,
-          '--coding-drift-y': mark.driftY,
-          '--coding-duration': mark.duration,
-          '--coding-delay': mark.delay,
-        } as React.CSSProperties}
-      >
-        <span className="coding-mark-glyph">{mark.symbol}</span>
-      </span>
-    ))}
+    <svg
+      className="coding-network absolute inset-0 h-full w-full"
+      viewBox="0 0 1200 800"
+      preserveAspectRatio="xMidYMid slice"
+      focusable="false"
+    >
+      <g className="coding-network-routes">
+        {networkPaths.map((path, index) => (
+          <React.Fragment key={path}>
+            <path className="coding-route" d={path} pathLength="100" />
+            <path
+              className={`coding-flow coding-flow-${(index % 3) + 1}`}
+              d={path}
+              pathLength="100"
+            />
+          </React.Fragment>
+        ))}
+      </g>
+
+      <g className="coding-network-nodes">
+        {networkNodes.map((node, index) => (
+          <g
+            key={node.label}
+            className={`coding-node coding-node-${node.tone}`}
+            transform={`translate(${node.x} ${node.y})`}
+            style={{ '--node-delay': `${index * -0.7}s` } as React.CSSProperties}
+          >
+            <circle className="coding-node-ring" r="25" />
+            <circle className="coding-node-core" r="4" />
+            <text className="coding-node-label" x="0" y="-35" textAnchor="middle">
+              {node.label}
+            </text>
+          </g>
+        ))}
+      </g>
+
+      <g className="coding-code-lines">
+        <text x="76" y="752">const pipeline = ['build', 'test', 'scale'];</text>
+        <text className="coding-code-line-secondary" x="748" y="764">
+          await deploy({'{ status: \'healthy\' }'});
+        </text>
+      </g>
+    </svg>
   </div>
 );
