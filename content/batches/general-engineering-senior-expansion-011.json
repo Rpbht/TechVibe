@@ -1,0 +1,3904 @@
+{
+  "questions": [
+    {
+      "id": "general-engineering-116",
+      "technology": "general-engineering",
+      "title": "How would you explain a technically necessary delay to a non-technical client?",
+      "questionType": "scenario",
+      "explanation": [
+        "State the outcome at risk, evidence, options, cost, and recommendation in business language. Agree on a decision date and document scope, owner, and consequences."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-117",
+      "technology": "general-engineering",
+      "title": "A client insists on an unsafe launch date. What do you do?",
+      "questionType": "scenario",
+      "explanation": [
+        "Make risk concrete with likely impact and evidence, offer a reduced safe scope or staged launch, name non-negotiable controls, and obtain explicit accountable acceptance."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-118",
+      "technology": "general-engineering",
+      "title": "How do you handle a senior engineer who repeatedly dismisses junior teammates?",
+      "questionType": "scenario",
+      "explanation": [
+        "Address observed behavior privately, explain its impact, set a measurable expectation, support improvement, and follow up. Protect psychological safety without attacking the person."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-119",
+      "technology": "general-engineering",
+      "title": "Describe how you would recover trust after your technical decision caused an outage.",
+      "questionType": "scenario",
+      "explanation": [
+        "Own the decision without deflection, restore service, share verified facts and uncertainty, lead a blameless review, and deliver tracked prevention work."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-120",
+      "technology": "general-engineering",
+      "title": "How do you resolve a design disagreement between two strong engineers?",
+      "questionType": "scenario",
+      "explanation": [
+        "Align on goals and constraints, write competing options and evidence, run a bounded experiment when useful, assign a decision owner, then commit as one team."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-121",
+      "technology": "general-engineering",
+      "title": "What should a staff engineer do when every urgent request reaches them?",
+      "questionType": "scenario",
+      "explanation": [
+        "Expose the bottleneck, define escalation criteria, delegate ownership, improve runbooks and architecture, and mentor others so organizational capability grows instead of dependence."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-122",
+      "technology": "general-engineering",
+      "title": "How do you say no to a stakeholder without blocking progress?",
+      "questionType": "scenario",
+      "explanation": [
+        "Reject the harmful constraint rather than the desired outcome. Explain why, offer viable alternatives, quantify trade-offs, and identify what would make the request feasible."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-123",
+      "technology": "general-engineering",
+      "title": "How should you answer an interview question about a failed project?",
+      "questionType": "scenario",
+      "explanation": [
+        "Describe context, your decisions, observable result, what you personally learned, and concrete changes afterward. Avoid blaming others or disguising a success as failure."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-124",
+      "technology": "general-engineering",
+      "title": "A teammate is underperforming during a critical release. How do you respond?",
+      "questionType": "scenario",
+      "explanation": [
+        "Separate immediate delivery risk from performance management, narrow critical work, provide support, communicate privately, document expectations, and involve the manager appropriately."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-125",
+      "technology": "general-engineering",
+      "title": "How do you give an executive a useful incident update?",
+      "questionType": "scenario",
+      "explanation": [
+        "Lead with customer and business impact, current containment, confidence level, next decision, owner, and update time. Keep technical detail available but secondary."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-126",
+      "technology": "general-engineering",
+      "title": "How do you balance mentoring with a deadline?",
+      "questionType": "scenario",
+      "explanation": [
+        "Delegate a bounded real task with checkpoints, pair on risky portions, retain a fallback, and protect learning time proportionate to delivery risk rather than taking all work back."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-127",
+      "technology": "general-engineering",
+      "title": "When should a technical disagreement be escalated?",
+      "questionType": "scenario",
+      "explanation": [
+        "Escalate when evidence cannot resolve it, decision authority is unclear, risk exceeds the team mandate, or delay is costly; bring options, not personalities."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-128",
+      "technology": "general-engineering",
+      "title": "How do you handle confidential information requested in a client troubleshooting call?",
+      "questionType": "scenario",
+      "explanation": [
+        "Share only authorized minimum data, move sensitive evidence to approved channels, redact it, record access, and involve security or legal when scope is uncertain."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-129",
+      "technology": "general-engineering",
+      "title": "What makes a strong cross-team dependency agreement?",
+      "questionType": "scenario",
+      "explanation": [
+        "It names the deliverable, interface, owner, dates, service expectations, assumptions, change process, validation evidence, and escalation path for missed commitments."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-130",
+      "technology": "general-engineering",
+      "title": "How would you prioritize ten high-priority requests from different leaders?",
+      "questionType": "scenario",
+      "explanation": [
+        "Normalize them against business value, urgency, risk, effort, dependencies, and strategic commitments; make capacity visible and require accountable trade-off decisions."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-131",
+      "technology": "general-engineering",
+      "title": "How should an engineer challenge an unrealistic estimate?",
+      "questionType": "scenario",
+      "explanation": [
+        "Show assumptions, comparable evidence, uncertainty range, critical path, and scope alternatives. Convert pressure for certainty into an explicit risk decision."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-132",
+      "technology": "general-engineering",
+      "title": "What should you do when a client reports a problem you cannot reproduce?",
+      "questionType": "scenario",
+      "explanation": [
+        "Acknowledge impact, collect time-correlated evidence and environment details, add safe diagnostics, define the next experiment, and keep an agreed communication cadence."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-133",
+      "technology": "general-engineering",
+      "title": "How do you prevent retrospectives from becoming blame sessions?",
+      "questionType": "scenario",
+      "explanation": [
+        "Focus on system conditions and decisions with available information, use a neutral timeline, distinguish contributing factors, and assign measurable improvements with owners."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-134",
+      "technology": "general-engineering",
+      "title": "How do you communicate technical debt to business stakeholders?",
+      "questionType": "scenario",
+      "explanation": [
+        "Connect debt to lead time, incidents, cost, security, or lost options; quantify where possible and propose incremental repayment tied to product outcomes."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-135",
+      "technology": "general-engineering",
+      "title": "What demonstrates senior ownership when requirements are incomplete?",
+      "questionType": "scenario",
+      "explanation": [
+        "Surface gaps early, state reversible assumptions, identify decision owners, preserve traceability, and advance low-risk work without silently inventing business policy."
+      ],
+      "source": {
+        "title": "AWS Well-Architected: Organization",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html"
+      }
+    },
+    {
+      "id": "general-engineering-136",
+      "technology": "general-engineering",
+      "title": "How do you discover hidden user roles before designing authorization?",
+      "questionType": "scenario",
+      "explanation": [
+        "Map actors, delegated actions, support and automation identities, exceptional access, and lifecycle transitions; validate a permissions matrix with business and security owners."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-137",
+      "technology": "general-engineering",
+      "title": "What requirement gap is exposed when a workflow has create and complete but no cancel state?",
+      "questionType": "scenario",
+      "explanation": [
+        "The lifecycle lacks interruption semantics: authorization, compensation, notifications, audit history, retries, and downstream behavior for cancellation all need definition."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-138",
+      "technology": "general-engineering",
+      "title": "How do you turn “the dashboard must be fast” into a testable requirement?",
+      "questionType": "scenario",
+      "explanation": [
+        "Define user cohort, dataset, device, network, cold or warm state, percentile, interaction or render boundary, target, and measurement window."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-139",
+      "technology": "general-engineering",
+      "title": "What questions reveal missing data-retention requirements?",
+      "questionType": "scenario",
+      "explanation": [
+        "Ask which records, jurisdictions, legal holds, minimum and maximum periods, deletion verification, backups, derived data, exports, audit evidence, and accountable owner."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-140",
+      "technology": "general-engineering",
+      "title": "How do you identify concurrency gaps in an edit workflow?",
+      "questionType": "scenario",
+      "explanation": [
+        "Ask what happens when users edit the same version, define conflict detection and merge policy, stale-write response, audit trail, and user recovery path."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-141",
+      "technology": "general-engineering",
+      "title": "What is missing when an API requirement specifies only successful responses?",
+      "questionType": "scenario",
+      "explanation": [
+        "Validation, authentication, authorization, rate limits, idempotency, timeouts, partial failure, error schema, retry guidance, observability, and compatibility remain undefined."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-142",
+      "technology": "general-engineering",
+      "title": "How should pagination requirements be completed?",
+      "questionType": "scenario",
+      "explanation": [
+        "Define stable ordering, cursor or offset behavior, maximum size, filtering interaction, mutations between pages, total-count semantics, and invalid cursor handling."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-143",
+      "technology": "general-engineering",
+      "title": "What requirements are commonly missed for international users?",
+      "questionType": "scenario",
+      "explanation": [
+        "Locale, language fallback, time zones, calendars, number and currency formats, text expansion, bidirectional text, collation, addresses, and regulatory differences."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-144",
+      "technology": "general-engineering",
+      "title": "How do you expose an accessibility requirement gap?",
+      "questionType": "scenario",
+      "explanation": [
+        "Trace every workflow through keyboard, focus, semantics, contrast, zoom, screen reader, motion, errors, and assistive-technology acceptance evidence."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-145",
+      "technology": "general-engineering",
+      "title": "What should be clarified before integrating with a third-party API?",
+      "questionType": "scenario",
+      "explanation": [
+        "Ownership, contract version, quotas, authentication, data classification, latency, errors, retries, sandbox fidelity, support, change notices, outage behavior, and exit strategy."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-146",
+      "technology": "general-engineering",
+      "title": "How do reporting requirements differ from transactional requirements?",
+      "questionType": "scenario",
+      "explanation": [
+        "Reports need freshness, historical corrections, definitions, reconciliation, dimensions, export limits, access controls, and reproducibility beyond the write-path contract."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-147",
+      "technology": "general-engineering",
+      "title": "What is missing from a requirement that says “notify the user”?",
+      "questionType": "scenario",
+      "explanation": [
+        "Channel, trigger, recipients, template ownership, localization, consent, deduplication, urgency, retry, delivery evidence, preferences, and fallback must be specified."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-148",
+      "technology": "general-engineering",
+      "title": "How do you find gaps in an offline-capable workflow?",
+      "questionType": "scenario",
+      "explanation": [
+        "Define cached scope, offline indication, queued actions, conflict resolution, expiry, device loss, authentication, retries, synchronization ordering, and storage protection."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-149",
+      "technology": "general-engineering",
+      "title": "Which acceptance examples reveal money-calculation gaps?",
+      "questionType": "scenario",
+      "explanation": [
+        "Cover rounding stage and mode, currency precision, tax jurisdiction, discounts, refunds, partial fulfillment, exchange rates, concurrency, and ledger reconciliation."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-150",
+      "technology": "general-engineering",
+      "title": "How should a requirement capture auditability?",
+      "questionType": "scenario",
+      "explanation": [
+        "Name auditable events, actor, authority, before and after values, reason, timestamp source, correlation, retention, tamper protection, access, and reporting."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-151",
+      "technology": "general-engineering",
+      "title": "What questions reveal missing volume assumptions?",
+      "questionType": "scenario",
+      "explanation": [
+        "Ask baseline and peak rates, burst shape, record and payload sizes, growth, concurrency, fan-out, retention, regional distribution, and seasonal events."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-152",
+      "technology": "general-engineering",
+      "title": "How do you identify an ambiguous ownership boundary?",
+      "questionType": "scenario",
+      "explanation": [
+        "For each state and failure, ask who creates, validates, changes, supports, reconciles, approves, and retires it, including handoffs between teams and vendors."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-153",
+      "technology": "general-engineering",
+      "title": "What makes a migration requirement complete?",
+      "questionType": "scenario",
+      "explanation": [
+        "Define source quality, mapping, cutover, coexistence, reconciliation, rollback, downtime, security, audit, performance, ownership, and deletion of legacy copies."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-154",
+      "technology": "general-engineering",
+      "title": "How should regulatory assumptions be handled during discovery?",
+      "questionType": "scenario",
+      "explanation": [
+        "Record them as unresolved legal questions, identify jurisdiction and data flow, seek qualified approval, and avoid converting developer interpretation into policy."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-155",
+      "technology": "general-engineering",
+      "title": "What should “done” mean for a production feature?",
+      "questionType": "scenario",
+      "explanation": [
+        "It includes accepted behavior, quality thresholds, security, accessibility, telemetry, support documentation, rollout and rollback, ownership, and production verification."
+      ],
+      "source": {
+        "title": "Azure Architecture Design Principles",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+      }
+    },
+    {
+      "id": "general-engineering-156",
+      "technology": "general-engineering",
+      "title": "When is a modular monolith preferable to microservices?",
+      "questionType": "system-design",
+      "explanation": [
+        "Choose it when one deployment and transaction boundary simplify delivery while modules can preserve domain ownership; split only where independent scaling or change justifies distribution cost."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-157",
+      "technology": "general-engineering",
+      "title": "How do you choose between synchronous and asynchronous integration?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use required response timing, consistency, failure coupling, ordering, throughput, user feedback, recovery, and operational complexity rather than treating messaging as automatically scalable."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-158",
+      "technology": "general-engineering",
+      "title": "When is CQRS worth its complexity?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use it when read and write models genuinely need different scaling, security, or representations; budget for consistency lag, duplication, operations, and reconciliation."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-159",
+      "technology": "general-engineering",
+      "title": "What problem should event sourcing solve before it is selected?",
+      "questionType": "system-design",
+      "explanation": [
+        "It should provide needed temporal audit, reconstruction, or domain-event behavior that simpler state plus audit cannot; plan schema evolution, replay, privacy, and projections."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-160",
+      "technology": "general-engineering",
+      "title": "How do you decide between an API gateway and a backend-for-frontend?",
+      "questionType": "system-design",
+      "explanation": [
+        "A gateway centralizes cross-cutting edge policy; a BFF shapes workflows per client. Combine deliberately while avoiding duplicated business rules and a new monolith."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-161",
+      "technology": "general-engineering",
+      "title": "What does the transactional outbox pattern protect against?",
+      "questionType": "system-design",
+      "explanation": [
+        "It atomically records business state and an event intent, then publishes separately, avoiding the gap where a database commit succeeds but message publication fails."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-162",
+      "technology": "general-engineering",
+      "title": "How should a saga be designed for irreversible steps?",
+      "questionType": "system-design",
+      "explanation": [
+        "Order reversible steps first, define semantic compensation and idempotency, expose intermediate state, use manual resolution for irreversible failures, and preserve audit evidence."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-163",
+      "technology": "general-engineering",
+      "title": "How do you evolve an API without coordinating every consumer release?",
+      "questionType": "system-design",
+      "explanation": [
+        "Prefer additive changes, tolerant readers, explicit version and deprecation policy, contract telemetry, migration tooling, and removal only after verified consumer exit."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-164",
+      "technology": "general-engineering",
+      "title": "What are the central choices in multi-tenant architecture?",
+      "questionType": "system-design",
+      "explanation": [
+        "Choose isolation for identity, compute, data, encryption, quotas, noisy-neighbor control, operations, and compliance according to risk and cost, not one universal tenancy model."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-165",
+      "technology": "general-engineering",
+      "title": "When should a service own its database?",
+      "questionType": "system-design",
+      "explanation": [
+        "When independent lifecycle and domain ownership outweigh cross-service query convenience; expose contracts and avoid shared-table coupling, while planning reporting and transactions."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-166",
+      "technology": "general-engineering",
+      "title": "How do you choose a partition key?",
+      "questionType": "system-design",
+      "explanation": [
+        "Select a stable high-cardinality key aligned with access patterns that distributes reads, writes, storage, and growth; model hot tenants and repartitioning."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-167",
+      "technology": "general-engineering",
+      "title": "What evidence supports introducing a read replica?",
+      "questionType": "system-design",
+      "explanation": [
+        "Show reads constrain the primary and tolerate replication lag; define read-after-write routing, failure behavior, replica capacity, and operational cost."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-168",
+      "technology": "general-engineering",
+      "title": "How do you select serverless versus long-running containers?",
+      "questionType": "system-design",
+      "explanation": [
+        "Compare traffic shape, startup latency, execution limits, state, portability, scaling behavior, observability, security, team skill, and total cost at realistic load."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-169",
+      "technology": "general-engineering",
+      "title": "When should a workload be batch rather than streaming?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use business freshness, ordering, replay, throughput, state, failure recovery, and cost; streaming is justified only when latency creates material value."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-170",
+      "technology": "general-engineering",
+      "title": "How do you reduce the blast radius of a shared platform?",
+      "questionType": "system-design",
+      "explanation": [
+        "Create cells or partitions, quotas, tenant isolation, staged rollout, independent failure domains, bounded dependencies, and tested failover with clear ownership."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-171",
+      "technology": "general-engineering",
+      "title": "What makes an architecture evolvable?",
+      "questionType": "system-design",
+      "explanation": [
+        "Explicit boundaries, stable contracts, observability, automated tests, reversible decisions, migration seams, and low coupling allow change without predicting every future need."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-172",
+      "technology": "general-engineering",
+      "title": "How should data residency affect architecture?",
+      "questionType": "system-design",
+      "explanation": [
+        "Map storage, processing, backups, support access, telemetry, replication, and subprocessors by jurisdiction, then enforce routing and verify controls continuously."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-173",
+      "technology": "general-engineering",
+      "title": "When is active-active multi-region justified?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use it when required recovery and latency outcomes exceed simpler designs and the business funds conflict handling, routing, data consistency, testing, and operations."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-174",
+      "technology": "general-engineering",
+      "title": "How does the strangler pattern reduce modernization risk?",
+      "questionType": "system-design",
+      "explanation": [
+        "Route bounded capabilities to new components incrementally, measure behavior, keep rollback, migrate data deliberately, and retire legacy paths only after verified cutover."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-175",
+      "technology": "general-engineering",
+      "title": "When should an architecture decision be revisited?",
+      "questionType": "system-design",
+      "explanation": [
+        "Revisit when assumptions, scale, risk, cost, capabilities, or constraints materially change; compare measured evidence with the original decision context."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/the-pillars-of-the-framework.html"
+      }
+    },
+    {
+      "id": "general-engineering-176",
+      "technology": "general-engineering",
+      "title": "p99 latency rises while average latency is stable. Where do you look first?",
+      "questionType": "debugging",
+      "explanation": [
+        "Segment slow requests by route, tenant, payload, instance, dependency, and queue time; correlate traces with saturation and recent changes before optimizing averages."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-177",
+      "technology": "general-engineering",
+      "title": "A service memory footprint grows for days. How do you isolate the leak?",
+      "questionType": "debugging",
+      "explanation": [
+        "Confirm live-set growth after collection, compare heap snapshots or allocation profiles, inspect retained ownership, caches, listeners, buffers, and reproduce under controlled load."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-178",
+      "technology": "general-engineering",
+      "title": "CPU reaches 100 percent but throughput falls. What hypotheses matter?",
+      "questionType": "debugging",
+      "explanation": [
+        "Check contention, retry storms, serialization, garbage collection, hot loops, logging, context switching, throttling, and workload mix using profiles and saturation metrics."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-179",
+      "technology": "general-engineering",
+      "title": "How do you diagnose database connection-pool exhaustion?",
+      "questionType": "debugging",
+      "explanation": [
+        "Correlate active and waiting connections with query duration, transactions, leaks, pool timeouts, database limits, deployment size, retries, and downstream saturation."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-180",
+      "technology": "general-engineering",
+      "title": "What indicates thread-pool starvation rather than slow business logic?",
+      "questionType": "debugging",
+      "explanation": [
+        "Queued tasks and wait time rise while worker threads block on I/O, locks, or nested futures; thread dumps and traces show little productive CPU work."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-181",
+      "technology": "general-engineering",
+      "title": "Intermittent 502 responses appear behind a proxy. How do you investigate?",
+      "questionType": "debugging",
+      "explanation": [
+        "Correlate proxy and upstream request IDs, inspect connect and response timeouts, resets, health transitions, deploys, keep-alive mismatch, and backend saturation."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-182",
+      "technology": "general-engineering",
+      "title": "Consumers occasionally process the same message twice. Is the broker broken?",
+      "questionType": "debugging",
+      "explanation": [
+        "Redelivery is normal in at-least-once systems. Verify acknowledgment timing and crashes, then make effects idempotent with durable deduplication and atomic state transitions."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-183",
+      "technology": "general-engineering",
+      "title": "The UI shows stale data immediately after save. What layers can cause it?",
+      "questionType": "debugging",
+      "explanation": [
+        "Trace write confirmation, replica routing, HTTP and application caches, client state, optimistic updates, event propagation, and version keys before forcing reloads."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-184",
+      "technology": "general-engineering",
+      "title": "How do you reproduce a suspected race condition?",
+      "questionType": "debugging",
+      "explanation": [
+        "Identify shared state and ordering, add correlation and timing evidence, increase concurrency, control scheduling where possible, and test invariants repeatedly without masking the race."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-185",
+      "technology": "general-engineering",
+      "title": "What failures can clock skew create?",
+      "questionType": "debugging",
+      "explanation": [
+        "It can break token validity, leases, ordering, TTLs, certificates, deduplication, and incident timelines; monitor synchronization and use monotonic time for durations."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-186",
+      "technology": "general-engineering",
+      "title": "How do you distinguish DNS failure from application failure?",
+      "questionType": "debugging",
+      "explanation": [
+        "Resolve from affected networks, inspect TTL and authoritative answers, compare direct endpoint access, trace resolver latency and errors, and correlate recent DNS changes."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-187",
+      "technology": "general-engineering",
+      "title": "A TLS handshake fails only for some clients. What do you inspect?",
+      "questionType": "debugging",
+      "explanation": [
+        "Compare protocol and cipher support, certificate chain, hostname, SNI, trust store, expiration, time, proxy termination, and client-specific handshake diagnostics."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-188",
+      "technology": "general-engineering",
+      "title": "A dead-letter queue grows rapidly. What is the correct first response?",
+      "questionType": "debugging",
+      "explanation": [
+        "Classify errors and poison messages, stop unsafe replay, preserve samples, assess impact, fix or quarantine causes, then replay with rate and idempotency controls."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-189",
+      "technology": "general-engineering",
+      "title": "How do you diagnose a query that became slow without code changes?",
+      "questionType": "debugging",
+      "explanation": [
+        "Compare execution plans, statistics, cardinality, indexes, parameter distribution, locks, data growth, cache state, resource pressure, and database configuration changes."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-190",
+      "technology": "general-engineering",
+      "title": "A canary is healthy globally but one tenant reports failures. What next?",
+      "questionType": "debugging",
+      "explanation": [
+        "Segment canary telemetry by tenant attributes, permissions, data shape, flags, region, and dependency path; global aggregates may hide cohort-specific regressions."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-191",
+      "technology": "general-engineering",
+      "title": "How do you investigate long garbage-collection pauses?",
+      "questionType": "debugging",
+      "explanation": [
+        "Correlate pause type and heap occupancy with allocation rate, object lifetime, heap sizing, collector settings, native memory, and traffic; profile before tuning."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-192",
+      "technology": "general-engineering",
+      "title": "Disk usage is moderate but writes fail with no space left. Why?",
+      "questionType": "debugging",
+      "explanation": [
+        "Check inode exhaustion, reserved space, deleted-open files, quotas, temporary mounts, and container layers rather than relying only on byte capacity."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-193",
+      "technology": "general-engineering",
+      "title": "How do feature flags create hard-to-reproduce defects?",
+      "questionType": "debugging",
+      "explanation": [
+        "Behavior depends on user targeting, flag versions, evaluation context, caches, and combinations. Log safe flag decisions and test supported configurations with expiry ownership."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-194",
+      "technology": "general-engineering",
+      "title": "How do you detect configuration drift across instances?",
+      "questionType": "debugging",
+      "explanation": [
+        "Expose versioned configuration fingerprints, compare desired and effective state, audit changes, and replace mutable instances through automated reconciliation."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-195",
+      "technology": "general-engineering",
+      "title": "What is the safest response to suspected data corruption?",
+      "questionType": "debugging",
+      "explanation": [
+        "Stop propagation and destructive repair, preserve evidence, bound affected records and time, verify backups, design reversible reconciliation, and communicate impact and uncertainty."
+      ],
+      "source": {
+        "title": "Google SRE: Monitoring Distributed Systems",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
+      }
+    },
+    {
+      "id": "general-engineering-196",
+      "technology": "general-engineering",
+      "title": "When should you scale vertically before scaling horizontally?",
+      "questionType": "system-design",
+      "explanation": [
+        "Vertical scaling can buy simple near-term capacity when one instance fits and downtime risk is acceptable; horizontal scaling needs statelessness, distribution, and coordination investment."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-197",
+      "technology": "general-engineering",
+      "title": "Which signal should drive autoscaling for a queue consumer?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use backlog age or work per available consumer when it predicts user delay better than CPU, with stabilization, maximum concurrency, and downstream capacity limits."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-198",
+      "technology": "general-engineering",
+      "title": "How do cold starts affect autoscaling design?",
+      "questionType": "system-design",
+      "explanation": [
+        "They delay useful capacity, so model startup distribution, pre-warm or keep minimum replicas, scale on leading indicators, and ensure requests survive the ramp."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-199",
+      "technology": "general-engineering",
+      "title": "How do you horizontally scale a stateful service?",
+      "questionType": "system-design",
+      "explanation": [
+        "Separate or partition state, make ownership discoverable, support rebalancing and failover, coordinate writes, and test recovery; replicas alone do not distribute state."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-200",
+      "technology": "general-engineering",
+      "title": "Why does adding application instances sometimes overload the database?",
+      "questionType": "system-design",
+      "explanation": [
+        "Each instance adds connections and concurrent queries, moving the bottleneck downstream. Bound pools globally, optimize workload, cache carefully, and scale the data layer."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-201",
+      "technology": "general-engineering",
+      "title": "How can Little’s Law help capacity planning?",
+      "questionType": "system-design",
+      "explanation": [
+        "For stable systems, concurrency approximates throughput multiplied by time in system, linking latency targets, arrival rate, and required in-flight capacity while exposing unstable queues."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-202",
+      "technology": "general-engineering",
+      "title": "How do you design for burst traffic differently from sustained growth?",
+      "questionType": "system-design",
+      "explanation": [
+        "Absorb short bursts with queues, buffers, caches, and reserved headroom; sustained growth requires durable compute, storage, partitioning, and cost changes."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-203",
+      "technology": "general-engineering",
+      "title": "How do you mitigate a hot partition?",
+      "questionType": "system-design",
+      "explanation": [
+        "Identify skew source, choose or add a dispersing key, split hot entities, cache or aggregate reads, rate-limit offenders, and plan online migration."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-204",
+      "technology": "general-engineering",
+      "title": "What causes ephemeral-port exhaustion at scale?",
+      "questionType": "system-design",
+      "explanation": [
+        "High outbound connection churn, large TIME_WAIT populations, NAT limits, and missing pooling can exhaust ports; reuse connections and measure per-hop limits."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-205",
+      "technology": "general-engineering",
+      "title": "How should rate limits be designed for a multi-tenant API?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use identity-aware quotas, burst and sustained windows, endpoint cost, fairness, headers, safe errors, overrides, and protection of shared downstream capacity."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-206",
+      "technology": "general-engineering",
+      "title": "When should a system shed load?",
+      "questionType": "system-design",
+      "explanation": [
+        "Reject low-priority work before saturation causes universal failure, using explicit admission control, deadlines, fair quotas, retry guidance, and degraded critical paths."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-207",
+      "technology": "general-engineering",
+      "title": "Where should backpressure be applied?",
+      "questionType": "system-design",
+      "explanation": [
+        "Apply it at every bounded capacity transition—client, gateway, queue, worker, and dependency—so pressure is visible and work does not accumulate without limit."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-208",
+      "technology": "general-engineering",
+      "title": "How do asynchronous jobs improve scalability?",
+      "questionType": "system-design",
+      "explanation": [
+        "They decouple user latency from long work and smooth bursts, but require durable state, idempotency, progress, cancellation, retries, and dead-letter handling."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-209",
+      "technology": "general-engineering",
+      "title": "When does batching help and what does it cost?",
+      "questionType": "system-design",
+      "explanation": [
+        "Batching amortizes network and storage overhead and raises throughput, while increasing latency, memory, retry scope, and partial-failure complexity."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-210",
+      "technology": "general-engineering",
+      "title": "Why should concurrency limits be dependency-specific?",
+      "questionType": "system-design",
+      "explanation": [
+        "Each dependency has different capacity and failure behavior; one global limit can starve critical work or overload a narrow downstream resource."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-211",
+      "technology": "general-engineering",
+      "title": "How does a CDN change origin capacity planning?",
+      "questionType": "system-design",
+      "explanation": [
+        "Model hit ratio by object and region, miss bursts, invalidations, origin shielding, uncacheable traffic, and CDN outage because origin may face sudden full demand."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-212",
+      "technology": "general-engineering",
+      "title": "How would you scale an image-processing pipeline?",
+      "questionType": "system-design",
+      "explanation": [
+        "Upload directly to durable storage, enqueue metadata, process idempotently with bounded workers, store derivatives immutably, serve through CDN, and expose job state."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-213",
+      "technology": "general-engineering",
+      "title": "How do you prevent fan-out from multiplying load catastrophically?",
+      "questionType": "system-design",
+      "explanation": [
+        "Bound parallelism, batch requests, cache shared results, use deadlines and budgets, aggregate at gateways, and degrade optional branches when dependencies saturate."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-214",
+      "technology": "general-engineering",
+      "title": "What makes a load test representative?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use production-like request mix, data size, concurrency, arrival pattern, cache state, dependencies, geography, duration, failures, and success criteria—not just peak requests."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-215",
+      "technology": "general-engineering",
+      "title": "How do you forecast capacity with uncertain growth?",
+      "questionType": "system-design",
+      "explanation": [
+        "Combine baseline trends, product events, service demand per unit, headroom, failure capacity, lead time, and scenario ranges; review predictions against actuals."
+      ],
+      "source": {
+        "title": "Kubernetes: Autoscaling Workloads",
+        "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+      }
+    },
+    {
+      "id": "general-engineering-216",
+      "technology": "general-engineering",
+      "title": "When do you need a layer 7 rather than layer 4 load balancer?",
+      "questionType": "system-design",
+      "explanation": [
+        "Choose layer 7 for host, path, header, TLS, or application-aware routing; layer 4 offers protocol transparency and often lower overhead."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-217",
+      "technology": "general-engineering",
+      "title": "How do round-robin and least-connections balancing differ?",
+      "questionType": "system-design",
+      "explanation": [
+        "Round-robin assumes roughly equal request cost; least-connections reacts to long-lived or uneven work but can still misjudge heterogeneous backend capacity."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-218",
+      "technology": "general-engineering",
+      "title": "What makes a health check safe?",
+      "questionType": "system-design",
+      "explanation": [
+        "It is cheap, bounded, representative of serving ability, distinguishes readiness from liveness, and avoids causing dependency storms or synchronized restarts."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-219",
+      "technology": "general-engineering",
+      "title": "Why should readiness and liveness checks be different?",
+      "questionType": "system-design",
+      "explanation": [
+        "Readiness controls traffic during startup or temporary dependency loss; liveness should restart only irrecoverably stuck processes, not amplify external outages."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-220",
+      "technology": "general-engineering",
+      "title": "When is session affinity acceptable?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use it only when state cannot yet be externalized and understand imbalance, failover, scaling, and deployment effects; do not mistake stickiness for durable state."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-221",
+      "technology": "general-engineering",
+      "title": "How should instances drain during deployment?",
+      "questionType": "system-design",
+      "explanation": [
+        "Stop new traffic, advertise unready, allow bounded in-flight completion, close long connections deliberately, persist required state, and terminate after a deadline."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-222",
+      "technology": "general-engineering",
+      "title": "What conditions make a retry safe?",
+      "questionType": "system-design",
+      "explanation": [
+        "The operation is idempotent or deduplicated, the failure is plausibly transient, the deadline permits it, and attempts use capped exponential backoff with jitter."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-223",
+      "technology": "general-engineering",
+      "title": "Where should a circuit breaker be placed?",
+      "questionType": "system-design",
+      "explanation": [
+        "Place it at a caller’s dependency boundary with operation-specific thresholds and fallback; breakers protect capacity but do not repair the dependency."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-224",
+      "technology": "general-engineering",
+      "title": "How does a bulkhead limit failures?",
+      "questionType": "system-design",
+      "explanation": [
+        "Separate capacity pools by dependency, tenant, or criticality so saturation in one path cannot consume every thread, connection, queue slot, or worker."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-225",
+      "technology": "general-engineering",
+      "title": "How do you allocate an end-to-end timeout budget?",
+      "questionType": "system-design",
+      "explanation": [
+        "Start from the user deadline, reserve response margin, allocate per hop including retries and queues, propagate cancellation, and reject expired work."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-226",
+      "technology": "general-engineering",
+      "title": "When are hedged requests appropriate?",
+      "questionType": "system-design",
+      "explanation": [
+        "For idempotent reads with rare tail latency, send a delayed duplicate under a strict budget and cancel the loser; control added load carefully."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-227",
+      "technology": "general-engineering",
+      "title": "What should determine quorum size?",
+      "questionType": "system-design",
+      "explanation": [
+        "Choose read and write quorums against replica count, failure tolerance, latency, and consistency; quorum math does not remove conflict or repair needs."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-228",
+      "technology": "general-engineering",
+      "title": "How should automatic failover avoid making an outage worse?",
+      "questionType": "system-design",
+      "explanation": [
+        "Require reliable health evidence and fencing, limit flapping, preserve data safety, validate target capacity, and provide tested manual control and rollback."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-229",
+      "technology": "general-engineering",
+      "title": "What are the trade-offs of DNS-based traffic failover?",
+      "questionType": "system-design",
+      "explanation": [
+        "It is simple and global but constrained by resolver caching, TTL, propagation, client behavior, and inability to move existing connections instantly."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-230",
+      "technology": "general-engineering",
+      "title": "How do active-passive and active-active disaster recovery differ?",
+      "questionType": "system-design",
+      "explanation": [
+        "Active-passive simplifies consistency but needs proven warm-up and capacity; active-active improves utilization and latency while adding coordination and conflict complexity."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-231",
+      "technology": "general-engineering",
+      "title": "What does graceful degradation require?",
+      "questionType": "system-design",
+      "explanation": [
+        "Classify essential versus optional capabilities, return honest partial results, protect correctness and security, expose state to users, and test degraded modes."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-232",
+      "technology": "general-engineering",
+      "title": "How should chaos experiments be introduced safely?",
+      "questionType": "system-design",
+      "explanation": [
+        "Begin with a hypothesis, narrow scope and blast radius, establish abort signals, observe safeguards, run during staffed windows, and turn findings into fixes."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-233",
+      "technology": "general-engineering",
+      "title": "What belongs in a regional evacuation plan?",
+      "questionType": "system-design",
+      "explanation": [
+        "Traffic control, data state, dependency availability, capacity, credentials, DNS, communication, decision authority, validation, failback, and regularly exercised runbooks."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-234",
+      "technology": "general-engineering",
+      "title": "How do dependency SLOs constrain your own SLO?",
+      "questionType": "system-design",
+      "explanation": [
+        "Your achievable reliability compounds with critical dependencies and internal failure; use budgets, redundancy, caching, degradation, and contracts to close the gap."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-235",
+      "technology": "general-engineering",
+      "title": "Why can a retry storm defeat load balancing?",
+      "questionType": "system-design",
+      "explanation": [
+        "Every failure creates more requests across healthy targets, consuming recovery capacity. Enforce budgets, jitter, admission control, and retry ownership at one layer."
+      ],
+      "source": {
+        "title": "Google SRE: Handling Overload",
+        "url": "https://sre.google/sre-book/handling-overload/"
+      }
+    },
+    {
+      "id": "general-engineering-236",
+      "technology": "general-engineering",
+      "title": "When is cache-aside preferable to write-through caching?",
+      "questionType": "system-design",
+      "explanation": [
+        "Cache-aside fits read-driven data and tolerates misses; write-through offers predictable freshness on controlled writes but adds write latency and bypass risks."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-237",
+      "technology": "general-engineering",
+      "title": "What risk does write-behind caching introduce?",
+      "questionType": "system-design",
+      "explanation": [
+        "Acknowledged writes may be lost, reordered, duplicated, or conflict before durable persistence; use it only with explicit durability and reconciliation semantics."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-238",
+      "technology": "general-engineering",
+      "title": "How should a cache TTL be chosen?",
+      "questionType": "system-design",
+      "explanation": [
+        "Balance source change rate, staleness cost, miss cost, invalidation capability, memory, and failure behavior; add jitter to avoid synchronized expiry."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-239",
+      "technology": "general-engineering",
+      "title": "Why is cache invalidation a domain decision?",
+      "questionType": "system-design",
+      "explanation": [
+        "Correct freshness depends on business events, dependencies, and acceptable staleness; infrastructure alone cannot infer every relationship or consequence."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-240",
+      "technology": "general-engineering",
+      "title": "When is negative caching useful?",
+      "questionType": "system-design",
+      "explanation": [
+        "Cache legitimate not-found or failure results briefly to protect expensive lookups, while avoiding long suppression of newly created data or transient recovery."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-241",
+      "technology": "general-engineering",
+      "title": "How do you prevent a cache stampede?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use single-flight locking, early refresh, stale-while-revalidate, TTL jitter, prewarming, and origin admission limits so one expiry does not unleash all callers."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-242",
+      "technology": "general-engineering",
+      "title": "How do you handle a hot cache key?",
+      "questionType": "system-design",
+      "explanation": [
+        "Replicate or shard the value, add local caching, batch reads, spread expiry, and reduce request amplification while preserving invalidation semantics."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-243",
+      "technology": "general-engineering",
+      "title": "What is cache penetration and how is it reduced?",
+      "questionType": "system-design",
+      "explanation": [
+        "Repeated requests for absent or invalid keys bypass the cache; validate input, negative-cache safely, rate-limit, or use probabilistic membership filters."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-244",
+      "technology": "general-engineering",
+      "title": "How does eviction policy affect correctness?",
+      "questionType": "system-design",
+      "explanation": [
+        "Eviction should affect performance, not correctness. The source remains authoritative, while policy should reflect size, recency, frequency, cost, and tenant fairness."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-245",
+      "technology": "general-engineering",
+      "title": "When should you use local versus distributed cache?",
+      "questionType": "system-design",
+      "explanation": [
+        "Local cache is fastest but duplicated and harder to invalidate; distributed cache shares state but adds network latency, capacity, and availability dependencies."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-246",
+      "technology": "general-engineering",
+      "title": "How do ETags reduce bandwidth?",
+      "questionType": "system-design",
+      "explanation": [
+        "A client revalidates its stored representation with a version validator; the server returns not-modified when unchanged instead of retransmitting the body."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-247",
+      "technology": "general-engineering",
+      "title": "What does stale-while-revalidate achieve?",
+      "questionType": "system-design",
+      "explanation": [
+        "It serves a bounded stale response immediately while refreshing asynchronously, reducing latency and stampedes where temporary staleness is acceptable."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-248",
+      "technology": "general-engineering",
+      "title": "Which security problems can shared caches create?",
+      "questionType": "system-design",
+      "explanation": [
+        "Incorrect cache keys or headers can leak personalized or authorized content across users; mark sensitive responses private or non-cacheable and test variants."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-249",
+      "technology": "general-engineering",
+      "title": "How can cache inconsistency be made visible?",
+      "questionType": "system-design",
+      "explanation": [
+        "Expose age, source version, hit status, invalidation events, and freshness metrics; define user behavior and repair when cache and source disagree."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-250",
+      "technology": "general-engineering",
+      "title": "How do serialization changes break cached values?",
+      "questionType": "system-design",
+      "explanation": [
+        "Old entries may not deserialize or may violate new semantics. Version formats and keys, support compatible readers, or invalidate with controlled load protection."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-251",
+      "technology": "general-engineering",
+      "title": "When should a cache be prewarmed?",
+      "questionType": "system-design",
+      "explanation": [
+        "Prewarm predictable hot data when cold misses would violate latency or overload origin, while rate-limiting warmup and avoiding unused bulk population."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-252",
+      "technology": "general-engineering",
+      "title": "Why can a high cache hit ratio still hide poor performance?",
+      "questionType": "system-design",
+      "explanation": [
+        "The small miss set may be expensive or user-critical, keys may be skewed, and averages may hide tail latency; measure weighted outcome by operation."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-253",
+      "technology": "general-engineering",
+      "title": "How should an application behave when the cache is down?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use bounded origin fallback, admission control, degradation, and recovery ramp-up; treating cache as optional without protecting origin can cause total failure."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-254",
+      "technology": "general-engineering",
+      "title": "What data should generally not be cached?",
+      "questionType": "system-design",
+      "explanation": [
+        "Avoid data whose secrecy, volatility, correctness, legal deletion, or tiny reuse window makes stale copies riskier or costlier than direct retrieval."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-255",
+      "technology": "general-engineering",
+      "title": "How do you validate that caching actually helps?",
+      "questionType": "system-design",
+      "explanation": [
+        "Compare end-to-end latency, origin load, cost, freshness errors, hit distribution, memory, and outage behavior under realistic traffic before and after."
+      ],
+      "source": {
+        "title": "Azure Architecture: Caching",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching"
+      }
+    },
+    {
+      "id": "general-engineering-256",
+      "technology": "general-engineering",
+      "title": "What does the CAP theorem actually say during a network partition?",
+      "questionType": "conceptual",
+      "explanation": [
+        "When communication is partitioned, a distributed operation cannot guarantee both linearizable consistency and every-request availability; systems choose behavior per operation."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-257",
+      "technology": "general-engineering",
+      "title": "How does PACELC extend CAP trade-off thinking?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It highlights that even without a partition, systems trade latency against consistency, while partitions force an availability-versus-consistency choice."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-258",
+      "technology": "general-engineering",
+      "title": "How do linearizable and eventual consistency differ for users?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Linearizability makes completed writes immediately authoritative; eventual consistency allows temporary divergence and requires explicit stale-read, conflict, and convergence UX."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-259",
+      "technology": "general-engineering",
+      "title": "What makes an idempotency key implementation correct?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Bind a unique key to caller and operation, atomically store outcome, reject conflicting payload reuse, define retention, and return the original semantic result."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-260",
+      "technology": "general-engineering",
+      "title": "Why is exactly-once processing usually an end-to-end claim?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Transport delivery alone cannot guarantee unique side effects; consumers need atomic state, deduplication, idempotent effects, and recovery across every boundary."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-261",
+      "technology": "general-engineering",
+      "title": "How should message ordering requirements be scoped?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Define which events need order and by what entity; partition by that key, include sequence or version, and handle gaps, duplicates, and reprocessing."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-262",
+      "technology": "general-engineering",
+      "title": "What does an inbox pattern add to message consumption?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It records received message identity atomically with business changes, allowing safe redelivery detection before acknowledging the broker."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-263",
+      "technology": "general-engineering",
+      "title": "Why is two-phase commit often avoided across services?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It couples availability and latency to all participants and coordinator recovery. Sagas or redesigned boundaries often provide better autonomy with explicit compensation."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-264",
+      "technology": "general-engineering",
+      "title": "How should leader election be fenced?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Use monotonically increasing terms or fencing tokens so a delayed former leader cannot continue writing after its lease or leadership expires."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-265",
+      "technology": "general-engineering",
+      "title": "What is split brain and how is it prevented?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Multiple nodes believe they are primary and accept conflicting work; quorum, fencing, reliable membership, and fail-closed behavior limit it."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-266",
+      "technology": "general-engineering",
+      "title": "How does replication lag affect API design?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Reads may not include acknowledged writes, so expose consistency expectations, route read-after-write when needed, use versions, and monitor lag."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-267",
+      "technology": "general-engineering",
+      "title": "When is a distributed lock the wrong solution?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Avoid it when ownership can be partitioned, operations made idempotent, or optimistic concurrency used; locks add lease, fencing, availability, and recovery hazards."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-268",
+      "technology": "general-engineering",
+      "title": "How do leases differ from permanent locks?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A lease expires to recover ownership but introduces clock, renewal, pause, and fencing concerns; expiry alone cannot stop a stale holder’s effects."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-269",
+      "technology": "general-engineering",
+      "title": "When are CRDTs useful?",
+      "questionType": "conceptual",
+      "explanation": [
+        "They suit replicated data whose operations can merge deterministically without central coordination; business invariants that cannot merge still require coordination."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-270",
+      "technology": "general-engineering",
+      "title": "How should event schemas evolve?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Use additive compatible changes, version semantics, schema validation, consumer telemetry, tolerant readers, and migration for replayed historical events."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-271",
+      "technology": "general-engineering",
+      "title": "What makes event replay safe?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Consumers must be idempotent or isolated, schemas and dependencies reproducible, side effects controlled, ordering defined, checkpoints auditable, and load throttled."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-272",
+      "technology": "general-engineering",
+      "title": "Why are tombstones needed in replicated stores?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A deletion marker must propagate so an offline replica does not resurrect old data; tombstone retention must exceed repair and synchronization windows."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-273",
+      "technology": "general-engineering",
+      "title": "What does service discovery need beyond a name registry?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It needs health, lifecycle, locality, authentication, caching, stale-entry handling, load policy, observability, and behavior during control-plane failure."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-274",
+      "technology": "general-engineering",
+      "title": "How should an eventually consistent UI communicate state?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Show pending or confirmed status, preserve user intent, avoid false success, resolve conflicts explicitly, and provide retry or reconciliation without duplication."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-275",
+      "technology": "general-engineering",
+      "title": "How do domain boundaries reduce distributed transactions?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Place invariants and strongly consistent changes within one ownership boundary, then integrate other domains through explicit asynchronous state and compensation."
+      ],
+      "source": {
+        "title": "Azure Architecture: Microservice Design Patterns",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns"
+      }
+    },
+    {
+      "id": "general-engineering-276",
+      "technology": "general-engineering",
+      "title": "Where does TCP connection setup appear in a latency budget?",
+      "questionType": "conceptual",
+      "explanation": [
+        "DNS, TCP handshake, TLS, proxy hops, and request time are separate costs; reuse connections and measure each phase from the affected client region."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-277",
+      "technology": "general-engineering",
+      "title": "How does TLS session resumption improve performance?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It reduces repeated cryptographic handshake work and round trips while retaining secure key negotiation; validate behavior through every terminating proxy."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-278",
+      "technology": "general-engineering",
+      "title": "What performance benefit does HTTP/2 multiplexing provide?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Multiple streams share a connection, reducing connection overhead and application-layer blocking, though TCP packet loss can still stall all streams."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-279",
+      "technology": "general-engineering",
+      "title": "Why can HTTP/3 perform better on lossy networks?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Independent QUIC streams avoid TCP-wide head-of-line blocking and combine transport security, but real benefit depends on network, server, and client support."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-280",
+      "technology": "general-engineering",
+      "title": "How do keep-alive and connection pooling reduce latency?",
+      "questionType": "conceptual",
+      "explanation": [
+        "They reuse established transport and TLS state, but pool sizes, idle timeouts, stale connections, and per-origin limits must match every intermediary."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-281",
+      "technology": "general-engineering",
+      "title": "How can DNS configuration harm availability?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Long or inconsistent TTLs, unhealthy targets, missing redundancy, resolver dependencies, and unsafe changes can direct traffic incorrectly long after a failure."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-282",
+      "technology": "general-engineering",
+      "title": "What belongs in a CDN cache key?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Include every request dimension that changes the safe response—path, query, selected headers, locale, encoding, and authorization policy—without needless fragmentation."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-283",
+      "technology": "general-engineering",
+      "title": "When does response compression hurt performance?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Small or already-compressed bodies may cost more CPU than bytes saved; choose algorithms and levels using payload type, network, latency, and server load."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-284",
+      "technology": "general-engineering",
+      "title": "How do you reduce an overly chatty client-server interaction?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Aggregate dependent calls, batch data, cache stable results, prefetch deliberately, compress payloads, and redesign boundaries around user workflows."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-285",
+      "technology": "general-engineering",
+      "title": "What does a browser network waterfall reveal?",
+      "questionType": "conceptual",
+      "explanation": [
+        "It exposes discovery order, connection setup, blocking, priority, redirects, payload, server time, and dependency chains that a server metric cannot show."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-286",
+      "technology": "general-engineering",
+      "title": "How can MTU mismatch cause intermittent failures?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Oversized packets may fragment or disappear when path-MTU discovery is blocked, producing size-dependent stalls; compare packet traces and test smaller payloads."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-287",
+      "technology": "general-engineering",
+      "title": "Why does packet loss disproportionately affect high-latency links?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Retransmission consumes additional round trips and reduces congestion windows, so small loss can sharply lower throughput over a large bandwidth-delay path."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-288",
+      "technology": "general-engineering",
+      "title": "When should you use WebSockets rather than polling?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Use long-lived bidirectional messaging when update frequency and latency justify connection state, scaling, heartbeat, backpressure, reconnection, and proxy complexity."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-289",
+      "technology": "general-engineering",
+      "title": "When is server-sent events a better fit than WebSockets?",
+      "questionType": "conceptual",
+      "explanation": [
+        "SSE suits one-way server updates over HTTP with built-in reconnection; commands can remain ordinary requests and binary or bidirectional needs may favor WebSockets."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-290",
+      "technology": "general-engineering",
+      "title": "How do proxy timeout mismatches create failures?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A shorter intermediary timeout can close work still running upstream, causing retries and duplicate effects; align deadlines and propagate cancellation across hops."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-291",
+      "technology": "general-engineering",
+      "title": "How does NAT change capacity planning?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Many internal connections share finite mappings and ports; track gateway connection limits, idle timeouts, destination concentration, and failover capacity."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-292",
+      "technology": "general-engineering",
+      "title": "What network optimizations help globally distributed users?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Use regional entry points, CDN and edge caching, connection reuse, smaller payloads, fewer round trips, locality-aware routing, and field measurements by geography."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-293",
+      "technology": "general-engineering",
+      "title": "What is the trade-off in colocating services by zone?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Same-zone traffic reduces latency and transfer cost but must not defeat zone redundancy; balance locality preferences with capacity and failure distribution."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-294",
+      "technology": "general-engineering",
+      "title": "When should a client use preconnect?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Preconnect only to likely critical origins so DNS, TCP, and TLS begin early; excessive speculative connections waste sockets, CPU, and bandwidth."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-295",
+      "technology": "general-engineering",
+      "title": "How do you prove a network optimization helped?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Compare field latency distributions and error rates by region, device, and protocol under controlled rollout, including server cost and regressions elsewhere."
+      ],
+      "source": {
+        "title": "MDN: Performance",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      }
+    },
+    {
+      "id": "general-engineering-296",
+      "technology": "general-engineering",
+      "title": "What fields make an application log operationally useful?",
+      "questionType": "scenario",
+      "explanation": [
+        "Include timestamp, severity, event name, service and version, environment, safe actor or tenant, trace identifiers, outcome, duration, and structured context."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-297",
+      "technology": "general-engineering",
+      "title": "How should trace and correlation IDs propagate?",
+      "questionType": "scenario",
+      "explanation": [
+        "Create or accept validated context at ingress, pass it across synchronous and asynchronous boundaries, record it in telemetry, and prevent untrusted identity spoofing."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-298",
+      "technology": "general-engineering",
+      "title": "How do you choose log levels consistently?",
+      "questionType": "scenario",
+      "explanation": [
+        "Define severity by required operator action and impact, not developer emotion; keep routine outcomes structured and reserve errors for actionable failures."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-299",
+      "technology": "general-engineering",
+      "title": "How do you keep PII and secrets out of logs?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use allowlisted fields, centralized redaction, safe object renderers, access controls, tests, retention policy, and incident procedures for accidental exposure."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-300",
+      "technology": "general-engineering",
+      "title": "When should traces be sampled?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use head sampling for predictable volume and tail or rules-based sampling to retain errors, slow paths, rare tenants, and important transactions within budget."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-301",
+      "technology": "general-engineering",
+      "title": "Why is high-cardinality telemetry dangerous?",
+      "questionType": "scenario",
+      "explanation": [
+        "Unbounded labels such as user or request IDs explode metric series and cost; keep them in logs or traces and aggregate metrics on bounded dimensions."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-302",
+      "technology": "general-engineering",
+      "title": "How do RED and USE methods differ?",
+      "questionType": "scenario",
+      "explanation": [
+        "RED observes request rate, errors, and duration for services; USE observes utilization, saturation, and errors for resources. Together they connect symptoms to constraints."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-303",
+      "technology": "general-engineering",
+      "title": "How do you find a recurring error pattern in millions of logs?",
+      "questionType": "scenario",
+      "explanation": [
+        "Start with impact time and cohort, group by stable event and error fields, correlate deploys and traces, inspect representative samples, then validate the hypothesis."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-304",
+      "technology": "general-engineering",
+      "title": "What should an operational dashboard optimize for?",
+      "questionType": "scenario",
+      "explanation": [
+        "Fast decisions: user impact, SLO state, traffic, errors, latency, saturation, dependencies, deployments, and clear drill-down rather than every available metric."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-305",
+      "technology": "general-engineering",
+      "title": "How do you reduce alert fatigue?",
+      "questionType": "scenario",
+      "explanation": [
+        "Alert on actionable user-impacting conditions, deduplicate symptoms, tune duration and severity, route ownership, attach runbooks, and review false or unactioned alerts."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-306",
+      "technology": "general-engineering",
+      "title": "How can you detect that logging silently stopped?",
+      "questionType": "scenario",
+      "explanation": [
+        "Monitor telemetry pipeline heartbeats, expected event volume, ingestion lag, dropped records, storage failures, and per-service coverage independently of application health."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-307",
+      "technology": "general-engineering",
+      "title": "Why can duplicate logs distort incident analysis?",
+      "questionType": "scenario",
+      "explanation": [
+        "Retries, multi-stage collection, or repeated exception handling inflate counts and obscure causality; add event identity and fix pipeline or ownership duplication."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-308",
+      "technology": "general-engineering",
+      "title": "How do you trace work through an asynchronous queue?",
+      "questionType": "scenario",
+      "explanation": [
+        "Propagate trace context or linked causality in message metadata, record publish and consume spans, and preserve message and attempt identity safely."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-309",
+      "technology": "general-engineering",
+      "title": "Which business metrics belong beside technical metrics?",
+      "questionType": "scenario",
+      "explanation": [
+        "Measure outcomes such as completed checkout, accepted job, or successful enrollment so technical health can be tied to customer and business impact."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-310",
+      "technology": "general-engineering",
+      "title": "What does synthetic monitoring catch that server metrics miss?",
+      "questionType": "scenario",
+      "explanation": [
+        "It exercises a user path, DNS, certificates, routing, dependencies, and rendered behavior from outside, detecting failures when internal systems appear healthy."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-311",
+      "technology": "general-engineering",
+      "title": "What does real-user monitoring add?",
+      "questionType": "scenario",
+      "explanation": [
+        "It reveals actual device, browser, geography, network, route, and interaction distributions that lab and synthetic tests cannot fully reproduce."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-312",
+      "technology": "general-engineering",
+      "title": "When should continuous profiling be used?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use it with controlled overhead to identify CPU, allocation, lock, and off-CPU hotspots over real workloads, correlated with deploys and traces."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-313",
+      "technology": "general-engineering",
+      "title": "How should telemetry retention be decided?",
+      "questionType": "scenario",
+      "explanation": [
+        "Match incident discovery, compliance, trend, audit, and forensic needs against sensitivity and cost; aggregate long-term signals and delete raw detail deliberately."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-314",
+      "technology": "general-engineering",
+      "title": "How do audit logs differ from diagnostic logs?",
+      "questionType": "scenario",
+      "explanation": [
+        "Audit logs are durable evidence of accountable actions with integrity and controlled access; diagnostic logs explain operation and can use different detail and retention."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-315",
+      "technology": "general-engineering",
+      "title": "What evidence should an incident timeline contain?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use synchronized deployment, alert, metric, trace, log, change, communication, and decision events, clearly separating verified facts from hypotheses."
+      ],
+      "source": {
+        "title": "OpenTelemetry: Signals",
+        "url": "https://opentelemetry.io/docs/concepts/signals/"
+      }
+    },
+    {
+      "id": "general-engineering-316",
+      "technology": "general-engineering",
+      "title": "How do you threat-model a new feature?",
+      "questionType": "scenario",
+      "explanation": [
+        "Map assets, actors, trust boundaries, data flows, entry points, abuse cases, controls, residual risk, and verification before selecting mitigations."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-317",
+      "technology": "general-engineering",
+      "title": "What does least privilege require in practice?",
+      "questionType": "scenario",
+      "explanation": [
+        "Give each human and workload only necessary actions on necessary resources for necessary time, with separation, review, revocation, and audit."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-318",
+      "technology": "general-engineering",
+      "title": "How should secrets be delivered to workloads?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use an approved secret manager, workload identity, scoped short-lived access, encrypted transport and storage, rotation, audit, and no source or log exposure."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-319",
+      "technology": "general-engineering",
+      "title": "What should happen after an API key is exposed?",
+      "questionType": "scenario",
+      "explanation": [
+        "Revoke or rotate it immediately, assess logs and scope, contain dependent access, notify owners, remove exposure, and add prevention and detection."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-320",
+      "technology": "general-engineering",
+      "title": "How do authentication and authorization failures differ?",
+      "questionType": "scenario",
+      "explanation": [
+        "Authentication cannot establish identity; authorization denies an authenticated identity’s action. Responses and logs should avoid leaking sensitive policy detail."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-321",
+      "technology": "general-engineering",
+      "title": "How do you prevent insecure direct object references?",
+      "questionType": "scenario",
+      "explanation": [
+        "Authorize every object action server-side using trusted identity and resource relationship; unpredictable identifiers alone are not access control."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-322",
+      "technology": "general-engineering",
+      "title": "What makes input validation complete?",
+      "questionType": "scenario",
+      "explanation": [
+        "Validate type, length, range, format, encoding, structure, relationships, and business rules at the trust boundary, then use safe downstream APIs."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-323",
+      "technology": "general-engineering",
+      "title": "How should file uploads be secured?",
+      "questionType": "scenario",
+      "explanation": [
+        "Limit size and type using content inspection, rename and isolate storage, scan as required, block execution, authorize access, and process asynchronously."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-324",
+      "technology": "general-engineering",
+      "title": "What is the safe way to handle user-supplied URLs?",
+      "questionType": "scenario",
+      "explanation": [
+        "Parse and allowlist destinations and schemes, resolve safely, block internal and metadata networks, restrict redirects, set limits, and isolate fetchers against SSRF."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-325",
+      "technology": "general-engineering",
+      "title": "How do you secure a multi-tenant query?",
+      "questionType": "scenario",
+      "explanation": [
+        "Derive tenant scope from trusted identity, enforce it centrally and at storage where possible, test cross-tenant cases, and audit privileged bypasses."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-326",
+      "technology": "general-engineering",
+      "title": "Why should security headers be considered architecture, not polish?",
+      "questionType": "scenario",
+      "explanation": [
+        "Browser policies such as CSP and transport controls constrain execution and trust boundaries; they need design, compatibility testing, monitoring, and rollout."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-327",
+      "technology": "general-engineering",
+      "title": "How do you design safe account recovery?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use strong identity proof, short-lived single-use tokens, rate limits, notifications, session invalidation choices, audit, and resistance to support-channel abuse."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-328",
+      "technology": "general-engineering",
+      "title": "What is mass-assignment risk?",
+      "questionType": "scenario",
+      "explanation": [
+        "Binding untrusted input directly to domain objects can modify privileged fields; map explicit writable fields and enforce authorization independent of payload."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-329",
+      "technology": "general-engineering",
+      "title": "How should privileged operations be protected?",
+      "questionType": "scenario",
+      "explanation": [
+        "Require stronger authentication as risk warrants, explicit authorization, fresh context, separation of duties, immutable audit, rate limits, and safe confirmation."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-330",
+      "technology": "general-engineering",
+      "title": "What makes dependency security sustainable?",
+      "questionType": "scenario",
+      "explanation": [
+        "Maintain an inventory and provenance, pin and verify artifacts, scan continuously, triage exploitability, update predictably, test changes, and remove unused packages."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-331",
+      "technology": "general-engineering",
+      "title": "How should logs support security response without becoming a liability?",
+      "questionType": "scenario",
+      "explanation": [
+        "Record actor, action, target, result, and correlation with integrity, while excluding secrets and minimizing personal data through controlled access and retention."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-332",
+      "technology": "general-engineering",
+      "title": "What is a secure default?",
+      "questionType": "scenario",
+      "explanation": [
+        "When configuration or context is missing, deny risky behavior, expose minimal capability, and require an explicit reviewed choice to broaden access."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-333",
+      "technology": "general-engineering",
+      "title": "How do you handle a vulnerability found just before release?",
+      "questionType": "scenario",
+      "explanation": [
+        "Assess exploitability and impact with security owners, contain or fix it, validate the remedy, and require accountable risk acceptance before any exception."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-334",
+      "technology": "general-engineering",
+      "title": "Why is client-side validation insufficient?",
+      "questionType": "scenario",
+      "explanation": [
+        "Clients are untrusted and bypassable. Server-side validation and authorization protect invariants; client checks exist for fast user feedback."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-335",
+      "technology": "general-engineering",
+      "title": "How should security controls be tested in production?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use safe continuous checks, telemetry, canaries, access reviews, restore and response exercises, and authorized testing with strict scope and abort criteria."
+      ],
+      "source": {
+        "title": "OWASP Developer Guide",
+        "url": "https://owasp.org/www-project-developer-guide/"
+      }
+    },
+    {
+      "id": "general-engineering-336",
+      "technology": "general-engineering",
+      "title": "What do deployment frequency and lead time reveal?",
+      "questionType": "scenario",
+      "explanation": [
+        "Together they show how quickly changes reach users; interpret them with failure and recovery measures so speed is not optimized by sacrificing stability."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-337",
+      "technology": "general-engineering",
+      "title": "How should change failure rate be measured?",
+      "questionType": "scenario",
+      "explanation": [
+        "Define which production changes cause degradation or remediation, use a consistent window, link incidents to changes, and avoid incentives to hide or reclassify failures."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-338",
+      "technology": "general-engineering",
+      "title": "What does mean time to restore fail to show?",
+      "questionType": "scenario",
+      "explanation": [
+        "An average hides severe tails and different incident classes; track distributions, customer impact, detection, mitigation, and full repair separately."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-339",
+      "technology": "general-engineering",
+      "title": "How do feature flags support safer delivery?",
+      "questionType": "scenario",
+      "explanation": [
+        "They separate deployment from exposure, enable cohort rollout and quick disablement, but need ownership, testing, observability, access control, and removal dates."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-340",
+      "technology": "general-engineering",
+      "title": "When should a canary rollout stop automatically?",
+      "questionType": "scenario",
+      "explanation": [
+        "Stop when predefined error, latency, saturation, correctness, or business guardrails regress beyond noise, with enough sample and a safe rollback path."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-341",
+      "technology": "general-engineering",
+      "title": "How do blue-green deployments affect database changes?",
+      "questionType": "scenario",
+      "explanation": [
+        "Both versions overlap, so schemas must be expand-contract compatible; switch traffic only after forward and backward behavior and rollback are verified."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-342",
+      "technology": "general-engineering",
+      "title": "What makes a database migration zero-downtime?",
+      "questionType": "scenario",
+      "explanation": [
+        "Separate compatible schema expansion, backfill, dual behavior if needed, verification, cutover, and later contraction while controlling locks, load, and rollback."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-343",
+      "technology": "general-engineering",
+      "title": "Why should rollback be tested rather than documented only?",
+      "questionType": "scenario",
+      "explanation": [
+        "Artifacts, schemas, configuration, flags, and dependencies may make rollback impossible; rehearsal verifies time, authority, tooling, and data consequences."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-344",
+      "technology": "general-engineering",
+      "title": "How do you stop flaky tests from eroding delivery?",
+      "questionType": "scenario",
+      "explanation": [
+        "Measure and own them, preserve failure evidence, quarantine only temporarily, fix nondeterminism, and keep retries from redefining failure as success."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-345",
+      "technology": "general-engineering",
+      "title": "What belongs in a release-readiness decision?",
+      "questionType": "scenario",
+      "explanation": [
+        "Accepted scope, test and security evidence, migrations, observability, capacity, dependencies, support, rollout, rollback, owners, known risks, and decision authority."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-346",
+      "technology": "general-engineering",
+      "title": "How should test environments differ from production?",
+      "questionType": "scenario",
+      "explanation": [
+        "Credentials and personal data must differ, but topology, contracts, versions, configuration shape, and realistic workload should match risks being validated."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-347",
+      "technology": "general-engineering",
+      "title": "When is contract testing more valuable than a shared integration environment?",
+      "questionType": "scenario",
+      "explanation": [
+        "It gives fast deterministic provider-consumer compatibility feedback, while deployed integration remains necessary for networking, identity, configuration, and emergent behavior."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-348",
+      "technology": "general-engineering",
+      "title": "What should a deployment pipeline make auditable?",
+      "questionType": "scenario",
+      "explanation": [
+        "Source revision, reviewed changes, build provenance, dependencies, tests, approvals, artifact identity, configuration, target, actor, timestamps, and promotion history."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-349",
+      "technology": "general-engineering",
+      "title": "How do you reduce the blast radius of a release?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use small changes, cohorts, cells, flags, canaries, bounded migrations, rate controls, clear stop signals, and independently reversible components."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-350",
+      "technology": "general-engineering",
+      "title": "What is the danger of a long-lived release branch?",
+      "questionType": "scenario",
+      "explanation": [
+        "It accumulates divergence, delayed integration, duplicated fixes, and uncertain artifacts; prefer frequent integration and deliberate support-branch policy where necessary."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-351",
+      "technology": "general-engineering",
+      "title": "How should emergency changes be governed?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use a faster documented path with minimum review, testing, authorization, observability, and rollback, followed by reconciliation and retrospective—not an uncontrolled bypass."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-352",
+      "technology": "general-engineering",
+      "title": "What makes a test pyramid healthy for a distributed application?",
+      "questionType": "scenario",
+      "explanation": [
+        "Most feedback is fast and deterministic, boundaries have focused contract and integration tests, and a small set of critical journeys verifies deployed behavior."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-353",
+      "technology": "general-engineering",
+      "title": "How should performance regression gates be designed?",
+      "questionType": "scenario",
+      "explanation": [
+        "Test stable representative scenarios, compare distributions to baselines with noise tolerance, track resources and correctness, and investigate meaningful change rather than one hard number."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-354",
+      "technology": "general-engineering",
+      "title": "Why should delivery metrics be used for learning rather than ranking?",
+      "questionType": "scenario",
+      "explanation": [
+        "Teams have different contexts and can game targets; use trends to find system constraints and improve flow, reliability, and outcomes collaboratively."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-355",
+      "technology": "general-engineering",
+      "title": "What evidence shows continuous delivery is actually safe?",
+      "questionType": "scenario",
+      "explanation": [
+        "Small changes routinely pass automated controls, deploy progressively, expose health quickly, roll back or disable reliably, and maintain strong recovery performance."
+      ],
+      "source": {
+        "title": "DORA Core Model",
+        "url": "https://dora.dev/research/"
+      }
+    },
+    {
+      "id": "general-engineering-356",
+      "technology": "general-engineering",
+      "title": "How would you structure a large frontend by domain?",
+      "questionType": "system-design",
+      "explanation": [
+        "Organize cohesive feature boundaries with explicit public APIs, shared primitives, routing and data ownership; avoid both global shared folders and premature micro-frontends."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-357",
+      "technology": "general-engineering",
+      "title": "When is server rendering worth its operational cost?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use it when initial content, discovery, or constrained-device performance materially benefits, while budgeting caching, hydration, personalization, server capacity, and failure modes."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-358",
+      "technology": "general-engineering",
+      "title": "How do you choose between server and client state?",
+      "questionType": "system-design",
+      "explanation": [
+        "Keep authoritative remote data in a query layer with freshness semantics; reserve local state for transient interaction and derive rather than duplicate values."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-359",
+      "technology": "general-engineering",
+      "title": "What causes hydration mismatches?",
+      "questionType": "system-design",
+      "explanation": [
+        "Server and client render different output due to time, randomness, environment, data, locale, browser-only APIs, or invalid markup; make the initial render deterministic."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-360",
+      "technology": "general-engineering",
+      "title": "How should optimistic updates handle failure?",
+      "questionType": "system-design",
+      "explanation": [
+        "Preserve a reversible snapshot or reconciliation strategy, show pending state, deduplicate requests, resolve server conflicts, and communicate rejection without losing user input."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-361",
+      "technology": "general-engineering",
+      "title": "What is the right boundary for code splitting?",
+      "questionType": "system-design",
+      "explanation": [
+        "Split around routes or expensive capabilities with real usage separation, preload likely transitions, and measure total requests, execution, and interaction delay."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-362",
+      "technology": "general-engineering",
+      "title": "How do you prevent a design system from becoming a bottleneck?",
+      "questionType": "system-design",
+      "explanation": [
+        "Separate stable accessible primitives from product compositions, document extension points, automate visual and accessibility checks, and use contribution governance with clear ownership."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-363",
+      "technology": "general-engineering",
+      "title": "How should responsive design handle capability rather than screen width alone?",
+      "questionType": "system-design",
+      "explanation": [
+        "Consider container space, input type, hover, motion preference, content, network, and device capability; preserve the workflow at every layout."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-364",
+      "technology": "general-engineering",
+      "title": "What does a good loading state communicate?",
+      "questionType": "system-design",
+      "explanation": [
+        "Show progress or skeleton proportional to expected wait, preserve layout, identify the pending scope, allow cancellation where meaningful, and distinguish empty from failed."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-365",
+      "technology": "general-engineering",
+      "title": "How should partial API failure appear in a dashboard?",
+      "questionType": "system-design",
+      "explanation": [
+        "Keep successful independent panels usable, identify failed data and freshness, offer scoped retry, preserve context, and avoid presenting incomplete totals as authoritative."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-366",
+      "technology": "general-engineering",
+      "title": "How do you improve Largest Contentful Paint?",
+      "questionType": "system-design",
+      "explanation": [
+        "Measure field data, prioritize the actual LCP resource, reduce server delay, eliminate discovery blockage, size and compress media, and avoid replacing it late."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-367",
+      "technology": "general-engineering",
+      "title": "How do you reduce Interaction to Next Paint?",
+      "questionType": "system-design",
+      "explanation": [
+        "Find slow interactions in field traces, reduce main-thread work, split long tasks, avoid excessive rendering, prioritize feedback, and move suitable work off-thread."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-368",
+      "technology": "general-engineering",
+      "title": "How do you prevent Cumulative Layout Shift?",
+      "questionType": "system-design",
+      "explanation": [
+        "Reserve media and dynamic-content space, stabilize fonts, avoid inserting content above the viewport, and measure real-session sources including late interactions."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-369",
+      "technology": "general-engineering",
+      "title": "When should a frontend use a web worker?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use it for CPU-heavy work that blocks interaction and can communicate through serializable messages; include startup, copying, cancellation, and fallback costs."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-370",
+      "technology": "general-engineering",
+      "title": "How should frontend errors be correlated with backend traces?",
+      "questionType": "system-design",
+      "explanation": [
+        "Propagate a safe request or trace context, record release, route, browser, action, and API outcome, and respect privacy and sampling controls."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-371",
+      "technology": "general-engineering",
+      "title": "What makes a form resilient to long or interrupted workflows?",
+      "questionType": "system-design",
+      "explanation": [
+        "Autosave or draft deliberately, preserve input on errors, validate progressively, support resume, prevent duplicate submission, and communicate server acceptance clearly."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-372",
+      "technology": "general-engineering",
+      "title": "How do you design accessible modal behavior?",
+      "questionType": "system-design",
+      "explanation": [
+        "Move focus intentionally, trap it only while modal, label semantics, support Escape where safe, restore focus, prevent background interaction, and avoid unnecessary full-screen takeover."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-373",
+      "technology": "general-engineering",
+      "title": "When is a micro-frontend architecture justified?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use it for independently owned and released domains when organizational autonomy outweighs duplicated runtime, consistency, integration, performance, and governance costs."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-374",
+      "technology": "general-engineering",
+      "title": "How should browser caching work with hashed assets and HTML?",
+      "questionType": "system-design",
+      "explanation": [
+        "Cache immutable hashed assets for a long time, revalidate entry HTML, avoid mismatched deployments, and retain old assets long enough for open sessions."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-375",
+      "technology": "general-engineering",
+      "title": "How do you validate that a redesign improved the product?",
+      "questionType": "system-design",
+      "explanation": [
+        "Define task and business outcomes, accessibility and performance guardrails, compare representative cohorts, gather qualitative evidence, and watch regressions after rollout."
+      ],
+      "source": {
+        "title": "web.dev: Core Web Vitals Workflows",
+        "url": "https://web.dev/articles/vitals-tools"
+      }
+    },
+    {
+      "id": "general-engineering-376",
+      "technology": "general-engineering",
+      "title": "How do you choose availability zones for a production workload?",
+      "questionType": "system-design",
+      "explanation": [
+        "Spread independent replicas and data across failure domains, verify dependency and quota coverage, model correlated failure, and retain capacity during one-zone loss."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-377",
+      "technology": "general-engineering",
+      "title": "When is a managed service the better choice?",
+      "questionType": "system-design",
+      "explanation": [
+        "Choose it when reduced undifferentiated operations, reliability, security, and scaling outweigh lock-in, constraints, cost, portability, and skill considerations."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-378",
+      "technology": "general-engineering",
+      "title": "How should infrastructure as code be organized?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use reviewable reusable modules with clear ownership, environment composition, state protection, policy checks, drift detection, versioning, and controlled promotion."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-379",
+      "technology": "general-engineering",
+      "title": "What does cloud cost allocation require?",
+      "questionType": "system-design",
+      "explanation": [
+        "Apply accountable tags or hierarchy, shared-cost rules, unit economics, budgets, anomaly alerts, and product ownership so teams can act on meaningful cost."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-380",
+      "technology": "general-engineering",
+      "title": "How do you identify idle cloud waste safely?",
+      "questionType": "system-design",
+      "explanation": [
+        "Correlate utilization, business schedule, dependencies, reservations, and recovery needs; remove through staged shutdown and observation before irreversible deletion."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-381",
+      "technology": "general-engineering",
+      "title": "What is a cloud quota risk?",
+      "questionType": "system-design",
+      "explanation": [
+        "Autoscaling or recovery can fail despite correct architecture when account, region, API, IP, or service limits are exhausted; monitor and rehearse required headroom."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-382",
+      "technology": "general-engineering",
+      "title": "How should backups be designed?",
+      "questionType": "system-design",
+      "explanation": [
+        "Define recoverable scope, frequency, immutability, encryption, isolation, retention, restore time and point objectives, ownership, and routine restore verification."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-383",
+      "technology": "general-engineering",
+      "title": "Why is a backup not proof of disaster recovery?",
+      "questionType": "system-design",
+      "explanation": [
+        "Recovery also needs usable applications, configuration, identity, networking, dependencies, people, runbooks, capacity, and measured end-to-end restoration."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-384",
+      "technology": "general-engineering",
+      "title": "How do spot or preemptible instances change design?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use them for interruption-tolerant work with diverse capacity, checkpoints, queues, graceful termination, fallback, and economics that include retries and volatility."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-385",
+      "technology": "general-engineering",
+      "title": "How should autoscaling and cost controls interact?",
+      "questionType": "system-design",
+      "explanation": [
+        "Protect reliability with bounded capacity and priorities, then use budgets, schedules, right-sizing, efficient code, and anomaly detection without silently throttling critical work."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-386",
+      "technology": "general-engineering",
+      "title": "What is configuration drift in cloud infrastructure?",
+      "questionType": "system-design",
+      "explanation": [
+        "Runtime resources diverge from reviewed desired state through manual or external changes; detect continuously and reconcile or import changes through controlled workflow."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-387",
+      "technology": "general-engineering",
+      "title": "How do you plan for a cloud region outage?",
+      "questionType": "system-design",
+      "explanation": [
+        "Inventory regional dependencies, data replication and consistency, alternate capacity, traffic movement, credentials, quotas, communication, failback, and tested decision triggers."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-388",
+      "technology": "general-engineering",
+      "title": "What should be encrypted with separate keys?",
+      "questionType": "system-design",
+      "explanation": [
+        "Separate keys where tenant, data class, environment, duty separation, rotation, revocation, audit, or blast-radius requirements materially differ."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-389",
+      "technology": "general-engineering",
+      "title": "How do you reduce cloud egress cost without harming architecture?",
+      "questionType": "system-design",
+      "explanation": [
+        "Place compute near data and users, cache and compress, avoid chatty cross-region paths, batch transfers, and compare savings with resilience and lock-in trade-offs."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-390",
+      "technology": "general-engineering",
+      "title": "What makes cloud architecture sustainable over time?",
+      "questionType": "system-design",
+      "explanation": [
+        "Measure workload value per resource, right-size and autoscale, remove idle work, choose efficient services and regions, manage data lifecycle, and revisit as technology changes."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-391",
+      "technology": "general-engineering",
+      "title": "How should production break-glass access work?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use tightly scoped, time-bound, strongly authenticated access with approval, complete audit, alerts, session controls, automatic expiry, and post-use review."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-392",
+      "technology": "general-engineering",
+      "title": "What is the risk of using one cloud account for every environment?",
+      "questionType": "system-design",
+      "explanation": [
+        "It enlarges blast radius and weakens access, quota, billing, policy, and audit separation; use an account hierarchy aligned to trust and ownership boundaries."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-393",
+      "technology": "general-engineering",
+      "title": "How do you validate a cloud reference architecture for your workload?",
+      "questionType": "system-design",
+      "explanation": [
+        "Test its assumptions against requirements, failure model, data, team skill, scale, cost, compliance, and operational evidence rather than copying its diagram."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-394",
+      "technology": "general-engineering",
+      "title": "When should you use multiple cloud providers?",
+      "questionType": "system-design",
+      "explanation": [
+        "Only when quantified concentration, regulatory, customer, or capability benefits exceed duplicated platforms, data movement, consistency, skills, and weaker operational depth."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-395",
+      "technology": "general-engineering",
+      "title": "How do you avoid vendor lock-in becoming a vague objection?",
+      "questionType": "system-design",
+      "explanation": [
+        "Identify specific exit scenarios, probability, switching cost, data portability, contractual exposure, and valuable provider capabilities, then fund proportional mitigations."
+      ],
+      "source": {
+        "title": "AWS Well-Architected Framework",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+      }
+    },
+    {
+      "id": "general-engineering-396",
+      "technology": "general-engineering",
+      "title": "How do you choose between relational and document storage?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use transaction and integrity needs, relationship and query patterns, schema evolution, scale, tooling, and operations rather than mapping storage to object shape alone."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-397",
+      "technology": "general-engineering",
+      "title": "When should data be denormalized?",
+      "questionType": "system-design",
+      "explanation": [
+        "Denormalize measured read paths when duplication and update complexity are acceptable; define authority, propagation, reconciliation, and rebuild strategy."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-398",
+      "technology": "general-engineering",
+      "title": "How do you design an audit-safe data correction?",
+      "questionType": "system-design",
+      "explanation": [
+        "Preserve original and corrected values, actor, authority, reason, time, affected derivatives, review, reversible script, validation, and reconciliation evidence."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-399",
+      "technology": "general-engineering",
+      "title": "What makes a backfill safe in production?",
+      "questionType": "system-design",
+      "explanation": [
+        "Process resumable idempotent batches, bound database load, checkpoint progress, handle concurrent writes, verify counts and semantics, observe impact, and support pause or rollback."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-400",
+      "technology": "general-engineering",
+      "title": "How do you migrate a large table with minimal locking?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use compatible online schema changes, small batches, indexed access, controlled rate, replica and lock monitoring, cutover validation, and delayed cleanup."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-401",
+      "technology": "general-engineering",
+      "title": "What is change data capture useful for?",
+      "questionType": "system-design",
+      "explanation": [
+        "CDC streams committed changes for replication, integration, or projections, but requires ordering, schema evolution, deletes, snapshots, replay, and consumer idempotency."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-402",
+      "technology": "general-engineering",
+      "title": "How should duplicate records be reconciled?",
+      "questionType": "system-design",
+      "explanation": [
+        "Define business identity and survivorship rules, preserve lineage, merge references transactionally, handle conflicts, audit decisions, and prevent recurrence at ingestion."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-403",
+      "technology": "general-engineering",
+      "title": "What is the risk of using database timestamps for event ordering?",
+      "questionType": "system-design",
+      "explanation": [
+        "Concurrent commits, clock semantics, precision, and replication can violate assumed total order; use explicit versions or log positions for required ordering."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-404",
+      "technology": "general-engineering",
+      "title": "How do soft deletes complicate systems?",
+      "questionType": "system-design",
+      "explanation": [
+        "They affect uniqueness, queries, indexes, authorization, retention, analytics, caches, cascades, and restoration; centralize semantics and eventually purge where required."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-405",
+      "technology": "general-engineering",
+      "title": "How do you verify data migration completeness?",
+      "questionType": "system-design",
+      "explanation": [
+        "Reconcile counts and control totals, key coverage, aggregates, samples, rejected records, relationships, permissions, and business outcomes before and after cutover."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-406",
+      "technology": "general-engineering",
+      "title": "When should analytics read from a separate store?",
+      "questionType": "system-design",
+      "explanation": [
+        "Separate when analytical scans, models, retention, or freshness would harm transactions; define extraction, lineage, reconciliation, security, and acceptable lag."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-407",
+      "technology": "general-engineering",
+      "title": "How do you handle schema evolution in a data lake?",
+      "questionType": "system-design",
+      "explanation": [
+        "Version contracts, retain raw lineage, validate producers, support compatible readers, quarantine invalid data, backfill curated layers, and monitor quality."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-408",
+      "technology": "general-engineering",
+      "title": "What does data quality ownership require?",
+      "questionType": "system-design",
+      "explanation": [
+        "Name producers and consumers, define measurable completeness, validity, timeliness, uniqueness, and consistency, monitor contracts, and provide remediation and escalation."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-409",
+      "technology": "general-engineering",
+      "title": "How should personal-data deletion propagate?",
+      "questionType": "system-design",
+      "explanation": [
+        "Track every authoritative, replicated, cached, analytical, backup, search, and vendor copy; enforce verified workflows, legal exceptions, and completion evidence."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-410",
+      "technology": "general-engineering",
+      "title": "What makes a reconciliation process reliable?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use independent sources or invariants, deterministic matching, explainable differences, checkpoints, idempotent repair, ownership, audit, and repeatable evidence."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-411",
+      "technology": "general-engineering",
+      "title": "How do you decide between optimistic and pessimistic concurrency?",
+      "questionType": "system-design",
+      "explanation": [
+        "Use conflict likelihood, transaction duration, user experience, contention, and failure cost; optimistic detects version conflicts while pessimistic holds scarce locks."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-412",
+      "technology": "general-engineering",
+      "title": "How should a financial ledger represent corrections?",
+      "questionType": "system-design",
+      "explanation": [
+        "Append balanced immutable entries that reference the original transaction rather than overwriting history, with idempotency, authorization, and reconciliation controls."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-413",
+      "technology": "general-engineering",
+      "title": "What is the safest cutover strategy for a new data store?",
+      "questionType": "system-design",
+      "explanation": [
+        "Shadow or dual-read to compare, replicate changes, reconcile continuously, shift cohorts gradually, retain rollback, and stop dual-write ambiguity with a clear authority point."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-414",
+      "technology": "general-engineering",
+      "title": "How do you retire a legacy database?",
+      "questionType": "system-design",
+      "explanation": [
+        "Prove consumers have exited, freeze writes, archive and validate required data, revoke access, satisfy retention and deletion policy, monitor, then decommission recoverably."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    },
+    {
+      "id": "general-engineering-415",
+      "technology": "general-engineering",
+      "title": "How do you select the best data solution when requirements conflict?",
+      "questionType": "system-design",
+      "explanation": [
+        "Rank integrity, latency, availability, scale, query, compliance, recovery, team skill, and cost; prototype the riskiest assumptions and record the chosen trade-offs."
+      ],
+      "source": {
+        "title": "Azure Architecture Guide",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
+      }
+    }
+  ]
+}
