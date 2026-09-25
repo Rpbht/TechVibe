@@ -230,7 +230,7 @@ export const App: React.FC = () => {
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsSidebarOpen(true)}
           aria-label="Open knowledge areas"
-          className="fixed right-4 top-4 z-40 flex h-11 w-11 items-center justify-center rounded-xl border border-violet-400/30 bg-violet-600 text-white shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 lg:hidden"
+          className="fixed right-4 top-4 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-violet-400/30 bg-violet-600 text-white shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 lg:hidden"
         >
           <Menu className="h-5 w-5" aria-hidden="true" />
         </motion.button>
