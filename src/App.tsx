@@ -225,7 +225,7 @@ export const App: React.FC = () => {
                 </h3>
               </div>
             ) : (
-              <div className="w-full">
+              <div className="w-full space-y-4">
                 {/* Active Question with Smooth Transition */}
                 <AnimatePresence mode="wait">
                   <QuestionCard
@@ -235,22 +235,17 @@ export const App: React.FC = () => {
                     totalQuestions={totalQuestions}
                   />
                 </AnimatePresence>
+
+                <PaginationBar
+                  currentIndex={currentIndex}
+                  total={totalQuestions}
+                  onSelect={handleSelectIndex}
+                />
               </div>
             )}
           </div>
         </main>
 
-        {/* Question navigation remains independent of answer height. */}
-        {totalQuestions > 1 && !error && (
-          <div className="shrink-0 px-3 pb-3 sm:px-6 sm:pb-4 lg:px-8">
-            <PaginationBar
-              currentIndex={currentIndex}
-              total={totalQuestions}
-              isLoading={isLoading}
-              onSelect={handleSelectIndex}
-            />
-          </div>
-        )}
       </div>
 
       {isProfileOpen && (
