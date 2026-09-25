@@ -163,7 +163,13 @@ export const App: React.FC = () => {
   }, [currentIndex, selectedTechId]);
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-[#09090b] text-zinc-100 font-sans antialiased selection:bg-violet-600/30 selection:text-white">
+    <div className="relative flex h-screen w-full overflow-hidden bg-[#09090b] text-zinc-100 font-sans antialiased selection:bg-violet-600/30 selection:text-white">
+      {/* Ambient lighting for the floating glass surfaces. */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-40 right-1/4 h-80 w-80 rounded-full bg-violet-600/10 blur-[120px]" />
+        <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-indigo-600/10 blur-[120px]" />
+      </div>
+
       {/* Sidebar Shell - Fixed & Pinned */}
       <Sidebar
         key={user?.id ?? 'anonymous'}
@@ -179,63 +185,76 @@ export const App: React.FC = () => {
       />
 
       {/* Main Full-Screen Layout */}
-      <div className="flex flex-1 flex-col h-screen overflow-hidden min-w-0">
-        <header className="flex h-16 shrink-0 items-center border-b border-zinc-800/80 bg-[#0d0e12] px-4 md:px-8 lg:px-10">
-          <div className="flex min-w-0 flex-1 items-center gap-3">
+      <div className="relative z-10 flex flex-1 flex-col h-screen overflow-hidden min-w-0">
+        {/* Floating app header. */}
+        <div className="shrink-0 z-30 pt-3 px-3 sm:px-6 lg:px-8 pb-1">
+          <header className="mx-auto flex h-14 w-full items-center justify-between rounded-2xl md:rounded-full border border-white/10 bg-zinc-900/60 backdrop-blur-2xl px-3 sm:px-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] ring-1 ring-white/5 transition-all">
+            <div className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3">
+              <button
+                type="button"
+                onClick={() => setIsSidebarOpen(true)}
+                aria-label="Open knowledge areas"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition-all hover:border-violet-500/40 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 active:scale-95 lg:hidden"
+              >
+                <Menu className="h-4 w-4" aria-hidden="true" />
+              </button>
+
+              <div className="flex min-w-0 items-center gap-2 sm:gap-2.5">
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75 motion-reduce:animate-none" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
+                </span>
+                <p className="truncate text-sm font-bold tracking-tight text-zinc-100 md:text-base">
+                  {currentTech?.name ?? 'TechVibe'}
+                </p>
+                {currentTech && (
+                  <span className="hidden shrink-0 items-center rounded-full border border-violet-500/25 bg-violet-500/10 px-2.5 py-0.5 text-[11px] font-semibold tabular-nums text-violet-300 shadow-[0_0_12px_rgba(139,92,246,0.12)] sm:inline-flex">
+                    {totalQuestions} questions
+                  </span>
+                )}
+              </div>
+            </div>
+
             <button
               type="button"
-              onClick={() => setIsSidebarOpen(true)}
-              aria-label="Open knowledge areas"
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-200 transition-colors hover:border-violet-500/50 hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0e12] lg:hidden"
+              onClick={() => setIsProfileOpen(true)}
+              aria-label={user ? `Open profile for ${user.email}` : 'Sign in or create profile'}
+              title={user?.email ?? 'Sign in to save your knowledge area order'}
+              className={`group ml-3 flex h-11 shrink-0 items-center gap-2 rounded-full border px-2 text-xs font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 active:scale-95 sm:h-9 sm:px-3 ${
+                user
+                  ? 'border-violet-500/40 bg-violet-500/15 text-violet-200 shadow-[0_0_16px_rgba(139,92,246,0.2)] hover:border-violet-400/60 hover:bg-violet-500/25'
+                  : 'border-white/10 bg-white/5 text-zinc-300 hover:border-white/20 hover:bg-white/10 hover:text-white'
+              }`}
             >
-              <Menu className="h-5 w-5" aria-hidden="true" />
+              <span
+                className={`relative flex h-6 w-6 items-center justify-center rounded-full ${
+                  user
+                    ? 'bg-gradient-to-tr from-violet-600 to-indigo-500 text-white shadow-sm'
+                    : 'bg-white/10 text-zinc-300'
+                }`}
+              >
+                <UserRound className="h-3.5 w-3.5" aria-hidden="true" />
+                {user && (
+                  <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border border-zinc-900 bg-emerald-400 ring-1 ring-emerald-500/50" />
+                )}
+              </span>
+              <span className="hidden max-w-44 truncate sm:block">
+                {user?.email ?? 'Sign in'}
+              </span>
             </button>
-
-            <div className="flex min-w-0 items-center gap-2.5">
-              <p className="truncate text-sm font-semibold tracking-tight text-zinc-100 md:text-base">
-                {currentTech?.name ?? 'TechVibe'}
-              </p>
-              {currentTech && (
-                <span className="hidden shrink-0 rounded-full border border-zinc-800 bg-zinc-900 px-2 py-0.5 text-[11px] font-semibold tabular-nums text-zinc-400 sm:inline-flex">
-                  {totalQuestions} questions
-                </span>
-              )}
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setIsProfileOpen(true)}
-            aria-label={user ? `Open profile for ${user.email}` : 'Sign in or create profile'}
-            title={user?.email ?? 'Sign in to save your knowledge area order'}
-            className={`group ml-3 flex h-11 shrink-0 items-center gap-2.5 rounded-full border pl-2 pr-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0e12] sm:pr-3 ${
-              user
-                ? 'border-violet-500/35 bg-violet-500/10 text-violet-200 hover:border-violet-400/60 hover:bg-violet-500/15'
-                : 'border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-zinc-600 hover:bg-zinc-800 hover:text-white'
-            }`}
-          >
-            <span className={`relative flex h-7 w-7 items-center justify-center rounded-full ${
-              user ? 'bg-violet-600 text-white' : 'bg-zinc-800 text-zinc-300'
-            }`}>
-              <UserRound className="h-4 w-4" aria-hidden="true" />
-              {user && <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border-2 border-[#0d0e12] bg-emerald-400" />}
-            </span>
-            <span className="hidden max-w-48 truncate text-xs font-semibold sm:block">
-              {user?.email ?? 'Profile'}
-            </span>
-          </button>
-        </header>
+          </header>
+        </div>
 
         {/* Question reading pane — navigation stays outside this scroll region. */}
-        <main ref={mainRef} className="min-h-0 flex-1 overflow-y-auto px-4 py-5 md:px-8 lg:px-10">
+        <main ref={mainRef} className="min-h-0 flex-1 overflow-y-auto px-4 py-3 md:px-8 lg:px-10 pb-6">
           <div className="w-full space-y-4">
             {/* Loading state or Question View */}
             {isLoading ? (
-              <div className="flex h-64 w-full items-center justify-center rounded-xl border border-zinc-800 bg-[#0d0e12]/60">
+              <div className="flex h-64 w-full items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/40 backdrop-blur-md">
                 <Loader2 className="h-6 w-6 animate-spin text-violet-400" />
               </div>
             ) : error ? (
-              <div className="w-full rounded-xl border border-rose-900/60 bg-rose-950/20 p-12 text-center">
+              <div className="w-full rounded-2xl border border-rose-900/60 bg-rose-950/20 p-12 text-center backdrop-blur-md">
                 <AlertTriangle className="mx-auto h-10 w-10 text-rose-400" />
                 <h3 className="mt-3 text-sm font-semibold text-zinc-100">Could not load database content</h3>
                 <p className="mx-auto mt-2 max-w-lg text-sm text-zinc-400">{error}</p>
@@ -246,14 +265,14 @@ export const App: React.FC = () => {
                     setError(null);
                     setRequestVersion((version) => version + 1);
                   }}
-                  className="mx-auto mt-5 flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-500"
+                  className="mx-auto mt-5 flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-600/30 transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 active:scale-95"
                 >
                   <RefreshCw className="h-4 w-4" />
                   Retry
                 </button>
               </div>
             ) : totalQuestions === 0 || !currentQuestion ? (
-              <div className="w-full rounded-xl border border-zinc-800 bg-[#0d0e12] p-12 text-center">
+              <div className="w-full rounded-2xl border border-white/10 bg-zinc-900/40 p-12 text-center backdrop-blur-md">
                 <BookOpenCheck className="mx-auto h-10 w-10 text-zinc-600" />
                 <h3 className="mt-3 text-sm font-semibold text-zinc-200">
                   No questions available{currentTech ? ` for ${currentTech.name}` : ''}
@@ -275,25 +294,31 @@ export const App: React.FC = () => {
           </div>
         </main>
 
-        {/* Stable question navigation dock — independent of answer height. */}
+        {/* Floating question navigation dock. */}
         {totalQuestions > 1 && !error && (
-          <PaginationBar
-            currentIndex={currentIndex}
-            total={totalQuestions}
-            isLoading={isLoading}
-            onSelect={handleSelectIndex}
-          />
+          <div className="shrink-0 z-30 pb-3 sm:pb-4 pt-1 px-3 sm:px-6 lg:px-8 flex justify-center w-full pointer-events-none">
+            <div className="pointer-events-auto w-full flex justify-center">
+              <PaginationBar
+                currentIndex={currentIndex}
+                total={totalQuestions}
+                isLoading={isLoading}
+                onSelect={handleSelectIndex}
+              />
+            </div>
+          </div>
         )}
       </div>
 
-      {isProfileOpen && (
-        <ProfileModal
-          user={user}
-          onClose={() => setIsProfileOpen(false)}
-          onAuthenticated={handleAuthenticated}
-          onLogout={handleLogout}
-        />
-      )}
+      <AnimatePresence>
+        {isProfileOpen && (
+          <ProfileModal
+            user={user}
+            onClose={() => setIsProfileOpen(false)}
+            onAuthenticated={handleAuthenticated}
+            onLogout={handleLogout}
+          />
+        )}
+      </AnimatePresence>
 
     </div>
   );

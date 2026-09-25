@@ -23,9 +23,10 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
     index: currentIndex,
     value: String(currentIndex + 1),
   });
-  const jumpValue = jumpDraft.index === currentIndex
-    ? jumpDraft.value
-    : String(currentIndex + 1);
+  const jumpValue =
+    jumpDraft.index === currentIndex
+      ? jumpDraft.value
+      : String(currentIndex + 1);
 
   if (total <= 1) return null;
 
@@ -41,24 +42,40 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
     onSelect(nextQuestion - 1);
   };
 
-  const controlClass = 'inline-flex h-11 items-center justify-center gap-2 rounded-full border border-zinc-700/80 bg-zinc-900 px-3 text-sm font-semibold text-zinc-200 transition-colors hover:border-zinc-600 hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0e12] disabled:pointer-events-none disabled:opacity-35';
-  const iconControlClass = 'hidden h-11 w-11 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/70 text-zinc-400 transition-colors hover:border-zinc-700 hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0e12] disabled:pointer-events-none disabled:opacity-30 md:inline-flex';
+  const iconControlClass =
+    'h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-all duration-200 hover:border-violet-500/40 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 active:scale-95 disabled:pointer-events-none disabled:opacity-25';
+  const controlClass =
+    'inline-flex h-11 items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs font-semibold text-zinc-200 transition-all duration-200 hover:border-violet-500/40 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 active:scale-95 disabled:pointer-events-none disabled:opacity-25 sm:h-9 sm:px-3.5';
+
+  const progressPercentage = Math.min(
+    100,
+    Math.max(0, ((currentIndex + 1) / total) * 100)
+  );
 
   return (
     <nav
       aria-label="Question navigation"
       aria-busy={isLoading}
-      className="relative z-30 shrink-0 border-t border-zinc-800 bg-[#0d0e12] px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-12px_32px_rgba(0,0,0,0.24)] md:px-8 lg:px-10"
+      className="relative z-30 mx-auto w-full max-w-xl sm:max-w-2xl lg:max-w-3xl overflow-hidden rounded-2xl md:rounded-full border border-white/10 bg-zinc-900/70 px-2.5 py-1.5 sm:px-4 sm:py-2 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(139,92,246,0.1)] backdrop-blur-2xl ring-1 ring-white/5 transition-all"
     >
-      <div className="mx-auto grid w-full max-w-5xl grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
-        <div className="flex min-w-0 items-center justify-start gap-2">
+      {/* Question-set progress along the bottom edge. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-white/5">
+        <div
+          className="h-full bg-gradient-to-r from-violet-500 via-fuchsia-400 to-cyan-400 shadow-[0_0_8px_rgba(139,92,246,0.6)] transition-all duration-300"
+          style={{ width: `${progressPercentage}%` }}
+        />
+      </div>
+
+      <div className="flex items-center justify-between gap-1.5 sm:gap-3">
+        {/* Previous Controls */}
+        <div className="flex items-center gap-1 sm:gap-1.5">
           <button
             type="button"
             onClick={() => onSelect(0)}
             disabled={isLoading || currentIndex === 0}
             title="First question"
             aria-label="Go to first question"
-            className={iconControlClass}
+            className={`hidden md:inline-flex ${iconControlClass}`}
           >
             <ChevronsLeft className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -69,19 +86,23 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
             className={controlClass}
           >
             <ChevronLeft className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden sm:inline">Previous</span>
+            <span className="hidden sm:inline">Prev</span>
             <span className="sr-only sm:hidden">Previous question</span>
           </button>
         </div>
 
+        {/* Direct question jump. */}
         <form
-          className="flex h-11 items-center gap-1.5 rounded-full border border-zinc-700/80 bg-zinc-950 px-2.5 text-sm text-zinc-400 shadow-sm"
+          className="flex h-11 items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-2 text-xs text-zinc-400 shadow-inner transition-all focus-within:border-violet-500/60 focus-within:ring-2 focus-within:ring-violet-500/20 sm:h-9 sm:gap-2 sm:px-3"
           onSubmit={(event) => {
             event.preventDefault();
             commitJump();
           }}
         >
-          <label htmlFor="question-jump" className="hidden text-xs font-medium text-zinc-500 sm:block">
+          <label
+            htmlFor="question-jump"
+            className="hidden text-[11px] font-medium text-zinc-400 sm:block"
+          >
             Question
           </label>
           <input
@@ -92,24 +113,29 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
             value={jumpValue}
             disabled={isLoading}
             aria-label={`Current question. Enter a number from 1 to ${total}`}
-            onChange={(event) => setJumpDraft({
-              index: currentIndex,
-              value: event.target.value.replace(/\D/g, ''),
-            })}
+            onChange={(event) =>
+              setJumpDraft({
+                index: currentIndex,
+                value: event.target.value.replace(/\D/g, ''),
+              })
+            }
             onFocus={(event) => event.currentTarget.select()}
-            className="h-8 w-10 rounded-full border border-violet-500/35 bg-violet-500/12 text-center text-sm font-bold tabular-nums text-violet-200 outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-500/25 disabled:opacity-60 sm:w-12"
+            className="h-6 w-9 sm:w-11 rounded-full border border-violet-500/40 bg-violet-500/20 text-center text-xs font-bold tabular-nums text-violet-200 outline-none transition-all focus:border-violet-400 focus:bg-violet-500/30 focus:ring-1 focus:ring-violet-400 disabled:opacity-50"
           />
-          <span className="whitespace-nowrap text-xs tabular-nums text-zinc-500">of {total}</span>
+          <span className="whitespace-nowrap text-[11px] font-medium tabular-nums text-zinc-400">
+            of {total}
+          </span>
           <button
             type="submit"
             disabled={isLoading || jumpValue.length === 0}
-            className="h-8 rounded-full bg-violet-600 px-2.5 text-xs font-bold text-white transition-colors hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:pointer-events-none disabled:opacity-40"
+            className="h-6 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-2.5 text-[10px] sm:text-[11px] font-bold text-white shadow-sm shadow-violet-600/30 transition-all hover:from-violet-500 hover:to-indigo-500 active:scale-95 disabled:pointer-events-none disabled:opacity-30"
           >
             Go
           </button>
         </form>
 
-        <div className="flex min-w-0 items-center justify-end gap-2">
+        {/* Next Controls */}
+        <div className="flex items-center gap-1 sm:gap-1.5">
           <button
             type="button"
             onClick={() => onSelect(Math.min(total - 1, currentIndex + 1))}
@@ -126,7 +152,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
             disabled={isLoading || currentIndex === total - 1}
             title="Last question"
             aria-label="Go to last question"
-            className={iconControlClass}
+            className={`hidden md:inline-flex ${iconControlClass}`}
           >
             <ChevronsRight className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -138,3 +164,5 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
     </nav>
   );
 };
+
+export default PaginationBar;
