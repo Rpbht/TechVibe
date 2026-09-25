@@ -67,161 +67,41 @@ body {
     0 22px 52px rgb(0 0 0 / 0.48);
 }
 
-/* Animated architecture blueprint: signals move through a connected engineering system. */
+/* Static technology wallpaper built from every icon used by the category catalogue. */
 .coding-backdrop {
-  color: color-mix(in srgb, #7c3aed 55%, var(--text-secondary));
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 94%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 94%, transparent 100%);
+  background:
+    radial-gradient(circle at 18% 82%, color-mix(in srgb, #7c3aed 7%, transparent), transparent 28%),
+    radial-gradient(circle at 82% 68%, color-mix(in srgb, #0891b2 6%, transparent), transparent 30%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 92%, transparent 100%);
 }
 
-.coding-network {
-  overflow: visible;
-}
-
-.coding-route,
-.coding-flow {
-  fill: none;
-  vector-effect: non-scaling-stroke;
-}
-
-.coding-route {
-  stroke: color-mix(in srgb, var(--border) 55%, transparent);
-  stroke-width: 1;
-  opacity: 0.55;
-}
-
-.coding-flow {
-  stroke: color-mix(in srgb, #7c3aed 72%, #22d3ee);
-  stroke-dasharray: 2 13;
-  stroke-linecap: round;
-  stroke-width: 1.5;
-  opacity: 0.55;
-  animation: coding-data-flow 8s linear infinite;
-}
-
-.coding-flow-2 {
-  animation-duration: 11s;
-  animation-direction: reverse;
-  animation-delay: -4s;
-}
-
-.coding-flow-3 {
-  animation-duration: 14s;
-  animation-delay: -9s;
-}
-
-.coding-node {
-  color: #7c3aed;
-}
-
-.coding-node-cyan {
-  color: #0891b2;
-}
-
-.coding-node-ring {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1;
-  opacity: 0.22;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: coding-node-pulse 4.8s ease-in-out var(--node-delay) infinite;
-}
-
-.coding-node-core {
-  fill: currentColor;
-  opacity: 0.68;
-}
-
-.coding-node-label,
-.coding-code-lines {
-  fill: color-mix(in srgb, currentColor 66%, var(--text-secondary));
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-.coding-node-label {
-  font-size: 18px;
-  opacity: 0.5;
-}
-
-.coding-code-lines {
-  font-size: 14px;
-  opacity: 0.22;
-}
-
-:root[data-theme='dark'] .coding-route {
-  opacity: 0.7;
-}
-
-:root[data-theme='dark'] .coding-flow {
+.category-symbol-field {
   opacity: 0.72;
 }
 
-:root[data-theme='dark'] .coding-node-ring {
-  opacity: 0.32;
+.category-symbol {
+  width: clamp(3.25rem, 5vw, 4.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: #7c3aed;
+  background-color: color-mix(in srgb, currentColor 3%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 15%, transparent);
+  opacity: 0.42;
 }
 
-:root[data-theme='dark'] .coding-node-core {
-  opacity: 0.82;
+.category-symbol-cyan {
+  color: #0891b2;
 }
 
-:root[data-theme='dark'] .coding-node-label {
-  opacity: 0.62;
-}
-
-:root[data-theme='dark'] .coding-code-lines {
-  opacity: 0.3;
-}
-
-@keyframes coding-data-flow {
-  to {
-    stroke-dashoffset: -100;
-  }
-}
-
-@keyframes coding-node-pulse {
-  0%,
-  100% {
-    opacity: 0.18;
-    transform: scale(0.78);
-  }
-
-  50% {
-    opacity: 0.48;
-    transform: scale(1.2);
-  }
+:root[data-theme='dark'] .category-symbol-field {
+  opacity: 0.86;
 }
 
 @media (max-width: 639px) {
-  .coding-network {
-    left: -42%;
-    width: 184%;
-  }
-
-  .coding-flow {
-    opacity: 0.38;
-  }
-
-  .coding-node-label,
-  .coding-code-lines {
-    opacity: 0.16;
-  }
-
-  .coding-code-line-secondary {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .coding-flow,
-  .coding-node-ring {
-    animation: none;
-  }
-
-  .coding-flow {
-    stroke-dasharray: 3 18;
+  .category-symbol {
+    width: 2.75rem;
+    opacity: 0.28;
   }
 }
 

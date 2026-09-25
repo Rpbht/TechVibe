@@ -1,65 +1,48 @@
 import React from 'react';
+import {
+  Atom,
+  BookOpen,
+  Boxes,
+  Braces,
+  Coffee,
+  Cpu,
+  Database,
+  FileCode2,
+  Globe,
+  Leaf,
+  Network,
+  Server,
+  Terminal,
+} from 'lucide-react';
 
-const networkPaths = [
-  'M -90 662 C 132 530 252 736 438 624 S 822 550 1290 704',
-  'M -120 252 C 146 402 302 154 548 316 S 918 430 1280 214',
-  'M 1018 -92 C 858 176 1084 348 916 532 S 754 722 824 894',
-  'M 86 -70 C 204 186 24 354 218 526 S 444 690 326 886',
-];
-
-const networkNodes = [
-  { label: '</>', x: 112, y: 638, tone: 'violet' },
-  { label: '{ }', x: 318, y: 646, tone: 'cyan' },
-  { label: 'API', x: 518, y: 612, tone: 'violet' },
-  { label: 'DB', x: 728, y: 622, tone: 'cyan' },
-  { label: 'λ', x: 946, y: 642, tone: 'violet' },
-  { label: '01', x: 1114, y: 688, tone: 'cyan' },
+const categorySymbols = [
+  { Icon: BookOpen, left: '6%', top: '15%', size: 30, rotation: '-8deg', tone: 'violet' },
+  { Icon: Coffee, left: '17%', top: '78%', size: 34, rotation: '7deg', tone: 'cyan' },
+  { Icon: Leaf, left: '32%', top: '66%', size: 28, rotation: '-12deg', tone: 'violet' },
+  { Icon: Atom, left: '48%', top: '84%', size: 38, rotation: '8deg', tone: 'cyan' },
+  { Icon: Braces, left: '65%', top: '69%', size: 31, rotation: '-6deg', tone: 'violet' },
+  { Icon: Globe, left: '83%', top: '84%', size: 36, rotation: '10deg', tone: 'cyan' },
+  { Icon: FileCode2, left: '95%', top: '18%', size: 27, rotation: '-9deg', tone: 'violet' },
+  { Icon: Server, left: '8%', top: '50%', size: 27, rotation: '9deg', tone: 'cyan' },
+  { Icon: Terminal, left: '25%', top: '91%', size: 28, rotation: '-5deg', tone: 'violet' },
+  { Icon: Cpu, left: '47%', top: '55%', size: 31, rotation: '6deg', tone: 'cyan' },
+  { Icon: Boxes, left: '64%', top: '92%', size: 33, rotation: '-10deg', tone: 'violet' },
+  { Icon: Database, left: '80%', top: '54%', size: 30, rotation: '7deg', tone: 'cyan' },
+  { Icon: Network, left: '94%', top: '66%', size: 34, rotation: '-7deg', tone: 'violet' },
 ];
 
 export const CodingBackdrop: React.FC = () => (
   <div className="coding-backdrop pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <svg
-      className="coding-network absolute inset-0 h-full w-full"
-      viewBox="0 0 1200 800"
-      preserveAspectRatio="xMidYMid slice"
-      focusable="false"
-    >
-      <g className="coding-network-routes">
-        {networkPaths.map((path, index) => (
-          <React.Fragment key={path}>
-            <path className="coding-route" d={path} pathLength="100" />
-            <path
-              className={`coding-flow coding-flow-${(index % 3) + 1}`}
-              d={path}
-              pathLength="100"
-            />
-          </React.Fragment>
-        ))}
-      </g>
-
-      <g className="coding-network-nodes">
-        {networkNodes.map((node, index) => (
-          <g
-            key={node.label}
-            className={`coding-node coding-node-${node.tone}`}
-            transform={`translate(${node.x} ${node.y})`}
-            style={{ '--node-delay': `${index * -0.7}s` } as React.CSSProperties}
-          >
-            <circle className="coding-node-ring" r="25" />
-            <circle className="coding-node-core" r="4" />
-            <text className="coding-node-label" x="0" y="-35" textAnchor="middle">
-              {node.label}
-            </text>
-          </g>
-        ))}
-      </g>
-
-      <g className="coding-code-lines">
-        <text x="76" y="752">const pipeline = ['build', 'test', 'scale'];</text>
-        <text className="coding-code-line-secondary" x="748" y="764">
-          await deploy({'{ status: \'healthy\' }'});
-        </text>
-      </g>
-    </svg>
+    <div className="category-symbol-field absolute inset-0">
+      {categorySymbols.map(({ Icon, left, top, size, rotation, tone }) => (
+        <span
+          key={`${Icon.displayName ?? Icon.name}-${left}-${top}`}
+          className={`category-symbol category-symbol-${tone} absolute flex items-center justify-center`}
+          style={{ left, top, transform: `translate(-50%, -50%) rotate(${rotation})` }}
+        >
+          <Icon size={size} strokeWidth={1.35} />
+        </span>
+      ))}
+    </div>
   </div>
 );
