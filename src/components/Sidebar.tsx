@@ -168,6 +168,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Floating navigation card */}
       <aside
+        id="knowledge-areas-sidebar"
         className={`theme-card fixed inset-y-3 left-3 z-50 flex w-60 max-w-[calc(100vw-1.5rem)] shrink-0 flex-col overflow-hidden rounded-2xl border border-zinc-800/80 shadow-2xl shadow-black/20 backdrop-blur-xl transition-transform duration-200 lg:relative lg:inset-auto lg:z-auto lg:my-3 lg:ml-3 lg:h-[calc(100vh-1.5rem)] lg:translate-x-0 lg:shadow-xl ${
           isOpen ? 'translate-x-0' : '-translate-x-[calc(100%+0.75rem)]'
         }`}

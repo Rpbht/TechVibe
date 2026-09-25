@@ -12,7 +12,7 @@ import {
   logout as logoutUser,
   type UserProfile,
 } from './services/questionsService';
-import { AlertTriangle, BookOpenCheck, Menu, Loader2, RefreshCw } from 'lucide-react';
+import { AlertTriangle, BookOpenCheck, Menu, Loader2, RefreshCw, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 type Theme = 'light' | 'dark';
@@ -231,11 +231,20 @@ export const App: React.FC = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => setIsSidebarOpen(true)}
-          aria-label="Open knowledge areas"
-          className="fixed right-4 top-4 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-violet-400/30 bg-violet-600 text-white shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 lg:hidden"
+          onClick={() => setIsSidebarOpen((isOpen) => !isOpen)}
+          aria-label={isSidebarOpen ? 'Close knowledge areas' : 'Open knowledge areas'}
+          aria-controls="knowledge-areas-sidebar"
+          aria-expanded={isSidebarOpen}
+          title={isSidebarOpen ? 'Close knowledge areas' : 'Open knowledge areas'}
+          className={`fixed right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-violet-400/30 bg-violet-600 text-white shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 lg:hidden ${
+            isSidebarOpen ? 'z-[60]' : 'z-40'
+          }`}
         >
-          <Menu className="h-5 w-5" aria-hidden="true" />
+          {isSidebarOpen ? (
+            <X className="h-5 w-5" aria-hidden="true" />
+          ) : (
+            <Menu className="h-5 w-5" aria-hidden="true" />
+          )}
         </motion.button>
 
         {/* Question reading pane — the floating navigation stays above this scroll region. */}
