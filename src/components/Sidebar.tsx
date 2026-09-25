@@ -166,10 +166,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         )}
       </AnimatePresence>
 
-      {/* Slim Modern Sidebar */}
+      {/* Floating navigation card */}
       <aside
-        className={`theme-sidebar fixed top-0 bottom-0 left-0 z-50 flex w-60 shrink-0 flex-col border-r border-zinc-800/80 bg-[#09090b] transition-transform duration-200 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`theme-card fixed inset-y-3 left-3 z-50 flex w-60 max-w-[calc(100vw-1.5rem)] shrink-0 flex-col overflow-hidden rounded-2xl border border-zinc-800/80 shadow-2xl shadow-black/20 backdrop-blur-xl transition-transform duration-200 lg:relative lg:inset-auto lg:z-auto lg:my-3 lg:ml-3 lg:h-[calc(100vh-1.5rem)] lg:translate-x-0 lg:shadow-xl ${
+          isOpen ? 'translate-x-0' : '-translate-x-[calc(100%+0.75rem)]'
         }`}
       >
         {/* Brand Header */}
