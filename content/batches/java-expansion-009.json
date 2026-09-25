@@ -1,0 +1,674 @@
+{
+  "questions": [
+    {
+      "id": "java-316",
+      "technology": "java",
+      "title": "Why must a guarded pattern appear before its unguarded type pattern in a switch?",
+      "questionType": "debugging",
+      "explanation": [
+        "Java rejects a case label that is dominated by an earlier label. An unguarded type pattern matches every value of that type, so a later guarded pattern for the same type could never run; place the narrower guarded case first."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "return switch (value) {\n    case String s when s.isBlank() -> \"blank\";\n    case String s -> \"text\";\n    default -> \"other\";\n};"
+      },
+      "source": {
+        "title": "Oracle Java 25: Pattern Matching with switch",
+        "url": "https://docs.oracle.com/en/java/javase/25/language/pattern-matching-switch.html"
+      }
+    },
+    {
+      "id": "java-317",
+      "technology": "java",
+      "title": "How should a pattern switch handle a null selector explicitly?",
+      "questionType": "scenario",
+      "explanation": [
+        "A pattern switch can declare case null when null is a meaningful input. Without a matching null label, switching on null throws NullPointerException; default does not implicitly match null."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "String label = switch (value) {\n    case null -> \"missing\";\n    case String s -> s;\n    default -> value.toString();\n};"
+      },
+      "source": {
+        "title": "Oracle Java 25: Pattern Matching with switch",
+        "url": "https://docs.oracle.com/en/java/javase/25/language/pattern-matching-switch.html"
+      }
+    },
+    {
+      "id": "java-318",
+      "technology": "java",
+      "title": "When can a switch over a sealed hierarchy omit a default label?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A switch expression can be exhaustive when its case labels cover every permitted subtype of the sealed selector type. Omitting a catch-all lets the compiler report newly added permitted variants that are not handled."
+      ],
+      "source": {
+        "title": "Oracle Java 25: Pattern Matching with switch",
+        "url": "https://docs.oracle.com/en/java/javase/25/language/pattern-matching-switch.html"
+      }
+    },
+    {
+      "id": "java-319",
+      "technology": "java",
+      "title": "What does a nested record pattern provide beyond a type pattern?",
+      "questionType": "comparison",
+      "explanation": [
+        "A type pattern tests and binds the outer object, while a nested record pattern also deconstructs record components recursively. It can express both structural checks and extraction without manual accessor calls."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "if (shape instanceof ColoredPoint(Point(int x, int y), Color color)) {\n    System.out.println(x + \",\" + y + \" \" + color);\n}"
+      },
+      "source": {
+        "title": "Oracle Java 25: Record Patterns",
+        "url": "https://docs.oracle.com/en/java/javase/25/language/record-patterns.html"
+      }
+    },
+    {
+      "id": "java-320",
+      "technology": "java",
+      "title": "Does a record pattern match a null record value or null nested component?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A null target does not match a record pattern. A null component can still be bound by a compatible nested type pattern only where that pattern's rules permit it; design an explicit null case when null carries domain meaning."
+      ],
+      "source": {
+        "title": "Oracle Java 25: Record Patterns",
+        "url": "https://docs.oracle.com/en/java/javase/25/language/record-patterns.html"
+      }
+    },
+    {
+      "id": "java-321",
+      "technology": "java",
+      "title": "What does an import module declaration import in Java 25?",
+      "questionType": "conceptual",
+      "explanation": [
+        "An import module declaration imports public top-level types from packages exported by the named module, plus types from packages made available through transitive readability. It is a source-code convenience and does not add a module dependency or expose non-exported packages."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "import module java.base;\n\nList<Path> paths = List.of(Path.of(\"README.md\"));"
+      },
+      "source": {
+        "title": "OpenJDK JEP 511: Module Import Declarations",
+        "url": "https://openjdk.org/jeps/511"
+      }
+    },
+    {
+      "id": "java-322",
+      "technology": "java",
+      "title": "When is the underscore token useful as an unnamed variable?",
+      "questionType": "scenario",
+      "explanation": [
+        "An unnamed variable communicates that a required declaration position has a value that will not be used, such as an ignored catch parameter or pattern component. It cannot be read later, preventing accidental dependence on irrelevant data."
+      ],
+      "source": {
+        "title": "OpenJDK JEP 456: Unnamed Variables and Patterns",
+        "url": "https://openjdk.org/jeps/456"
+      }
+    },
+    {
+      "id": "java-323",
+      "technology": "java",
+      "title": "What restrictions make local variable type inference with var different from dynamic typing?",
+      "questionType": "conceptual",
+      "explanation": [
+        "The compiler infers a fixed static type from the initializer. var is limited to eligible local declarations, requires an initializer, cannot initialize from bare null, and does not change Java's compile-time type checking."
+      ],
+      "source": {
+        "title": "OpenJDK JEP 286: Local-Variable Type Inference",
+        "url": "https://openjdk.org/jeps/286"
+      }
+    },
+    {
+      "id": "java-324",
+      "technology": "java",
+      "title": "How does a static nested class differ from a non-static inner class?",
+      "questionType": "comparison",
+      "explanation": [
+        "A static nested class has no implicit enclosing-instance reference and can be created independently. A non-static inner class is associated with an enclosing object and can directly access that object's instance members."
+      ],
+      "source": {
+        "title": "Java Language Specification: Classes",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html"
+      }
+    },
+    {
+      "id": "java-325",
+      "technology": "java",
+      "title": "How can a non-static inner class unintentionally retain an enclosing object?",
+      "questionType": "debugging",
+      "explanation": [
+        "An inner-class instance normally carries an enclosing-instance reference. If the inner object outlives its owner through a callback, cache, or task queue, the enclosing object can remain reachable; prefer a static nested class when outer access is unnecessary."
+      ],
+      "source": {
+        "title": "Java Language Specification: Class Instance Creation Expressions",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html#jls-15.9.2"
+      }
+    },
+    {
+      "id": "java-326",
+      "technology": "java",
+      "title": "What is a covariant return type in an overriding Java method?",
+      "questionType": "conceptual",
+      "explanation": [
+        "An overriding method may return a subtype of the return type declared by the overridden method. This preserves substitutability while letting callers using the concrete subtype avoid an unnecessary cast."
+      ],
+      "source": {
+        "title": "Java Language Specification: Method Overriding",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html#jls-8.4.8.3"
+      }
+    },
+    {
+      "id": "java-327",
+      "technology": "java",
+      "title": "Why can alternatives in a multi-catch clause not be related by subclassing?",
+      "questionType": "conceptual",
+      "explanation": [
+        "If one alternative were a subtype of another, the broader alternative would already cover it and the union would be redundant. A multi-catch parameter is also implicitly final, enabling safe shared handling without changing its type identity."
+      ],
+      "source": {
+        "title": "Java Language Specification: The try Statement",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-14.html#jls-14.20"
+      }
+    },
+    {
+      "id": "java-328",
+      "technology": "java",
+      "title": "Why is returning from a finally block dangerous?",
+      "questionType": "debugging",
+      "explanation": [
+        "A return or throw that completes the finally block abruptly replaces an earlier return value or exception from the try or catch block. This can silently hide the real failure and make control flow misleading."
+      ],
+      "source": {
+        "title": "Java Language Specification: The try-finally Statement",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-14.html#jls-14.20.2"
+      }
+    },
+    {
+      "id": "java-329",
+      "technology": "java",
+      "title": "In what order does try-with-resources close multiple resources?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "Resources are closed in reverse declaration order, matching stack-like acquisition and cleanup. This matters when a later resource depends on an earlier one remaining available during its close operation."
+      ],
+      "code": {
+        "language": "java",
+        "snippet": "try (InputStream input = openInput();\n     BufferedInputStream buffered = new BufferedInputStream(input)) {\n    consume(buffered);\n} // buffered closes before input"
+      },
+      "source": {
+        "title": "Java Language Specification: try-with-resources",
+        "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-14.html#jls-14.20.3"
+      }
+    },
+    {
+      "id": "java-330",
+      "technology": "java",
+      "title": "What happens when both a try body and AutoCloseable.close throw exceptions?",
+      "questionType": "conceptual",
+      "explanation": [
+        "The exception from the try body remains primary and the close failure is attached as a suppressed exception. Inspect getSuppressed when cleanup failures contain operational evidence that must not be lost."
+      ],
+      "source": {
+        "title": "Java SE 25 API: AutoCloseable",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html"
+      }
+    },
+    {
+      "id": "java-331",
+      "technology": "java",
+      "title": "Why is Object.clone often a poor default copying API?",
+      "questionType": "scenario",
+      "explanation": [
+        "Object.clone performs field-wise copying, does not invoke constructors, and requires the Cloneable marker to avoid failure. The resulting copy is shallow unless mutable fields are handled explicitly, so copy constructors or factories usually express invariants more clearly."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Object.clone",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()"
+      }
+    },
+    {
+      "id": "java-332",
+      "technology": "java",
+      "title": "When should a copy constructor make deep copies rather than copy references?",
+      "questionType": "scenario",
+      "explanation": [
+        "Copy mutable state deeply when the new object must evolve independently; immutable values can normally be shared. The copy contract should state ownership clearly because blindly deep-copying identity-bearing collaborators can also be incorrect."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Object",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html"
+      }
+    },
+    {
+      "id": "java-333",
+      "technology": "java",
+      "title": "Why can retaining an ArrayList subList view cause surprising failures?",
+      "questionType": "debugging",
+      "explanation": [
+        "subList is backed by the original list, so permitted changes are reflected both ways. Structural modification of the backing list outside the view makes later view behavior undefined and commonly results in ConcurrentModificationException."
+      ],
+      "source": {
+        "title": "Java SE 25 API: List.subList",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#subList(int,int)"
+      }
+    },
+    {
+      "id": "java-334",
+      "technology": "java",
+      "title": "What guarantees does List.copyOf provide, and what does it reject?",
+      "questionType": "conceptual",
+      "explanation": [
+        "List.copyOf returns an unmodifiable list containing the source elements at copy time and rejects null elements. It is a shallow copy, so referenced mutable elements are not themselves frozen."
+      ],
+      "source": {
+        "title": "Java SE 25 API: List.copyOf",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#copyOf(java.util.Collection)"
+      }
+    },
+    {
+      "id": "java-335",
+      "technology": "java",
+      "title": "Why can Map.of fail immediately for data accepted by HashMap?",
+      "questionType": "comparison",
+      "explanation": [
+        "The unmodifiable map factories reject null keys, null values, and duplicate keys. HashMap permits one null key and null values, so migrating construction code can surface input defects earlier."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Map Unmodifiable Factories",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html#unmodifiable"
+      }
+    },
+    {
+      "id": "java-336",
+      "technology": "java",
+      "title": "How do Map keySet, values, and entrySet views affect the backing map?",
+      "questionType": "code-explanation",
+      "explanation": [
+        "These collections are backed views, not detached snapshots. Supported removal operations modify the map, while adding an arbitrary key or value through the views is unsupported because the missing counterpart cannot be supplied."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Map Collection Views",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html"
+      }
+    },
+    {
+      "id": "java-337",
+      "technology": "java",
+      "title": "Why does ConcurrentHashMap prohibit null keys and values?",
+      "questionType": "conceptual",
+      "explanation": [
+        "In concurrent code, a null result from get must unambiguously mean that no mapping is currently present. Allowing stored nulls would make absence indistinguishable without an additional race-prone check."
+      ],
+      "source": {
+        "title": "Java SE 25 API: ConcurrentHashMap",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html"
+      }
+    },
+    {
+      "id": "java-338",
+      "technology": "java",
+      "title": "What must a ConcurrentHashMap computeIfAbsent mapping function avoid?",
+      "questionType": "scenario",
+      "explanation": [
+        "The invocation is atomic for the target key, so other updates can be blocked while the function runs. Keep it short and side-effect controlled, and do not recursively update the same map in a way that creates detectable recursive computation."
+      ],
+      "source": {
+        "title": "Java SE 25 API: ConcurrentHashMap.computeIfAbsent",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html#computeIfAbsent(K,java.util.function.Function)"
+      }
+    },
+    {
+      "id": "java-339",
+      "technology": "java",
+      "title": "Why should ConcurrentLinkedQueue.size not be used for frequent control decisions?",
+      "questionType": "scenario",
+      "explanation": [
+        "Determining size traverses the queue and may report an inexact snapshot while concurrent updates occur. Use queue operations or separate coordination primitives rather than repeatedly scanning size for correctness decisions."
+      ],
+      "source": {
+        "title": "Java SE 25 API: ConcurrentLinkedQueue",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ConcurrentLinkedQueue.html"
+      }
+    },
+    {
+      "id": "java-340",
+      "technology": "java",
+      "title": "What consistency does a CopyOnWriteArrayList iterator provide?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Its iterator traverses the immutable array snapshot that existed when the iterator was created. It does not reflect later writes, does not throw ConcurrentModificationException for them, and does not support iterator mutation."
+      ],
+      "source": {
+        "title": "Java SE 25 API: CopyOnWriteArrayList",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CopyOnWriteArrayList.html"
+      }
+    },
+    {
+      "id": "java-341",
+      "technology": "java",
+      "title": "When is DelayQueue an appropriate coordination structure?",
+      "questionType": "scenario",
+      "explanation": [
+        "DelayQueue is useful when elements become eligible only after their delays expire, such as retry scheduling or cache-expiry work. take blocks until the head element is ready, while ordering is based on remaining delay rather than insertion order."
+      ],
+      "source": {
+        "title": "Java SE 25 API: DelayQueue",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/DelayQueue.html"
+      }
+    },
+    {
+      "id": "java-342",
+      "technology": "java",
+      "title": "How do CompletableFuture.orTimeout and completeOnTimeout differ?",
+      "questionType": "comparison",
+      "explanation": [
+        "orTimeout completes the same future exceptionally with TimeoutException if it is still incomplete, while completeOnTimeout completes it normally with a fallback value. Neither operation necessarily stops the underlying work."
+      ],
+      "source": {
+        "title": "Java SE 25 API: CompletableFuture",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html"
+      }
+    },
+    {
+      "id": "java-343",
+      "technology": "java",
+      "title": "Which executor runs an async CompletionStage continuation when none is supplied?",
+      "questionType": "conceptual",
+      "explanation": [
+        "Async methods without an explicit executor use the stage implementation's default asynchronous execution facility; CompletableFuture normally uses the common ForkJoinPool when it supports sufficient parallelism. Supply an executor when isolation, capacity, or blocking behavior matters."
+      ],
+      "source": {
+        "title": "Java SE 25 API: CompletableFuture Execution",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html"
+      }
+    },
+    {
+      "id": "java-344",
+      "technology": "java",
+      "title": "How does the Flow API express backpressure?",
+      "questionType": "system-design",
+      "explanation": [
+        "A subscriber requests a positive number of items through its Subscription, defining how much demand the publisher may satisfy. The subscriber can request more as it processes data or cancel when it no longer wants signals."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Flow",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Flow.html"
+      }
+    },
+    {
+      "id": "java-345",
+      "technology": "java",
+      "title": "How do SubmissionPublisher.submit and offer differ under slow subscribers?",
+      "questionType": "comparison",
+      "explanation": [
+        "submit may block while waiting for subscriber buffers to accept an item. offer supports bounded waiting and a drop handler, giving the publisher an explicit overload policy instead of indefinite backpressure."
+      ],
+      "source": {
+        "title": "Java SE 25 API: SubmissionPublisher",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/SubmissionPublisher.html"
+      }
+    },
+    {
+      "id": "java-346",
+      "technology": "java",
+      "title": "What problem does a Stream Gatherer solve?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A Gatherer defines a custom intermediate stream operation that may be stateful, emit zero or more outputs per input, short-circuit, and finish with delayed output. It covers transformations such as windowing and incremental scans that are awkward with map and reduce alone."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Gatherer",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Gatherer.html"
+      }
+    },
+    {
+      "id": "java-347",
+      "technology": "java",
+      "title": "What must a stateful Gatherer provide to support parallel evaluation?",
+      "questionType": "scenario",
+      "explanation": [
+        "It needs a combiner that can merge independently accumulated states while preserving the operation's semantics. Without a suitable combiner, the gatherer is evaluated sequentially even when the upstream stream is parallel."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Gatherer",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Gatherer.html"
+      }
+    },
+    {
+      "id": "java-348",
+      "technology": "java",
+      "title": "How do fixed and sliding Gatherer windows differ?",
+      "questionType": "comparison",
+      "explanation": [
+        "A fixed window groups successive non-overlapping elements, while a sliding window advances by one element and overlaps neighboring windows. Sliding windows produce more output and retain recent elements between emissions."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Gatherers",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Gatherers.html"
+      }
+    },
+    {
+      "id": "java-349",
+      "technology": "java",
+      "title": "What does the dynamic scope of a ScopedValue binding mean?",
+      "questionType": "conceptual",
+      "explanation": [
+        "The binding is available only while execution is inside the run or call operation that established it, including eligible methods called beneath that operation. It automatically reverts when control exits normally or exceptionally."
+      ],
+      "source": {
+        "title": "Java SE 25 API: ScopedValue",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ScopedValue.html"
+      }
+    },
+    {
+      "id": "java-350",
+      "technology": "java",
+      "title": "Why should a ScopedValue instance usually be a private static final field?",
+      "questionType": "scenario",
+      "explanation": [
+        "Access to the ScopedValue object acts like authority to read its bound data. Keeping the key private limits readers, while using one stable static final instance ensures callees refer to the same key rather than a newly created unbound one."
+      ],
+      "source": {
+        "title": "Java SE 25 API: ScopedValue",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ScopedValue.html"
+      }
+    },
+    {
+      "id": "java-351",
+      "technology": "java",
+      "title": "Why can heavy ThreadLocal usage undermine virtual-thread scalability?",
+      "questionType": "scenario",
+      "explanation": [
+        "Each virtual thread can hold its own thread-local values, so large values or expensive initialization multiplied across many virtual threads can consume substantial memory. Prefer explicit parameters or bounded scoped context when ownership permits."
+      ],
+      "source": {
+        "title": "Java SE 25 API: ThreadLocal",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ThreadLocal.html"
+      }
+    },
+    {
+      "id": "java-352",
+      "technology": "java",
+      "title": "Why must the Stream returned by Files.walk be closed?",
+      "questionType": "scenario",
+      "explanation": [
+        "The stream can hold one or more open directory handles while traversal is active. Use try-with-resources so early termination, exceptions, and normal completion release underlying filesystem resources promptly."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Files.walk",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Files.html#walk(java.nio.file.Path,java.nio.file.FileVisitOption...)"
+      }
+    },
+    {
+      "id": "java-353",
+      "technology": "java",
+      "title": "Why should a Java file lock not be treated as a universal distributed lock?",
+      "questionType": "system-design",
+      "explanation": [
+        "File-lock semantics depend on the operating system and filesystem, and some network filesystems provide limited or advisory behavior. A FileLock coordinates cooperating processes on supported storage; it is not a substitute for a distributed consensus-backed lock."
+      ],
+      "source": {
+        "title": "Java SE 25 API: FileLock",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/channels/FileLock.html"
+      }
+    },
+    {
+      "id": "java-354",
+      "technology": "java",
+      "title": "What operational caveat applies to InputStream.transferTo?",
+      "questionType": "scenario",
+      "explanation": [
+        "transferTo repeatedly reads from the input and writes to the output until end of stream, and either operation may block. It does not close either stream, so callers still own lifecycle, timeout, and cancellation decisions."
+      ],
+      "source": {
+        "title": "Java SE 25 API: InputStream.transferTo",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/InputStream.html#transferTo(java.io.OutputStream)"
+      }
+    },
+    {
+      "id": "java-355",
+      "technology": "java",
+      "title": "How should ZIP entries be validated to prevent path traversal during extraction?",
+      "questionType": "scenario",
+      "explanation": [
+        "Resolve each entry beneath the intended destination, normalize the result, and reject it unless the normalized path remains inside that destination. Never trust an archive entry name merely because it looks relative."
+      ],
+      "source": {
+        "title": "OWASP: Path Traversal",
+        "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+      }
+    },
+    {
+      "id": "java-356",
+      "technology": "java",
+      "title": "Why can URLDecoder turn a plus sign into a space?",
+      "questionType": "debugging",
+      "explanation": [
+        "URLDecoder implements HTML form decoding, where plus represents a space and percent escapes represent bytes. It should not be applied blindly to an entire URI path when form-encoding rules are not intended."
+      ],
+      "source": {
+        "title": "Java SE 25 API: URLDecoder",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URLDecoder.html"
+      }
+    },
+    {
+      "id": "java-357",
+      "technology": "java",
+      "title": "How does an HttpRequest timeout differ from HttpClient connectTimeout?",
+      "questionType": "comparison",
+      "explanation": [
+        "The client connect timeout bounds establishment of a new connection. A request timeout bounds the overall request exchange from sending until the response is received, so resilient clients often configure both deliberately."
+      ],
+      "source": {
+        "title": "Java SE 25 API: HttpClient",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.net.http/java/net/http/HttpClient.html"
+      }
+    },
+    {
+      "id": "java-358",
+      "technology": "java",
+      "title": "Who owns the InputStream returned by HttpResponse.BodyHandlers.ofInputStream?",
+      "questionType": "scenario",
+      "explanation": [
+        "The response body stream is delivered to the caller, which must read and close it. Failing to close or fully consume it can retain network resources and reduce connection reuse."
+      ],
+      "source": {
+        "title": "Java SE 25 API: HttpResponse.BodyHandlers",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.net.http/java/net/http/HttpResponse.BodyHandlers.html"
+      }
+    },
+    {
+      "id": "java-359",
+      "technology": "java",
+      "title": "When should an application configure a custom SSLContext?",
+      "questionType": "scenario",
+      "explanation": [
+        "Use a custom SSLContext when the application deliberately needs specific trust anchors, client certificates, or TLS policy. Avoid trust-all managers: they disable peer authentication and make encrypted connections vulnerable to interception."
+      ],
+      "source": {
+        "title": "Java SE 25 API: SSLContext",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/net/ssl/SSLContext.html"
+      }
+    },
+    {
+      "id": "java-360",
+      "technology": "java",
+      "title": "Why can StackWalker be safer and cheaper than eagerly creating a full stack trace?",
+      "questionType": "comparison",
+      "explanation": [
+        "StackWalker exposes a lazy stream that can stop after finding the needed frames, avoiding an eagerly materialized array. Options control whether class references, hidden frames, or reflection frames are retained."
+      ],
+      "source": {
+        "title": "Java SE 25 API: StackWalker",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/StackWalker.html"
+      }
+    },
+    {
+      "id": "java-361",
+      "technology": "java",
+      "title": "What can a JDK dynamic proxy intercept?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A standard dynamic proxy creates an object implementing a supplied set of interfaces and routes interface method calls to an InvocationHandler. It does not subclass an arbitrary concrete class, so class-based proxying needs another technique."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Proxy",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Proxy.html"
+      }
+    },
+    {
+      "id": "java-362",
+      "technology": "java",
+      "title": "Why does MethodHandles.Lookup carry access authority?",
+      "questionType": "conceptual",
+      "explanation": [
+        "A Lookup object records a lookup class and permitted access modes. Handles created through it are checked using that authority, so exposing a powerful lookup can grant callers access they could not otherwise obtain."
+      ],
+      "source": {
+        "title": "Java SE 25 API: MethodHandles.Lookup",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/invoke/MethodHandles.Lookup.html"
+      }
+    },
+    {
+      "id": "java-363",
+      "technology": "java",
+      "title": "How do opaque, acquire-release, and volatile VarHandle access modes differ?",
+      "questionType": "comparison",
+      "explanation": [
+        "Opaque access provides limited ordering suitable for some relaxed algorithms; acquire and release order reads or writes around a synchronization handoff; volatile access provides the strongest volatile-style ordering. Choose the weakest mode whose memory guarantees are proven sufficient."
+      ],
+      "source": {
+        "title": "Java SE 25 API: VarHandle",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/invoke/VarHandle.html"
+      }
+    },
+    {
+      "id": "java-364",
+      "technology": "java",
+      "title": "When is Reference.reachabilityFence needed around a native resource?",
+      "questionType": "scenario",
+      "explanation": [
+        "An optimizing JVM may determine that a Java wrapper is no longer reachable before a native operation has logically finished using its resource. A reachability fence at the end of the critical region keeps the wrapper strongly reachable through that point."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Reference.reachabilityFence",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ref/Reference.html#reachabilityFence(java.lang.Object)"
+      }
+    },
+    {
+      "id": "java-365",
+      "technology": "java",
+      "title": "Why must a Cleaner cleaning action not capture the object being cleaned?",
+      "questionType": "debugging",
+      "explanation": [
+        "If the cleaning action strongly references the registered object, that reference keeps the object reachable and prevents automatic cleaning. Store only the independent state required for cleanup, typically in a static nested Runnable."
+      ],
+      "source": {
+        "title": "Java SE 25 API: Cleaner",
+        "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ref/Cleaner.html"
+      }
+    }
+  ]
+}
