@@ -66,7 +66,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       }}
       aria-label="Question pagination"
       aria-busy={isLoading}
-      className="flex w-full items-center justify-center gap-1.5 py-4 text-xs"
+      className="flex w-full max-w-full items-center justify-center gap-2 px-1 py-3 text-xs sm:gap-1.5 sm:py-4"
     >
       <button
         type="button"
@@ -84,14 +84,15 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         onClick={() => onSelect(Math.max(0, currentIndex - 1))}
         disabled={isLoading || currentIndex === 0}
         title="Previous question"
-        className="flex h-8 items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25"
+        aria-label="Previous question"
+        className="flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 p-0 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-8 sm:w-auto sm:px-2.5"
       >
         <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
         <span className="hidden sm:inline">Prev</span>
         <span className="sr-only sm:hidden">Previous question</span>
       </button>
 
-      <div className="flex items-center gap-1">
+      <div className="hidden items-center gap-1 sm:flex">
         {paginationItems.map((item) => {
           if (item === 'ellipsis-left') {
             return (
@@ -147,12 +148,22 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         })}
       </div>
 
+      <div
+        className="flex h-11 min-w-24 shrink-0 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/40 px-4 font-semibold tabular-nums text-zinc-300 sm:hidden"
+        aria-hidden="true"
+      >
+        {currentIndex + 1}
+        <span className="px-1.5 text-zinc-500">/</span>
+        {total}
+      </div>
+
       <button
         type="button"
         onClick={() => onSelect(Math.min(total - 1, currentIndex + 1))}
         disabled={isLoading || currentIndex === total - 1}
         title="Next question"
-        className="flex h-8 items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25"
+        aria-label="Next question"
+        className="flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 p-0 text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-8 sm:w-auto sm:px-2.5"
       >
         <span className="hidden sm:inline">Next</span>
         <span className="sr-only sm:hidden">Next question</span>

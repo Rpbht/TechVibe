@@ -236,7 +236,7 @@ export const App: React.FC = () => {
         </motion.button>
 
         {/* Question reading pane — navigation stays outside this scroll region. */}
-        <main ref={mainRef} className="min-h-0 flex-1 overflow-y-auto px-4 py-5 md:px-8 lg:px-10">
+        <main ref={mainRef} className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-5 pt-20 md:px-8 lg:px-10 lg:py-5">
           <div className="w-full space-y-4">
             {/* Loading state or Question View */}
             {isLoading && !currentQuestion ? (

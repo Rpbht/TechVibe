@@ -22,7 +22,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   return (
     <article className="theme-card w-full rounded-xl border border-zinc-800 bg-[#0d0e12]/60 p-6 md:p-8 backdrop-blur-md shadow-lg space-y-6">
       {/* Indication of Question */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <span className="inline-flex items-center gap-1 rounded-md border border-violet-500/30 bg-violet-500/10 px-2.5 py-1 text-xs font-mono font-bold text-violet-300">
           <span>Question {String(questionNumber).padStart(2, '0')}</span>
           {totalQuestions && (
