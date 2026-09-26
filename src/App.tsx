@@ -206,7 +206,7 @@ export const App: React.FC = () => {
   }, [displayedIndex, prefersReducedMotion, selectedTechId]);
 
   return (
-    <div className="app-shell flex h-screen w-full overflow-hidden font-sans antialiased selection:bg-violet-600/30 selection:text-white">
+    <div className="app-shell flex h-[100dvh] w-full overflow-hidden font-sans antialiased selection:bg-violet-600/30 selection:text-white">
       {/* Sidebar Shell - Fixed & Pinned */}
       <Sidebar
         key={user?.id ?? 'anonymous'}
@@ -225,7 +225,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Full-Screen Layout */}
-      <div className="relative flex h-screen min-w-0 flex-1 flex-col overflow-hidden">
+      <div className="relative flex h-[100dvh] min-w-0 flex-1 flex-col overflow-hidden">
         <CodingBackdrop />
 
         <motion.button
@@ -341,8 +341,7 @@ export const App: React.FC = () => {
 
         {!error && currentQuestion && totalQuestions > 1 && (
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-30 flex justify-center px-4"
-            style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
+            className="pagination-dock pointer-events-none absolute inset-x-0 bottom-0 z-30 flex justify-center"
           >
             <PaginationBar
               currentIndex={displayedIndex}

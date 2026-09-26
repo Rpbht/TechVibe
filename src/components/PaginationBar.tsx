@@ -66,7 +66,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       }}
       aria-label="Question pagination"
       aria-busy={isLoading}
-      className="pagination-float pointer-events-auto flex w-fit max-w-full items-center justify-center gap-1.5 rounded-2xl border p-1.5 text-xs backdrop-blur-xl"
+      className="pagination-float pointer-events-auto grid w-full max-w-72 grid-cols-[2.75rem_minmax(0,1fr)_2.75rem] items-center gap-1.5 rounded-2xl border p-1.5 text-xs backdrop-blur-xl sm:flex sm:w-fit sm:max-w-full sm:grid-cols-none sm:justify-center"
     >
       <button
         type="button"
@@ -85,7 +85,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         disabled={isLoading || currentIndex === 0}
         title="Previous question"
         aria-label="Previous question"
-        className="pagination-control flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border p-0 text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-7 sm:w-auto sm:px-2"
+        className="pagination-control flex h-11 w-full min-w-11 shrink-0 items-center justify-center gap-1 rounded-full border p-0 text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-7 sm:w-auto sm:min-w-0 sm:px-2"
       >
         <ChevronLeft className="h-3 w-3" aria-hidden="true" />
         <span className="hidden sm:inline">Prev</span>
@@ -149,7 +149,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
       </div>
 
       <div
-        className="pagination-counter flex h-10 min-w-20 shrink-0 items-center justify-center rounded-full border px-3 font-semibold tabular-nums text-zinc-300 sm:hidden"
+        className="pagination-counter flex h-10 min-w-0 items-center justify-center overflow-hidden rounded-full border px-2 font-semibold tabular-nums text-zinc-300 sm:hidden"
         aria-hidden="true"
       >
         {currentIndex + 1}
@@ -163,7 +163,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         disabled={isLoading || currentIndex === total - 1}
         title="Next question"
         aria-label="Next question"
-        className="pagination-control flex h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-full border p-0 text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-7 sm:w-auto sm:px-2"
+        className="pagination-control flex h-11 w-full min-w-11 shrink-0 items-center justify-center gap-1 rounded-full border p-0 text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-25 sm:h-7 sm:w-auto sm:min-w-0 sm:px-2"
       >
         <span className="hidden sm:inline">Next</span>
         <span className="sr-only sm:hidden">Next question</span>

@@ -106,6 +106,12 @@ body {
 }
 
 /* Floating pagination stays legible while allowing question content to remain visible below it. */
+.pagination-dock {
+  padding-right: max(0.75rem, env(safe-area-inset-right));
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  padding-left: max(0.75rem, env(safe-area-inset-left));
+}
+
 :root .app-shell .pagination-float {
   background-color: color-mix(in srgb, var(--surface) 68%, transparent);
   border-color: color-mix(in srgb, var(--border) 68%, transparent);
